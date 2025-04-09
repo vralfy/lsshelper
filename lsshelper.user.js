@@ -13,6 +13,19 @@
   'use strict';
   document.lss_helper = {
       updateInterval: 1000,
+      vehicleTypes: {
+          '0': '🚒 LF',
+          '2': '🚨 DLK',
+          '3': '🖥️ ELW',
+          '4': '🛠️ RW',
+          '5': '☁️ GW-A',
+          '10': '🛢️ GW-Öl',
+          '11': '💧 GW-Wasser',
+          '12': '📏 GW-Mess',
+          '28': '🚑 RTW',
+          '32': '🚓 FuStW',
+          '37': '🚒 TSF-W',
+      },
       vehicles: [],
   };
 
@@ -22,6 +35,10 @@
           ".leaflet-marker-icon[src*='red'], .leaflet-marker-icon[src*='rot']{ filter: drop-shadow(0px 0px 8px red);}",
           ".leaflet-marker-icon[src*='yellow'], .leaflet-marker-icon[src*='gelb']{ filter: drop-shadow(0px 0px 8px yellow);}",
           ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
+          ".hidden { display: none }",
+          ".lss_available { color: #0a0; }",
+          ".lss_unavailable { color: #a00; }",
+          ".lss_call { color: '#f00'; }",
           "#mission_general_info, #back_to_mission { text-align:right }",
           "</style>"
       ].join("\n")).appendTo("head");
@@ -42,8 +59,18 @@
           const img = vehicle.getElementsByTagName('img')[0];
           const status = vehicle.getElementsByTagName('span')[0];
           const link = vehicle.getElementsByTagName('a')[0];
-          return {status: status.innerHTML, type: link.attributes.vehicle_type_id.value, name: link.innerHTML, link: link.cloneNode(true)};
-      });
+          return {
+              status: status.innerHTML.trim(),
+              type: link.attributes.vehicle_type_id.value.trim(),
+              name: link.innerHTML.trim(),
+              available: (['1','2'].indexOf(status.innerHTML) >= 0),
+              call: (['5'].indexOf(status.innerHTML) >= 0),
+              link: link.cloneNode(true),
+          };
+      })
+      .sort((a,b) => a.name < b.name ? -1 : 1 )
+      .sort((a,b) => a.type < b.type ? -1 : 1 )
+      .sort((a,b) => a.status < b.status ? -1 : 1 );
   };
 
   document.lss_helper.getHelperContainer = () => {
@@ -51,26 +78,27 @@
       if (!container) {
           container = document.createElement("div");
           container.id = 'lss_helper';
-          container.style = [
-              'position:fixed',
-              'top:10px',
-              'left:10px',
-              'padding:4px',
-              'background:#000d',
-              'border:1px solid #000',
-              'border-radius:4px',
-              'min-width:100px',
-              'min-height:100px',
-              'z-index:99999',
-          ].join(';');
-          const headline = document.createElement('h5');
-          headline.innerHTML = 'Leitstellenspiel Helper';
-          container.appendChild(headline);
-          const body = document.getElementsByTagName('body')[0];
-          console.warn('body', body);
-          body.appendChild(container);
+          container.classList = 'col-sm-4 overview_outer bigMapWindow';
+          const buildings = document.getElementById('buildings_outer');
+          buildings.insertAdjacentElement('afterend', container);
       }
-      return container;
+      var innerContainer = document.getElementById('lss_helper_container');
+      if (!innerContainer) {
+          const panel = document.createElement('div');
+          panel.classList = 'panel panel-default';
+          container.append(panel);
+
+          const panelHeader = document.createElement('div');
+          panelHeader.classList = 'panel-heading big_map_window_head';
+          panelHeader.innerHTML = 'Leitstellenspiel Helper';
+          panel.append(panelHeader);
+
+          innerContainer = document.createElement('div');
+          innerContainer.id = 'lss_helper_container';
+          innerContainer.classList = 'panel-body';
+          panel.append(innerContainer);
+      }
+      return innerContainer;
   };
 
   document.lss_helper.printVehicleList = () => {
@@ -83,19 +111,43 @@
       container.id = 'lss_helper_vehicle';
       main.appendChild(container);
 
-      const items = {};
+      const itemsAvailable = {};
+      const itemsUnavailable = {};
+      const itemsCall = document.lss_helper.vehicles.filter((v) => v.call);
+
       document.lss_helper.vehicles
-      .filter((v) => ['1','2'].indexOf(v.status) >= 0)
-      .sort((a,b) => a.type < b.type ? -1 : 1 )
-      .sort((a,b) => a.status < b.status ? -1 : 1 )
+      .filter((v) => v.available)
       .forEach((v) => {
-          if (!items[v.status]) {
-              items[v.status] = document.createElement('li');
-              items[v.status].innerHTML = v.status + ' - ';
-          }
-          items[v.status].append(v.link);
+          const idx = v.type;
+          itemsAvailable[idx] = itemsAvailable[idx] || [];
+          itemsAvailable[idx].push(v);
       });
-      Object.values(items).forEach((li) => container.append(li));
+      document.lss_helper.vehicles
+      .filter((v) => !v.available)
+      .forEach((v) => {
+          const idx = v.type;
+          itemsUnavailable[idx] = itemsUnavailable[idx] || [];
+          itemsUnavailable[idx].push(v);
+      });
+      Object.values(itemsCall).forEach((i) => {
+          const li = document.createElement('li');
+          li.classList = 'lss_call';
+          li.innerHTML = (document.lss_helper.vehicleTypes[i[0].type] || i[0].type) + ' - ' + i[0].name;
+          li.append(i.link);
+          container.append(li)
+      });
+      Object.values(itemsAvailable).forEach((i) => {
+          const li = document.createElement('li');
+          li.classList = 'lss_available';
+          li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+          container.append(li)
+      });
+      Object.values(itemsUnavailable).forEach((i) => {
+          const li = document.createElement('li');
+          li.classList = 'lss_unavailable';
+          li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+          container.append(li)
+      });
   }
 
 
