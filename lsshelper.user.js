@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      2025-04-09-02
+// @version      202504-09-02
 // @description  try to take over the world!
-// @author       You
+// @author       Vralfy
 // @match        https://www.leitstellenspiel.de/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
@@ -78,7 +78,7 @@
       if (!container) {
           container = document.createElement("div");
           container.id = 'lss_helper';
-          container.classList = 'col-sm-4 overview_outer bigMapWindow';
+          container.classList = 'col-sm-8 overview_outer bigMapWindow';
           const buildings = document.getElementById('buildings_outer');
           buildings.insertAdjacentElement('afterend', container);
       }
@@ -93,23 +93,40 @@
           panelHeader.innerHTML = 'Leitstellenspiel Helper';
           panel.append(panelHeader);
 
+          const body = document.createElement('div');
+          body.classList = 'panel-body';
+          panel.append(body);
+
+          const bsContainer = document.createElement('div');
+          bsContainer.classList = "container-fluid";
+          body.append(bsContainer);
+
           innerContainer = document.createElement('div');
+          innerContainer.classList = 'row';
           innerContainer.id = 'lss_helper_container';
-          innerContainer.classList = 'panel-body';
-          panel.append(innerContainer);
+          bsContainer.append(innerContainer);
       }
       return innerContainer;
   };
 
   document.lss_helper.printVehicleList = () => {
       const main = document.lss_helper.getHelperContainer();
-      let container = document.getElementById('lss_helper_vehicle');
-      if (container) {
-          container.remove();
+      let containerAvailable = document.getElementById('lss_helper_vehicle_available');
+      let containerUnavailable = document.getElementById('lss_helper_vehicle_unavailable');
+      if (containerAvailable) {
+          containerAvailable.remove();
       }
-      container = document.createElement("ul");
-      container.id = 'lss_helper_vehicle';
-      main.appendChild(container);
+      if (containerUnavailable) {
+          containerUnavailable.remove();
+      }
+      containerAvailable = document.createElement("ul");
+      containerAvailable.id = 'lss_helper_vehicle_available';
+      containerAvailable.classList = 'col-md-4';
+      main.appendChild(containerAvailable);
+      containerUnavailable = document.createElement("ul");
+      containerUnavailable.id = 'lss_helper_vehicle_unavailable';
+      containerUnavailable.classList = 'col-md-4';
+      main.appendChild(containerUnavailable);
 
       const itemsAvailable = {};
       const itemsUnavailable = {};
@@ -134,19 +151,19 @@
           li.classList = 'lss_call';
           li.innerHTML = (document.lss_helper.vehicleTypes[i[0].type] || i[0].type) + ' - ' + i[0].name;
           li.append(i.link);
-          container.append(li)
+          containerAvailable.append(li)
       });
       Object.values(itemsAvailable).forEach((i) => {
           const li = document.createElement('li');
           li.classList = 'lss_available';
           li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-          container.append(li)
+          containerAvailable.append(li)
       });
       Object.values(itemsUnavailable).forEach((i) => {
           const li = document.createElement('li');
           li.classList = 'lss_unavailable';
           li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-          container.append(li)
+          containerUnavailable.append(li)
       });
   }
 
