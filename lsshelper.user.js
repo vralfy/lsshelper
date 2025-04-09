@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-09-02
+// @version      202504-09-03
 // @description  try to take over the world!
 // @author       Vralfy
 // @match        https://www.leitstellenspiel.de/
@@ -25,6 +25,8 @@
           '28': '🚑 RTW',
           '32': '🚓 FuStW',
           '37': '🚒 TSF-W',
+          '121': '🚒 GT-LF',
+          '166': '🚒 PT-LF',
       },
       vehicles: [],
   };
