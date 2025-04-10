@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-10-01
+// @version      202504-10-02
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -16,15 +16,24 @@
       vehicleTypes: {
           '0': '🚒 LF',
           '2': '🚨 DLK',
-          '3': '🖥️ ELW',
+          '3': '🖥️ ELW 1',
           '4': '🛠️ RW',
           '5': '☁️ GW-A',
           '10': '🛢️ GW-Öl',
           '11': '💧 GW-Wasser',
           '12': '📏 GW-Mess',
+          '27': 'GW-G',
           '28': '🚑 RTW',
           '32': '🚓 FuStW',
+          '33': 'GW-H',
+          '34': 'ELW 2',
+          '36': 'MTW',
           '37': '🚒 TSF-W',
+          '46': 'WLF',
+          '53': 'Dekon-P',
+          '57': 'FwK',
+          '118': 'KlTaW',
+          '120': 'TaW',
           '121': '🚒 GT-LF',
           '166': '🚒 PT-LF',
       },
@@ -35,7 +44,12 @@
           'lf1' : { '0': 1 },
           '5' : { '0': 2, '2': 1, '3': 1, '32': 1}, // Zimmerbrand
           '9' : { '0': 1 }, // Strohballenbrand
+          '26' : { '0': 3, '2': 1, '4': 1, '3': 1, '34': 1 }, // Brand im Supermarkt
+          '79' : { '0': 1, '3': 1, '28': 1, '33': 1 }, // Verletzte Person auf Baugerüst
+          '90' : { '32': 1}, // Ruhestörung
+          '150' : { '32': 1}, // Hausfriedensbruch
           '161' : { '0': 1 }, // Baum auf PKW
+          '235' : { '0': 2, '3': 1, '28': 1, '32': 1, '33': 1}, // Verletzte Person auf Hochspannungsmast
           '240' : { '0': 3, '3': 1, '28': 1, '32': 1}, // Gasgeruch
           '282' : { '0': 2 }, // Geplatzte Wasserleitung
           '460' : { '0': 1, '2': 1, '3': 1, '4': 1, '28': 1}, // Person in Schacht
@@ -43,6 +57,7 @@
           '518' : { '0': 1 }, // Brennender Baum
           '607' : { '32': 1}, // Verkehrserziehung an Schule
           '733' : { '0': 2 }, // Absicherung Osterfeuer
+          '752' : { '0': 1, '2': 1, '4': 1, '28': 1, '32': 1, '33': 1 }, // Verletzte Person auf Dach
       },
   };
 
@@ -68,6 +83,7 @@
   };
 
   document.lss_helper.update = () => {
+      console.log('LSS Helper Update');
       document.lss_helper.updateLists();
       document.lss_helper.printVehicleList();
       document.lss_helper.printMissions();
@@ -94,7 +110,7 @@
       .sort((a,b) => a.name < b.name ? -1 : 1 )
       .sort((a,b) => a.type < b.type ? -1 : 1 )
       .sort((a,b) => a.status < b.status ? -1 : 1 );
-      document.lss_helper.missions = Array.from(document.getElementsByClassName("missionSideBarEntry missionSideBarEntrySearchable"))
+      document.lss_helper.missions = Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
       .map((m) => {
           return {
               id: m.attributes['id'].value.trim(),
@@ -237,29 +253,37 @@
           txt.innerHTML = m.data.caption;
 
           if (m.state === 'unattended') {
-              li.appendChild(btn);
-              li.appendChild(btn2);
+              if (document.lss_helper.getVehiclesByMission(m, 'lf1')) {
+                  li.appendChild(btn);
+              }
+              if (document.lss_helper.getVehiclesByMission(m)) {
+                  li.appendChild(btn2);
+              }
           }
           li.appendChild(txt);
       });
   };
 
-  document.lss_helper.sendByScene = (mission, scene) => {
+  document.lss_helper.getVehiclesByMission = (mission, scene) => {
       scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
       scene = document.lss_helper.scenes[scene];
-
-      console.warn('Sending LF:', mission.missionType, scene, mission);
       const available = document.lss_helper.vehicles.filter((v) => v.available);
       const vehicles = Object.keys(scene).map((vt) => {
           const r = available.filter((v) => v.type === vt).slice(0, scene[vt]);
           return r.length === scene[vt] ? r : null;
       });
-      if (vehicles.filter((v) => v === null).length) {
-          console.warn('Not enough vehicles');
-      } else {
+      return vehicles.filter((v) => v === null).length ? null : vehicles;
+  };
+
+  document.lss_helper.sendByScene = (mission, scene) => {
+      const vehicles = document.lss_helper.getVehiclesByMission(mission, scene);
+      if (vehicles) {
+          console.warn('Sending LF:', mission.missionType, vehicles, mission);
           const v = vehicles.reduce((acc, cur) => [...acc, ...cur], []);
           document.lss_helper.sendVehicles(mission.missionId, v);
           document.lss_helper.updateLists();
+      } else {
+          console.warn('Not enough vehicles');
       }
   };
 
