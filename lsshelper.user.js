@@ -38,6 +38,7 @@
           '161' : { '0': 1 }, // Baum auf PKW
           '240' : { '0': 3, '3': 1, '28': 1, '32': 1}, // Gasgeruch
           '282' : { '0': 2 }, // Geplatzte Wasserleitung
+          '460' : { '0': 1, '2': 1, '3': 1, '4': 1, '28': 1}, // Person in Schacht
           '476' : { '28': 1, '32': 1}, // Angefahrener Radfahrer
           '518' : { '0': 1 }, // Brennender Baum
           '607' : { '32': 1}, // Verkehrserziehung an Schule
