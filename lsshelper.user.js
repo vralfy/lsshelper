@@ -47,11 +47,13 @@
           '26' : { '0': 3, '2': 1, '4': 1, '3': 1, '34': 1 }, // Brand im Supermarkt
           '79' : { '0': 1, '3': 1, '28': 1, '33': 1 }, // Verletzte Person auf Baugerüst
           '90' : { '32': 1}, // Ruhestörung
+          '102' : { '0': 3, '2': 1, '3': 1 }, // Feuer in Einfamilienhaus
           '150' : { '32': 1}, // Hausfriedensbruch
+          '153' : { '28': 1, '32': 1}, // Hilflose Person
           '161' : { '0': 1 }, // Baum auf PKW
           '235' : { '0': 2, '3': 1, '28': 1, '32': 1, '33': 1}, // Verletzte Person auf Hochspannungsmast
           '240' : { '0': 3, '3': 1, '28': 1, '32': 1}, // Gasgeruch
-          '282' : { '0': 2 }, // Geplatzte Wasserleitung
+          '282' : { '0': 2, '3': 1, '4': 1 }, // Geplatzte Wasserleitung
           '460' : { '0': 1, '2': 1, '3': 1, '4': 1, '28': 1}, // Person in Schacht
           '476' : { '28': 1, '32': 1}, // Angefahrener Radfahrer
           '518' : { '0': 1 }, // Brennender Baum
