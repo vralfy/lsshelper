@@ -1,9 +1,9 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-09-03
+// @version      2025-04-10-01
 // @description  try to take over the world!
-// @author       Vralfy
+// @author       You
 // @match        https://www.leitstellenspiel.de/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
@@ -25,10 +25,9 @@
           '28': '🚑 RTW',
           '32': '🚓 FuStW',
           '37': '🚒 TSF-W',
-          '121': '🚒 GT-LF',
-          '166': '🚒 PT-LF',
       },
       vehicles: [],
+      missions: [],
   };
 
   document.lss_helper.init = () => {
@@ -73,6 +72,19 @@
       .sort((a,b) => a.name < b.name ? -1 : 1 )
       .sort((a,b) => a.type < b.type ? -1 : 1 )
       .sort((a,b) => a.status < b.status ? -1 : 1 );
+      document.lss_helper.missions = Array.from(document.getElementsByClassName("missionSideBarEntry missionSideBarEntrySearchable"))
+      .map((m) => {
+          return {
+              id: m.attributes['id'].value.trim(),
+              missionId: m.attributes['mission_id'].value.trim(),
+              type: m.attributes['data-mission-type-filter'].value.trim(),
+              state: m.attributes['data-mission-state-filter'].value.trim(),
+              participation: m.attributes['data-mission-participation-filter'].value.trim(),
+              data: JSON.parse(m.attributes['data-sortable-by'].value.trim()),
+              missionType: m.attributes['mission_type_id'].value.trim(),
+              origin: m,
+          }
+      });
   };
 
   document.lss_helper.getHelperContainer = () => {
@@ -151,7 +163,7 @@
       Object.values(itemsCall).forEach((i) => {
           const li = document.createElement('li');
           li.classList = 'lss_call';
-          li.innerHTML = (document.lss_helper.vehicleTypes[i[0].type] || i[0].type) + ' - ' + i[0].name;
+          li.innerHTML = (document.lss_helper.vehicleTypes[i.type] || i.type) + ' - ' + i.name;
           li.append(i.link);
           containerAvailable.append(li)
       });
