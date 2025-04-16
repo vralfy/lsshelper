@@ -450,6 +450,7 @@
     document.lss_helper.update();
 
     document.lss_helper.fetchRemotes = () => {
+        console.log('LSS Helper fetch settings from github');
         fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/scenes.json', { method: 'GET' })
             .then((response) => response.text())
             .then((response) => { var a; eval('a = ' + response); return a; })
@@ -464,7 +465,7 @@
               document.lss_helper.vehicleTypes = {...document.lss_helper.vehicleTypes, ...response};
         });
 
-        fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/vehiclesGroups.json', { method: 'GET' })
+        fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/vehicleGroups.json', { method: 'GET' })
             .then((response) => response.text())
             .then((response) => { var a; eval('a = ' + response); return a; })
             .then((response) => {
