@@ -14,38 +14,38 @@
     document.lss_helper = {
         storage: localStorage,
         vehicleTypes: {
-            '0': '🚒 LF20',
-            '1': '🚒 LF10',
-            '2': '🚨 DLK',
-            '3': '🖥️ ELW 1',
-            '4': '🛠️ RW',
-            '5': '☁️ GW-A',
-            '6': '🚒 LF8/6',
-            '7': '🚒 LF20/16',
-            '8': '🚒 LF10/6',
-            '9': '🚒 LF16-TS',
-            '10': '🛢️ GW-Öl',
-            '11': '💧 GW-Wasser',
-            '12': '📏 GW-Mess',
-            '27': '☣️ GW-G',
-            '28': '🚑 RTW',
-            '30': '🚒 HLF20',
-            '32': '🚓 FuStW',
-            '33': '🚨 GW-H',
-            '34': '🖥️ ELW 2',
-            '36': 'MTW',
-            '37': '🚒 TSF-W',
-            '39': 'THW GKW',
-            '46': 'WLF',
-            '53': '☣️ Dekon-P',
-            '57': 'FwK',
-            '88': '🚒 KLF',
-            '89': '🚒 MLF',
-            '90': '🚒 HLF10',
-            '118': '💧 KlTaW',
-            '120': '💧 TaW',
-            '121': '🚒 GT-LF',
-            '166': '🚒 PT-LF',
+            "0": "🚒 LF20",
+            "1": "🚒 LF10",
+            "2": "🚨 DLK",
+            "3": "🖥️ ELW 1",
+            "4": "🛠️ RW",
+            "5": "☁️ GW-A",
+            "6": "🚒 LF8/6",
+            "7": "🚒 LF20/16",
+            "8": "🚒 LF10/6",
+            "9": "🚒 LF16-TS",
+            "10": "🛢️ GW-Öl",
+            "11": "💧 GW-Wasser",
+            "12": "📏 GW-Mess",
+            "27": "☣️ GW-G",
+            "28": "🚑 RTW",
+            "30": "🚒 HLF20",
+            "32": "🚓 FuStW",
+            "33": "🚨 GW-H",
+            "34": "🖥️ ELW 2",
+            "36": "MTW",
+            "37": "🚒 TSF-W",
+            "39": "THW GKW",
+            "46": "WLF",
+            "53": "☣️ Dekon-P",
+            "57": "FwK",
+            "88": "🚒 KLF",
+            "89": "🚒 MLF",
+            "90": "🚒 HLF10",
+            "118": "💧 KlTaW",
+            "120": "💧 TaW",
+            "121": "🚒 GT-LF",
+            "166": "🚒 PT-LF",
         },
         vehicleGroups: {
             'TEST': [166,121,34],
@@ -64,137 +64,143 @@
         vehicles: [],
         missions: [],
         scenes: {
-            'TEST': { 'TEST': 3},
-            'X' : { 'LF': 2 },
-            'lf1' : { 'LF': 1 },
-            '1' : { 'LF': 1, 'POL': 1 }, // Brennender Abfallcontainer
-            '2' : { 'LF': 1 }, // Brennender PKW
-            '3' : { 'LF': 1 }, // Motorradbrand
-            '4' : { 'LF': 1 }, // Brennendes Gras
-            '5' : { 'LF': 2, 'DLK': 1, 'ELW': 1, 'POL': 1}, // Zimmerbrand
-            '6' : { 'LF': 2, 'ELW': 1}, // Gartenlaubenbrand
-            '7' : { 'LF': 1 }, // Brennender PKW
-            '8' : { 'LF': 1, 'POL': 1}, // Sperrmüllbrand
-            '9' : { 'LF': 1 }, // Strohballenbrand
-            '10' : { 'LF': 1 }, // Traktorbrand
-            '11' : { 'LF': 1 }, // Brennende Telefonzelle
-            '13' : { 'LF': 2, 'POL': 1 }, // Brennender LKW
-            '14' : { 'LF': 2 }, // kleiner Feldbrand
-            '18' : { 'LF': 1 }, // Brennendes Gebüsch
-            '19' : { 'LF': 1 }, // Brennender Anhänger
-            '21' : { 'LF': 1, 'ELW': 1, 'DLK': 1 }, // Schornsteinbrand
-            '22' : { 'LF': 3, 'ELW': 1, 'DLK': 1 }, // Dachstuhlbrand
-            '23' : { 'LF': 1 }, // Fettbrand in Pommesbude
-            '25' : { 'LF': 1, 'RTW': 1}, // Verkehrsunfall
-            '26' : { 'LF': 3, 'DLK': 1, 'RW': 1, 'ELW': 1, '34': 1 }, // Brand im Supermarkt
-            '28' : { 'LF': 2 }, // Garagenbrand
-            '29' : { 'LF': 3, 'ELW': 1, 'RW': 1, '5': 1 }, // Maschinenbrand
-            '30' : { 'LF': 1, 'OIL': 1 }, // Große Ölspur
-            '31' : { 'LF': 1, 'RW': 1 }, // Auslaufende Betriebsstoffe
-            '32' : { 'LF': 2, 'DLK': 1, 'ELW': 1 }, // Kaminbrand
-            '33' : { 'LF': 2 }, // Mähdrescherbrand
-            '36' : { 'SONDER': 1, 'LF': 4, 'ELW': 1, 'DLK': 1 }, // Brennender Güterwagon
-            '44' : { 'RTW': 1 }, // Alkoholintoxication
-            '57' : { 'RTW': 1 }, // Gestürzter Fußgänger
-            '58' : { 'RTW': 1 }, // Gestürzter Radfahrer
-            '60' : { 'POL': 1}, // Ladendiebstahl
-            '67' : { 'POL': 1}, // Personalienaufnahme nach Schwarzfahrer
-            '72' : { 'LF': 1, 'RTW': 1, 'POL': 1, '33': 1 }, // Bewußtloser Kranführer
-            '74' : { 'POL': 2 }, // Randalierende Person
-            '76' : { 'LF': 2 }, // Küchenbrand
-            '78' : { 'LF': 1 }, // Kleintier in Not
-            '79' : { 'LF': 1, 'ELW': 1, 'RTW': 1, '33': 1 }, // Verletzte Person auf Baugerüst
-            '82' : { 'POL': 1 }, // Einbruch in Wohnung
-            '83' : { 'LF': 3, 'ELW': 1, 'RTW': 1, 'POL': 2, '27': 1 }, // Gefahrgut-LKW verunglückt
-            '90' : { 'POL': 1}, // Ruhestörung
-            '94' : { 'smallOil': 1}, // kleine Ölspur
-            '95' : { 'LF': 6, 'ELW': 1, 'POL': 2, 'OIL': 1 }, // ausgedehnte Ölspur
-            '97' : { 'LF': 3, 'ELW': 1, 'OIL': 1 }, // Aufgerissener Öltank
-            '102' : { 'LF': 3, 'DLK': 1, 'ELW': 1 }, // Feuer in Einfamilienhaus
-            '120' : { 'LF': 2, 'RW': 1, 'ELW': 1, 'RTW': 1, '57': 1}, // LKW umgestürzt
-            '124' : { 'LF': 1, 'RW': 1, 'RTW': 2 }, // Verkehrsunfall
-            '126' : { 'LF': 2, 'RW': 1, 'RTW': 3 }, // Verkehrsunfall
-            '128' : { 'LF': 1, 'RTW': 1, 'POL': 1 }, // Auffahrunfall
-            '131' : { 'LF': 5, 'ELW': 1, '11': 1}, // Mittlerer Feldbrand
-            '132' : { 'LF': 6, 'ELW': 1, '11': 1}, // Großer Feldbrand
-            '138' : { 'LF': 2 }, // Flächenbrand
-            '139' : { 'LF': 4 }, // Flächenbrand
-            '142' : { 'LF': 2 }, // Feuer auf Balkon
-            '144' : { 'LF': 1 }, // Brennende Hecke
-            '149' : { 'POL': 1 }, // Pannenfahrzeug
-            '150' : { 'POL': 1}, // Hausfriedensbruch
-            '153' : { 'RTW': 1, 'POL': 1}, // Hilflose Person
-            '161' : { 'LF': 1 }, // Baum auf PKW
-            '166' : { 'LF': 1, 'POL': 1, 'ELW': 1 }, // Fassadenteile drohen zu fallen
-            '172' : { 'LF': 1 }, // Straße unter Wasser
-            '190' : { 'POL': 1 }, // Diebstahl aus Kfz
-            '191' : { 'LF': 2 }, // Baum auf Radweg
-            '192' : { 'LF': 2, 'ELW': 2 }, // Brennende Trafostation
-            '204' : { 'LF': 6, 'ELW': 1, 'WATER': 1 }, // Scheunenbrand
-            '230' : { 'LF': 1 }, // Feuerprobealarm an Schule
-            '235' : { 'LF': 2, 'ELW': 1, 'RTW': 1, 'POL': 1, '33': 1}, // Verletzte Person auf Hochspannungsmast
-            '240' : { 'LF': 3, 'ELW': 1, '27': 1, 'RTW': 1, 'POL': 1}, // Gasgeruch
-            '241' : { 'POL': 1 }, //Wildunfall
-            '282' : { 'LF': 2, 'ELW': 1, 'RW': 1 }, // Geplatzte Wasserleitung
-            '284' : { 'POL': 1 }, // Ostereierdieb
-            '288' : { 'LF': 1 }, // Brennendes Osternest
-            '289' : { 'OIL': 1 }, // Schokoladenspur auf Straße
-            '290' : { 'LF': 2 }, // Eierkocherbrand
-            '296' : { 'LF': 3, 'ELW': 1, 'RTW': 1 }, // Gasunfall in der Werkstadt
-            '300' : { 'LF': 2, 'POL': 1, 'ELW': 1, 'DLK': 1, 'RTW': 1, '33': 1}, // Abgestürzter Kletterer
-            '303' : { 'LF': 2 }, // Carportbrand
-            '308' : { 'LF': 2 }, // Brennender Müllwagen
-            '317' : { 'LF': 2, 'RW': 1, 'ELW': 1, 'RTW': 1 }, // Person in Baumschine eingeklemmt
-            '318' : { 'LF': 1 }, // Ausgelöster Heimrauchmelder
-            '321' : { 'LF': 3, 'DLK': 1, 'ELW': 1, 'POL': 2, '5': 1}, // Saunabrand
-            '349' : { 'LF': 1 }, // Brandgeruch
-            '369' : { 'LF': 2, 'ELW': 1, 'POL': 1, 'RTW': 1 }, // Austritt Kohlenmonoxid
-            '392' : { 'LF': 2, 'ELW': 1, 'RW': 1, 'RTW': 1 }, // Person durch Hubmaschine eingeklemmt
-            '397' : { 'RTW': 1 }, //Schnittwunde
-            '415' : { 'POL': 1, 'RTW': 1 }, // Jäger verletzt durch Schuss
-            '420' : { 'RTW': 1 }, // Schlechter Allgemeinzustand
-            '431' : { 'RTW': 1 }, //Kreislaufkollaps
-            '432' : { 'LF': 2, 'ELW': 1, 'DLK': 1, 'RW': 1, 'POL': 2}, //Fassadenbrand
-            '436' : { 'LF': 1, 'RW': 1, 'POL': 1 }, // Verschmutzte Fahrbahn
-            '446' : { 'LF': 1, 'ELW': 1, 'POL': 1, '33': 1 }, // Osterhase auf Kran
-            '448' : { 'POL': 1 }, // Ermittlungen nach Unfallflucht
-            '459' : { 'LF': 2, 'ELW': 1, 'RW': 1, 'POL': 2, 'RTW': 2 }, // Brennende Baumaschine
-            '460' : { 'LF': 1, 'DLK': 1, 'ELW': 1, 'RW': 1, 'RTW': 1 }, // Person in Schacht
-            '466' : { 'RTW': 1 }, // Badeunfall
-            '467' : { 'RTW': 1 }, // Badeunfall
-            '468' : { 'RTW': 1 }, // Badeunfall
-            '480' : { 'LF': 3, 'RW': 1, 'ELW': 1, 'POL': 2, 'RTW': 1 }, // Flugzeugreifenplatzer
-            '476' : { 'RTW': 1, 'POL': 1}, // Angefahrener Radfahrer
-            '518' : { 'LF': 1 }, // Brennender Baum
-            '536' : { 'POL': 2 }, // Einbruch in Supermarkt
-            '561' : { 'RTW': 1 }, // Fremdkörper in Wunde
-            '567' : { 'POL': 1}, // Diebstahl auf Baustelle
-            '607' : { 'POL': 1}, // Verkehrserziehung an Schule
-            '608' : { 'POL': 1 }, // Abgebrochener Notruf
-            '625' : { 'LF': 1, 'POL': 1, 'RTW': 1 }, // Person steckt mit Hand in Kanaldeckel
-            '644' : { 'LF': 8, 'ELW': 1, 'POL': 2, 'WATER': 1, '11': 1}, // Brand Holzpolter
-            '645' : { 'LF': 8, 'ELW': 1, 'POL': 2, 'WATER': 1, '5': 1, '11': 1}, // Brand Holzpolter
-            '694' : { 'LF': 2, 'RW': 1, 'POL': 1}, // Gülle ausgelaufen
-            '698' : { 'LF': 2, 'RW': 1, 'ELW': 1, 'POL': 2}, // Autogasaustritt am PKW
-            '700' : { 'RTW': 1 }, // Bewusstlose Person am LKW-Steuer
-            '724' : { 'RTW': 1 }, // Fall von Leiter beim Frühjahrsputz
-            '729' : { 'RTW': 1 }, // Allergische Reaktion auf Pollen
-            '727' : { 'LF': 2 }, // Brennender Picknickkorb
-            '733' : { 'LF': 2 }, // Absicherung Osterfeuer
-            '736' : { 'LF': 1, 'POL': 1 }, // Schokohase in PKW eingeschlossen
-            '733' : { 'LF': 1 }, // Geschmolzener Osterhase
-            '739' : { 'LF': 2 }, // Absicherung Osterfeuer
-            '749' : { 'LF': 1, 'POL': 1}, // E-Call ausgelöst
-            '750' : { 'LF': 4, 'ELW': 1, 'POL': 3, 'RTW': 2 }, // Brand auf Flohmarkt
-            '752' : { 'LF': 1, 'DLK': 1, 'ELW': 1, 'RW': 1, 'RTW': 1, 'POL': 1, '33': 1 }, // Verletzte Person auf Dach
-            '778' : { 'LF': 1 }, // Brennende Chemietoilette
-            '781' : { 'LF': 2 }, // Gartenschuppenbrand
-            '796' : { 'LF': 6, 'ELW': 2, 'DLK': 1, 'RW': 1, 'POL': 2, 'RTW': 1 }, // Brand in Garagenkomplex
-            '823' : { 'LF': 1, 'RW': 1, 'ELW': 1, 'POL': 1, 'RTW': 4 }, // Unfall mit Reinigungsmitteln
-            '865' : { 'POL': 1 }, // PKW blockiert Strassenbahn
-            '882' : { 'POL': 1 }, // Schulschwänzer
-            '883' : { 'POL': 1 }, // Schulschwänzer
-            '926' : { 'LF': 4, 'ELW': 1 }, // Brandsicherheitswache Rockfestival
+            "X" : { "LF": 2 },
+            "lf1" : { "LF": 1 },
+            "1" : { "LF": 1, "POL": 1 }, // Brennender Abfallcontainer
+            "2" : { "LF": 1 }, // Brennender PKW
+            "3" : { "LF": 1 }, // Motorradbrand
+            "4" : { "LF": 1 }, // Brennendes Gras
+            "5" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1}, // Zimmerbrand
+            "6" : { "LF": 2, "ELW": 1}, // Gartenlaubenbrand
+            "7" : { "LF": 1 }, // Brennender PKW
+            "8" : { "LF": 1, "POL": 1}, // Sperrmüllbrand
+            "9" : { "LF": 1 }, // Strohballenbrand
+            "10" : { "LF": 1 }, // Traktorbrand
+            "11" : { "LF": 1 }, // Brennende Telefonzelle
+            "13" : { "LF": 2, "POL": 1 }, // Brennender LKW
+            "14" : { "LF": 2 }, // kleiner Feldbrand
+            "16" : { "LF": 2 }, // Wohnungsbrand
+            "18" : { "LF": 1 }, // Brennendes Gebüsch
+            "19" : { "LF": 1 }, // Brennender Anhänger
+            "21" : { "LF": 1, "ELW": 1, "DLK": 1 }, // Schornsteinbrand
+            "22" : { "LF": 3, "ELW": 1, "DLK": 1 }, // Dachstuhlbrand
+            "23" : { "LF": 1 }, // Fettbrand in Pommesbude
+            "25" : { "LF": 1, "RTW": 1}, // Verkehrsunfall
+            "26" : { "LF": 3, "DLK": 1, "RW": 1, "ELW": 1, "34": 1 }, // Brand im Supermarkt
+            "28" : { "LF": 2 }, // Garagenbrand
+            "29" : { "LF": 3, "ELW": 1, "RW": 1, "5": 1 }, // Maschinenbrand
+            "30" : { "LF": 1, "OIL": 1 }, // Große Ölspur
+            "31" : { "LF": 1, "RW": 1 }, // Auslaufende Betriebsstoffe
+            "32" : { "LF": 2, "DLK": 1, "ELW": 1 }, // Kaminbrand
+            "33" : { "LF": 2 }, // Mähdrescherbrand
+            "36" : { "SONDER": 1, "LF": 4, "ELW": 1, "DLK": 1 }, // Brennender Güterwagon
+            "42" : { "LF": 4, "ELW": 1, "DLK": 1, "OIL": 1, "RW": 1, "POL": 2, "12": 1, "27": 1 }, // Tankstellenbrand
+            "44" : { "RTW": 1 }, // Alkoholintoxication
+            "45" : { "RTW": 1 }, // Nasenbluten unstillbar
+            "57" : { "RTW": 1 }, // Gestürzter Fußgänger
+            "58" : { "RTW": 1 }, // Gestürzter Radfahrer
+            "60" : { "POL": 1}, // Ladendiebstahl
+            "67" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
+            "72" : { "LF": 1, "RTW": 1, "POL": 1, "33": 1 }, // Bewußtloser Kranführer
+            "74" : { "POL": 2 }, // Randalierende Person
+            "76" : { "LF": 2 }, // Küchenbrand
+            "78" : { "LF": 1 }, // Kleintier in Not
+            "79" : { "LF": 1, "ELW": 1, "RTW": 1, "33": 1 }, // Verletzte Person auf Baugerüst
+            "82" : { "POL": 1 }, // Einbruch in Wohnung
+            "83" : { "LF": 3, "ELW": 1, "RTW": 1, "POL": 2, "27": 1 }, // Gefahrgut-LKW verunglückt
+            "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
+            "90" : { "POL": 1}, // Ruhestörung
+            "94" : { "smallOil": 1}, // kleine Ölspur
+            "95" : { "LF": 6, "ELW": 1, "POL": 2, "OIL": 1 }, // ausgedehnte Ölspur
+            "97" : { "LF": 3, "ELW": 1, "OIL": 1 }, // Aufgerissener Öltank
+            "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
+            "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "57": 1}, // LKW umgestürzt
+            "124" : { "LF": 1, "RW": 1, "RTW": 2 }, // Verkehrsunfall
+            "126" : { "LF": 2, "RW": 1, "RTW": 3 }, // Verkehrsunfall
+            "128" : { "LF": 1, "RTW": 1, "POL": 1 }, // Auffahrunfall
+            "131" : { "LF": 5, "ELW": 1, "11": 1}, // Mittlerer Feldbrand
+            "132" : { "LF": 6, "ELW": 1, "11": 1}, // Großer Feldbrand
+            "138" : { "LF": 2 }, // Flächenbrand
+            "139" : { "LF": 4 }, // Flächenbrand
+            "142" : { "LF": 2 }, // Feuer auf Balkon
+            "144" : { "LF": 1 }, // Brennende Hecke
+            "145" : { "POL": 1 }, // Trunkenheitsfahrt
+            "149" : { "POL": 1 }, // Pannenfahrzeug
+            "150" : { "POL": 1}, // Hausfriedensbruch
+            "153" : { "RTW": 1, "POL": 1}, // Hilflose Person
+            "161" : { "LF": 1 }, // Baum auf PKW
+            "164" : { "RTW": 1 }, // Kopfplatzwunde
+            "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
+            "172" : { "LF": 1 }, // Straße unter Wasser
+            "190" : { "POL": 1 }, // Diebstahl aus Kfz
+            "191" : { "LF": 2 }, // Baum auf Radweg
+            "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
+            "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
+            "230" : { "LF": 1 }, // Feuerprobealarm an Schule
+            "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "33": 1}, // Verletzte Person auf Hochspannungsmast
+            "240" : { "LF": 3, "ELW": 1, "27": 1, "RTW": 1, "POL": 1}, // Gasgeruch
+            "241" : { "POL": 1 }, //Wildunfall
+            "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
+            "284" : { "POL": 1 }, // Ostereierdieb
+            "288" : { "LF": 1 }, // Brennendes Osternest
+            "289" : { "OIL": 1 }, // Schokoladenspur auf Straße
+            "290" : { "LF": 2 }, // Eierkocherbrand
+            "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
+            "300" : { "LF": 2, "POL": 1, "ELW": 1, "DLK": 1, "RTW": 1, "33": 1}, // Abgestürzter Kletterer
+            "303" : { "LF": 2 }, // Carportbrand
+            "308" : { "LF": 2 }, // Brennender Müllwagen
+            "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
+            "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
+            "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "5": 1}, // Saunabrand
+            "349" : { "LF": 1 }, // Brandgeruch
+            "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
+            "392" : { "LF": 2, "ELW": 1, "RW": 1, "RTW": 1 }, // Person durch Hubmaschine eingeklemmt
+            "397" : { "RTW": 1 }, //Schnittwunde
+            "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
+            "420" : { "RTW": 1 }, // Schlechter Allgemeinzustand
+            "431" : { "RTW": 1 }, //Kreislaufkollaps
+            "432" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "POL": 2}, //Fassadenbrand
+            "436" : { "LF": 1, "RW": 1, "POL": 1 }, // Verschmutzte Fahrbahn
+            "446" : { "LF": 1, "ELW": 1, "POL": 1, "33": 1 }, // Osterhase auf Kran
+            "448" : { "POL": 1 }, // Ermittlungen nach Unfallflucht
+            "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
+            "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
+            "466" : { "RTW": 1 }, // Badeunfall
+            "467" : { "RTW": 1 }, // Badeunfall
+            "468" : { "RTW": 1 }, // Badeunfall
+            "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
+            "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
+            "518" : { "LF": 1 }, // Brennender Baum
+            "536" : { "POL": 2 }, // Einbruch in Supermarkt
+            "561" : { "RTW": 1 }, // Fremdkörper in Wunde
+            "567" : { "POL": 1}, // Diebstahl auf Baustelle
+            "575" : { "LF": 1}, // unklare Rauchentwicklung
+            "607" : { "POL": 1}, // Verkehrserziehung an Schule
+            "608" : { "POL": 1 }, // Abgebrochener Notruf
+            "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
+            "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
+            "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "11": 1 }, // Brand Holzpolter
+            "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "5": 1, "11": 1 }, // Brand Holzpolter
+            "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
+            "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
+            "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
+            "724" : { "RTW": 1 }, // Fall von Leiter beim Frühjahrsputz
+            "729" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
+            "727" : { "LF": 2 }, // Brennender Picknickkorb
+            "736" : { "LF": 1, "POL": 1 }, // Schokohase in PKW eingeschlossen
+            "739" : { "LF": 2 }, // Absicherung Osterfeuer
+            "734" : { "LF": 1 }, // Geschmolzener Osterhase
+            "749" : { "LF": 1, "POL": 1}, // E-Call ausgelöst
+            "750" : { "LF": 4, "ELW": 1, "POL": 3, "RTW": 2 }, // Brand auf Flohmarkt
+            "752" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "POL": 1, "33": 1 }, // Verletzte Person auf Dach
+            "778" : { "LF": 1 }, // Brennende Chemietoilette
+            "781" : { "LF": 2 }, // Gartenschuppenbrand
+            "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
+            "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
+            "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
+            "882" : { "POL": 1 }, // Schulschwänzer
+            "883" : { "POL": 1 }, // Schulschwänzer
+            "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
         },
     };
 
