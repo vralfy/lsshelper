@@ -109,6 +109,7 @@
   "468" : { "RTW": 1 }, // Badeunfall
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
+  "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
