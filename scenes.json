@@ -5,7 +5,7 @@
   "2" : { "LF": 1 }, // Brennender PKW
   "3" : { "LF": 1 }, // Motorradbrand
   "4" : { "LF": 1 }, // Brennendes Gras
-  "5" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1}, // Zimmerbrand
+  "5" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1, "RTW": 2}, // Zimmerbrand
   "6" : { "LF": 2, "ELW": 1}, // Gartenlaubenbrand
   "7" : { "LF": 1 }, // Brennender PKW
   "8" : { "LF": 1, "POL": 1}, // Sperrmüllbrand
