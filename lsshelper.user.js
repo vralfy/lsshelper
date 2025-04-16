@@ -449,27 +449,28 @@
     document.lss_helper.init();
     document.lss_helper.update();
 
+    document.lss_helper.fetchRemoteFile = (filename) => {
+        console.log('LSS Helper fetch', filename, 'from github');
+        const header = { method: 'GET', cache: "no-store" };
+        return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
+            .then((response) => response.text())
+            .then((response) => { var a; eval('a = ' + response); return a; });
+    };
     document.lss_helper.fetchRemotes = () => {
         console.log('LSS Helper fetch settings from github');
-        fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/scenes.json', { method: 'GET' })
-            .then((response) => response.text())
-            .then((response) => { var a; eval('a = ' + response); return a; })
-            .then((response) => {
+        document.lss_helper.fetchRemoteFile('scenes.json')
+        .then((response) => {
             document.lss_helper.scenes = {...document.lss_helper.scenes, ...response};
         });
 
-        fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/vehiclesTypes.json', { method: 'GET' })
-            .then((response) => response.text())
-            .then((response) => { var a; eval('a = ' + response); return a; })
-            .then((response) => {
-              document.lss_helper.vehicleTypes = {...document.lss_helper.vehicleTypes, ...response};
+        document.lss_helper.fetchRemoteFile('vehiclesTypes.json')
+        .then((response) => {
+            document.lss_helper.vehicleTypes = {...document.lss_helper.vehicleTypes, ...response};
         });
 
-        fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/vehicleGroups.json', { method: 'GET' })
-            .then((response) => response.text())
-            .then((response) => { var a; eval('a = ' + response); return a; })
-            .then((response) => {
-              document.lss_helper.vehicleGroups = {...document.lss_helper.vehicleGroups, ...response};
+        document.lss_helper.fetchRemoteFile('vehicleGroups.json')
+        .then((response) => {
+            document.lss_helper.vehicleGroups = {...document.lss_helper.vehicleGroups, ...response};
         });
     };
     document.lss_helper.fetchRemotes();

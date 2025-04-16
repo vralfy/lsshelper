@@ -32,6 +32,7 @@
   "42" : { "LF": 4, "ELW": 1, "DLK": 1, "OIL": 1, "RW": 1, "POL": 2, "12": 1, "27": 1 }, // Tankstellenbrand
   "44" : { "RTW": 1 }, // Alkoholintoxication
   "45" : { "RTW": 1 }, // Nasenbluten unstillbar
+  "50" : { "RTW": 1 }, // Gestürzte Person
   "57" : { "RTW": 1 }, // Gestürzter Fußgänger
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
   "60" : { "POL": 1}, // Ladendiebstahl
