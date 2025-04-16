@@ -63,6 +63,7 @@
   "142" : { "LF": 2 }, // Feuer auf Balkon
   "144" : { "LF": 1 }, // Brennende Hecke
   "145" : { "POL": 1 }, // Trunkenheitsfahrt
+  "148" : { "POL": 1 }, // Ampelausfall
   "149" : { "POL": 1 }, // Pannenfahrzeug
   "150" : { "POL": 1}, // Hausfriedensbruch
   "153" : { "RTW": 1, "POL": 1}, // Hilflose Person
@@ -136,6 +137,7 @@
   "749" : { "LF": 1, "POL": 1}, // E-Call ausgelöst
   "750" : { "LF": 4, "ELW": 1, "POL": 3, "RTW": 2 }, // Brand auf Flohmarkt
   "752" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "POL": 1, "33": 1 }, // Verletzte Person auf Dach
+  "755" : { "LF": 2, "ELW": 2, "POL": 2 }, // Kurzschluss an Freileitungsmast
   "778" : { "LF": 1 }, // Brennende Chemietoilette
   "781" : { "LF": 2 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
