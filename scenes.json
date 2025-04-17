@@ -96,7 +96,7 @@
   "284" : { "POL": 1 }, // Ostereierdieb
   "285" : { "POL": 1 }, // Pinsel aus Werkstatt entwendet
   "288" : { "LF": 1 }, // Brennendes Osternest
-  "289" : { "OIL": 1 }, // Schokoladenspur auf Straße
+  "289" : { "smallOil": 1 }, // Schokoladenspur auf Straße
   "290" : { "LF": 2 }, // Eierkocherbrand
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
   "300" : { "LF": 2, "POL": 1, "ELW": 1, "DLK": 1, "RTW": 1, "33": 1}, // Abgestürzter Kletterer
