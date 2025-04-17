@@ -42,7 +42,7 @@
             ".leaflet-marker-icon[src*='yellow'], .leaflet-marker-icon[src*='gelb']{ filter: drop-shadow(0px 0px 8px yellow);}",
             ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
             ".hidden { display: none }",
-            ".lss_available, .lss_in_motion, .lss_unavailable {background: #505050}",
+            ".lss_available, .lss_in_motion, .lss_unavailable {background: #505050;font-size:18px;padding:0 2px}",
             ".lss_available { color: #0a0; }",
             ".lss_in_motion { color: #aa0; }",
             ".lss_unavailable { color: #a00; }",
@@ -285,7 +285,6 @@
             itemsUnavailable[idx].push(v);
         });
 
-
         if (document.lss_helper.getSetting('show_vehicle_call', 'true')) {
             Object.values(itemsCall).forEach((i) => {
                 const li = document.createElement('li');
@@ -494,7 +493,7 @@
 
         const vehicleids = vehicles.map((v) => new URLSearchParams('vehicle_ids[]') + v.id).join('&');
         fetch(url, {method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" }})
-        .then((response) => response.json())
+        .then((response) => response.text())
         .then((json) => console.log(json))
     };
 
@@ -540,8 +539,31 @@
         return hash;
     };
 
+    document.lss_helper.autoAccept = (force) => {
+        setTimeout(() => {document.lss_helper.autoAccept();}, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        if (!force && !document.lss_helper.getSetting('autoAccept', 'false')) {
+            return;
+        }
+        const missions = document.lss_helper.missions
+        .filter((m) => m.unattended && !m.hasAlerts)
+        .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType));
+        if (missions.length < 1) {
+            return;
+        }
+        const inProgress = document.lss_helper.missions.filter((m) => m.attended).length;
+        const maxInProgress = document.lss_helper.getSetting('autoAcceptMaxAttended', '5');
+        if (!force && maxInProgress > 0 && maxInProgress <= inProgress) {
+            return;
+        }
+        const m = missions[0];
+        console.log('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
+        document.lss_helper.sendByScene(m, m.missionType);
+        document.lss_helper.updateLists();
+    };
+
     document.lss_helper.init();
     document.lss_helper.update();
+    document.lss_helper.autoAccept();
 
     document.lss_helper.fetchRemotes();
     setInterval(() => { document.lss_helper.fetchRemotes(); }, document.lss_helper.getSetting('update_scenes', '10000'));
