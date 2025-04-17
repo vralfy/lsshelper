@@ -50,6 +50,7 @@
   "82" : { "POL": 1 }, // Einbruch in Wohnung
   "83" : { "LF": 3, "ELW": 1, "RTW": 1, "POL": 2, "27": 1 }, // Gefahrgut-LKW verunglückt
   "84" : { "LF": 4, "ELW": 1, "RW": 1, "RTW": 1 }, // Brennende Lok
+  "85" : { "POL": 1 }, // Sachbeschädigung
   "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
   "90" : { "POL": 1}, // Ruhestörung
   "91" : { "LF": 1 }, // Keller unter Wasser
@@ -99,6 +100,7 @@
   "289" : { "smallOil": 1 }, // Schokoladenspur auf Straße
   "290" : { "LF": 2 }, // Eierkocherbrand
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
+  "297" : { "RTW": 1 }, // Arbeitsunfall im Garten
   "300" : { "LF": 2, "POL": 1, "ELW": 1, "DLK": 1, "RTW": 1, "33": 1}, // Abgestürzter Kletterer
   "303" : { "LF": 2 }, // Carportbrand
   "308" : { "LF": 2 }, // Brennender Müllwagen
@@ -123,6 +125,8 @@
   "432" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "POL": 2}, //Fassadenbrand
   "436" : { "LF": 1, "RW": 1, "POL": 1 }, // Verschmutzte Fahrbahn
   "437" : { "POL": 2 }, // Taxi - Stiller Alarm
+  "443" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 2, "57": 1 }, // Osterei-LKW gestürzt
+  "445" : { "POL": 1 }, // Ei rollt in Schlangenlinien
   "446" : { "LF": 1, "ELW": 1, "POL": 1, "33": 1 }, // Osterhase auf Kran
   "448" : { "POL": 1 }, // Ermittlungen nach Unfallflucht
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
@@ -144,6 +148,7 @@
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
   "608" : { "POL": 1 }, // Abgebrochener Notruf
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
+  "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "11": 1 }, // Brand Holzpolter
@@ -170,6 +175,7 @@
   "781" : { "LF": 2 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
+  "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
