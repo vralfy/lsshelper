@@ -38,6 +38,7 @@
   "57" : { "RTW": 1 }, // Gestürzter Fußgänger
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
   "60" : { "POL": 1}, // Ladendiebstahl
+  "61" : { "POL": 1}, // Ladendiebstahl
   "67" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "69" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "70" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
