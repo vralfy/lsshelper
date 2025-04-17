@@ -28,6 +28,7 @@
   "31" : { "LF": 1, "RW": 1 }, // Auslaufende Betriebsstoffe
   "32" : { "LF": 2, "DLK": 1, "ELW": 1 }, // Kaminbrand
   "33" : { "LF": 2 }, // Mähdrescherbrand
+  "34" : { "LF":3, "ELW": 1, "DLK": 1, "RW": 1, "RTW": 2 }, // Brand in Supermarkt
   "36" : { "SONDER": 1, "LF": 4, "ELW": 1, "DLK": 1 }, // Brennender Güterwagon
   "42" : { "LF": 4, "ELW": 1, "DLK": 1, "OIL": 1, "RW": 1, "POL": 2, "12": 1, "27": 1 }, // Tankstellenbrand
   "44" : { "RTW": 1 }, // Alkoholintoxication
@@ -45,7 +46,7 @@
   "79" : { "LF": 1, "ELW": 1, "RTW": 1, "33": 1 }, // Verletzte Person auf Baugerüst
   "82" : { "POL": 1 }, // Einbruch in Wohnung
   "83" : { "LF": 3, "ELW": 1, "RTW": 1, "POL": 2, "27": 1 }, // Gefahrgut-LKW verunglückt
-  "84" : { "LF": 4, "ELW": 1, "RTW": 1 }, // Brennende Lok
+  "84" : { "LF": 4, "ELW": 1, "RW": 1, "RTW": 1 }, // Brennende Lok
   "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
   "90" : { "POL": 1}, // Ruhestörung
   "91" : { "LF": 1 }, // Keller unter Wasser
@@ -63,6 +64,7 @@
   "138" : { "LF": 2 }, // Flächenbrand
   "139" : { "LF": 4 }, // Flächenbrand
   "142" : { "LF": 2 }, // Feuer auf Balkon
+  "143" : { "LF": 1 }, // brennende Papierkontainer
   "144" : { "LF": 1 }, // Brennende Hecke
   "145" : { "POL": 1 }, // Trunkenheitsfahrt
   "148" : { "POL": 1 }, // Ampelausfall
@@ -120,6 +122,7 @@
   "468" : { "RTW": 1 }, // Badeunfall
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
+  "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
