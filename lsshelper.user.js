@@ -582,7 +582,7 @@
         if (missions.length < 1) {
             return;
         }
-        const inProgress = document.lss_helper.missions.filter((m) => m.attended).length;
+        const inProgress = document.lss_helper.missions.filter((m) => m.hasAlert || m.attended).length;
         const maxInProgress = document.lss_helper.getSetting('autoAcceptMaxAttended', '5');
         if (!force && maxInProgress > 0 && maxInProgress <= inProgress) {
             return;
