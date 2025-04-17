@@ -1,6 +1,7 @@
 {
   "X" : { "LF": 2 },
   "lf1" : { "LF": 1 },
+  "0" : { "LF": 1 }, // Mülleimerbrand
   "1" : { "LF": 1, "POL": 1 }, // Brennender Abfallcontainer
   "2" : { "LF": 1 }, // Brennender PKW
   "3" : { "LF": 1 }, // Motorradbrand
@@ -79,6 +80,7 @@
   "159" : { "LF": 1 }, // Äste auf Fahrbahn
   "160" : { "LF": 1 }, // Umherfliegendes Baumaterial
   "161" : { "LF": 1 }, // Baum auf PKW
+  "163" : { "LF": 1 }, // Baum auf Dach
   "164" : { "RTW": 1 }, // Kopfplatzwunde
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
   "172" : { "LF": 1 }, // Straße unter Wasser
@@ -147,6 +149,7 @@
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "11": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "5": 1, "11": 1 }, // Brand Holzpolter
   "668" : { "POL": 2 }, // Ampelausfall
+  "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
