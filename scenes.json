@@ -60,6 +60,7 @@
   "97" : { "LF": 3, "ELW": 1, "OIL": 1 }, // Aufgerissener Öltank
   "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "57": 1}, // LKW umgestürzt
+  "122" : { "POL": 1, "RTW": 2 }, // Motorradunfall
   "124" : { "LF": 1, "RW": 1, "RTW": 2 }, // Verkehrsunfall
   "126" : { "LF": 2, "RW": 1, "RTW": 3 }, // Verkehrsunfall
   "128" : { "LF": 1, "RTW": 1, "POL": 1 }, // Auffahrunfall
@@ -107,7 +108,8 @@
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
   "319" : { "LF": 1, "RTW": 1 }, // Person in Baugrube
-  "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "5": 1}, // Saunabrand
+  "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "5": 1 }, // Saunabrand
+  "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
   "349" : { "LF": 1 }, // Brandgeruch
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
