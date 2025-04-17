@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-17-01
+// @version      202504-17-02
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -28,6 +28,30 @@
         missions: [],
     };
 
+    document.lss_helper.debug = (...args) => {
+        if (document.lss_helper.getSetting('loglevel', '550') >= 700) {
+            console.debug('[🐛 LSS Helper]', ...args);
+        }
+    };
+
+    document.lss_helper.log = (...args) => {
+        if (document.lss_helper.getSetting('loglevel', '550') >= 600) {
+            console.log('[ℹ️ LSS Helper]', ...args);
+        }
+    };
+
+    document.lss_helper.warn = (...args) => {
+        if (document.lss_helper.getSetting('loglevel', '550') >= 500) {
+            console.warn('[⚠️ LSS Helper]', ...args);
+        }
+    };
+
+    document.lss_helper.error = (...args) => {
+        if (document.lss_helper.getSetting('loglevel', '550') >= 400) {
+            console.error('[❌ LSS Helper]', ...args);
+        }
+    };
+
     document.lss_helper.getSetting = (key, def) => {
         if (!localStorage.getItem('lss_helper_' + key)) {
             localStorage.setItem('lss_helper_' + key, def ?? 'false');
@@ -35,7 +59,12 @@
         return JSON.parse(localStorage.getItem('lss_helper_' + key) ?? (def ?? 'false'));
     };
 
+    document.lss_helper.setSetting = (key, def) => {
+        localStorage.setItem('lss_helper_' + key, def ?? 'false');
+    };
+
     document.lss_helper.init = () => {
+        document.lss_helper.log('initiating');
         $([
             "<style type='text/css' id='lss_helper_css'>",
             ".leaflet-marker-icon[src*='red'], .leaflet-marker-icon[src*='rot']{ filter: drop-shadow(0px 0px 8px red);}",
@@ -56,15 +85,16 @@
 
         const vehicleListElement = document.getElementById('building_panel_body');
         vehicleListElement.scrollTo(0, vehicleListElement.scrollHeight);
+        document.lss_helper.setSetting('autoAccept', 'false');
     };
 
     document.lss_helper.update = (timeout) => {
         if (timeout && timeout > 0) {
-            console.log('LSS Helper Update sheduled in', timeout, 'ms');
+            document.lss_helper.debug('LSS Helper Update sheduled in', timeout, 'ms');
             setTimeout(() => {document.lss_helper.update(-1);}, timeout);
             return;
         }
-        console.log('LSS Helper Update', timeout);
+        document.lss_helper.debug('LSS Helper Update', timeout);
         document.lss_helper.updateLists();
         if (document.lss_helper.hash() !== document.lss_helper.renderHash) {
             document.lss_helper.printVehicleList();
@@ -79,7 +109,7 @@
 
     document.lss_helper.updateLists = (timeout) => {
          if (timeout && timeout > 0) {
-            console.log('LSS List Update sheduled in', timeout, 'ms');
+            document.lss_helper.debug('LSS List Update sheduled in', timeout, 'ms');
             setTimeout(() => {document.lss_helper.updateLists();}, timeout);
             return;
         }
@@ -468,12 +498,12 @@
     document.lss_helper.sendByScene = (mission, scene) => {
         const vehicles = document.lss_helper.getVehiclesByMission(mission, scene);
         if (vehicles) {
-            console.warn('Sending LF:', mission.missionType, vehicles, mission);
+            document.lss_helper.warn('Sending LF:', mission.missionType, vehicles, mission);
             const v = vehicles.reduce((acc, cur) => [...acc, ...cur], []);
             document.lss_helper.sendVehicles(mission.missionId, v);
             document.lss_helper.updateLists();
         } else {
-            console.warn('Not enough vehicles');
+            document.lss_helper.warn('Not enough vehicles');
         }
     };
 
@@ -494,11 +524,11 @@
         const vehicleids = vehicles.map((v) => new URLSearchParams('vehicle_ids[]') + v.id).join('&');
         fetch(url, {method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" }})
         .then((response) => response.text())
-        .then((json) => console.log(json))
+        .then((json) => document.lss_helper.debug(json))
     };
 
     document.lss_helper.fetchRemoteFile = (filename) => {
-        console.log('LSS Helper fetch', filename, 'from github');
+        document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
         const header = { method: 'GET', cache: "no-store" };
         return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
             .then((response) => response.text())
@@ -506,7 +536,7 @@
     };
 
     document.lss_helper.fetchRemotes = () => {
-        console.log('LSS Helper fetch settings from github');
+        document.lss_helper.debug('LSS Helper fetch settings from github');
         document.lss_helper.fetchRemoteFile('scenes.json')
         .then((response) => {
             document.lss_helper.scenes = {...document.lss_helper.scenes, ...response};
@@ -540,7 +570,9 @@
     };
 
     document.lss_helper.autoAccept = (force) => {
-        setTimeout(() => {document.lss_helper.autoAccept();}, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        if (!force) {
+            setTimeout(() => {document.lss_helper.autoAccept();}, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        }
         if (!force && !document.lss_helper.getSetting('autoAccept', 'false')) {
             return;
         }
@@ -556,7 +588,7 @@
             return;
         }
         const m = missions[0];
-        console.log('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
+        document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
         document.lss_helper.sendByScene(m, m.missionType);
         document.lss_helper.updateLists();
     };
@@ -566,5 +598,5 @@
     document.lss_helper.autoAccept();
 
     document.lss_helper.fetchRemotes();
-    setInterval(() => { document.lss_helper.fetchRemotes(); }, document.lss_helper.getSetting('update_scenes', '10000'));
+    setInterval(() => { document.lss_helper.fetchRemotes(); }, document.lss_helper.getSetting('update_scenes', '100000'));
   })();
