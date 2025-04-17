@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-16-01
+// @version      202504-17-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -66,8 +66,12 @@
         }
         console.log('LSS Helper Update', timeout);
         document.lss_helper.updateLists();
-        document.lss_helper.printVehicleList();
-        document.lss_helper.printMissions();
+        if (document.lss_helper.hash() !== document.lss_helper.renderHash) {
+            document.lss_helper.printVehicleList();
+            document.lss_helper.printMissions();
+            document.lss_helper.renderHash = document.lss_helper.hash();
+        }
+        document.lss_helper.printSettings();
         if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
             setTimeout(() => {document.lss_helper.update();}, document.lss_helper.getSetting('updateInterval', '1000'));
         }
@@ -196,20 +200,42 @@
         return innerContainer;
     };
 
+    document.lss_helper.printSettings = () => {
+        const main = document.lss_helper.getHelperContainer();
+        let settingsContainer = document.getElementById('lss_helper_settings');
+        if (settingsContainer) {
+            settingsContainer.remove();
+        }
+        settingsContainer = document.createElement("ul");
+        settingsContainer.id = 'lss_helper_settings';
+        settingsContainer.classList = 'col-md-12';
+        main.appendChild(settingsContainer);
+
+        const hash = document.createElement("li");
+        hash.innerHTML = document.lss_helper.hash();
+        settingsContainer.appendChild(hash);
+    };
+
     document.lss_helper.printVehicleList = () => {
         const main = document.lss_helper.getHelperContainer();
         let containerAvailable = document.getElementById('lss_helper_vehicle_available');
         let containerUnavailable = document.getElementById('lss_helper_vehicle_unavailable');
+        let containerSummary = document.getElementById('lss_helper_vehicle_summary');
+
         if (containerAvailable) {
             containerAvailable.remove();
         }
         if (containerUnavailable) {
             containerUnavailable.remove();
         }
+        if (containerSummary) {
+            containerSummary.remove();
+        }
+
         containerAvailable = document.createElement("ul");
         containerAvailable.id = 'lss_helper_vehicle_available';
         containerAvailable.classList = 'col-md-3';
-        if (document.lss_helper.getSetting('show_vehicle_call', 'true') || document.lss_helper.getSetting('show_vehicle_available', 'true')) {
+        if (document.lss_helper.getSetting('show_vehicle_available', 'true')) {
             main.appendChild(containerAvailable);
         }
 
@@ -220,39 +246,45 @@
             main.appendChild(containerUnavailable);
         }
 
+        containerSummary = document.createElement("ul");
+        containerSummary.id = 'lss_helper_vehicle_summary';
+        containerSummary.classList = 'col-md-6';
+        if (document.lss_helper.getSetting('show_vehicle_summary', 'true')) {
+            main.appendChild(containerSummary);
+        }
+
         const itemsAvailable = {};
         const itemsInMotion = {};
         const itemsUnavailable = {};
+
         const itemsCall = document.lss_helper.vehicles.filter((v) => v.call);
 
-        if (document.lss_helper.getSetting('show_vehicle_available', 'true')) {
-            document.lss_helper.vehicles
-            .filter((v) => v.available)
-            .forEach((v) => {
-                const idx = v.type;
-                itemsAvailable[idx] = itemsAvailable[idx] || [];
-                itemsAvailable[idx].push(v);
-            });
-        }
+        document.lss_helper.vehicles
+        .filter((v) => v.available)
+        .forEach((v) => {
+            const idx = v.type;
+            itemsAvailable[idx] = itemsAvailable[idx] || [];
+            itemsAvailable[idx].push(v);
+        });
 
-        if (document.lss_helper.getSetting('show_vehicle_unavailable', 'true')) {
-            document.lss_helper.vehicles
-            .filter((v) => !v.available)
-            .filter((v) => v.status === '3')
-            .forEach((v) => {
-                const idx = v.type;
-                itemsInMotion[idx] = itemsInMotion[idx] || [];
-                itemsInMotion[idx].push(v);
-            });
-            document.lss_helper.vehicles
-            .filter((v) => !v.available)
-            .filter((v) => v.status === '4')
-            .forEach((v) => {
-                const idx = v.type;
-                itemsUnavailable[idx] = itemsUnavailable[idx] || [];
-                itemsUnavailable[idx].push(v);
-            });
-        }
+        document.lss_helper.vehicles
+        .filter((v) => !v.available)
+        .filter((v) => v.status === '3')
+        .forEach((v) => {
+            const idx = v.type;
+            itemsInMotion[idx] = itemsInMotion[idx] || [];
+            itemsInMotion[idx].push(v);
+        });
+
+        document.lss_helper.vehicles
+        .filter((v) => !v.available)
+        .filter((v) => v.status === '4')
+        .forEach((v) => {
+            const idx = v.type;
+            itemsUnavailable[idx] = itemsUnavailable[idx] || [];
+            itemsUnavailable[idx].push(v);
+        });
+
 
         if (document.lss_helper.getSetting('show_vehicle_call', 'true')) {
             Object.values(itemsCall).forEach((i) => {
@@ -260,35 +292,55 @@
                 li.classList = 'lss_call';
                 li.innerHTML = (document.lss_helper.vehicleTypes[i.type] || i.type) + ' - ' + i.name;
                 li.append(i.link);
-                containerAvailable.append(li)
+                if (document.lss_helper.getSetting('show_vehicle_summary', 'true')) {
+                    containerSummary.append(li)
+                } else {
+                    containerAvailable.append(li)
+                }
             });
         }
 
-        if (Object.keys(itemsAvailable).length) {
-            Object.values(itemsAvailable).forEach((i) => {
-                const li = document.createElement('li');
-                li.classList = 'lss_available';
-                li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-                containerAvailable.append(li)
-            });
-        }
-        if (Object.keys(itemsInMotion).length) {
-            Object.values(itemsInMotion).forEach((i) => {
-                const li = document.createElement('li');
-                li.classList = 'lss_in_motion';
-                li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-                containerUnavailable.append(li)
-            });
-        }
+        Object.values(itemsAvailable).forEach((i) => {
+            const li = document.createElement('li');
+            li.classList = 'lss_available';
+            li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            containerAvailable.append(li)
+        });
 
-        if (Object.keys(itemsUnavailable).length) {
-            Object.values(itemsUnavailable).forEach((i) => {
-                const li = document.createElement('li');
-                li.classList = 'lss_unavailable';
-                li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-                containerUnavailable.append(li)
-            });
-        }
+        Object.values(itemsInMotion).forEach((i) => {
+            const li = document.createElement('li');
+            li.classList = 'lss_in_motion';
+            li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            containerUnavailable.append(li)
+        });
+
+        Object.values(itemsUnavailable).forEach((i) => {
+            const li = document.createElement('li');
+            li.classList = 'lss_unavailable';
+            li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            containerUnavailable.append(li)
+        });
+
+        Object.keys({...itemsAvailable, ...itemsInMotion, ...itemsUnavailable}).forEach((k) => {
+            const li = document.createElement('li');
+            containerSummary.append(li);
+
+            const available = document.createElement('b');
+            const unavailable = document.createElement('b');
+            const inMotion = document.createElement('b');
+            available.classList = 'lss_available';
+            unavailable.classList = 'lss_unavailable';
+            inMotion.classList = 'lss_in_motion';
+            available.innerHTML = itemsAvailable[k] ? itemsAvailable[k].length : 0;
+            unavailable.innerHTML = itemsUnavailable[k] ? itemsUnavailable[k].length : 0;
+            inMotion.innerHTML = itemsInMotion[k] ? itemsInMotion[k].length : 0;
+            li.append(available);
+            li.innerHTML += '/';
+            li.append(inMotion);
+            li.innerHTML += '/';
+            li.append(unavailable);
+            li.innerHTML += ' ' + (document.lss_helper.vehicleTypes[k] || k);
+        });
     };
 
     document.lss_helper.printMissions = () => {
@@ -446,9 +498,6 @@
         .then((json) => console.log(json))
     };
 
-    document.lss_helper.init();
-    document.lss_helper.update();
-
     document.lss_helper.fetchRemoteFile = (filename) => {
         console.log('LSS Helper fetch', filename, 'from github');
         const header = { method: 'GET', cache: "no-store" };
@@ -456,6 +505,7 @@
             .then((response) => response.text())
             .then((response) => { var a; eval('a = ' + response); return a; });
     };
+
     document.lss_helper.fetchRemotes = () => {
         console.log('LSS Helper fetch settings from github');
         document.lss_helper.fetchRemoteFile('scenes.json')
@@ -473,6 +523,26 @@
             document.lss_helper.vehicleGroups = {...document.lss_helper.vehicleGroups, ...response};
         });
     };
+
+    document.lss_helper.hash = (str) => {
+        str = str || JSON.stringify({mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles});
+        let hash = 0;
+        if (!str.length) {
+            return 0;
+        }
+
+        for (let i = 0; i < str.length; i++) {
+            let char = str.charCodeAt(i);
+            hash = ((hash << 5) - hash) + char;
+            hash = hash & hash;
+        }
+
+        return hash;
+    };
+
+    document.lss_helper.init();
+    document.lss_helper.update();
+
     document.lss_helper.fetchRemotes();
     setInterval(() => { document.lss_helper.fetchRemotes(); }, document.lss_helper.getSetting('update_scenes', '10000'));
   })();
