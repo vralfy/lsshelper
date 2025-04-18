@@ -49,6 +49,7 @@
   "72" : { "LF": 1, "RTW": 1, "POL": 1, "33": 1 }, // Bewußtloser Kranführer
   "74" : { "POL": 2 }, // Randalierende Person
   "76" : { "LF": 2 }, // Küchenbrand
+  "77" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person hinter Tuer
   "78" : { "LF": 1 }, // Kleintier in Not
   "79" : { "LF": 1, "ELW": 1, "RTW": 1, "33": 1 }, // Verletzte Person auf Baugerüst
   "82" : { "POL": 1 }, // Einbruch in Wohnung
@@ -172,6 +173,7 @@
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
+  "723" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "724" : { "RTW": 1 }, // Fall von Leiter beim Frühjahrsputz
   "729" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "727" : { "LF": 2 }, // Brennender Picknickkorb
