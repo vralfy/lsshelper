@@ -152,6 +152,7 @@
   "468" : { "RTW": 1 }, // Badeunfall
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
+  "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
