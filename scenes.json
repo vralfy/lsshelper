@@ -118,6 +118,7 @@
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
   "349" : { "LF": 1 }, // Brandgeruch
+  "357" : { "POL": 2 }, // Bank: stiller Alarm
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "379" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "380" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
@@ -128,6 +129,7 @@
   "397" : { "RTW": 1 }, //Schnittwunde
   "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
   "420" : { "RTW": 1 }, // Schlechter Allgemeinzustand
+  "421" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Bushaltestelle
   "422" : { "POL": 1 }, // Sachbeschädigung an PKW
   "431" : { "RTW": 1 }, //Kreislaufkollaps
   "432" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "POL": 2}, //Fassadenbrand
@@ -147,6 +149,7 @@
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
+  "511" : { "POL": 1 }, // herrenloses Gepaeckstueck
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
