@@ -132,6 +132,7 @@
   "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "39": 1 }, // Einsturzgefährdeter Balkon
   "397" : { "RTW": 1 }, //Schnittwunde
   "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
+  "617" : { "RTW": 1 }, // Jäger durch Wildtier verletzt
   "420" : { "RTW": 1 }, // Schlechter Allgemeinzustand
   "421" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Bushaltestelle
   "422" : { "POL": 1 }, // Sachbeschädigung an PKW
@@ -169,6 +170,7 @@
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "11": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "5": 1, "11": 1 }, // Brand Holzpolter
   "668" : { "POL": 2 }, // Ampelausfall
+  "681" : { "RTW": 1 }, // Reitsportunfall
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
