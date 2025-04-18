@@ -16,6 +16,7 @@
   "13" : { "LF": 2, "POL": 1 }, // Brennender LKW
   "14" : { "LF": 2 }, // kleiner Feldbrand
   "16" : { "LF": 2 }, // Wohnungsbrand
+  "17" : { "LF": 1 }, // Brand in Briefkasten
   "18" : { "LF": 1 }, // Brennendes Gebüsch
   "19" : { "LF": 1 }, // Brennender Anhänger
   "20" : { "LF": 3, "ELW": 1, "DLK": 1, "POL": 1 }, // Kellerbrand
