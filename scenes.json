@@ -40,7 +40,9 @@
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
   "60" : { "POL": 1}, // Ladendiebstahl
   "61" : { "POL": 1}, // Ladendiebstahl
+  "66" : { "POL": 1}, // Notebook aus Schule entwendet
   "67" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
+  "68" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "69" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "70" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "71" : { "POL": 1}, // parkendes Auto gerammt
