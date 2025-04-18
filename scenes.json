@@ -18,6 +18,7 @@
   "16" : { "LF": 2 }, // Wohnungsbrand
   "18" : { "LF": 1 }, // Brennendes Gebüsch
   "19" : { "LF": 1 }, // Brennender Anhänger
+  "20" : { "LF": 3, "ELW": 1, "DLK": 1, "POL": 1 }, // Kellerbrand
   "21" : { "LF": 1, "ELW": 1, "DLK": 1 }, // Schornsteinbrand
   "22" : { "LF": 3, "ELW": 1, "DLK": 1 }, // Dachstuhlbrand
   "23" : { "LF": 1 }, // Fettbrand in Pommesbude
@@ -86,21 +87,25 @@
   "163" : { "LF": 1 }, // Baum auf Dach
   "164" : { "RTW": 1 }, // Kopfplatzwunde
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
+  "167" : { "LF": 2, "ELW": 1, "DLK": 1, "POL": 1 }, // beschaedigter Dachbereich
   "172" : { "LF": 1 }, // Straße unter Wasser
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
   "191" : { "LF": 2 }, // Baum auf Radweg
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
+  "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "33": 1}, // Verletzte Person auf Hochspannungsmast
   "240" : { "LF": 3, "ELW": 1, "27": 1, "RTW": 1, "POL": 1}, // Gasgeruch
   "241" : { "POL": 1 }, //Wildunfall
+  "257" : { "POL": 2 }, // Verkehrsueberwachung
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
   "284" : { "POL": 1 }, // Ostereierdieb
   "285" : { "POL": 1 }, // Pinsel aus Werkstatt entwendet
   "288" : { "LF": 1 }, // Brennendes Osternest
   "289" : { "smallOil": 1 }, // Schokoladenspur auf Straße
   "290" : { "LF": 2 }, // Eierkocherbrand
+  "292" : { "POL": 1 }, // Tankbetrug
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
   "297" : { "RTW": 1 }, // Arbeitsunfall im Garten
   "300" : { "LF": 2, "POL": 1, "ELW": 1, "DLK": 1, "RTW": 1, "33": 1}, // Abgestürzter Kletterer
