@@ -112,6 +112,7 @@
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
   "297" : { "RTW": 1 }, // Arbeitsunfall im Garten
   "300" : { "LF": 2, "POL": 1, "ELW": 1, "DLK": 1, "RTW": 1, "33": 1}, // Abgestürzter Kletterer
+  "301" : { "POL": 2 }, // Tiere auf der Fahrbahn
   "303" : { "LF": 2 }, // Carportbrand
   "308" : { "LF": 2 }, // Brennender Müllwagen
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
