@@ -132,7 +132,7 @@
   "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "39": 1 }, // Einsturzgefährdeter Balkon
   "397" : { "RTW": 1 }, //Schnittwunde
   "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
-  "617" : { "RTW": 1 }, // Jäger durch Wildtier verletzt
+  "417" : { "RTW": 1 }, // Jäger durch Wildtier verletzt
   "420" : { "RTW": 1 }, // Schlechter Allgemeinzustand
   "421" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Bushaltestelle
   "422" : { "POL": 1 }, // Sachbeschädigung an PKW
