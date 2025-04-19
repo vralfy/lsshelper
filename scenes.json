@@ -53,6 +53,7 @@
   "77" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person hinter Tuer
   "78" : { "LF": 1 }, // Kleintier in Not
   "79" : { "LF": 1, "ELW": 1, "RTW": 1, "33": 1 }, // Verletzte Person auf Baugerüst
+  "81" : { "POL": 1 }, // Einbruch in Keller
   "82" : { "POL": 1 }, // Einbruch in Wohnung
   "83" : { "LF": 3, "ELW": 1, "RTW": 1, "POL": 2, "27": 1 }, // Gefahrgut-LKW verunglückt
   "84" : { "LF": 4, "ELW": 1, "RW": 1, "RTW": 1 }, // Brennende Lok
@@ -105,6 +106,7 @@
   "240" : { "LF": 3, "ELW": 1, "27": 1, "RTW": 1, "POL": 1}, // Gasgeruch
   "241" : { "POL": 1 }, //Wildunfall
   "257" : { "POL": 2 }, // Verkehrsueberwachung
+  "280" : { "LF": 3, "ELW": 1, "RW": 1, "DLK": 1 }, // Baum auf Oberleitung
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
   "284" : { "POL": 1 }, // Ostereierdieb
   "285" : { "POL": 1 }, // Pinsel aus Werkstatt entwendet
@@ -160,6 +162,7 @@
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
+  "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
   "511" : { "POL": 1 }, // herrenloses Gepaeckstueck
