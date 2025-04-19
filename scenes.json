@@ -101,6 +101,7 @@
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "209" : { "POL": 1 }, // Fahraddiebstahl
+  "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "33": 1}, // Verletzte Person auf Hochspannungsmast
@@ -117,6 +118,7 @@
   "292" : { "POL": 1 }, // Tankbetrug
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
   "297" : { "RTW": 1 }, // Arbeitsunfall im Garten
+  "299" : { "LF": 5, "ELW": 1, "DLK": 1, "5": 1, "11": 1 }, // Strohballen qualmen in Scheune
   "300" : { "LF": 2, "POL": 1, "ELW": 1, "DLK": 1, "RTW": 1, "33": 1}, // Abgestürzter Kletterer
   "301" : { "POL": 2 }, // Tiere auf der Fahrbahn
   "303" : { "LF": 2 }, // Carportbrand
