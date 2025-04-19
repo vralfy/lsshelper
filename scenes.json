@@ -12,6 +12,7 @@
   "8" : { "LF": 1, "POL": 1}, // Sperrmüllbrand
   "9" : { "LF": 1 }, // Strohballenbrand
   "10" : { "LF": 1 }, // Traktorbrand
+  "12" : { "F": 1 }, // Baum auf Straße
   "11" : { "LF": 1 }, // Brennende Telefonzelle
   "13" : { "LF": 2, "POL": 1 }, // Brennender LKW
   "14" : { "LF": 2 }, // kleiner Feldbrand
