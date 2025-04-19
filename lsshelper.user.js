@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-17-02
+// @version      202504-19-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -576,6 +576,7 @@
         if (!force && !document.lss_helper.getSetting('autoAccept', 'false')) {
             return;
         }
+        document.lss_helper.debug('auto accept running');
         const missions = document.lss_helper.missions
         .filter((m) => m.unattended && !m.hasAlerts)
         .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType));
