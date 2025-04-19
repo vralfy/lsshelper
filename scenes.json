@@ -98,6 +98,7 @@
   "191" : { "LF": 2 }, // Baum auf Radweg
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
+  "209" : { "POL": 1 }, // Fahraddiebstahl
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "33": 1}, // Verletzte Person auf Hochspannungsmast
