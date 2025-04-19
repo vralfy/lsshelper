@@ -128,6 +128,7 @@
   "329" : { "LF": 2 }, // Rauch in Kabine
   "349" : { "LF": 1 }, // Brandgeruch
   "357" : { "POL": 2 }, // Bank: stiller Alarm
+  "366" : { "POL": 2}, // Vollstreckung Haftbefehl
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "379" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "380" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
@@ -211,5 +212,6 @@
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
+  "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
 }
