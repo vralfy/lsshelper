@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-19-01
+// @version      202504-20-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -230,20 +230,113 @@
         return innerContainer;
     };
 
-    document.lss_helper.printSettings = () => {
-        const main = document.lss_helper.getHelperContainer();
+    document.lss_helper.printSettingsButton = (setting, caption, cls) => {
+        caption = caption || setting;
+        cls = cls || 'col-md-2';
         let settingsContainer = document.getElementById('lss_helper_settings');
-        if (settingsContainer) {
-            settingsContainer.remove();
-        }
-        settingsContainer = document.createElement("ul");
-        settingsContainer.id = 'lss_helper_settings';
-        settingsContainer.classList = 'col-md-12';
-        main.appendChild(settingsContainer);
+        if (!settingsContainer) {
+            const container = document.createElement('div');
+            container.classList = 'col-md-12 container-fluid';
+            const main = document.lss_helper.getHelperContainer();
+            main.appendChild(container);
 
-        const hash = document.createElement("li");
+            settingsContainer = document.createElement("div");
+            settingsContainer.id = 'lss_helper_settings';
+            settingsContainer.classList = 'row';
+            container.appendChild(settingsContainer);
+        }
+
+        let btn = document.getElementById('lss_helper_settings_' + setting);
+        if (!btn) {
+            btn = document.createElement("div");
+            btn.id = 'lss_helper_settings_' + setting;
+            btn.innerHTML = caption;
+            btn.onclick = () => {
+                document.lss_helper.setSetting(setting, document.lss_helper.getSetting(setting, 'false') ? 'false' : 'true');
+                document.lss_helper.renderHash = null;
+            };
+            settingsContainer.appendChild(btn);
+        }
+        btn.classList = cls + ' btn btn-xs ' + (document.lss_helper.getSetting(setting, 'false') ? 'btn-success' : 'btn-danger');
+        return btn;
+    };
+
+    document.lss_helper.printSettingsNumberInput = (setting, caption) => {
+        caption = caption || setting;
+        let settingsContainer = document.getElementById('lss_helper_settings');
+        if (!settingsContainer) {
+            const container = document.createElement('div');
+            container.classList = 'col-md-12 container-fluid';
+            const main = document.lss_helper.getHelperContainer();
+            main.appendChild(container);
+
+            settingsContainer = document.createElement("div");
+            settingsContainer.id = 'lss_helper_settings';
+            settingsContainer.classList = 'row';
+            container.appendChild(settingsContainer);
+        }
+
+        let input = document.getElementById('lss_helper_settings_' + setting);
+        if (!input) {
+            const container = document.createElement('div');
+            container.classList = 'col-md-3';
+            container.style = 'display: flex; flex-direction:column';
+            container.innerHTML = caption + ': ';
+            settingsContainer.appendChild(container);
+
+            input = document.createElement("input");
+            input.id = 'lss_helper_settings_' + setting;
+            input.onblur = () => {
+                document.lss_helper.setSetting(setting, input.value);
+                document.lss_helper.renderHash = null;
+            };
+            container.appendChild(input);
+        }
+        input.value = document.lss_helper.getSetting(setting);
+        return input;
+    };
+
+    document.lss_helper.printSettings = () => {
+        let settingsContainer = document.getElementById('lss_helper_settings');
+        if (!settingsContainer) {
+            const container = document.createElement('div');
+            container.classList = 'col-md-12 container-fluid';
+            const main = document.lss_helper.getHelperContainer();
+            main.appendChild(container);
+
+            settingsContainer = document.createElement("div");
+            settingsContainer.id = 'lss_helper_settings';
+            settingsContainer.classList = 'row';
+            container.appendChild(settingsContainer);
+        }
+
+        const available = document.lss_helper.printSettingsButton('show_vehicle_available');
+        const unavailable = document.lss_helper.printSettingsButton('show_vehicle_unavailable');
+        const call = document.lss_helper.printSettingsButton('show_vehicle_call');
+        const summary = document.lss_helper.printSettingsButton('show_vehicle_summary');
+        const missions = document.lss_helper.printSettingsButton('show_missions');
+        const age = document.lss_helper.printSettingsButton('show_mission_age');
+        const credits = document.lss_helper.printSettingsButton('show_mission_credits');
+        const type = document.lss_helper.printSettingsButton('show_mission_type');
+        const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
+        const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
+
+        const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-md-12');
+
+        const autoAccepInterval = document.lss_helper.printSettingsNumberInput('autoAcceptInterval');
+        const autoAccepMaxAttend = document.lss_helper.printSettingsNumberInput('autoAcceptMaxAttended');
+        const loglevel = document.lss_helper.printSettingsNumberInput('loglevel');
+        const updateInterval = document.lss_helper.printSettingsNumberInput('updateInterval');
+        const updateScenes = document.lss_helper.printSettingsNumberInput('update_scenes');
+
+        let hash = document.getElementById('lss_helper_settings_hash');
+        if (!hash) {
+            hash = document.createElement("div");
+            hash.id = 'lss_helper_settings_hash';
+            hash.classList = 'col-md-2';
+            settingsContainer.appendChild(hash);
+        }
         hash.innerHTML = document.lss_helper.hash();
-        settingsContainer.appendChild(hash);
     };
 
     document.lss_helper.printVehicleList = () => {
@@ -252,36 +345,34 @@
         let containerUnavailable = document.getElementById('lss_helper_vehicle_unavailable');
         let containerSummary = document.getElementById('lss_helper_vehicle_summary');
 
-        if (containerAvailable) {
-            containerAvailable.remove();
-        }
-        if (containerUnavailable) {
-            containerUnavailable.remove();
-        }
-        if (containerSummary) {
-            containerSummary.remove();
-        }
-
-        containerAvailable = document.createElement("ul");
-        containerAvailable.id = 'lss_helper_vehicle_available';
-        containerAvailable.classList = 'col-md-3';
-        if (document.lss_helper.getSetting('show_vehicle_available', 'true')) {
+        if (!containerAvailable) {
+            containerAvailable = document.createElement("ul");
+            containerAvailable.id = 'lss_helper_vehicle_available';
+            containerAvailable.classList = 'col-md-3';
             main.appendChild(containerAvailable);
         }
 
-        containerUnavailable = document.createElement("ul");
-        containerUnavailable.id = 'lss_helper_vehicle_unavailable';
-        containerUnavailable.classList = 'col-md-3';
-        if (document.lss_helper.getSetting('show_vehicle_unavailable', 'true')) {
+        if (!containerUnavailable) {
+            containerUnavailable = document.createElement("ul");
+            containerUnavailable.id = 'lss_helper_vehicle_unavailable';
+            containerUnavailable.classList = 'col-md-3';
             main.appendChild(containerUnavailable);
         }
 
-        containerSummary = document.createElement("ul");
-        containerSummary.id = 'lss_helper_vehicle_summary';
-        containerSummary.classList = 'col-md-6';
-        if (document.lss_helper.getSetting('show_vehicle_summary', 'true')) {
+        if (!containerSummary) {
+            containerSummary = document.createElement("ul");
+            containerSummary.id = 'lss_helper_vehicle_summary';
+            containerSummary.classList = 'col-md-6';
             main.appendChild(containerSummary);
         }
+
+        containerAvailable.style = document.lss_helper.getSetting('show_vehicle_available', 'true') ? '' : 'display:none';
+        containerUnavailable.style = document.lss_helper.getSetting('show_vehicle_unavailable', 'true') ? '' : 'display:none';
+        containerSummary.style = document.lss_helper.getSetting('show_vehicle_summary', 'false') ? '' : 'display:none';
+
+        containerAvailable.innerHTML = '';
+        containerUnavailable.innerHTML = '';
+        containerSummary.innerHTML = '';
 
         const itemsAvailable = {};
         const itemsInMotion = {};
@@ -373,17 +464,17 @@
     };
 
     document.lss_helper.printMissions = () => {
-        const main = document.lss_helper.getHelperContainer();
         let missionsContainer = document.getElementById('lss_helper_missions');
-        if (missionsContainer) {
-            missionsContainer.remove();
-        }
-        missionsContainer = document.createElement("ul");
-        missionsContainer.id = 'lss_helper_missions';
-        missionsContainer.classList = 'col-md-6';
-        if (document.lss_helper.getSetting('show_missions', 'true')) {
+        if (!missionsContainer) {
+            missionsContainer = document.createElement("ul");
+            missionsContainer.id = 'lss_helper_missions';
+            missionsContainer.classList = 'col-md-6';
+
+            const main = document.lss_helper.getHelperContainer();
             main.appendChild(missionsContainer);
         }
+        missionsContainer.innerHTML = '';
+        missionsContainer.style = document.lss_helper.getSetting('show_missions', 'true') ? '' : 'display:none';
 
         document.lss_helper.missions
         //.filter((m) => m.state != 'finishing')
@@ -457,11 +548,11 @@
             }
 
             const txt = m.links[0];
-            txt.innerHTML = m.data.caption + ' (' + m.missionType + ')';
+            txt.innerHTML = m.data.caption + (document.lss_helper.getSetting('show_mission_type', 'true') ? ' (' + m.missionType + ')' : '');
             txt.style = 'margin-left: 4px';
             rightContainer.appendChild(txt);
 
-            if (document.lss_helper.scenes[m.missionType]) {
+            if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type', 'true')) {
                 const checkmark = document.createElement('span');
                 checkmark.innerHTML = '✔️';
                 rightContainer.appendChild(checkmark);
