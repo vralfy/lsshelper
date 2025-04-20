@@ -24,6 +24,7 @@
   "21" : { "LF": 1, "ELW": 1, "DLK": 1 }, // Schornsteinbrand
   "22" : { "LF": 3, "ELW": 1, "DLK": 1 }, // Dachstuhlbrand
   "23" : { "LF": 1 }, // Fettbrand in Pommesbude
+  "24" : { "LF": 1 }, // Brennendes Bushaeuschen
   "25" : { "LF": 1, "RTW": 1}, // Verkehrsunfall
   "26" : { "LF": 3, "DLK": 1, "RW": 1, "ELW": 1, "34": 1 }, // Brand im Supermarkt
   "28" : { "LF": 2 }, // Garagenbrand
@@ -38,6 +39,7 @@
   "44" : { "RTW": 1 }, // Alkoholintoxication
   "45" : { "RTW": 1 }, // Nasenbluten unstillbar
   "50" : { "RTW": 1 }, // Gestürzte Person
+  "51" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "RTW": 1 }, // Brand in Werkstatt
   "57" : { "RTW": 1 }, // Gestürzter Fußgänger
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
   "60" : { "POL": 1}, // Ladendiebstahl
@@ -173,11 +175,13 @@
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
+  "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
   "575" : { "LF": 1}, // unklare Rauchentwicklung
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
   "608" : { "POL": 1 }, // Abgebrochener Notruf
+  "609" : { "LF": 1, "33": 1, "RTW": 1 }, // Fensterputzer haengt in Gondel fest
   "614" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
@@ -211,6 +215,7 @@
   "781" : { "LF": 2 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
+  "827" : { "POL": 1 }, // Holzdiebstahl
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "882" : { "POL": 1 }, // Schulschwänzer
