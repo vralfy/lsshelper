@@ -205,6 +205,7 @@
   "724" : { "RTW": 1 }, // Fall von Leiter beim Frühjahrsputz
   "726" : { "RTW": 1 }, // Vergiftung durch wilde Beeren
   "727" : { "LF": 2 }, // Brennender Picknickkorb
+  "728" : { "POL": 2 }, // Diebstahl von Kaelbern
   "729" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "733" : { "LF": 2 }, // Absicherung Osterfeuer
   "734" : { "LF": 1 }, // Geschmolzener Osterhase
