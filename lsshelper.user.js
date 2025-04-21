@@ -99,6 +99,7 @@
         if (document.lss_helper.hash() !== document.lss_helper.renderHash) {
             document.lss_helper.printVehicleList();
             document.lss_helper.printMissions();
+            document.lss_helper.printMissingVehicles();
             document.lss_helper.renderHash = document.lss_helper.hash();
         }
         document.lss_helper.printSettings();
@@ -320,6 +321,7 @@
         const type = document.lss_helper.printSettingsButton('show_mission_type');
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
+        const missing = document.lss_helper.printSettingsButton('show_vehicle_missing');
 
         const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-md-12');
 
@@ -463,6 +465,41 @@
         });
     };
 
+    document.lss_helper.printMissingVehicles = () => {
+        const main = document.lss_helper.getHelperContainer();
+        let container = document.getElementById('lss_helper_vehicle_missing');
+
+        if (!container) {
+            container = document.createElement("ul");
+            container.id = 'lss_helper_vehicle_missing';
+            container.classList = 'col-md-3';
+            main.appendChild(container);
+        }
+
+        container.style = document.lss_helper.getSetting('show_vehicle_missing', 'false') ? '' : 'display:none';
+        container.innerHTML = '';
+
+        const missing = {};
+        document.lss_helper.missions
+        .filter((m) => m.unattended)
+        .filter((m) => !m.hasAlert)
+        .filter((m) => Object.values(m.missing).length)
+        .forEach((m) => {
+            Object.keys(m.missing).forEach((vt) => {
+                missing[vt] = missing[vt] || 0;
+                missing[vt] += m.missing[vt];
+            });
+        });
+
+        Object.keys(missing).forEach((vt) => {
+            const li = document.createElement('li');
+            container.appendChild(li);
+            li.innerHTML = (document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt)
+            + ' '
+            + missing[vt];
+        });
+    };
+
     document.lss_helper.printMissions = () => {
         let missionsContainer = document.getElementById('lss_helper_missions');
         if (!missionsContainer) {
@@ -576,11 +613,15 @@
           .sort((v1, v2) => {
               return v1.distance - v2.distance;
           });
+        mission.missing = {};
         const vehicles = Object.keys(scene).map((vt) => {
             const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
             const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
             const ids = r.map(v => v.id);
             available = available.filter((v) => ids.indexOf(v.id) < 0);
+            if (r.length < scene[vt]) {
+                mission.missing[vt] = scene[vt];
+            }
             return r.length === scene[vt] ? r : null;
         });
         return vehicles.filter((v) => v === null).length ? null : vehicles;
