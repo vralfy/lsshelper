@@ -45,6 +45,7 @@
   "60" : { "POL": 1}, // Ladendiebstahl
   "61" : { "POL": 1}, // Ladendiebstahl
   "63" : { "POL": 1 }, // parkendes Auto gerammt
+  "64" : { "POL": 1 }, // Metalldiebstahl
   "66" : { "POL": 1}, // Notebook aus Schule entwendet
   "67" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "68" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
@@ -132,6 +133,7 @@
   "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "5": 1 }, // Saunabrand
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
+  "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "33": 1 }, // Hoehenrettung am Fahrgeschäft
   "349" : { "LF": 1 }, // Brandgeruch
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
@@ -197,12 +199,13 @@
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
+  "721" : { "RTW": 1, "POL": 2 }, // randalierender Fluggast
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
   "723" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "724" : { "RTW": 1 }, // Fall von Leiter beim Frühjahrsputz
   "726" : { "RTW": 1 }, // Vergiftung durch wilde Beeren
-  "729" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "727" : { "LF": 2 }, // Brennender Picknickkorb
+  "729" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "733" : { "LF": 2 }, // Absicherung Osterfeuer
   "734" : { "LF": 1 }, // Geschmolzener Osterhase
   "736" : { "LF": 1, "POL": 1 }, // Schokohase in PKW eingeschlossen
@@ -219,6 +222,7 @@
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "827" : { "POL": 1 }, // Holzdiebstahl
+  "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "882" : { "POL": 1 }, // Schulschwänzer
