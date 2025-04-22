@@ -54,6 +54,7 @@
   "70" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "71" : { "POL": 1}, // parkendes Auto gerammt
   "72" : { "LF": 1, "RTW": 1, "POL": 1, "GWH": 1 }, // Bewußtloser Kranführer
+  "73" : { "POL": 3, "RTW": 2 }, // Schlägerei
   "74" : { "POL": 2 }, // Randalierende Person
   "76" : { "LF": 2 }, // Küchenbrand
   "77" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person hinter Tuer
@@ -76,6 +77,7 @@
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "122" : { "POL": 1, "RTW": 2 }, // Motorradunfall
   "124" : { "LF": 1, "RW": 1, "RTW": 2 }, // Verkehrsunfall
+  "125" : { "LF": 1, "RW": 1, "POL": 1, "RTW": 2 }, // Verkehrsunfall
   "126" : { "LF": 2, "RW": 1, "RTW": 3 }, // Verkehrsunfall
   "128" : { "LF": 1, "RTW": 1, "POL": 1 }, // Auffahrunfall
   "131" : { "LF": 5, "ELW": 1, "SW": 1}, // Mittlerer Feldbrand
@@ -102,6 +104,7 @@
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
   "167" : { "LF": 2, "ELW": 1, "DLK": 1, "POL": 1 }, // beschaedigter Dachbereich
   "168" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
+  "170" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "172" : { "LF": 1 }, // Straße unter Wasser
   "189" : { "POL": 1 }, // Verkehrsbehinderung
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
