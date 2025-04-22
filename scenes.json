@@ -127,6 +127,7 @@
   "301" : { "POL": 2 }, // Tiere auf der Fahrbahn
   "303" : { "LF": 2 }, // Carportbrand
   "308" : { "LF": 2 }, // Brennender Müllwagen
+  "311" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Mitarbeiter unter PKW eingeklemmt
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
   "319" : { "LF": 1, "RTW": 1 }, // Person in Baugrube
@@ -175,7 +176,8 @@
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
-  "511" : { "POL": 1 }, // herrenloses Gepaeckstueck
+  "511" : { "POL": 1 }, // herrenloses Gepaeckstück
+  "512" : { "POL": 1 }, // herrenloses Gepaeckstück
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
