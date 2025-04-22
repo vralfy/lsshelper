@@ -181,6 +181,7 @@
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
+  "510" : { "RTW": 1, "POL": 2 }, // Zwangseinweisung
   "511" : { "POL": 1 }, // herrenloses Gepaeckstück
   "512" : { "POL": 1 }, // herrenloses Gepaeckstück
   "517" : { "LF": 1 }, // Brennender Baum
