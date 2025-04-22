@@ -63,6 +63,11 @@
         localStorage.setItem('lss_helper_' + key, def ?? 'false');
     };
 
+    document.lss_helper.setDefaultSetting = (key, def) => {
+        const v = document.lss_helper.getSetting(key, def);
+        document.lss_helper.setSetting(key, v ? v : def);
+    };
+
     document.lss_helper.init = () => {
         document.lss_helper.log('initiating');
         $([
@@ -86,6 +91,25 @@
         const vehicleListElement = document.getElementById('building_panel_body');
         vehicleListElement.scrollTo(0, vehicleListElement.scrollHeight);
         document.lss_helper.setSetting('autoAccept', 'false');
+
+        document.lss_helper.setDefaultSetting('loglevel', '550');
+        document.lss_helper.setDefaultSetting('updateInterval', '1000');
+        document.lss_helper.setDefaultSetting('autoAcceptInterval', '5000');
+        document.lss_helper.setDefaultSetting('autoAcceptMaxAttended', '5');
+        document.lss_helper.setDefaultSetting('update_scenes', '100000');
+
+        document.lss_helper.getSetting('show_vehicle_available', 'true');
+        document.lss_helper.getSetting('show_vehicle_call', 'true');
+        document.lss_helper.getSetting('show_vehicle_unavailable', 'true');
+        document.lss_helper.getSetting('show_vehicle_summary', 'false');
+        document.lss_helper.getSetting('show_vehicle_missing', 'false');
+        document.lss_helper.getSetting('show_missions', 'true');
+
+        document.lss_helper.getSetting('show_mission_age', 'true');
+        document.lss_helper.getSetting('show_mission_credits', 'true');
+        document.lss_helper.getSetting('show_mission_lf1', 'true');
+        document.lss_helper.getSetting('show_mission_lf2', 'true');
+        document.lss_helper.getSetting('show_mission_type', 'true');
     };
 
     document.lss_helper.update = (timeout) => {
@@ -253,12 +277,12 @@
             btn.id = 'lss_helper_settings_' + setting;
             btn.innerHTML = caption;
             btn.onclick = () => {
-                document.lss_helper.setSetting(setting, document.lss_helper.getSetting(setting, 'false') ? 'false' : 'true');
+                document.lss_helper.setSetting(setting, document.lss_helper.getSetting(setting) ? 'false' : 'true');
                 document.lss_helper.renderHash = null;
             };
             settingsContainer.appendChild(btn);
         }
-        btn.classList = cls + ' btn btn-xs ' + (document.lss_helper.getSetting(setting, 'false') ? 'btn-success' : 'btn-danger');
+        btn.classList = cls + ' btn btn-xs ' + (document.lss_helper.getSetting(setting) ? 'btn-success' : 'btn-danger');
         return btn;
     };
 
@@ -293,7 +317,12 @@
             };
             container.appendChild(input);
         }
-        input.value = document.lss_helper.getSetting(setting);
+
+        const v = document.lss_helper.getSetting(setting, '0');
+        if (input.value != v && !input.hasFocus) {
+            input.value = v;
+        }
+
         return input;
     };
 
@@ -368,9 +397,9 @@
             main.appendChild(containerSummary);
         }
 
-        containerAvailable.style = document.lss_helper.getSetting('show_vehicle_available', 'true') ? '' : 'display:none';
-        containerUnavailable.style = document.lss_helper.getSetting('show_vehicle_unavailable', 'true') ? '' : 'display:none';
-        containerSummary.style = document.lss_helper.getSetting('show_vehicle_summary', 'false') ? '' : 'display:none';
+        containerAvailable.style = document.lss_helper.getSetting('show_vehicle_available') ? '' : 'display:none';
+        containerUnavailable.style = document.lss_helper.getSetting('show_vehicle_unavailable') ? '' : 'display:none';
+        containerSummary.style = document.lss_helper.getSetting('show_vehicle_summary') ? '' : 'display:none';
 
         containerAvailable.innerHTML = '';
         containerUnavailable.innerHTML = '';
@@ -408,13 +437,13 @@
             itemsUnavailable[idx].push(v);
         });
 
-        if (document.lss_helper.getSetting('show_vehicle_call', 'true')) {
+        if (document.lss_helper.getSetting('show_vehicle_call')) {
             Object.values(itemsCall).forEach((i) => {
                 const li = document.createElement('li');
                 li.classList = 'lss_call';
                 li.innerHTML = (document.lss_helper.vehicleTypes[i.type] || i.type) + ' - ' + i.name;
                 li.append(i.link);
-                if (document.lss_helper.getSetting('show_vehicle_summary', 'true')) {
+                if (document.lss_helper.getSetting('show_vehicle_summary')) {
                     containerSummary.append(li)
                 } else {
                     containerAvailable.append(li)
@@ -476,7 +505,7 @@
             main.appendChild(container);
         }
 
-        container.style = document.lss_helper.getSetting('show_vehicle_missing', 'false') ? '' : 'display:none';
+        container.style = document.lss_helper.getSetting('show_vehicle_missing') ? '' : 'display:none';
         container.innerHTML = '';
 
         const missing = {};
@@ -511,7 +540,7 @@
             main.appendChild(missionsContainer);
         }
         missionsContainer.innerHTML = '';
-        missionsContainer.style = document.lss_helper.getSetting('show_missions', 'true') ? '' : 'display:none';
+        missionsContainer.style = document.lss_helper.getSetting('show_missions') ? '' : 'display:none';
 
         document.lss_helper.missions
         //.filter((m) => m.state != 'finishing')
@@ -545,21 +574,21 @@
             }
 
             if (!m.hasAlert && m.unattended) {
-                if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type', 'true')) {
+                if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type')) {
                     const btn2 = document.createElement('a');
                     btn2.classList= 'btn btn-xs btn-default';
                     btn2.innerHTML = '🚨';
                     btn2.onclick = () => {document.lss_helper.sendByScene(m)};
                     leftContainer.appendChild(btn2);
                 } else {
-                    if (document.lss_helper.getVehiclesByMission(m, 'lf1') && document.lss_helper.getSetting('show_mission_lf1', 'true')) {
+                    if (document.lss_helper.getVehiclesByMission(m, 'lf1') && document.lss_helper.getSetting('show_mission_lf1')) {
                         const btn = document.createElement('a');
                         btn.classList= 'btn btn-xs btn-default';
                         btn.innerHTML = '🚒';
                         btn.onclick = () => {document.lss_helper.sendByScene(m, 'lf1')};
                         leftContainer.appendChild(btn);
                     }
-                    if (document.lss_helper.getVehiclesByMission(m) && document.lss_helper.getSetting('show_mission_lf2', 'true')) {
+                    if (document.lss_helper.getVehiclesByMission(m) && document.lss_helper.getSetting('show_mission_lf2')) {
                         const btn2 = document.createElement('a');
                         btn2.classList= 'btn btn-xs btn-default';
                         btn2.innerHTML = '🚒🚒';
@@ -569,7 +598,7 @@
                 }
             }
 
-            if (document.lss_helper.getSetting('show_mission_age', 'false')) {
+            if (document.lss_helper.getSetting('show_mission_age')) {
                 const age = Math.floor(
                     Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)
                 ) / 10;
@@ -578,18 +607,18 @@
                 centerContainer.appendChild(ageContainer);
             }
 
-            if (document.lss_helper.getSetting('show_mission_credits', 'false')) {
+            if (document.lss_helper.getSetting('show_mission_credits')) {
                 const creditContainer = document.createElement('span');
                 creditContainer.innerHTML = m.data.average_credits + '$';
                 centerContainer.appendChild(creditContainer);
             }
 
             const txt = m.links[0];
-            txt.innerHTML = m.data.caption + (document.lss_helper.getSetting('show_mission_type', 'true') ? ' (' + m.missionType + ')' : '');
+            txt.innerHTML = m.data.caption + (document.lss_helper.getSetting('show_mission_type') ? ' (' + m.missionType + ')' : '');
             txt.style = 'margin-left: 4px';
             rightContainer.appendChild(txt);
 
-            if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type', 'true')) {
+            if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type')) {
                 const checkmark = document.createElement('span');
                 checkmark.innerHTML = '✔️';
                 rightContainer.appendChild(checkmark);
@@ -664,15 +693,18 @@
         const header = { method: 'GET', cache: "no-store" };
         return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
             .then((response) => response.text())
-            .then((response) => { var a; eval('a = ' + response); return a; });
+            .then((response) => { var a; eval('a = ' + response); return a; })
+            .catch((err) => {
+               document.lss_helper.error(err);
+               document.lss_helper.setSetting('update_scenes', '-1');
+            });
     };
 
     document.lss_helper.fetchRemotes = () => {
         document.lss_helper.debug('LSS Helper fetch settings from github');
-        document.lss_helper.fetchRemoteFile('scenes.json')
-        .then((response) => {
-            document.lss_helper.scenes = {...document.lss_helper.scenes, ...response};
-        });
+        if (document.lss_helper.getSetting('update_scenes', '100000') < 1) {
+            return;
+        }
 
         document.lss_helper.fetchRemoteFile('vehiclesTypes.json')
         .then((response) => {
@@ -683,6 +715,12 @@
         .then((response) => {
             document.lss_helper.vehicleGroups = {...document.lss_helper.vehicleGroups, ...response};
         });
+
+        document.lss_helper.fetchRemoteFile('scenes.json')
+        .then((response) => {
+            document.lss_helper.scenes = {...document.lss_helper.scenes, ...response};
+        });
+
     };
 
     document.lss_helper.hash = (str) => {
@@ -705,7 +743,7 @@
         if (!force) {
             setTimeout(() => {document.lss_helper.autoAccept();}, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
-        if (!force && !document.lss_helper.getSetting('autoAccept', 'false')) {
+        if (!force && !document.lss_helper.getSetting('autoAccept')) {
             return;
         }
         document.lss_helper.debug('auto accept running');
