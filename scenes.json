@@ -26,7 +26,7 @@
   "23" : { "LF": 1 }, // Fettbrand in Pommesbude
   "24" : { "LF": 1 }, // Brennendes Bushaeuschen
   "25" : { "LF": 1, "RTW": 1}, // Verkehrsunfall
-  "26" : { "LF": 3, "DLK": 1, "RW": 1, "ELW": 1, "34": 1 }, // Brand im Supermarkt
+  "26" : { "LF": 3, "DLK": 1, "RW": 1, "ELW": 1, "ELW2": 1 }, // Brand im Supermarkt
   "28" : { "LF": 2 }, // Garagenbrand
   "29" : { "LF": 3, "ELW": 1, "RW": 1, "GWA": 1 }, // Maschinenbrand
   "30" : { "LF": 1, "GWO": 1 }, // Große Ölspur
@@ -63,7 +63,7 @@
   "83" : { "LF": 3, "ELW": 1, "RTW": 1, "POL": 2, "GWG": 1 }, // Gefahrgut-LKW verunglückt
   "84" : { "LF": 4, "ELW": 1, "RW": 1, "RTW": 1 }, // Brennende Lok
   "85" : { "POL": 1 }, // Sachbeschädigung
-  "86" : { "LF": 7, "ELW": 1, "34": 1, "DLK": 2, "SW": 1, "GWA": 1 }, // Sporthallenbrand
+  "86" : { "LF": 7, "ELW": 1, "ELW2": 1, "DLK": 2, "SW": 1, "GWA": 1 }, // Sporthallenbrand
   "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
   "90" : { "POL": 1}, // Ruhestörung
   "91" : { "LF": 1 }, // Keller unter Wasser
@@ -99,6 +99,7 @@
   "164" : { "RTW": 1 }, // Kopfplatzwunde
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
   "167" : { "LF": 2, "ELW": 1, "DLK": 1, "POL": 1 }, // beschaedigter Dachbereich
+  "168" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "172" : { "LF": 1 }, // Straße unter Wasser
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
   "191" : { "LF": 2 }, // Baum auf Radweg
@@ -113,6 +114,7 @@
   "241" : { "POL": 1 }, //Wildunfall
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
+  "271" : { "LF": 10, "RW": 1, "DEKON": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
   "280" : { "LF": 3, "ELW": 1, "RW": 1, "DLK": 1 }, // Baum auf Oberleitung
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
   "284" : { "POL": 1 }, // Ostereierdieb
@@ -146,7 +148,7 @@
   "383" : { "POL": 1, "RTW": 1 }, // Kind in PKW eingeschlossen
   "384" : { "LF": 2 }, // Brennende Ballenpresse
   "392" : { "LF": 2, "ELW": 1, "RW": 1, "RTW": 1 }, // Person durch Hubmaschine eingeklemmt
-  "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "39": 1 }, // Einsturzgefährdeter Balkon
+  "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "GKW": 1 }, // Einsturzgefährdeter Balkon
   "397" : { "RTW": 1 }, //Schnittwunde
   "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
   "416" : { "RTW": 1 }, // Jäger stuerzt von Hochsitz
@@ -200,6 +202,7 @@
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "668" : { "POL": 2 }, // Ampelausfall
   "681" : { "RTW": 1 }, // Reitsportunfall
+  "683" : { "POL": 1 }, // KFZ-Diebstahl
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
