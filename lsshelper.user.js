@@ -319,7 +319,7 @@
         }
 
         const v = document.lss_helper.getSetting(setting, '0');
-        if (input.value != v && !input.hasFocus) {
+        if (input.value != v && input !== document.activeElement) {
             input.value = v;
         }
 
