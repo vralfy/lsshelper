@@ -87,7 +87,8 @@
   "145" : { "POL": 1 }, // Trunkenheitsfahrt
   "148" : { "POL": 1 }, // Ampelausfall
   "149" : { "POL": 1 }, // Pannenfahrzeug
-  "150" : { "POL": 1}, // Hausfriedensbruch
+  "150" : { "POL": 1 }, // Hausfriedensbruch
+  "151" : { "POL": 3 }, // Raub
   "152" : { "RTW": 1, "POL": 2}, // häusliche Gewalt
   "153" : { "RTW": 1, "POL": 1}, // Hilflose Person
   "154" : { "RTW": 1, "POL": 1}, // Hilflose Person
