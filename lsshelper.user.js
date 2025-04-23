@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-20-01
+// @version      202504-23-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -211,6 +211,22 @@
                 stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
                 scene: document.lss_helper.scenes[m.missionType],
                 proposedVehicles: document.lss_helper.getVehiclesByMission(m),
+                info: {
+                    countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
+                    progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
+                    missing: document.getElementById('mission_missing_' + m.data.id),
+                    missingShort: document.getElementById('mission_missing_short_' + m.data.id),
+                    pump: document.getElementById('mission_pump_progress_' + m.data.id),
+                    patients: document.getElementById('mission_patients_' + m.data.id),
+                    prisoners: document.getElementById('mission_prisoners_' + m.data.id),
+                },
+                ...m
+            };
+        })
+        .map((m) => {
+            return {
+                patients: m.info.patients.children.length,
+                prisoners: m.info.prisoners.children.length,
                 ...m
             };
         })
@@ -629,6 +645,15 @@
     document.lss_helper.getVehiclesByMission = (mission, scene) => {
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
         scene = document.lss_helper.scenes[scene];
+
+        if (mission.patients) {
+            scene['RTW'] = mission.patients;
+        }
+
+        if (mission.prisoners) {
+            scene['POL'] = mission.prisoners;
+        }
+
         let available = document.lss_helper.vehicles
           .filter((v) => v.available)
           .map((v) => {
@@ -769,5 +794,5 @@
     document.lss_helper.autoAccept();
 
     document.lss_helper.fetchRemotes();
-    setInterval(() => { document.lss_helper.fetchRemotes(); }, document.lss_helper.getSetting('update_scenes', '100000'));
+    setInterval(() => { document.lss_helper.fetchRemotes(); }, Math.max(1000, document.lss_helper.getSetting('update_scenes', '100000')));
   })();
