@@ -223,6 +223,7 @@
   "643" : { "LF": 3, "RW": 2, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 2, "RTW": 1 }, // Unfall in Getreidesilo
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "SW": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
+  "649" : { "RTW": 1 }, // Knalltrauma
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "668" : { "POL": 2 }, // Ampelausfall
   "681" : { "RTW": 1 }, // Reitsportunfall
@@ -258,6 +259,7 @@
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
+  "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
