@@ -178,6 +178,7 @@
   "436" : { "LF": 1, "RW": 1, "POL": 1 }, // Verschmutzte Fahrbahn
   "437" : { "POL": 2 }, // Taxi - Stiller Alarm
   "438" : { "LF": 2, "RW": 1, "ELW": 1, "GWO": 1, "POL": 2, "RTW": 1 }, // PKW in Zapfsäule
+  "440" : { "RTW": 1, "NEF": 1 }, // Akute Atemnot
   "443" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 2, "FWK": 1 }, // Osterei-LKW gestürzt
   "445" : { "POL": 1 }, // Ei rollt in Schlangenlinien
   "446" : { "LF": 1, "ELW": 1, "POL": 1, "GWH": 1 }, // Osterhase auf Kran
