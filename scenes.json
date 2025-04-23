@@ -69,6 +69,7 @@
   "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
   "90" : { "POL": 1}, // Ruhestörung
   "91" : { "LF": 1 }, // Keller unter Wasser
+  "92" : { "RTW": 1 }, // Schlaganfall
   "94" : { "smallOil": 1}, // kleine Ölspur
   "95" : { "LF": 6, "ELW": 1, "POL": 2, "GWO": 1 }, // ausgedehnte Ölspur
   "96" : { "LF": 3, "RTW": 1 }, // Feuer in Schnellrestaurant
