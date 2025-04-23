@@ -117,6 +117,7 @@
   "191" : { "LF": 2 }, // Baum auf Radweg
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
+  "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "209" : { "POL": 1 }, // Fahraddiebstahl
   "212" : { "RTW": 1 }, // Akute Bauchschmerzen
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
@@ -137,6 +138,7 @@
   "289" : { "smallOil": 1 }, // Schokoladenspur auf Straße
   "290" : { "LF": 2 }, // Eierkocherbrand
   "292" : { "POL": 1 }, // Tankbetrug
+  "293" : { "RTW": 1 }, // Bluthochdruck
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
   "297" : { "RTW": 1 }, // Arbeitsunfall im Garten
   "299" : { "LF": 5, "ELW": 1, "DLK": 1, "GWA": 1, "SW": 1 }, // Strohballen qualmen in Scheune
@@ -215,6 +217,7 @@
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
   "608" : { "POL": 1 }, // Abgebrochener Notruf
   "609" : { "LF": 1, "GWH": 1, "RTW": 1 }, // Fensterputzer haengt in Gondel fest
+  "610" : { "LF": 8, "GWA": 1, "GWG": 1, "GWM": 1, "POL": 6, "ELW": 3, "RTW": 2 }, // Gefahrgut-LKW in Brand
   "614" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
@@ -260,6 +263,9 @@
   "781" : { "LF": 2, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
+  "801" : { "NEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
+  "814" : { "NEA": 1 }, // Stromausfall in Feuerwehrwache
+  "816" : { "NEA": 1 }, // Stromausfall in THW-Ortsverband
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
