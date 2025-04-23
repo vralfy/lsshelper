@@ -101,6 +101,7 @@
   "159" : { "LF": 1 }, // Äste auf Fahrbahn
   "160" : { "LF": 1 }, // Umherfliegendes Baumaterial
   "161" : { "LF": 1 }, // Baum auf PKW
+  "162" : { "LF": 1, "RTW": 1, "POL": 1 }, // Baum auf PKW
   "163" : { "LF": 1 }, // Baum auf Dach
   "164" : { "RTW": 1 }, // Kopfplatzwunde
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
@@ -115,6 +116,7 @@
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "209" : { "POL": 1 }, // Fahraddiebstahl
+  "212" : { "RTW": 1 }, // Akute Bauchschmerzen
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
   "228" : { "POL": 2 }, // Absicherung Musikumzug
@@ -179,9 +181,11 @@
   "448" : { "POL": 1 }, // Ermittlungen nach Unfallflucht
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
   "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
+  "463" : { "LF": 1, "RW": 1, "POL": 2 }, // Gesprengter Geldautomat
   "466" : { "RTW": 1 }, // Badeunfall
   "467" : { "RTW": 1 }, // Badeunfall
   "468" : { "RTW": 1 }, // Badeunfall
+  "469" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 3 }, // Entgleiste Stadtbahn
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
@@ -209,14 +213,17 @@
   "614" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
+  "622" : { "RTW": 1 }, // Allergischer Schock
   "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
+  "640" : { "RTW": 1 }, // Amputationsverletzung
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "SW": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "668" : { "POL": 2 }, // Ampelausfall
   "681" : { "RTW": 1 }, // Reitsportunfall
   "683" : { "POL": 1 }, // KFZ-Diebstahl
+  "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
@@ -244,6 +251,7 @@
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
   "781" : { "LF": 2, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
+  "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "827" : { "POL": 1 }, // Holzdiebstahl
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
@@ -253,5 +261,6 @@
   "883" : { "POL": 1 }, // Schulschwänzer
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
+  "916" : { "LF": 6, "ELW": 1, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
 }
