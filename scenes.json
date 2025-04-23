@@ -74,14 +74,16 @@
   "96" : { "LF": 3, "RTW": 1 }, // Feuer in Schnellrestaurant
   "97" : { "LF": 3, "ELW": 1, "GWO": 1 }, // Aufgerissener Öltank
   "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
+  "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "122" : { "POL": 1, "RTW": 2 }, // Motorradunfall
   "124" : { "LF": 1, "RW": 1, "RTW": 2 }, // Verkehrsunfall
   "125" : { "LF": 1, "RW": 1, "POL": 1, "RTW": 2 }, // Verkehrsunfall
   "126" : { "LF": 2, "RW": 1, "RTW": 3 }, // Verkehrsunfall
   "128" : { "LF": 1, "RTW": 1, "POL": 1 }, // Auffahrunfall
-  "131" : { "LF": 5, "ELW": 1, "SW": 1}, // Mittlerer Feldbrand
-  "132" : { "LF": 6, "ELW": 1, "SW": 1}, // Großer Feldbrand
+  "131" : { "LF": 5, "ELW": 1, "SW": 1 }, // Mittlerer Feldbrand
+  "132" : { "LF": 6, "ELW": 1, "SW": 1 }, // Großer Feldbrand
+  "134" : { "LF": 6, "ELW": 1, "SW": 1 }, // Großer Feldbrand
   "138" : { "LF": 2 }, // Flächenbrand
   "139" : { "LF": 4 }, // Flächenbrand
   "142" : { "LF": 2 }, // Feuer auf Balkon
@@ -154,6 +156,7 @@
   "382" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "383" : { "POL": 1, "RTW": 1 }, // Kind in PKW eingeschlossen
   "384" : { "LF": 2 }, // Brennende Ballenpresse
+  "391" : { "RTW": 1 }, // Vergiftung
   "392" : { "LF": 2, "ELW": 1, "RW": 1, "RTW": 1 }, // Person durch Hubmaschine eingeklemmt
   "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "GKW": 1 }, // Einsturzgefährdeter Balkon
   "397" : { "RTW": 1 }, //Schnittwunde
@@ -221,6 +224,7 @@
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
   "723" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
   "724" : { "RTW": 1 }, // Fall von Leiter beim Frühjahrsputz
+  "725" : { "POL": 1, "RTW": 2 }, // Angriff eines Wildtiers während Frühlingspicknicks
   "726" : { "RTW": 1 }, // Vergiftung durch wilde Beeren
   "727" : { "LF": 2 }, // Brennender Picknickkorb
   "728" : { "POL": 2 }, // Diebstahl von Kaelbern
@@ -247,5 +251,6 @@
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
+  "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
 }
