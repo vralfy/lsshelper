@@ -90,6 +90,7 @@
   "143" : { "LF": 1 }, // brennende Papierkontainer
   "144" : { "LF": 1 }, // Brennende Hecke
   "145" : { "POL": 1 }, // Trunkenheitsfahrt
+  "146" : { "LF": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Brennendes Reetdachhaus
   "148" : { "POL": 1 }, // Ampelausfall
   "149" : { "POL": 1 }, // Pannenfahrzeug
   "150" : { "POL": 1 }, // Hausfriedensbruch
@@ -148,6 +149,7 @@
   "319" : { "LF": 1, "RTW": 1 }, // Person in Baugrube
   "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "GWA": 1 }, // Saunabrand
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
+  "327" : { "LF": 6, "ELW": 1, "DLK": 2, "GWA": 2, "GWM": 1, "GWO": 1, "POL": 1, "RTW": 1 }, // Tiefgaragenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
   "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "GWH": 1 }, // Hoehenrettung am Fahrgeschäft
   "349" : { "LF": 1 }, // Brandgeruch
@@ -224,6 +226,7 @@
   "681" : { "RTW": 1 }, // Reitsportunfall
   "683" : { "POL": 1 }, // KFZ-Diebstahl
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
+  "686" : { "LF": 1, "RTW": 1 }, // Kind in Spielgerät eingeklemmt
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
@@ -264,3 +267,4 @@
   "916" : { "LF": 6, "ELW": 1, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
 }
+// https://www.leitstellenspiel.de/einsaetze/0
