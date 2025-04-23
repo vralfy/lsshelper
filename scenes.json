@@ -104,6 +104,7 @@
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
   "167" : { "LF": 2, "ELW": 1, "DLK": 1, "POL": 1 }, // beschaedigter Dachbereich
   "168" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
+  "169" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "170" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "172" : { "LF": 1 }, // Straße unter Wasser
   "189" : { "POL": 1 }, // Verkehrsbehinderung
@@ -194,6 +195,7 @@
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
+  "570" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Wohnhaus
   "571" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Dachstuhlbrand
   "574" : { "LF": 2, "POL": 2, "RTW": 1 }, // Brandsicherheitswache bei Feuerwerk
   "575" : { "LF": 1}, // unklare Rauchentwicklung
