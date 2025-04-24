@@ -193,6 +193,7 @@
   "467" : { "RTW": 1 }, // Badeunfall
   "468" : { "RTW": 1 }, // Badeunfall
   "469" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 3 }, // Entgleiste Stadtbahn
+  "470" : { "LF": 6, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "POL": 3, "RTW": 2, "NEF": 1 }, // Feuer in Museum
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
@@ -240,6 +241,7 @@
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
+  "703" : { "RTW": 1 }, // Akute Rückenschmerzen
   "721" : { "RTW": 1, "POL": 2 }, // randalierender Fluggast
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
   "723" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
@@ -266,11 +268,14 @@
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
   "801" : { "NEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
   "814" : { "NEA": 1 }, // Stromausfall in Feuerwehrwache
+  "815" : { "NEA": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "NEA": 1 }, // Stromausfall in THW-Ortsverband
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
+  "838" : { "NEA": 1 }, // Stromausfall im Stellwerk (klein)
+  "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "882" : { "POL": 1 }, // Schulschwänzer
