@@ -23,6 +23,7 @@
         scenes: {
             "X" : { "LF": 2 },
             "lf1" : { "LF": 1 },
+            "lf2" : { "LF": 2 },
         },
         buildings: [],
         missions: [],
@@ -721,7 +722,7 @@
             .then((response) => { var a; eval('a = ' + response); return a; })
             .catch((err) => {
                document.lss_helper.error(err);
-               document.lss_helper.setSetting('update_scenes', '-1');
+               //document.lss_helper.setSetting('update_scenes', '-1');
             });
     };
 
