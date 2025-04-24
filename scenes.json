@@ -57,6 +57,7 @@
   "61" : { "POL": 1}, // Ladendiebstahl
   "63" : { "POL": 1 }, // parkendes Auto gerammt
   "64" : { "POL": 1 }, // Metalldiebstahl
+  "65" : { "POL": 1 }, // Taschendiebstahl
   "66" : { "POL": 1}, // Notebook aus Schule entwendet
   "67" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "68" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
