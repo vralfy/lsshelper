@@ -1,6 +1,4 @@
 {
-  "X" : { "LF": 2 },
-  "lf1" : { "LF": 1 },
   "0" : { "LF": 1 }, // Mülleimerbrand
   "1" : { "LF": 1, "POL": 1 }, // Brennender Abfallcontainer
   "2" : { "LF": 1 }, // Brennender PKW
@@ -125,6 +123,7 @@
   "169" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "170" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "172" : { "LF": 1 }, // Straße unter Wasser
+  "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
   "191" : { "LF": 2 }, // Baum auf Radweg
