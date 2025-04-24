@@ -12,8 +12,8 @@
   "8" : { "LF": 1, "POL": 1}, // Sperrmüllbrand
   "9" : { "LF": 1 }, // Strohballenbrand
   "10" : { "LF": 1 }, // Traktorbrand
-  "12" : { "F": 1 }, // Baum auf Straße
   "11" : { "LF": 1 }, // Brennende Telefonzelle
+  "12" : { "F": 1 }, // Baum auf Straße
   "13" : { "LF": 2, "POL": 1 }, // Brennender LKW
   "14" : { "LF": 2 }, // kleiner Feldbrand
   "15" : { "LF": 1 }, // kleiner Waldbrand
@@ -28,6 +28,7 @@
   "24" : { "LF": 1 }, // Brennendes Bushaeuschen
   "25" : { "LF": 1, "RTW": 1}, // Verkehrsunfall
   "26" : { "LF": 3, "DLK": 1, "RW": 1, "ELW": 1, "ELW2": 1 }, // Brand im Supermarkt
+  "27" : null,
   "28" : { "LF": 2 }, // Garagenbrand
   "29" : { "LF": 3, "ELW": 1, "RW": 1, "GWA": 1 }, // Maschinenbrand
   "30" : { "LF": 1, "GWO": 1 }, // Große Ölspur
@@ -35,10 +36,21 @@
   "32" : { "LF": 2, "DLK": 1, "ELW": 1 }, // Kaminbrand
   "33" : { "LF": 2 }, // Mähdrescherbrand
   "34" : { "LF":3, "ELW": 1, "DLK": 1, "RW": 1, "RTW": 2 }, // Brand in Supermarkt
+  "35" : { "LF": 4, "ELW": 1, "DLK": 1 }, // Feuer im Krankenhaus
   "36" : { "SONDER": 1, "LF": 4, "ELW": 1, "DLK": 1 }, // Brennender Güterwagon
+  "37" : null,
+  "38" : null,
+  "39" : null,
+  "40" : null,
+  "41" : { "LF": 6, "GWA": 1, "GWM": 1, "ELW": 2, "ELW2": 1, "DLK": 2, "SW": 1 }, // Großbrand
   "42" : { "LF": 4, "ELW": 1, "DLK": 1, "GWO": 1, "RW": 1, "POL": 2, "GWM": 1, "GWG": 1 }, // Tankstellenbrand
+  "43" : { "LF": 10, "RW": 5, "ELW": 2, "GWO": 1 }, // Massenkarambolage
   "44" : { "RTW": 1 }, // Alkoholintoxication
   "45" : { "RTW": 1 }, // Nasenbluten unstillbar
+  "46" : { "RTW": 1, "NEF": 1 }, // Herzinfarkt
+  "47" : { "RTW": 1, "NEF": 1 }, // akuter Asthma-Anfall
+  "48" : { "RTW": 1, "NEF": 1 }, // Krampfanfall
+  "49" : { "RTW": 1 }, // Hohes Fieber
   "50" : { "RTW": 1 }, // Gestürzte Person
   "51" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "RTW": 1 }, // Brand in Werkstatt
   "57" : { "RTW": 1 }, // Gestürzter Fußgänger
