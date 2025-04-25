@@ -1,10 +1,11 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-23-01
+// @version      202504-25-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
+// @match        https://www.leitstellenspiel.de/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
 // ==/UserScript==
@@ -716,7 +717,7 @@
 
     document.lss_helper.fetchRemoteFile = (filename) => {
         document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
-        const header = { method: 'GET', cache: "no-store" };
+        const header = { method: 'GET', cache: "no-cache" };
         return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
             .then((response) => response.text())
             .then((response) => { var a; eval('a = ' + response); return a; })
@@ -728,6 +729,7 @@
 
     document.lss_helper.fetchRemotes = () => {
         document.lss_helper.debug('LSS Helper fetch settings from github');
+        setTimeout(() => { document.lss_helper.fetchRemotes(); }, Math.max(1000, document.lss_helper.getSetting('update_scenes', '100000')));
         if (document.lss_helper.getSetting('update_scenes', '100000') < 1) {
             return;
         }
@@ -795,5 +797,4 @@
     document.lss_helper.autoAccept();
 
     document.lss_helper.fetchRemotes();
-    setInterval(() => { document.lss_helper.fetchRemotes(); }, Math.max(1000, document.lss_helper.getSetting('update_scenes', '100000')));
   })();
