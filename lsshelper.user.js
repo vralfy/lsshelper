@@ -5,7 +5,6 @@
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
-// @match        https://www.leitstellenspiel.de/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
 // ==/UserScript==
@@ -90,8 +89,15 @@
             "</style>"
         ].join("\n")).appendTo("head");
 
-        const vehicleListElement = document.getElementById('building_panel_body');
-        vehicleListElement.scrollTo(0, vehicleListElement.scrollHeight);
+        const scrollInterval = setInterval(() => {
+            document.lss_helper.log('Try to scroll down vehicle list');
+            const vehicleListElement = document.getElementById('building_panel_body');
+            if (vehicleListElement) {
+                vehicleListElement.scrollTo(0, vehicleListElement.scrollHeight);
+                clearInterval(scrollInterval);
+            }
+        }, 1000);
+
         document.lss_helper.setSetting('autoAccept', 'false');
 
         document.lss_helper.setDefaultSetting('loglevel', '550');
