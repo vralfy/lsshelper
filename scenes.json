@@ -118,6 +118,7 @@
   "162" : { "LF": 1, "RTW": 1, "POL": 1 }, // Baum auf PKW
   "163" : { "LF": 1 }, // Baum auf Dach
   "164" : { "RTW": 1 }, // Kopfplatzwunde
+  "165" : { "RTW": 1 }, // Gehirnerschütterung
   "166" : { "LF": 1, "POL": 1, "ELW": 1 }, // Fassadenteile drohen zu fallen
   "167" : { "LF": 2, "ELW": 1, "DLK": 1, "POL": 1 }, // beschaedigter Dachbereich
   "168" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
