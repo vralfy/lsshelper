@@ -132,6 +132,7 @@
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "209" : { "POL": 1 }, // Fahraddiebstahl
+  "211" : { "RTW": 1 }, // Unterzuckerung
   "212" : { "RTW": 1 }, // Akute Bauchschmerzen
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
@@ -221,6 +222,8 @@
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
+  "537" : { "POL": 4 }, // Einbruch in Supermarkt
+  "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
   "553" : { "RTW": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
@@ -280,6 +283,7 @@
   "781" : { "LF": 2, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
+  "800" : { "NEA": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
   "801" : { "NEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
   "814" : { "NEA": 1 }, // Stromausfall in Feuerwehrwache
   "815" : { "NEA": 1 }, // Stromausfall in Rettungsdienstwache
