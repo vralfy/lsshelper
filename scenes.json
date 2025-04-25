@@ -223,7 +223,7 @@
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
-  "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
+  "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKON": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
   "553" : { "RTW": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
