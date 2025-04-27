@@ -126,6 +126,7 @@
   "169" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "170" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "172" : { "LF": 1 }, // Straße unter Wasser
+  "176" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1 }, // LKW in Hauswand
   "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
@@ -146,6 +147,7 @@
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
+  "279" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1, "POL": 2, "RTW": 2 }, // LKW in Supermarkt
   "280" : { "LF": 3, "ELW": 1, "RW": 1, "DLK": 1 }, // Baum auf Oberleitung
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
   "284" : { "POL": 1 }, // Ostereierdieb
@@ -279,6 +281,7 @@
   "733" : { "LF": 2 }, // Absicherung Osterfeuer
   "734" : { "LF": 1 }, // Geschmolzener Osterhase
   "736" : { "LF": 1, "POL": 1 }, // Schokohase in PKW eingeschlossen
+  "738" : { "RTW": 1 }, // Starke Blutung
   "739" : { "LF": 2 }, // Absicherung Osterfeuer
   "740" : { "LF": 2, "ELW": 1, "RW": 1, "GWA": 1, "POL": 2, "RTW": 2 }, // Gasaustritt aus Kanalisation
   "749" : { "LF": 1, "POL": 1}, // E-Call ausgelöst
