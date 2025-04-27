@@ -173,6 +173,7 @@
   "327" : { "LF": 6, "ELW": 1, "DLK": 2, "GWA": 2, "GWM": 1, "GWO": 1, "POL": 1, "RTW": 1 }, // Tiefgaragenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
   "339" : { "RTW": 1, "NEF": 1 }, // Herzinfarkt
+  "340" : { "RTW": 1, "NEF": 1 }, // akuter Asthma-Anfall
   "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "GWH": 1 }, // Hoehenrettung am Fahrgeschäft
   "347" : { "LF": 6, "DLK": 1, "ELW": 1, "ELW2": 1, "RW": 2, "GWO": 1, "GWH": 1, "POL": 3, "FWK": 1, "NEF": 1, "RTW": 2 }, // Helikopter in Baum
   "349" : { "LF": 1 }, // Brandgeruch
