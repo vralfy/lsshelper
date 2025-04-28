@@ -87,6 +87,7 @@
   "95" : { "LF": 6, "ELW": 1, "POL": 2, "GWO": 1 }, // ausgedehnte Ölspur
   "96" : { "LF": 3, "RTW": 1 }, // Feuer in Schnellrestaurant
   "97" : { "LF": 3, "ELW": 1, "GWO": 1 }, // Aufgerissener Öltank
+  "98" : { "POL": 1, "RTW": 1 }, // Angefahrene Person
   "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
@@ -212,6 +213,7 @@
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
   "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
   "463" : { "LF": 1, "RW": 1, "POL": 2 }, // Gesprengter Geldautomat
+  "464" : { "LF": 1, "ELW": 1, "FWK": 1, "RW": 2, "POL": 3, "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Eingestürzter Funkmast
   "466" : { "RTW": 1 }, // Badeunfall
   "467" : { "RTW": 1 }, // Badeunfall
   "468" : { "RTW": 1 }, // Badeunfall
@@ -308,6 +310,7 @@
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "838" : { "NEA": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
+  "842" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "882" : { "POL": 1 }, // Schulschwänzer
