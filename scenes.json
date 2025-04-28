@@ -148,6 +148,7 @@
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
+  "277" : { "RW": 1, "RTW": 1 }, // Person im Aufzug
   "279" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1, "POL": 2, "RTW": 2 }, // LKW in Supermarkt
   "280" : { "LF": 3, "ELW": 1, "RW": 1, "DLK": 1 }, // Baum auf Oberleitung
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
