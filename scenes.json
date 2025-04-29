@@ -304,17 +304,17 @@
   "781" : { "LF": 2, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
-  "800" : { "NEA": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
-  "801" : { "NEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
-  "814" : { "NEA": 1 }, // Stromausfall in Feuerwehrwache
-  "815" : { "NEA": 1 }, // Stromausfall in Rettungsdienstwache
-  "816" : { "NEA": 1 }, // Stromausfall in THW-Ortsverband
+  "800" : { "THWGWN": 1, "NEA": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
+  "801" : { "THWGWN": 1, "NEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
+  "814" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall in Feuerwehrwache
+  "815" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall in Rettungsdienstwache
+  "816" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall in THW-Ortsverband
   "821" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Kellerbrand in Mehrfamilienhaus
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
-  "838" : { "NEA": 1 }, // Stromausfall im Stellwerk (klein)
+  "838" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
   "842" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
