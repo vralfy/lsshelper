@@ -316,6 +316,7 @@
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "838" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
+  "841" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "842" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
