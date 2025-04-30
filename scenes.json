@@ -131,6 +131,7 @@
   "170" : { "LF": 1, "POL": 1 }, // Baum auf Gleisen
   "171" : { "LF": 1, "ELW": 1, "SW": 1, "GWO": 1, "POL": 2 }, // Parkdeck voll Wasser gelaufen
   "172" : { "LF": 1 }, // Straße unter Wasser
+  "173" : { "LF": 1, "POL": 2 }, // Straße unter Wasser
   "176" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1 }, // LKW in Hauswand
   "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
