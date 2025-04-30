@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-25-01
+// @version      202504-30-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -118,6 +118,8 @@
         document.lss_helper.getSetting('show_mission_lf1', 'true');
         document.lss_helper.getSetting('show_mission_lf2', 'true');
         document.lss_helper.getSetting('show_mission_type', 'true');
+
+        document.lss_helper.getSetting('optimize_scene', 'false');
     };
 
     document.lss_helper.update = (timeout) => {
@@ -132,6 +134,7 @@
             document.lss_helper.printVehicleList();
             document.lss_helper.printMissions();
             document.lss_helper.printMissingVehicles();
+            document.lss_helper.printScene();
             document.lss_helper.renderHash = document.lss_helper.hash();
         }
         document.lss_helper.printSettings();
@@ -375,6 +378,7 @@
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
         const missing = document.lss_helper.printSettingsButton('show_vehicle_missing');
+        const optimize = document.lss_helper.printSettingsButton('optimize_scene');
 
         const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-md-12');
 
@@ -645,14 +649,96 @@
             if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type')) {
                 const checkmark = document.createElement('span');
                 checkmark.innerHTML = '✔️';
+                checkmark.onclick = () => {
+                    document.lss_helper.missionDetails = m.data.id;
+                    document.lss_helper.printScene();
+                };
                 rightContainer.appendChild(checkmark);
             }
         });
     };
 
+    document.lss_helper.printScene = (missionId) => {
+        let sceneContainer = document.getElementById('lss_helper_scene');
+        if (!sceneContainer) {
+            sceneContainer = document.createElement("div");
+            sceneContainer.id = 'lss_helper_scene';
+            sceneContainer.classList = 'col-md-12 container-fluid';
+
+            const main = document.lss_helper.getHelperContainer();
+            main.appendChild(sceneContainer);
+        }
+        missionId = missionId || document.lss_helper.missionDetails;
+        const mission = document.lss_helper.missions.find((m) => m.data.id === missionId);
+
+        sceneContainer.style = 'display:' + (mission ? 'block' : 'none');
+        if (!mission) {
+            return;
+        }
+        sceneContainer.innerHTML = '';
+
+        const row = document.createElement('div');
+        row.classList = "row";
+        sceneContainer.appendChild(row);
+
+        const send = document.createElement('a');
+        send.classList= 'col-md-3 btn btn-xs btn-default';
+        send.innerHTML = '';
+        if (mission.unattended) {
+            send.innerHTML = '&nbsp;';
+            if (document.lss_helper.scenes[mission.missionType] && document.lss_helper.getVehiclesByMission(mission, mission.missionType)) {
+                send.innerHTML = '🚨';
+                send.onclick = () => {document.lss_helper.sendByScene(mission)};
+            }
+        } else {
+            send.innerHTML = '✔️';
+        }
+        row.appendChild(send);
+
+        const title = document.createElement('div');
+        title.classList= 'col-md-6';
+        title.innerHTML = mission.data.caption + ' (' + mission.missionType + ')(' + mission.data.id + ')';
+        row.appendChild(title);
+
+        const close = document.createElement('div');
+        close.innerHTML = 'X';
+        close.classList = 'col-md-3 btn btn-xs btn-default';
+        close.onclick = () => {
+            document.lss_helper.missionDetails = null;
+            document.lss_helper.printScene();
+        };
+        close.style = 'display:inline-block';
+        row.appendChild(close);
+
+        const vehicles = document.createElement('ul');
+        row.appendChild(vehicles);
+        if (mission.unattended) {
+            if (mission.proposedVehicles) {
+                const header = document.createElement('li');
+                header.innerHTML = 'Verfügbar';
+                vehicles.appendChild(header);
+                Object.values(mission.proposedVehicles).forEach((p) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = p.length + 'x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name);
+                    vehicles.appendChild(li);
+                });
+            } else {
+                const header = document.createElement('li');
+                header.innerHTML = 'Benötigt';
+                vehicles.appendChild(header);
+                const scene = document.lss_helper.scenes[mission.missionType] ?? {};
+                Object.keys(scene).forEach((k) => {
+                    const li = document.createElement('li');
+                    li.innerHTML = scene[k] + 'x ' + k;
+                    vehicles.appendChild(li);
+                });
+            }
+        }
+    };
+
     document.lss_helper.getVehiclesByMission = (mission, scene) => {
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
-        scene = document.lss_helper.scenes[scene];
+        scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
 
         if (mission.patients) {
             scene['RTW'] = mission.patients;
@@ -676,7 +762,34 @@
               return v1.distance - v2.distance;
           });
         mission.missing = {};
-        const vehicles = Object.keys(scene).map((vt) => {
+        const preVehicles = Object.keys(scene).map((vt) => {
+            const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
+            const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
+            const ids = r.map(v => v.id);
+            available = available.filter((v) => ids.indexOf(v.id) < 0);
+            if (r.length < scene[vt]) {
+                mission.missing[vt] = scene[vt];
+            }
+            return r.length === scene[vt] ? r : null;
+        }).filter((v) => v !== null).reduce((acc,cur) => [...acc,...cur], []);
+
+        const vehicleCounts = {};
+        let nonReplaceable = [];
+        preVehicles.forEach((v) => vehicleCounts[v.type] = (vehicleCounts[v.type] ?? 0) + 1);
+
+        if (document.lss_helper.getSetting('optimize_scene')) {
+            Object.keys(document.lss_helper.vehicleReplacements ?? {}).forEach((type) => {
+                const vehicles = preVehicles.filter((v) => v.type === type);
+                let max = 0;
+                document.lss_helper.vehicleReplacements[type].forEach((r) => {
+                    max = Math.max(max, scene[r] ?? 0);
+                    scene[r] = (scene[r] ?? 0) - vehicles.length;
+                });
+                nonReplaceable = [...nonReplaceable, ...vehicles.slice(0, max)];
+            });
+        }
+
+        let vehicles = Object.keys(scene).filter((vt) => scene[vt] > 0).map((vt) => {
             const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
             const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
             const ids = r.map(v => v.id);
@@ -686,6 +799,11 @@
             }
             return r.length === scene[vt] ? r : null;
         });
+
+        if (document.lss_helper.getSetting('optimize_scene') && nonReplaceable.length) {
+            vehicles = [...vehicles, ...[nonReplaceable]];
+        }
+//        console.warn(preVehicles, vehicleCounts, nonReplaceable, scene, vehicles);
         return vehicles.filter((v) => v === null).length ? null : vehicles;
     };
 
@@ -755,6 +873,10 @@
             document.lss_helper.scenes = {...document.lss_helper.scenes, ...response};
         });
 
+        document.lss_helper.fetchRemoteFile('vehicleReplacements.json')
+        .then((response) => {
+            document.lss_helper.vehicleReplacements = {...document.lss_helper.vehicleReplacements, ...response};
+        });
     };
 
     document.lss_helper.hash = (str) => {
