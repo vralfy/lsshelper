@@ -789,6 +789,19 @@
             });
         }
 
+        available = document.lss_helper.vehicles
+          .filter((v) => v.available)
+          .map((v) => {
+              const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
+              const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
+              return {
+                  distance: Math.sqrt(lat * lat + lng * lng),
+                  ...v,
+              };
+          })
+          .sort((v1, v2) => {
+              return v1.distance - v2.distance;
+          });
         let vehicles = Object.keys(scene).filter((vt) => scene[vt] > 0).map((vt) => {
             const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
             const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
@@ -803,7 +816,7 @@
         if (document.lss_helper.getSetting('optimize_scene') && nonReplaceable.length) {
             vehicles = [...vehicles, ...[nonReplaceable]];
         }
-//        console.warn(preVehicles, vehicleCounts, nonReplaceable, scene, vehicles);
+        //console.warn(preVehicles, vehicleCounts, nonReplaceable, scene, vehicles);
         return vehicles.filter((v) => v === null).length ? null : vehicles;
     };
 
