@@ -748,48 +748,50 @@
             scene['POL'] = mission.prisoners;
         }
 
-        let available = document.lss_helper.vehicles
-          .filter((v) => v.available)
-          .map((v) => {
-              const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
-              const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
-              return {
-                  distance: Math.sqrt(lat * lat + lng * lng),
-                  ...v,
-              };
-          })
-          .sort((v1, v2) => {
-              return v1.distance - v2.distance;
-          });
         mission.missing = {};
-        const preVehicles = Object.keys(scene).map((vt) => {
-            const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
-            const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
-            const ids = r.map(v => v.id);
-            available = available.filter((v) => ids.indexOf(v.id) < 0);
-            if (r.length < scene[vt]) {
-                mission.missing[vt] = scene[vt];
-            }
-            return r.length === scene[vt] ? r : null;
-        }).filter((v) => v !== null).reduce((acc,cur) => [...acc,...cur], []);
-
-        const vehicleCounts = {};
         let nonReplaceable = [];
-        preVehicles.forEach((v) => vehicleCounts[v.type] = (vehicleCounts[v.type] ?? 0) + 1);
+        const vehicleCounts = {};
 
         if (document.lss_helper.getSetting('optimize_scene')) {
-            Object.keys(document.lss_helper.vehicleReplacements ?? {}).forEach((type) => {
-                const vehicles = preVehicles.filter((v) => v.type === type);
-                let max = 0;
-                document.lss_helper.vehicleReplacements[type].forEach((r) => {
-                    max = Math.max(max, scene[r] ?? 0);
-                    scene[r] = (scene[r] ?? 0) - vehicles.length;
+            let available = document.lss_helper.vehicles
+              .filter((v) => v.available)
+              .map((v) => {
+                  const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
+                  const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
+                  return {
+                      distance: Math.sqrt(lat * lat + lng * lng),
+                      ...v,
+                  };
+              })
+              .sort((v1, v2) => {
+                  return v1.distance - v2.distance;
+              });
+            const preVehicles = Object.keys(scene).map((vt) => {
+                const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
+                const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
+                const ids = r.map(v => v.id);
+                available = available.filter((v) => ids.indexOf(v.id) < 0);
+                if (r.length < scene[vt]) {
+                    mission.missing[vt] = scene[vt];
+                }
+                return r.length === scene[vt] ? r : null;
+            }).filter((v) => v !== null).reduce((acc,cur) => [...acc,...cur], []);
+
+            preVehicles.forEach((v) => vehicleCounts[v.type] = (vehicleCounts[v.type] ?? 0) + 1);
+                Object.keys(document.lss_helper.vehicleReplacements ?? {}).forEach((type) => {
+                    const vehicles = preVehicles.filter((v) => v.type === type);
+                    let max = 0;
+                    document.lss_helper.vehicleReplacements[type].forEach((r) => {
+                        max = Math.max(max, scene[r] ?? 0);
+                        scene[r] = (scene[r] ?? 0) - vehicles.length;
+                    });
+                    nonReplaceable = [...nonReplaceable, ...vehicles.slice(0, max)];
                 });
-                nonReplaceable = [...nonReplaceable, ...vehicles.slice(0, max)];
-            });
         }
 
-        available = document.lss_helper.vehicles
+        const nonReplaceableIds = nonReplaceable.map((v) => v.id);
+        let available = document.lss_helper.vehicles
+          .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
           .filter((v) => v.available)
           .map((v) => {
               const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
@@ -816,7 +818,9 @@
         if (document.lss_helper.getSetting('optimize_scene') && nonReplaceable.length) {
             vehicles = [...vehicles, ...[nonReplaceable]];
         }
-        //console.warn(preVehicles, vehicleCounts, nonReplaceable, scene, vehicles);
+        //if (nonReplaceable.length) {
+        //console.warn('counts', vehicleCounts, 'replacements', nonReplaceable, 'ids', nonReplaceableIds, 'scene', scene, 'send', vehicles);
+        //}
         return vehicles.filter((v) => v === null).length ? null : vehicles;
     };
 
