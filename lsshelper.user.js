@@ -487,46 +487,97 @@
             });
         }
 
-        Object.values(itemsAvailable).forEach((i) => {
+        Object.values(itemsAvailable)
+        .map((i) => {
+            const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            return {
+                sort: name,
+                name: name,
+                length: i.length,
+            };
+        })
+        .sort((a, b) => a.sort < b.sort ? -1 : 1)
+        .forEach((i) => {
             const li = document.createElement('li');
             li.classList = 'lss_available';
-            li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            li.innerHTML = i.length + ' ' + i.name;
             containerAvailable.append(li)
         });
 
-        Object.values(itemsInMotion).forEach((i) => {
+        Object.values(itemsInMotion)
+        .map((i) => {
+            const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            return {
+                sort: name,
+                name: name,
+                length: i.length,
+            };
+        })
+        .sort((a, b) => a.sort < b.sort ? -1 : 1)
+        .forEach((i) => {
             const li = document.createElement('li');
             li.classList = 'lss_in_motion';
-            li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            li.innerHTML = i.length + ' ' + i.name;
             containerUnavailable.append(li)
         });
 
-        Object.values(itemsUnavailable).forEach((i) => {
+        Object.values(itemsUnavailable)
+        .map((i) => {
+            const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            return {
+                sort: name,
+                name: name,
+                length: i.length,
+            };
+        })
+        .sort((a, b) => a.sort < b.sort ? -1 : 1)
+        .forEach((i) => {
             const li = document.createElement('li');
             li.classList = 'lss_unavailable';
-            li.innerHTML = i.length + ' ' + (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+            li.innerHTML = i.length + ' ' + i.name;
             containerUnavailable.append(li)
         });
 
-        Object.keys({...itemsAvailable, ...itemsInMotion, ...itemsUnavailable}).forEach((k) => {
+        Object.keys({...itemsAvailable, ...itemsInMotion, ...itemsUnavailable})
+        .map((k) => {
+            return {
+                sort: (document.lss_helper.vehicleTypes[k] || k),
+                name: (document.lss_helper.vehicleTypes[k] || k),
+                available: itemsAvailable[k] ? itemsAvailable[k].length : 0,
+                inMotion: itemsInMotion[k] ? itemsInMotion[k].length : 0,
+                unavailable: itemsUnavailable[k] ? itemsUnavailable[k].length : 0,
+            };
+        })
+        .map((i) => {
+            return {
+                ...i,
+                sum: i.available + i.inMotion + i.unavailable,
+            };
+        })
+        .sort((a, b) => a.sort < b.sort ? -1 : 1)
+        .forEach((i) => {
             const li = document.createElement('li');
             containerSummary.append(li);
 
+            const sum = document.createElement('b');
             const available = document.createElement('b');
             const unavailable = document.createElement('b');
             const inMotion = document.createElement('b');
             available.classList = 'lss_available';
             unavailable.classList = 'lss_unavailable';
             inMotion.classList = 'lss_in_motion';
-            available.innerHTML = itemsAvailable[k] ? itemsAvailable[k].length : 0;
-            unavailable.innerHTML = itemsUnavailable[k] ? itemsUnavailable[k].length : 0;
-            inMotion.innerHTML = itemsInMotion[k] ? itemsInMotion[k].length : 0;
+            sum.innerHTML = i.sum;
+            available.innerHTML = i.available;
+            unavailable.innerHTML =  i.unavailable;
+            inMotion.innerHTML = i.inMotion;
+            li.append(sum);
+            li.innerHTML += '/';
             li.append(available);
             li.innerHTML += '/';
             li.append(inMotion);
             li.innerHTML += '/';
             li.append(unavailable);
-            li.innerHTML += ' ' + (document.lss_helper.vehicleTypes[k] || k);
+            li.innerHTML += i.name;
         });
     };
 
