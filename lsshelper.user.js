@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-05-01
+// @version      202505-05-02
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -664,7 +664,7 @@
                 if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type')) {
                     const btn2 = document.createElement('a');
                     btn2.classList= 'btn btn-xs btn-default';
-                    btn2.innerHTML = '🚨';
+                    btn2.innerHTML = '🚨' + (document.lss_helper.getVehiclesByMission(m, m.missionType)?.length ?? 0);
                     btn2.onclick = () => {document.lss_helper.sendByScene(m)};
                     leftContainer.appendChild(btn2);
                 } else {
