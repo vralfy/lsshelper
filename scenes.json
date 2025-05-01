@@ -136,7 +136,7 @@
   "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
-  "191" : { "LF": 2 }, // Baum auf Radweg
+  "191" : { "LF": 1 }, // Baum auf Radweg
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
