@@ -1,5 +1,6 @@
 {
   "default": ["1", "2"],
-  "transit": ["5"],
+  "call": ["5"],
+  "transit": ["7"],
   "41": ["2"], // THW MzGW (FGr N)
 }
