@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202504-30-01
+// @version      202505-05-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -20,6 +20,10 @@
         vehicleGroups: {
             'TEST': [1,2],
         },
+        statesAvailable: ['1','2'],
+        statesCall: ['5'],
+        statesTransit: ['7'],
+        vehicleStatesAvailable: {},
         scenes: {
             "X" : { "LF": 2 },
             "lf1" : { "LF": 1 },
@@ -176,13 +180,17 @@
                 const img = vehicle.getElementsByTagName('img')[0];
                 const status = vehicle.getElementsByTagName('span')[0];
                 const link = vehicle.getElementsByTagName('a')[0];
+                const state = status.innerHTML.trim();
+                const type = link.attributes.vehicle_type_id.value.trim();
+                const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
                 return {
                     id: parseInt(vehicle.attributes.vehicle_id.value.trim()),
-                    status: status.innerHTML.trim(),
-                    type: link.attributes.vehicle_type_id.value.trim(),
+                    status: state,
+                    type: type,
                     name: link.innerHTML.trim(),
-                    available: (['1','2'].indexOf(status.innerHTML) >= 0),
-                    call: (['5'].indexOf(status.innerHTML) >= 0),
+                    available: (availableStates.indexOf(state) >= 0),
+                    call: (document.lss_helper.statesCall.indexOf(state) >= 0),
+                    transit: (document.lss_helper.statesTransit.indexOf(state) >= 0),
                     link: link.cloneNode(true),
                     origin: vehicle,
                     building: b,
@@ -883,6 +891,13 @@
         document.lss_helper.fetchRemoteFile('vehicleGroups.json')
         .then((response) => {
             document.lss_helper.vehicleGroups = {...document.lss_helper.vehicleGroups, ...response};
+        });
+        document.lss_helper.fetchRemoteFile('vehicleStates.json')
+        .then((response) => {
+            document.lss_helper.vehicleStatesAvailable = {...document.lss_helper.vehicleStatesAvailable, ...response};
+            document.lss_helper.statesAvailable = document.lss_helper.vehicleStatesAvailable.default ?? ['1','2'];
+            document.lss_helper.statesCall = document.lss_helper.vehicleStatesAvailable.call ?? ['5'];
+            document.lss_helper.statesTransit = document.lss_helper.vehicleStatesAvailable.transit ?? ['7'];
         });
 
         document.lss_helper.fetchRemoteFile('scenes.json')
