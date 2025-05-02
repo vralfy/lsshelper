@@ -152,6 +152,7 @@
   "240" : { "LF": 3, "ELW": 1, "GWG": 1, "RTW": 1, "POL": 1}, // Gasgeruch
   "241" : { "POL": 1 }, //Wildunfall
   "243" : { "POL": 1, "NEF": 1, "RTW": 2 }, // Reitunfall mit Pkw
+  "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
