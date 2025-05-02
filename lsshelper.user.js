@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-05-02
+// @version      202505-02-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -119,6 +119,7 @@
 
         document.lss_helper.getSetting('show_mission_age', 'true');
         document.lss_helper.getSetting('show_mission_credits', 'true');
+        document.lss_helper.getSetting('show_mission_credits_rate', 'false');
         document.lss_helper.getSetting('show_mission_lf1', 'true');
         document.lss_helper.getSetting('show_mission_lf2', 'true');
         document.lss_helper.getSetting('show_mission_type', 'true');
@@ -382,6 +383,7 @@
         const missions = document.lss_helper.printSettingsButton('show_missions');
         const age = document.lss_helper.printSettingsButton('show_mission_age');
         const credits = document.lss_helper.printSettingsButton('show_mission_credits');
+        const creditsrate = document.lss_helper.printSettingsButton('show_mission_credits_rate');
         const type = document.lss_helper.printSettingsButton('show_mission_type');
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
@@ -662,9 +664,11 @@
 
             if (!m.hasAlert && m.unattended) {
                 if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type')) {
+                    const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+                    const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
                     const btn2 = document.createElement('a');
                     btn2.classList= 'btn btn-xs btn-default';
-                    btn2.innerHTML = '🚨' + (document.lss_helper.getVehiclesByMission(m, m.missionType)?.length ?? 0);
+                    btn2.innerHTML = '🚨' + vehiclesCount;
                     btn2.onclick = () => {document.lss_helper.sendByScene(m)};
                     leftContainer.appendChild(btn2);
                 } else {
@@ -698,6 +702,15 @@
                 const creditContainer = document.createElement('span');
                 creditContainer.innerHTML = m.data.average_credits + '$';
                 centerContainer.appendChild(creditContainer);
+            }
+
+            if (document.lss_helper.getSetting('show_mission_credits_rate') && document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
+                const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+                const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
+                const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
+                const rateContainer = document.createElement('span');
+                rateContainer.innerHTML = rate + '$/c';
+                centerContainer.appendChild(rateContainer);
             }
 
             const txt = m.links[0];
