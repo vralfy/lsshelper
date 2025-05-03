@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-02-01
+// @version      202505-03-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -77,6 +77,7 @@
         document.lss_helper.log('initiating');
         $([
             "<style type='text/css' id='lss_helper_css'>",
+            //"#buildings_outer .panel-body {max-height: initial;height:initial;overflow:visible}",
             ".leaflet-marker-icon[src*='red'], .leaflet-marker-icon[src*='rot']{ filter: drop-shadow(0px 0px 8px red);}",
             ".leaflet-marker-icon[src*='yellow'], .leaflet-marker-icon[src*='gelb']{ filter: drop-shadow(0px 0px 8px yellow);}",
             ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
@@ -94,13 +95,16 @@
         ].join("\n")).appendTo("head");
 
         const scrollInterval = setInterval(() => {
-            document.lss_helper.log('Try to scroll down vehicle list');
             const vehicleListElement = document.getElementById('building_panel_body');
             if (vehicleListElement) {
-                vehicleListElement.scrollTo(0, vehicleListElement.scrollHeight);
-                clearInterval(scrollInterval);
+                document.lss_helper.log('Try to scroll down vehicle list');
+                const scroll = 400;
+                vehicleListElement.scrollTo(0, vehicleListElement.scrollTop + scroll);
+                if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2*scroll)) {
+                    clearInterval(scrollInterval);
+                }
             }
-        }, 1000);
+        }, 500);
 
         document.lss_helper.setSetting('autoAccept', 'false');
 
