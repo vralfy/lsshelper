@@ -55,6 +55,7 @@
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
   "60" : { "POL": 1}, // Ladendiebstahl
   "61" : { "POL": 1}, // Ladendiebstahl
+  "62" : { "POL": 1 }, // Parkendes Auto gerammt
   "63" : { "POL": 1 }, // parkendes Auto gerammt
   "64" : { "POL": 1 }, // Metalldiebstahl
   "65" : { "POL": 1 }, // Taschendiebstahl
@@ -152,6 +153,7 @@
   "240" : { "LF": 3, "ELW": 1, "GWG": 1, "RTW": 1, "POL": 1}, // Gasgeruch
   "241" : { "POL": 1 }, //Wildunfall
   "243" : { "POL": 1, "NEF": 1, "RTW": 2 }, // Reitunfall mit Pkw
+  "244" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "257" : { "POL": 2 }, // Verkehrsueberwachung
