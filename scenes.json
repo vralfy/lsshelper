@@ -281,6 +281,7 @@
   "649" : { "RTW": 1 }, // Knalltrauma
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "668" : { "POL": 2 }, // Ampelausfall
+  "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
   "681" : { "RTW": 1 }, // Reitsportunfall
   "683" : { "POL": 1 }, // KFZ-Diebstahl
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
