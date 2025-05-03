@@ -157,6 +157,7 @@
   "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "250" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
+  "252" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
@@ -195,6 +196,7 @@
   "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "GWH": 1 }, // Hoehenrettung am Fahrgeschäft
   "347" : { "LF": 6, "DLK": 1, "ELW": 1, "ELW2": 1, "RW": 2, "GWO": 1, "GWH": 1, "POL": 3, "FWK": 1, "NEF": 1, "RTW": 2 }, // Helikopter in Baum
   "349" : { "LF": 1 }, // Brandgeruch
+  "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
@@ -298,6 +300,7 @@
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
   "702" : { "LF": 12, "DLK": 2, "ELW": 3, "ELW2": 1, "RW": 2, "POL": 4, "RTW": 2 }, // Brand in Großwäscherei
   "703" : { "RTW": 1 }, // Akute Rückenschmerzen
+  "709" : { "LF": 4, "ELW": 1, "RW": 2, "POL": 4, "RTW": 6, "NEF": 1 }, // Bus in Haltestelle
   "721" : { "RTW": 1, "POL": 2 }, // randalierender Fluggast
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
   "723" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
