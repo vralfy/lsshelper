@@ -93,7 +93,7 @@
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "121" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1, "FWK": 1}, // LKW umgestürzt
-  "122" : { "POL": 1, "RTW": 2 }, // Motorradunfall
+  "122" : { "POL": 1, "RTW": 2, "NEF": 1 }, // Motorradunfall
   "123" : { "LF": 1, "POL": 1, "RTW": 1 }, // Verkehrsunfall
   "124" : { "LF": 1, "RW": 1, "RTW": 2 }, // Verkehrsunfall
   "125" : { "LF": 1, "RW": 1, "POL": 1, "RTW": 2 }, // Verkehrsunfall
@@ -144,6 +144,7 @@
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "208" : { "LF": 8, "ELW": 1, "ELW2": 1, "RW": 2, "GWA": 1, "GWO": 1, "GWM": 2, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 5, "NEF": 1 }, // Leck in Chemikalientank
   "209" : { "POL": 1 }, // Fahraddiebstahl
+  "210" : { "RTW": 1, "NEF": 1 }, // Unfall mit Motorsäge
   "211" : { "RTW": 1 }, // Unterzuckerung
   "212" : { "RTW": 1 }, // Akute Bauchschmerzen
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
@@ -266,7 +267,7 @@
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
   "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4 }, // LKW auf PKW gestürzt
-  "552" : { "LF": 8, "ELW": 1, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
+  "552" : { "LF": 8, "ELW": 2, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
   "553" : { "RTW": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
