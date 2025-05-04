@@ -302,7 +302,7 @@
   "681" : { "RTW": 1 }, // Reitsportunfall
   "683" : { "POL": 1 }, // KFZ-Diebstahl
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
-  "686" : { "LF": 1, "RTW": 1 }, // Kind in Spielgerät eingeklemmt
+  "686" : { "LF": 1, "RTW": 1, "POL": 1 }, // Kind in Spielgerät eingeklemmt
   "687" : { "LF": 2, "ELW": 1, "RW": 2, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Nitrose Gase auf Bauernhof
   "691" : { "RTW": 1, "NEF": 1 }, // Lungenödem
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
