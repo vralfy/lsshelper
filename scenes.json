@@ -152,6 +152,7 @@
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1}, // Verletzte Person auf Hochspannungsmast
+  "238" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Verkehrsunfall mit Linienbus
   "240" : { "LF": 3, "ELW": 1, "GWG": 1, "RTW": 1, "POL": 1}, // Gasgeruch
   "241" : { "POL": 1 }, //Wildunfall
   "243" : { "POL": 1, "NEF": 1, "RTW": 2 }, // Reitunfall mit Pkw
@@ -164,6 +165,7 @@
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
   "273" : { "LF": 2, "ELW": 1, "GWO": 1, "POL": 1, "DLRG": 1, "MZB": 1 }, // Gewässerverschmutzung durch Öl
+  "274" : { "RTW": 1, "NEF": 1}, // Bewusstlose Person
   "276" : { "POL": 4 }, // Schwertransport
   "277" : { "RW": 1, "RTW": 1 }, // Person im Aufzug
   "278" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1, "POL": 2, "RTW": 1 }, // LKW in Supermarkt
@@ -185,6 +187,7 @@
   "301" : { "POL": 2 }, // Tiere auf der Fahrbahn
   "303" : { "LF": 2 }, // Carportbrand
   "308" : { "LF": 2 }, // Brennender Müllwagen
+  "310" : { "TAUCHER": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Tauchunfall
   "311" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Mitarbeiter unter PKW eingeklemmt
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
@@ -262,6 +265,8 @@
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
+  "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4 }, // LKW auf PKW gestürzt
+  "552" : { "LF": 8, "ELW": 1, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
   "553" : { "RTW": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
@@ -269,6 +274,7 @@
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
   "570" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Wohnhaus
   "571" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Dachstuhlbrand
+  "572" : { "POL": 6 }, // Überfall auf Spielhalle
   "574" : { "LF": 2, "POL": 2, "RTW": 1 }, // Brandsicherheitswache bei Feuerwerk
   "575" : { "LF": 1}, // unklare Rauchentwicklung
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
