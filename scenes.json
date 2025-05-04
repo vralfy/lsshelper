@@ -28,7 +28,7 @@
   "26" : { "LF": 3, "DLK": 1, "RW": 1, "ELW": 1, "ELW2": 1 }, // Brand im Supermarkt
   "27" : null,
   "28" : { "LF": 2 }, // Garagenbrand
-  "29" : { "LF": 3, "ELW": 1, "RW": 1, "GWA": 1 }, // Maschinenbrand
+  "29" : { "LF": 3, "ELW": 1, "RW": 1, "SW": 1, "GWA": 1 }, // Maschinenbrand
   "30" : { "LF": 1, "GWO": 1 }, // Große Ölspur
   "31" : { "LF": 1, "RW": 1 }, // Auslaufende Betriebsstoffe
   "32" : { "LF": 2, "DLK": 1, "ELW": 1 }, // Kaminbrand
@@ -285,7 +285,7 @@
   "614" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
-  "617" : { "GKW": 1, "THWMTW": 1, "THWGWN": 2, "ELW": 1, "LF": 4, "FWK": 1, "POL": 2, "RTW": 1 }, // Güterzug entgleist
+  "617" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "ELW": 1, "LF": 4, "FWK": 1, "POL": 2, "RTW": 1 }, // Güterzug entgleist
   "622" : { "RTW": 1 }, // Allergischer Schock
   "623" : { "LF": 3, "ELW": 1, "RW": 2, "DLK": 1, "GWH": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Baugerüst eingestürzt
   "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
@@ -336,7 +336,7 @@
   "776" : { "LF": 1, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Rolltreppe eingeklemmt
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
   "780" : { "RTW": 1 }, // Treppensturz
-  "781" : { "LF": 2, "POL": 1 }, // Gartenschuppenbrand
+  "781" : { "LF": 2, "ELW": 1, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
   "800" : { "THWGWN": 1, "NEA": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
