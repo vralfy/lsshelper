@@ -65,7 +65,7 @@
   "69" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "70" : { "POL": 1}, // Personalienaufnahme nach Schwarzfahrer
   "71" : { "POL": 1}, // parkendes Auto gerammt
-  "72" : { "LF": 1, "RTW": 1, "POL": 1, "GWH": 1 }, // Bewußtloser Kranführer
+  "72" : { "LF": 1, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1 }, // Bewußtloser Kranführer
   "73" : { "POL": 3, "RTW": 2 }, // Schlägerei
   "74" : { "POL": 2 }, // Randalierende Person
   "76" : { "LF": 2 }, // Küchenbrand
@@ -266,9 +266,9 @@
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
-  "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4 }, // LKW auf PKW gestürzt
+  "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // LKW auf PKW gestürzt
   "552" : { "LF": 8, "ELW": 2, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
-  "553" : { "RTW": 1 }, // Veraetzung
+  "553" : { "RTW": 1, "NEF": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
   "566" : { "POL": 1 }, // Drogenhandel aufgeflogen
@@ -290,12 +290,13 @@
   "623" : { "LF": 3, "ELW": 1, "RW": 2, "DLK": 1, "GWH": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Baugerüst eingestürzt
   "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
-  "640" : { "RTW": 1 }, // Amputationsverletzung
+  "640" : { "RTW": 1, "NEF": 1 }, // Amputationsverletzung
   "643" : { "LF": 3, "RW": 2, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 2, "RTW": 1 }, // Unfall in Getreidesilo
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "SW": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
   "649" : { "RTW": 1 }, // Knalltrauma
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
+  "669" : { "LF": 6, "DLK": 2, "ELW": 2, "POL": 2, "RTW": 2 }, // Reihenhaus in Flammen
   "668" : { "POL": 2 }, // Ampelausfall
   "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
   "681" : { "RTW": 1 }, // Reitsportunfall
@@ -303,6 +304,7 @@
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
   "686" : { "LF": 1, "RTW": 1 }, // Kind in Spielgerät eingeklemmt
   "687" : { "LF": 2, "ELW": 1, "RW": 2, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Nitrose Gase auf Bauernhof
+  "691" : { "RTW": 1, "NEF": 1 }, // Lungenödem
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
@@ -347,6 +349,7 @@
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
+  "835" : { "POL": 1 }, // Fußstreife
   "838" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
   "841" : { "RTW": 1 }, // Unterstützung Hausnotruf
@@ -357,7 +360,7 @@
   "883" : { "POL": 1 }, // Schulschwänzer
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
-  "916" : { "LF": 6, "ELW": 1, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
+  "916" : { "LF": 6, "ELW": 2, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
 }
 // https://www.leitstellenspiel.de/einsaetze/0
