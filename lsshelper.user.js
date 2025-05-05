@@ -1048,7 +1048,7 @@
                 if (!table) {
                     return;
                 }
-                const button = Array.from(table.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).pop();
+                const button = Array.from(table.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
                 if (button) {
                     fetch(button.href, header)
                         .then((response) => response.text())
@@ -1060,7 +1060,7 @@
                 if (!table2) {
                     return;
                 }
-                const button2 = Array.from(table2.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).pop();
+                const button2 = Array.from(table2.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
                 if (button2) {
                     fetch(button2.href, header)
                         .then((response) => response.text())
@@ -1095,7 +1095,7 @@
                     return;
                 }
 
-                const button = Array.from(table.querySelectorAll('.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).pop();
+                const button = Array.from(table.querySelectorAll('.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
                 if (button) {
                     fetch(button.href, header)
                         .then((response) => response.text())
