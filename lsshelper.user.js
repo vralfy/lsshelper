@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-03-01
+// @version      202505-05-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -9,7 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
     document.lss_helper = {
         storage: localStorage,
@@ -18,16 +18,16 @@
         },
         vehicles: [],
         vehicleGroups: {
-            'TEST': [1,2],
+            'TEST': [1, 2],
         },
-        statesAvailable: ['1','2'],
+        statesAvailable: ['1', '2'],
         statesCall: ['5'],
         statesTransit: ['7'],
         vehicleStatesAvailable: {},
         scenes: {
-            "X" : { "LF": 2 },
-            "lf1" : { "LF": 1 },
-            "lf2" : { "LF": 2 },
+            "X": { "LF": 2 },
+            "lf1": { "LF": 1 },
+            "lf2": { "LF": 2 },
         },
         buildings: [],
         missions: [],
@@ -100,13 +100,15 @@
                 document.lss_helper.log('Try to scroll down vehicle list');
                 const scroll = 400;
                 vehicleListElement.scrollTo(0, vehicleListElement.scrollTop + scroll);
-                if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2*scroll)) {
+                if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2 * scroll)) {
                     clearInterval(scrollInterval);
                 }
             }
         }, 500);
 
         document.lss_helper.setSetting('autoAccept', 'false');
+        document.lss_helper.setSetting('autoPatient', 'false');
+        document.lss_helper.setSetting('autoPrisoner', 'false');
 
         document.lss_helper.setDefaultSetting('loglevel', '550');
         document.lss_helper.setDefaultSetting('updateInterval', '1000');
@@ -134,7 +136,7 @@
     document.lss_helper.update = (timeout) => {
         if (timeout && timeout > 0) {
             document.lss_helper.debug('LSS Helper Update sheduled in', timeout, 'ms');
-            setTimeout(() => {document.lss_helper.update(-1);}, timeout);
+            setTimeout(() => { document.lss_helper.update(-1); }, timeout);
             return;
         }
         document.lss_helper.debug('LSS Helper Update', timeout);
@@ -148,115 +150,115 @@
         }
         document.lss_helper.printSettings();
         if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
-            setTimeout(() => {document.lss_helper.update();}, document.lss_helper.getSetting('updateInterval', '1000'));
+            setTimeout(() => { document.lss_helper.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
         }
     };
 
     document.lss_helper.updateLists = (timeout) => {
-         if (timeout && timeout > 0) {
+        if (timeout && timeout > 0) {
             document.lss_helper.debug('LSS List Update sheduled in', timeout, 'ms');
-            setTimeout(() => {document.lss_helper.updateLists();}, timeout);
+            setTimeout(() => { document.lss_helper.updateLists(); }, timeout);
             return;
         }
 
         document.lss_helper.authToken = Array.from(document.getElementsByName('csrf-token'))[0].content;
 
         document.lss_helper.buildings = Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
-        .map((building) => {
-            const markerImage = Array.from(building.getElementsByClassName('building_marker_image'))[0];
-            const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
-            return {
-                name: position.innerHTML.trim(),
-                leitstelleId: building.attributes.leitstelle_building_id.value.trim(),
-                type: building.attributes.building_type_id.value.trim(),
-                lat: parseFloat(position.attributes['data-latitude'].value.trim()),
-                lng: parseFloat(position.attributes['data-longitude'].value.trim()),
-                vehicles: Array.from(building.getElementsByClassName('building_list_vehicle_element')),
-                links: Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true)),
-                origin: building,
-                markerImage,
-                position,
-            };
-        });
+            .map((building) => {
+                const markerImage = Array.from(building.getElementsByClassName('building_marker_image'))[0];
+                const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
+                return {
+                    name: position.innerHTML.trim(),
+                    leitstelleId: building.attributes.leitstelle_building_id.value.trim(),
+                    type: building.attributes.building_type_id.value.trim(),
+                    lat: parseFloat(position.attributes['data-latitude'].value.trim()),
+                    lng: parseFloat(position.attributes['data-longitude'].value.trim()),
+                    vehicles: Array.from(building.getElementsByClassName('building_list_vehicle_element')),
+                    links: Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true)),
+                    origin: building,
+                    markerImage,
+                    position,
+                };
+            });
 
         document.lss_helper.vehicles = document.lss_helper.buildings.map((b) => {
             return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
-            .map((vehicle) => {
-                const img = vehicle.getElementsByTagName('img')[0];
-                const status = vehicle.getElementsByTagName('span')[0];
-                const link = vehicle.getElementsByTagName('a')[0];
-                const state = status.innerHTML.trim();
-                const type = link.attributes.vehicle_type_id.value.trim();
-                const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
-                return {
-                    id: parseInt(vehicle.attributes.vehicle_id.value.trim()),
-                    status: state,
-                    type: type,
-                    name: link.innerHTML.trim(),
-                    available: (availableStates.indexOf(state) >= 0),
-                    call: (document.lss_helper.statesCall.indexOf(state) >= 0),
-                    transit: (document.lss_helper.statesTransit.indexOf(state) >= 0),
-                    link: link.cloneNode(true),
-                    origin: vehicle,
-                    building: b,
-                };
-            });
+                .map((vehicle) => {
+                    const img = vehicle.getElementsByTagName('img')[0];
+                    const status = vehicle.getElementsByTagName('span')[0];
+                    const link = vehicle.getElementsByTagName('a')[0];
+                    const state = status.innerHTML.trim();
+                    const type = link.attributes.vehicle_type_id.value.trim();
+                    const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
+                    return {
+                        id: parseInt(vehicle.attributes.vehicle_id.value.trim()),
+                        status: state,
+                        type: type,
+                        name: link.innerHTML.trim(),
+                        available: (availableStates.indexOf(state) >= 0),
+                        call: (document.lss_helper.statesCall.indexOf(state) >= 0),
+                        transit: (document.lss_helper.statesTransit.indexOf(state) >= 0),
+                        link: link.cloneNode(true),
+                        origin: vehicle,
+                        building: b,
+                    };
+                });
         })
-        .reduce((acc, cur) => [...acc, ...cur], [])
-        .sort((a,b) => a.name < b.name ? -1 : 1 )
-        .sort((a,b) => a.type < b.type ? -1 : 1 )
-        .sort((a,b) => a.status < b.status ? -1 : 1 );
+            .reduce((acc, cur) => [...acc, ...cur], [])
+            .sort((a, b) => a.name < b.name ? -1 : 1)
+            .sort((a, b) => a.type < b.type ? -1 : 1)
+            .sort((a, b) => a.status < b.status ? -1 : 1);
 
         document.lss_helper.missions = Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
-        .map((m) => {
-            const links = Array.from(m.getElementsByTagName('a')).map((l) => l.cloneNode(true));
-            const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
-            return {
-                id: m.attributes['id'].value.trim(),
-                missionId: m.attributes['mission_id'].value.trim(),
-                type: m.attributes['data-mission-type-filter'].value.trim(),
-                state: m.attributes['data-mission-state-filter'].value.trim(),
-                participation: m.attributes['data-mission-participation-filter'].value.trim(),
-                data: JSON.parse(m.attributes['data-sortable-by'].value.trim()),
-                missionType: m.attributes['mission_type_id'].value.trim(),
-                lat: parseFloat(position.attributes['data-latitude']?.value.trim() ?? '0'),
-                lng: parseFloat(position.attributes['data-longitude']?.value.trim() ?? '0'),
-                links,
-                hasAlert: Array.from(m.querySelectorAll(".alert.alert-danger")).length > 0,
-                unattended: Array.from(m.querySelectorAll(".panel.mission_panel_red")).length > 0,
-                attended: Array.from(m.querySelectorAll(".panel.mission_panel_yellow")).length > 0,
-                finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
-                origin: m,
-                position,
-            }
-        })
-        .map((m) => {
-            return {
-                stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
-                scene: document.lss_helper.scenes[m.missionType],
-                proposedVehicles: document.lss_helper.getVehiclesByMission(m),
-                info: {
-                    countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
-                    progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
-                    missing: document.getElementById('mission_missing_' + m.data.id),
-                    missingShort: document.getElementById('mission_missing_short_' + m.data.id),
-                    pump: document.getElementById('mission_pump_progress_' + m.data.id),
-                    patients: document.getElementById('mission_patients_' + m.data.id),
-                    prisoners: document.getElementById('mission_prisoners_' + m.data.id),
-                },
-                ...m
-            };
-        })
-        .map((m) => {
-            return {
-                patients: m.info.patients.children.length,
-                prisoners: m.info.prisoners.children.length,
-                ...m
-            };
-        })
-        .sort((m1, m2) => m2.data.average_credits - m1.data.average_credits)
-        .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
-        .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
+            .map((m) => {
+                const links = Array.from(m.getElementsByTagName('a')).map((l) => l.cloneNode(true));
+                const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
+                return {
+                    id: m.attributes['id'].value.trim(),
+                    missionId: m.attributes['mission_id'].value.trim(),
+                    type: m.attributes['data-mission-type-filter'].value.trim(),
+                    state: m.attributes['data-mission-state-filter'].value.trim(),
+                    participation: m.attributes['data-mission-participation-filter'].value.trim(),
+                    data: JSON.parse(m.attributes['data-sortable-by'].value.trim()),
+                    missionType: m.attributes['mission_type_id'].value.trim(),
+                    lat: parseFloat(position.attributes['data-latitude']?.value.trim() ?? '0'),
+                    lng: parseFloat(position.attributes['data-longitude']?.value.trim() ?? '0'),
+                    links,
+                    hasAlert: Array.from(m.querySelectorAll(".alert.alert-danger")).length > 0,
+                    unattended: Array.from(m.querySelectorAll(".panel.mission_panel_red")).length > 0,
+                    attended: Array.from(m.querySelectorAll(".panel.mission_panel_yellow")).length > 0,
+                    finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
+                    origin: m,
+                    position,
+                }
+            })
+            .map((m) => {
+                return {
+                    stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
+                    scene: document.lss_helper.scenes[m.missionType],
+                    proposedVehicles: document.lss_helper.getVehiclesByMission(m),
+                    info: {
+                        countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
+                        progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
+                        missing: document.getElementById('mission_missing_' + m.data.id),
+                        missingShort: document.getElementById('mission_missing_short_' + m.data.id),
+                        pump: document.getElementById('mission_pump_progress_' + m.data.id),
+                        patients: document.getElementById('mission_patients_' + m.data.id),
+                        prisoners: document.getElementById('mission_prisoners_' + m.data.id),
+                    },
+                    ...m
+                };
+            })
+            .map((m) => {
+                return {
+                    patients: m.info.patients.children.length,
+                    prisoners: m.info.prisoners.children.length,
+                    ...m
+                };
+            })
+            .sort((m1, m2) => m2.data.average_credits - m1.data.average_credits)
+            .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
+            .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
     };
 
     document.lss_helper.getHelperContainer = () => {
@@ -392,9 +394,11 @@
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
         const missing = document.lss_helper.printSettingsButton('show_vehicle_missing');
-        const optimize = document.lss_helper.printSettingsButton('optimize_scene');
+        const optimize = document.lss_helper.printSettingsButton('optimize_scene', null, 'col-md-12');
 
-        const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-md-12');
+        const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-md-4');
+        const autoPatient = document.lss_helper.printSettingsButton('autoPatient', null, 'col-md-4');
+        const autoPrisoner = document.lss_helper.printSettingsButton('autoPrisoner', null, 'col-md-4');
 
         const autoAccepInterval = document.lss_helper.printSettingsNumberInput('autoAcceptInterval');
         const autoAccepMaxAttend = document.lss_helper.printSettingsNumberInput('autoAcceptMaxAttended');
@@ -454,30 +458,30 @@
         const itemsCall = document.lss_helper.vehicles.filter((v) => v.call);
 
         document.lss_helper.vehicles
-        .filter((v) => v.available)
-        .forEach((v) => {
-            const idx = v.type;
-            itemsAvailable[idx] = itemsAvailable[idx] || [];
-            itemsAvailable[idx].push(v);
-        });
+            .filter((v) => v.available)
+            .forEach((v) => {
+                const idx = v.type;
+                itemsAvailable[idx] = itemsAvailable[idx] || [];
+                itemsAvailable[idx].push(v);
+            });
 
         document.lss_helper.vehicles
-        .filter((v) => !v.available)
-        .filter((v) => v.status === '3')
-        .forEach((v) => {
-            const idx = v.type;
-            itemsInMotion[idx] = itemsInMotion[idx] || [];
-            itemsInMotion[idx].push(v);
-        });
+            .filter((v) => !v.available)
+            .filter((v) => v.status === '3')
+            .forEach((v) => {
+                const idx = v.type;
+                itemsInMotion[idx] = itemsInMotion[idx] || [];
+                itemsInMotion[idx].push(v);
+            });
 
         document.lss_helper.vehicles
-        .filter((v) => !v.available)
-        .filter((v) => v.status === '4')
-        .forEach((v) => {
-            const idx = v.type;
-            itemsUnavailable[idx] = itemsUnavailable[idx] || [];
-            itemsUnavailable[idx].push(v);
-        });
+            .filter((v) => !v.available)
+            .filter((v) => v.status === '4')
+            .forEach((v) => {
+                const idx = v.type;
+                itemsUnavailable[idx] = itemsUnavailable[idx] || [];
+                itemsUnavailable[idx].push(v);
+            });
 
         if (document.lss_helper.getSetting('show_vehicle_call')) {
             Object.values(itemsCall).forEach((i) => {
@@ -494,97 +498,97 @@
         }
 
         Object.values(itemsAvailable)
-        .map((i) => {
-            const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-            return {
-                sort: name,
-                name: name,
-                length: i.length,
-            };
-        })
-        .sort((a, b) => a.sort < b.sort ? -1 : 1)
-        .forEach((i) => {
-            const li = document.createElement('li');
-            li.classList = 'lss_available';
-            li.innerHTML = i.length + ' ' + i.name;
-            containerAvailable.append(li)
-        });
+            .map((i) => {
+                const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+                return {
+                    sort: name,
+                    name: name,
+                    length: i.length,
+                };
+            })
+            .sort((a, b) => a.sort < b.sort ? -1 : 1)
+            .forEach((i) => {
+                const li = document.createElement('li');
+                li.classList = 'lss_available';
+                li.innerHTML = i.length + ' ' + i.name;
+                containerAvailable.append(li)
+            });
 
         Object.values(itemsInMotion)
-        .map((i) => {
-            const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-            return {
-                sort: name,
-                name: name,
-                length: i.length,
-            };
-        })
-        .sort((a, b) => a.sort < b.sort ? -1 : 1)
-        .forEach((i) => {
-            const li = document.createElement('li');
-            li.classList = 'lss_in_motion';
-            li.innerHTML = i.length + ' ' + i.name;
-            containerUnavailable.append(li)
-        });
+            .map((i) => {
+                const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+                return {
+                    sort: name,
+                    name: name,
+                    length: i.length,
+                };
+            })
+            .sort((a, b) => a.sort < b.sort ? -1 : 1)
+            .forEach((i) => {
+                const li = document.createElement('li');
+                li.classList = 'lss_in_motion';
+                li.innerHTML = i.length + ' ' + i.name;
+                containerUnavailable.append(li)
+            });
 
         Object.values(itemsUnavailable)
-        .map((i) => {
-            const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
-            return {
-                sort: name,
-                name: name,
-                length: i.length,
-            };
-        })
-        .sort((a, b) => a.sort < b.sort ? -1 : 1)
-        .forEach((i) => {
-            const li = document.createElement('li');
-            li.classList = 'lss_unavailable';
-            li.innerHTML = i.length + ' ' + i.name;
-            containerUnavailable.append(li)
-        });
+            .map((i) => {
+                const name = (document.lss_helper.vehicleTypes[i[0].type] || (i[0].type + ' - ' + i[0].name));
+                return {
+                    sort: name,
+                    name: name,
+                    length: i.length,
+                };
+            })
+            .sort((a, b) => a.sort < b.sort ? -1 : 1)
+            .forEach((i) => {
+                const li = document.createElement('li');
+                li.classList = 'lss_unavailable';
+                li.innerHTML = i.length + ' ' + i.name;
+                containerUnavailable.append(li)
+            });
 
-        Object.keys({...itemsAvailable, ...itemsInMotion, ...itemsUnavailable})
-        .map((k) => {
-            return {
-                sort: (document.lss_helper.vehicleTypes[k] || k),
-                name: (document.lss_helper.vehicleTypes[k] || k),
-                available: itemsAvailable[k] ? itemsAvailable[k].length : 0,
-                inMotion: itemsInMotion[k] ? itemsInMotion[k].length : 0,
-                unavailable: itemsUnavailable[k] ? itemsUnavailable[k].length : 0,
-            };
-        })
-        .map((i) => {
-            return {
-                ...i,
-                sum: i.available + i.inMotion + i.unavailable,
-            };
-        })
-        .sort((a, b) => a.sort < b.sort ? -1 : 1)
-        .forEach((i) => {
-            const li = document.createElement('li');
-            containerSummary.append(li);
+        Object.keys({ ...itemsAvailable, ...itemsInMotion, ...itemsUnavailable })
+            .map((k) => {
+                return {
+                    sort: (document.lss_helper.vehicleTypes[k] || k),
+                    name: (document.lss_helper.vehicleTypes[k] || k),
+                    available: itemsAvailable[k] ? itemsAvailable[k].length : 0,
+                    inMotion: itemsInMotion[k] ? itemsInMotion[k].length : 0,
+                    unavailable: itemsUnavailable[k] ? itemsUnavailable[k].length : 0,
+                };
+            })
+            .map((i) => {
+                return {
+                    ...i,
+                    sum: i.available + i.inMotion + i.unavailable,
+                };
+            })
+            .sort((a, b) => a.sort < b.sort ? -1 : 1)
+            .forEach((i) => {
+                const li = document.createElement('li');
+                containerSummary.append(li);
 
-            const sum = document.createElement('b');
-            const available = document.createElement('b');
-            const unavailable = document.createElement('b');
-            const inMotion = document.createElement('b');
-            available.classList = 'lss_available';
-            unavailable.classList = 'lss_unavailable';
-            inMotion.classList = 'lss_in_motion';
-            sum.innerHTML = i.sum;
-            available.innerHTML = i.available;
-            unavailable.innerHTML =  i.unavailable;
-            inMotion.innerHTML = i.inMotion;
-            li.append(sum);
-            li.innerHTML += '/';
-            li.append(available);
-            li.innerHTML += '/';
-            li.append(inMotion);
-            li.innerHTML += '/';
-            li.append(unavailable);
-            li.innerHTML += i.name;
-        });
+                const sum = document.createElement('b');
+                const available = document.createElement('b');
+                const unavailable = document.createElement('b');
+                const inMotion = document.createElement('b');
+                available.classList = 'lss_available';
+                unavailable.classList = 'lss_unavailable';
+                inMotion.classList = 'lss_in_motion';
+                sum.innerHTML = i.sum;
+                available.innerHTML = i.available;
+                unavailable.innerHTML = i.unavailable;
+                inMotion.innerHTML = i.inMotion;
+                li.append(sum);
+                li.innerHTML += '/';
+                li.append(available);
+                li.innerHTML += '/';
+                li.append(inMotion);
+                li.innerHTML += '/';
+                li.append(unavailable);
+                li.innerHTML += i.name;
+            });
     };
 
     document.lss_helper.printMissingVehicles = () => {
@@ -603,22 +607,22 @@
 
         const missing = {};
         document.lss_helper.missions
-        .filter((m) => m.unattended)
-        .filter((m) => !m.hasAlert)
-        .filter((m) => Object.values(m.missing).length)
-        .forEach((m) => {
-            Object.keys(m.missing).forEach((vt) => {
-                missing[vt] = missing[vt] || 0;
-                missing[vt] += m.missing[vt];
+            .filter((m) => m.unattended)
+            .filter((m) => !m.hasAlert)
+            .filter((m) => Object.values(m.missing).length)
+            .forEach((m) => {
+                Object.keys(m.missing).forEach((vt) => {
+                    missing[vt] = missing[vt] || 0;
+                    missing[vt] += m.missing[vt];
+                });
             });
-        });
 
         Object.keys(missing).forEach((vt) => {
             const li = document.createElement('li');
             container.appendChild(li);
             li.innerHTML = (document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt)
-            + ' '
-            + missing[vt];
+                + ' '
+                + missing[vt];
         });
     };
 
@@ -636,102 +640,102 @@
         missionsContainer.style = document.lss_helper.getSetting('show_missions') ? '' : 'display:none';
 
         document.lss_helper.missions
-        //.filter((m) => m.state != 'finishing')
-        .forEach((m) => {
-            const li = document.createElement('li');
-            li.classList = [
-                m.finishing ? 'state_finishing': '',
-                m.attended ? 'state_attended': '',
-                m.unattended ? 'state_unattended': '',
-                m.hasAlert ? 'state_alert' : '',
-            ].join(' ');
-            li.style = 'display:flex; flex-direction:row;justify-content:space-between;align-items:center;gap:10px';
-            missionsContainer.appendChild(li);
+            //.filter((m) => m.state != 'finishing')
+            .forEach((m) => {
+                const li = document.createElement('li');
+                li.classList = [
+                    m.finishing ? 'state_finishing' : '',
+                    m.attended ? 'state_attended' : '',
+                    m.unattended ? 'state_unattended' : '',
+                    m.hasAlert ? 'state_alert' : '',
+                ].join(' ');
+                li.style = 'display:flex; flex-direction:row;justify-content:space-between;align-items:center;gap:10px';
+                missionsContainer.appendChild(li);
 
-            const leftContainer = document.createElement('span');
-            //leftContainer.style = 'flex-grow:1';
-            li.appendChild(leftContainer);
+                const leftContainer = document.createElement('span');
+                //leftContainer.style = 'flex-grow:1';
+                li.appendChild(leftContainer);
 
-            const centerContainer = document.createElement('span');
-            centerContainer.style = 'display:flex;flex-direction:row;justify-content:flex-start;align-items:center;flex-grow:2;gap:4px';
-            li.appendChild(centerContainer);
+                const centerContainer = document.createElement('span');
+                centerContainer.style = 'display:flex;flex-direction:row;justify-content:flex-start;align-items:center;flex-grow:2;gap:4px';
+                li.appendChild(centerContainer);
 
-            const rightContainer = document.createElement('span');
-            //rightContainer.style = 'flex-grow:1';
-            li.appendChild(rightContainer);
+                const rightContainer = document.createElement('span');
+                //rightContainer.style = 'flex-grow:1';
+                li.appendChild(rightContainer);
 
-            if (m.hasAlert) {
-                const alert = document.createElement('span');
-                alert.innerHTML = '⚠️';
-                leftContainer.appendChild(alert);
-            }
+                if (m.hasAlert) {
+                    const alert = document.createElement('span');
+                    alert.innerHTML = '⚠️';
+                    leftContainer.appendChild(alert);
+                }
 
-            if (!m.hasAlert && m.unattended) {
-                if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type')) {
-                    const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
-                    const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
-                    const btn2 = document.createElement('a');
-                    btn2.classList= 'btn btn-xs btn-default';
-                    btn2.innerHTML = '🚨' + vehiclesCount;
-                    btn2.onclick = () => {document.lss_helper.sendByScene(m)};
-                    leftContainer.appendChild(btn2);
-                } else {
-                    if (document.lss_helper.getVehiclesByMission(m, 'lf1') && document.lss_helper.getSetting('show_mission_lf1')) {
-                        const btn = document.createElement('a');
-                        btn.classList= 'btn btn-xs btn-default';
-                        btn.innerHTML = '🚒';
-                        btn.onclick = () => {document.lss_helper.sendByScene(m, 'lf1')};
-                        leftContainer.appendChild(btn);
-                    }
-                    if (document.lss_helper.getVehiclesByMission(m) && document.lss_helper.getSetting('show_mission_lf2')) {
+                if (!m.hasAlert && m.unattended) {
+                    if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type')) {
+                        const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+                        const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
                         const btn2 = document.createElement('a');
-                        btn2.classList= 'btn btn-xs btn-default';
-                        btn2.innerHTML = '🚒🚒';
-                        btn2.onclick = () => {document.lss_helper.sendByScene(m)};
+                        btn2.classList = 'btn btn-xs btn-default';
+                        btn2.innerHTML = '🚨' + vehiclesCount;
+                        btn2.onclick = () => { document.lss_helper.sendByScene(m) };
                         leftContainer.appendChild(btn2);
+                    } else {
+                        if (document.lss_helper.getVehiclesByMission(m, 'lf1') && document.lss_helper.getSetting('show_mission_lf1')) {
+                            const btn = document.createElement('a');
+                            btn.classList = 'btn btn-xs btn-default';
+                            btn.innerHTML = '🚒';
+                            btn.onclick = () => { document.lss_helper.sendByScene(m, 'lf1') };
+                            leftContainer.appendChild(btn);
+                        }
+                        if (document.lss_helper.getVehiclesByMission(m) && document.lss_helper.getSetting('show_mission_lf2')) {
+                            const btn2 = document.createElement('a');
+                            btn2.classList = 'btn btn-xs btn-default';
+                            btn2.innerHTML = '🚒🚒';
+                            btn2.onclick = () => { document.lss_helper.sendByScene(m) };
+                            leftContainer.appendChild(btn2);
+                        }
                     }
                 }
-            }
 
-            if (document.lss_helper.getSetting('show_mission_age')) {
-                const age = Math.floor(
-                    Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)
-                ) / 10;
-                const ageContainer = document.createElement('span');
-                ageContainer.innerHTML = age + 'h';
-                centerContainer.appendChild(ageContainer);
-            }
+                if (document.lss_helper.getSetting('show_mission_age')) {
+                    const age = Math.floor(
+                        Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)
+                    ) / 10;
+                    const ageContainer = document.createElement('span');
+                    ageContainer.innerHTML = age + 'h';
+                    centerContainer.appendChild(ageContainer);
+                }
 
-            if (document.lss_helper.getSetting('show_mission_credits')) {
-                const creditContainer = document.createElement('span');
-                creditContainer.innerHTML = m.data.average_credits + '$';
-                centerContainer.appendChild(creditContainer);
-            }
+                if (document.lss_helper.getSetting('show_mission_credits')) {
+                    const creditContainer = document.createElement('span');
+                    creditContainer.innerHTML = m.data.average_credits + '$';
+                    centerContainer.appendChild(creditContainer);
+                }
 
-            if (document.lss_helper.getSetting('show_mission_credits_rate') && document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
-                const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
-                const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
-                const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
-                const rateContainer = document.createElement('span');
-                rateContainer.innerHTML = rate + '$/c';
-                centerContainer.appendChild(rateContainer);
-            }
+                if (document.lss_helper.getSetting('show_mission_credits_rate') && document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
+                    const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+                    const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
+                    const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
+                    const rateContainer = document.createElement('span');
+                    rateContainer.innerHTML = rate + '$/c';
+                    centerContainer.appendChild(rateContainer);
+                }
 
-            const txt = m.links[0];
-            txt.innerHTML = m.data.caption + (document.lss_helper.getSetting('show_mission_type') ? ' (' + m.missionType + ')' : '');
-            txt.style = 'margin-left: 4px';
-            rightContainer.appendChild(txt);
+                const txt = m.links[0];
+                txt.innerHTML = m.data.caption + (document.lss_helper.getSetting('show_mission_type') ? ' (' + m.missionType + ')' : '');
+                txt.style = 'margin-left: 4px';
+                rightContainer.appendChild(txt);
 
-            if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type')) {
-                const checkmark = document.createElement('span');
-                checkmark.innerHTML = '✔️';
-                checkmark.onclick = () => {
-                    document.lss_helper.missionDetails = m.data.id;
-                    document.lss_helper.printScene();
-                };
-                rightContainer.appendChild(checkmark);
-            }
-        });
+                if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type')) {
+                    const checkmark = document.createElement('span');
+                    checkmark.innerHTML = '✔️';
+                    checkmark.onclick = () => {
+                        document.lss_helper.missionDetails = m.data.id;
+                        document.lss_helper.printScene();
+                    };
+                    rightContainer.appendChild(checkmark);
+                }
+            });
     };
 
     document.lss_helper.printScene = (missionId) => {
@@ -758,13 +762,13 @@
         sceneContainer.appendChild(row);
 
         const send = document.createElement('a');
-        send.classList= 'col-md-3 btn btn-xs btn-default';
+        send.classList = 'col-md-3 btn btn-xs btn-default';
         send.innerHTML = '';
         if (mission.unattended) {
             send.innerHTML = '&nbsp;';
             if (document.lss_helper.scenes[mission.missionType] && document.lss_helper.getVehiclesByMission(mission, mission.missionType)) {
                 send.innerHTML = '🚨';
-                send.onclick = () => {document.lss_helper.sendByScene(mission)};
+                send.onclick = () => { document.lss_helper.sendByScene(mission) };
             }
         } else {
             send.innerHTML = '✔️';
@@ -772,7 +776,7 @@
         row.appendChild(send);
 
         const title = document.createElement('div');
-        title.classList= 'col-md-6';
+        title.classList = 'col-md-6';
         title.innerHTML = mission.data.caption + ' (' + mission.missionType + ')(' + mission.data.id + ')';
         row.appendChild(title);
 
@@ -830,18 +834,18 @@
 
         if (document.lss_helper.getSetting('optimize_scene')) {
             let available = document.lss_helper.vehicles
-              .filter((v) => v.available)
-              .map((v) => {
-                  const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
-                  const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
-                  return {
-                      distance: Math.sqrt(lat * lat + lng * lng),
-                      ...v,
-                  };
-              })
-              .sort((v1, v2) => {
-                  return v1.distance - v2.distance;
-              });
+                .filter((v) => v.available)
+                .map((v) => {
+                    const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
+                    const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
+                    return {
+                        distance: Math.sqrt(lat * lat + lng * lng),
+                        ...v,
+                    };
+                })
+                .sort((v1, v2) => {
+                    return v1.distance - v2.distance;
+                });
             const preVehicles = Object.keys(scene).map((vt) => {
                 const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
                 const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
@@ -851,35 +855,35 @@
                     mission.missing[vt] = scene[vt];
                 }
                 return r.length === scene[vt] ? r : null;
-            }).filter((v) => v !== null).reduce((acc,cur) => [...acc,...cur], []);
+            }).filter((v) => v !== null).reduce((acc, cur) => [...acc, ...cur], []);
 
             preVehicles.forEach((v) => vehicleCounts[v.type] = (vehicleCounts[v.type] ?? 0) + 1);
-                Object.keys(document.lss_helper.vehicleReplacements ?? {}).forEach((type) => {
-                    const vehicles = preVehicles.filter((v) => v.type === type);
-                    let max = 0;
-                    document.lss_helper.vehicleReplacements[type].forEach((r) => {
-                        max = Math.max(max, scene[r] ?? 0);
-                        scene[r] = (scene[r] ?? 0) - vehicles.length;
-                    });
-                    nonReplaceable = [...nonReplaceable, ...vehicles.slice(0, max)];
+            Object.keys(document.lss_helper.vehicleReplacements ?? {}).forEach((type) => {
+                const vehicles = preVehicles.filter((v) => v.type === type);
+                let max = 0;
+                document.lss_helper.vehicleReplacements[type].forEach((r) => {
+                    max = Math.max(max, scene[r] ?? 0);
+                    scene[r] = (scene[r] ?? 0) - vehicles.length;
                 });
+                nonReplaceable = [...nonReplaceable, ...vehicles.slice(0, max)];
+            });
         }
 
         const nonReplaceableIds = nonReplaceable.map((v) => v.id);
         let available = document.lss_helper.vehicles
-          .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
-          .filter((v) => v.available)
-          .map((v) => {
-              const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
-              const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
-              return {
-                  distance: Math.sqrt(lat * lat + lng * lng),
-                  ...v,
-              };
-          })
-          .sort((v1, v2) => {
-              return v1.distance - v2.distance;
-          });
+            .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
+            .filter((v) => v.available)
+            .map((v) => {
+                const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
+                const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
+                return {
+                    distance: Math.sqrt(lat * lat + lng * lng),
+                    ...v,
+                };
+            })
+            .sort((v1, v2) => {
+                return v1.distance - v2.distance;
+            });
         let vehicles = Object.keys(scene).filter((vt) => scene[vt] > 0).map((vt) => {
             const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
             const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
@@ -927,9 +931,9 @@
         };
 
         const vehicleids = vehicles.map((v) => new URLSearchParams('vehicle_ids[]') + v.id).join('&');
-        fetch(url, {method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" }})
-        .then((response) => response.text())
-        .then((json) => document.lss_helper.debug(json))
+        fetch(url, { method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json))
     };
 
     document.lss_helper.fetchRemoteFile = (filename) => {
@@ -939,8 +943,8 @@
             .then((response) => response.text())
             .then((response) => { var a; eval('a = ' + response); return a; })
             .catch((err) => {
-               document.lss_helper.error(err);
-               //document.lss_helper.setSetting('update_scenes', '-1');
+                document.lss_helper.error(err);
+                //document.lss_helper.setSetting('update_scenes', '-1');
             });
     };
 
@@ -952,35 +956,35 @@
         }
 
         document.lss_helper.fetchRemoteFile('vehiclesTypes.json')
-        .then((response) => {
-            document.lss_helper.vehicleTypes = {...document.lss_helper.vehicleTypes, ...response};
-        });
+            .then((response) => {
+                document.lss_helper.vehicleTypes = { ...document.lss_helper.vehicleTypes, ...response };
+            });
 
         document.lss_helper.fetchRemoteFile('vehicleGroups.json')
-        .then((response) => {
-            document.lss_helper.vehicleGroups = {...document.lss_helper.vehicleGroups, ...response};
-        });
+            .then((response) => {
+                document.lss_helper.vehicleGroups = { ...document.lss_helper.vehicleGroups, ...response };
+            });
         document.lss_helper.fetchRemoteFile('vehicleStates.json')
-        .then((response) => {
-            document.lss_helper.vehicleStatesAvailable = {...document.lss_helper.vehicleStatesAvailable, ...response};
-            document.lss_helper.statesAvailable = document.lss_helper.vehicleStatesAvailable.default ?? ['1','2'];
-            document.lss_helper.statesCall = document.lss_helper.vehicleStatesAvailable.call ?? ['5'];
-            document.lss_helper.statesTransit = document.lss_helper.vehicleStatesAvailable.transit ?? ['7'];
-        });
+            .then((response) => {
+                document.lss_helper.vehicleStatesAvailable = { ...document.lss_helper.vehicleStatesAvailable, ...response };
+                document.lss_helper.statesAvailable = document.lss_helper.vehicleStatesAvailable.default ?? ['1', '2'];
+                document.lss_helper.statesCall = document.lss_helper.vehicleStatesAvailable.call ?? ['5'];
+                document.lss_helper.statesTransit = document.lss_helper.vehicleStatesAvailable.transit ?? ['7'];
+            });
 
         document.lss_helper.fetchRemoteFile('scenes.json')
-        .then((response) => {
-            document.lss_helper.scenes = {...document.lss_helper.scenes, ...response};
-        });
+            .then((response) => {
+                document.lss_helper.scenes = { ...document.lss_helper.scenes, ...response };
+            });
 
         document.lss_helper.fetchRemoteFile('vehicleReplacements.json')
-        .then((response) => {
-            document.lss_helper.vehicleReplacements = {...document.lss_helper.vehicleReplacements, ...response};
-        });
+            .then((response) => {
+                document.lss_helper.vehicleReplacements = { ...document.lss_helper.vehicleReplacements, ...response };
+            });
     };
 
     document.lss_helper.hash = (str) => {
-        str = str || JSON.stringify({mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles});
+        str = str || JSON.stringify({ mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles });
         let hash = 0;
         if (!str.length) {
             return 0;
@@ -997,15 +1001,15 @@
 
     document.lss_helper.autoAccept = (force) => {
         if (!force) {
-            setTimeout(() => {document.lss_helper.autoAccept();}, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+            setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
         if (!force && !document.lss_helper.getSetting('autoAccept')) {
             return;
         }
         document.lss_helper.debug('auto accept running');
         const missions = document.lss_helper.missions
-        .filter((m) => m.unattended && !m.hasAlerts)
-        .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType));
+            .filter((m) => m.unattended && !m.hasAlerts)
+            .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType));
         if (missions.length < 1) {
             return;
         }
@@ -1020,9 +1024,91 @@
         document.lss_helper.updateLists();
     };
 
+    document.lss_helper.autoPatient = (force) => {
+        if (!force) {
+            setTimeout(() => { document.lss_helper.autoPatient(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        }
+        if (!force && !document.lss_helper.getSetting('autoPatient')) {
+            return;
+        }
+        document.lss_helper.debug('auto patient running');
+
+        const types = ["28", "31", "38"];
+        const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
+        if (!call) {
+            return;
+        }
+
+        const header = { method: 'GET', cache: "no-cache" };
+        return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
+            .then((response) => response.text())
+            .then((html) => {
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const table = doc.querySelector('table#own-hospitals');
+                if (!table) {
+                    return;
+                }
+                const button = Array.from(table.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).pop();
+                if (button) {
+                    fetch(button.href, header)
+                        .then((response) => response.text())
+                        .then((json) => document.lss_helper.debug(json));
+                    return;
+                }
+
+                const table2 = doc.querySelector('table#alliance-hospitals');
+                if (!table2) {
+                    return;
+                }
+                const button2 = Array.from(table2.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).pop();
+                if (button2) {
+                    fetch(button2.href, header)
+                        .then((response) => response.text())
+                        .then((json) => document.lss_helper.debug(json));
+                    return;
+                }
+            });
+    };
+
+    document.lss_helper.autoPrisoner = (force) => {
+        if (!force) {
+            setTimeout(() => { document.lss_helper.autoPatient(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        }
+        if (!force && !document.lss_helper.getSetting('autoPrisoner')) {
+            return;
+        }
+        document.lss_helper.debug('auto prisoner running');
+
+        const types = ["32"];
+        const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
+        if (!call) {
+            return;
+        }
+
+        const header = { method: 'GET', cache: "no-cache" };
+        return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
+            .then((response) => response.text())
+            .then((html) => {
+                const doc = new DOMParser().parseFromString(html, 'text/html');
+                const table = Array.from(doc.querySelectorAll('*[data-transport-request-type="prisoner"]')).pop();
+                if (!table) {
+                    return;
+                }
+
+                const button = Array.from(table.querySelectorAll('.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).pop();
+                if (button) {
+                    fetch(button.href, header)
+                        .then((response) => response.text())
+                        .then((json) => document.lss_helper.debug(json));
+                }
+            });
+    };
+
     document.lss_helper.init();
     document.lss_helper.update();
     document.lss_helper.autoAccept();
+    document.lss_helper.autoPatient();
+    document.lss_helper.autoPrisoner();
 
     document.lss_helper.fetchRemotes();
-  })();
+})();
