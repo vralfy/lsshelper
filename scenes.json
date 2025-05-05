@@ -153,6 +153,7 @@
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1}, // Verletzte Person auf Hochspannungsmast
+  "237" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall mit Zug
   "238" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Verkehrsunfall mit Linienbus
   "240" : { "LF": 3, "ELW": 1, "GWG": 1, "RTW": 1, "POL": 1}, // Gasgeruch
   "241" : { "POL": 1 }, //Wildunfall
@@ -252,6 +253,7 @@
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
+  "484" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "GWM": 2, "GWA": 1, "RTW": 1, "NEF": 1 }, // Transportunfall mit Strahler
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
   "494" : { "POL": 1 }, // beschädigte Radarfalle
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
