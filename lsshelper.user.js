@@ -1072,7 +1072,7 @@
 
     document.lss_helper.autoPrisoner = (force) => {
         if (!force) {
-            setTimeout(() => { document.lss_helper.autoPatient(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+            setTimeout(() => { document.lss_helper.autoPrisoner(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
         if (!force && !document.lss_helper.getSetting('autoPrisoner')) {
             return;
