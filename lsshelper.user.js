@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-05-01
+// @version      202505-06-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -767,9 +767,15 @@
         send.innerHTML = '';
         if (mission.unattended) {
             send.innerHTML = '&nbsp;';
-            if (document.lss_helper.scenes[mission.missionType] && document.lss_helper.getVehiclesByMission(mission, mission.missionType)) {
-                send.innerHTML = '🚨';
-                send.onclick = () => { document.lss_helper.sendByScene(mission) };
+            if (document.lss_helper.scenes[mission.missionType]) {
+                if (document.lss_helper.getVehiclesByMission(mission, mission.missionType, false)) {
+                    send.innerHTML = '🚨';
+                } else {
+                    send.innerHTML = '⚠️';
+                }
+                send.onclick = () => { document.lss_helper.sendByScene(mission, mission.missionType, true) };
+            } else {
+                send.innerHTML = '?';
             }
         } else {
             send.innerHTML = '✔️';
@@ -817,7 +823,7 @@
         }
     };
 
-    document.lss_helper.getVehiclesByMission = (mission, scene) => {
+    document.lss_helper.getVehiclesByMission = (mission, scene, noFillOrKill) => {
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
 
@@ -902,11 +908,11 @@
         //if (nonReplaceable.length) {
         //console.warn('counts', vehicleCounts, 'replacements', nonReplaceable, 'ids', nonReplaceableIds, 'scene', scene, 'send', vehicles);
         //}
-        return vehicles.filter((v) => v === null).length ? null : vehicles;
+        return (vehicles.filter((v) => v === null).length && !noFillOrKill) ? null : vehicles.filter((v) => v !== null);
     };
 
-    document.lss_helper.sendByScene = (mission, scene) => {
-        const vehicles = document.lss_helper.getVehiclesByMission(mission, scene);
+    document.lss_helper.sendByScene = (mission, scene, noFillOrKill) => {
+        const vehicles = document.lss_helper.getVehiclesByMission(mission, scene, noFillOrKill);
         if (vehicles) {
             document.lss_helper.warn('Sending LF:', mission.missionType, vehicles, mission);
             const v = vehicles.reduce((acc, cur) => [...acc, ...cur], []);
