@@ -96,6 +96,7 @@
 
         const scrollInterval = setInterval(() => {
             const vehicleListElement = document.getElementById('building_panel_body');
+            vehicleListElement.scrollTo(0, 0);
             if (vehicleListElement) {
                 document.lss_helper.log('Try to scroll down vehicle list');
                 const scroll = 400;
@@ -1081,6 +1082,7 @@
 
         const types = ["32"];
         const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
+
         if (!call) {
             return;
         }
