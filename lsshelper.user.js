@@ -94,9 +94,9 @@
             "</style>"
         ].join("\n")).appendTo("head");
 
+        const vehicleListElement = document.getElementById('building_panel_body');
+        vehicleListElement.scrollTo(0, 0);
         const scrollInterval = setInterval(() => {
-            const vehicleListElement = document.getElementById('building_panel_body');
-            vehicleListElement.scrollTo(0, 0);
             if (vehicleListElement) {
                 document.lss_helper.log('Try to scroll down vehicle list');
                 const scroll = 400;
