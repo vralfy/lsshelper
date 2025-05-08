@@ -283,6 +283,7 @@
   "572" : { "POL": 6 }, // Überfall auf Spielhalle
   "574" : { "LF": 2, "POL": 2, "RTW": 1 }, // Brandsicherheitswache bei Feuerwerk
   "575" : { "LF": 1}, // unklare Rauchentwicklung
+  "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
   "608" : { "POL": 1 }, // Abgebrochener Notruf
