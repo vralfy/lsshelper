@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-06-01
+// @version      202505-09-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -251,8 +251,13 @@
                 };
             })
             .map((m) => {
+                let patients = m.info.patients.children.length;
+                const patientSummary = m.info.patients.getElementsByTagName('strong');
+                if (patientSummary.length) {
+                    patients = parseInt(patientSummary[0].innerHTML.replaceAll(/[^0-9]*/gi, ''));
+                }
                 return {
-                    patients: m.info.patients.children.length,
+                    patients: patients,
                     prisoners: m.info.prisoners.children.length,
                     ...m
                 };
