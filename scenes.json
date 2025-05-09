@@ -338,6 +338,7 @@
   "738" : { "RTW": 1 }, // Starke Blutung
   "739" : { "LF": 2 }, // Absicherung Osterfeuer
   "740" : { "LF": 2, "ELW": 1, "RW": 1, "GWA": 1, "POL": 2, "RTW": 2 }, // Gasaustritt aus Kanalisation
+  "742" : { "RTW": 1 }, // Person auf geschmolzener Schokolade ausgerutscht
   "744" : { "LF": 1 }, // Brennender Kuchen in Ofen
   "746" : { "POL": 2 }, // Gestohlene Schokolade
   "748" : { "POL": 2 }, // Gestohlene Glückwunschkarte
