@@ -206,6 +206,7 @@
   "349" : { "LF": 1 }, // Brandgeruch
   "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
   "357" : { "POL": 2 }, // Bank: stiller Alarm
+  "360" : { "LF": 1 }, // Brennender Blumenstrauß
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "370" : { "POL": 4 }, // Geisterfahrer
