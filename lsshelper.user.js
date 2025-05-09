@@ -245,10 +245,15 @@
                 }
             })
             .map((m) => {
+                const proposedVehicles = document.lss_helper.getVehiclesByMission(m);
+                const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc,cur) => acc + cur, 0);
                 return {
                     stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
                     scene: document.lss_helper.scenes[m.missionType],
-                    proposedVehicles: document.lss_helper.getVehiclesByMission(m),
+                    proposedVehicles: proposedVehicles,
+                    proposedVehiclesCount : proposedVehiclesCount,
+                    creditPerCar : proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
+                    maxDistance : (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
                     info: {
                         countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
                         progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
@@ -280,6 +285,11 @@
                         none: 0,
                         credits: parseInt(m.data.average_credits),
                         age: m.age,
+                        patients: m.patients,
+                        prisoners: m.prisoners,
+                        vehicles: m.proposedVehiclesCount,
+                        creditRate: m.creditPerCar,
+                        maxDistance: m.maxDistance
                     },
                     ...m
                 };
@@ -744,15 +754,14 @@
                     const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
                     const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
                     if (document.lss_helper.getSetting('show_mission_max_distance')) {
-                        const maxDistance = vehiclesToSend.reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0);
                         const distanceSpan = document.createElement('span');
                         distanceSpan.classList = 'mission_detail';
-                        distanceSpan.innerHTML = (Math.round(maxDistance * 100) / 100) + 'km';
+                        distanceSpan.innerHTML = (Math.round(m.maxDistance * 100) / 100) + 'km';
                         centerContainer.appendChild(distanceSpan);
                     }
 
                     if (document.lss_helper.getSetting('show_mission_credits_rate')) {
-                        const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
+                        const rate = Math.floor(m.creditPerCar * 10) / 10;
                         const rateContainer = document.createElement('span');
                         rateContainer.classList = 'mission_detail';
                         rateContainer.innerHTML = rate + '$/c';
