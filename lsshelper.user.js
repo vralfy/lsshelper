@@ -24,6 +24,11 @@
         statesCall: ['5'],
         statesTransit: ['7'],
         vehicleStatesAvailable: {},
+        vehicleSpeed: [
+            {t: 49, s: 0.64},
+            {t: 636, s: 14.42},
+            {t: 370, s: 5.15}
+        ].map((o) => o.s / o.t).reduce((acc, cur) => acc + cur, 0) / 3,
         scenes: {
             "X": { "LF": 2 },
             "lf1": { "LF": 1 },
@@ -203,6 +208,8 @@
                         link: link.cloneNode(true),
                         origin: vehicle,
                         building: b,
+                        lat: b.lat,
+                        lng: b.lng,
                     };
                 });
         })
@@ -705,6 +712,12 @@
                     }
                 }
 
+                if (document.lss_helper.getSetting('show_mission_credits')) {
+                    const creditContainer = document.createElement('span');
+                    creditContainer.innerHTML = m.data.average_credits + '$';
+                    centerContainer.appendChild(creditContainer);
+                }
+
                 if (document.lss_helper.getSetting('show_mission_age')) {
                     const age = Math.floor(
                         Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)
@@ -714,26 +727,21 @@
                     centerContainer.appendChild(ageContainer);
                 }
 
-                if (document.lss_helper.getSetting('show_mission_credits')) {
-                    const creditContainer = document.createElement('span');
-                    creditContainer.innerHTML = m.data.average_credits + '$';
-                    centerContainer.appendChild(creditContainer);
-                }
-
                 if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
                     const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
                     const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
+                    if (document.lss_helper.getSetting('show_mission_max_distance')) {
+                        const maxDistance = vehiclesToSend.reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0);
+                        const distanceSpan = document.createElement('span');
+                        distanceSpan.innerHTML = (Math.round(maxDistance * 100) / 100) + 'km';
+                        centerContainer.appendChild(distanceSpan);
+                    }
+
                     if (document.lss_helper.getSetting('show_mission_credits_rate')) {
                         const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
                         const rateContainer = document.createElement('span');
                         rateContainer.innerHTML = rate + '$/c';
                         centerContainer.appendChild(rateContainer);
-                    }
-                    if (document.lss_helper.getSetting('show_mission_max_distance')) {
-                        const maxDistance = vehiclesToSend.reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0);
-                        const distanceSpan = document.createElement('span');
-                        distanceSpan.innerHTML = Math.round(maxDistance * 100) / 100;
-                        centerContainer.appendChild(distanceSpan);
                     }
                 }
 
@@ -838,6 +846,21 @@
         }
     };
 
+    document.lss_helper.getDistance = (obj1, obj2) => {
+        const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
+        const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
+        // return Math.sqrt(lat * lat + lng * lng);
+        const radius = 6371; // Radius of the Earth in km
+        const radLat1 = obj1.lat * Math.PI / 180;
+        const radLat2 = obj2.lat * Math.PI / 180;
+        const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
+        const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
+        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+            Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+        return radius * c; // Distance in km
+    }
+
     document.lss_helper.getVehiclesByMission = (mission, scene, noFillOrKill) => {
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
@@ -858,10 +881,8 @@
             let available = document.lss_helper.vehicles
                 .filter((v) => v.available)
                 .map((v) => {
-                    const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
-                    const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
                     return {
-                        distance: Math.sqrt(lat * lat + lng * lng),
+                        distance: document.lss_helper.getDistance(mission, v),
                         ...v,
                     };
                 })
@@ -896,10 +917,8 @@
             .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
             .filter((v) => v.available)
             .map((v) => {
-                const lat = (mission.lat ?? 0) - (v.building.lat ?? 0);
-                const lng = (mission.lng ?? 0) - (v.building.lng ?? 0);
                 return {
-                    distance: Math.sqrt(lat * lat + lng * lng),
+                    distance: document.lss_helper.getDistance(mission, v),
                     ...v,
                 };
             })
