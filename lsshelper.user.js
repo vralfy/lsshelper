@@ -87,6 +87,7 @@
             ".leaflet-marker-icon[src*='yellow'], .leaflet-marker-icon[src*='gelb']{ filter: drop-shadow(0px 0px 8px yellow);}",
             ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
             ".hidden { display: none }",
+            "#lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }",
             ".lss_available, .lss_in_motion, .lss_unavailable {background: #505050;font-size:18px;padding:0 2px}",
             ".lss_available { color: #0a0; }",
             ".lss_in_motion { color: #aa0; }",
@@ -96,6 +97,7 @@
             ".state_unattended { color: #000; background: #f00 }",
             ".state_attended { color: #000; background: #ff0 }",
             "#mission_general_info, #back_to_mission { text-align:right }",
+            ".mission_detail { display: block; padding: 2px 4px; margin: 0; border-left: 1px solid #0007; border-right: 1px solid #3337; }",
             "</style>"
         ].join("\n")).appendTo("head");
 
@@ -122,6 +124,7 @@
         document.lss_helper.setDefaultSetting('autoAcceptMaxAttended', '5');
         document.lss_helper.setDefaultSetting('update_scenes', '100000');
 
+        document.lss_helper.getSetting('mission_sort', '"none"');
         document.lss_helper.getSetting('show_vehicle_available', 'true');
         document.lss_helper.getSetting('show_vehicle_call', 'true');
         document.lss_helper.getSetting('show_vehicle_unavailable', 'true');
@@ -255,6 +258,7 @@
                         patients: document.getElementById('mission_patients_' + m.data.id),
                         prisoners: document.getElementById('mission_prisoners_' + m.data.id),
                     },
+                    age: Math.floor(Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)) / 10,
                     ...m
                 };
             })
@@ -270,7 +274,17 @@
                     ...m
                 };
             })
-            .sort((m1, m2) => m2.data.average_credits - m1.data.average_credits)
+            .map((m) => {
+                return {
+                    sort: {
+                        none: 0,
+                        credits: parseInt(m.data.average_credits),
+                        age: m.age,
+                    },
+                    ...m
+                };
+            })
+            .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] - m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'])
             .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
             .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
     };
@@ -714,16 +728,15 @@
 
                 if (document.lss_helper.getSetting('show_mission_credits')) {
                     const creditContainer = document.createElement('span');
+                    creditContainer.classList = 'mission_detail';
                     creditContainer.innerHTML = m.data.average_credits + '$';
                     centerContainer.appendChild(creditContainer);
                 }
 
                 if (document.lss_helper.getSetting('show_mission_age')) {
-                    const age = Math.floor(
-                        Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)
-                    ) / 10;
                     const ageContainer = document.createElement('span');
-                    ageContainer.innerHTML = age + 'h';
+                    ageContainer.classList = 'mission_detail';
+                    ageContainer.innerHTML = m.age + 'h';
                     centerContainer.appendChild(ageContainer);
                 }
 
@@ -733,6 +746,7 @@
                     if (document.lss_helper.getSetting('show_mission_max_distance')) {
                         const maxDistance = vehiclesToSend.reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0);
                         const distanceSpan = document.createElement('span');
+                        distanceSpan.classList = 'mission_detail';
                         distanceSpan.innerHTML = (Math.round(maxDistance * 100) / 100) + 'km';
                         centerContainer.appendChild(distanceSpan);
                     }
@@ -740,6 +754,7 @@
                     if (document.lss_helper.getSetting('show_mission_credits_rate')) {
                         const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
                         const rateContainer = document.createElement('span');
+                        rateContainer.classList = 'mission_detail';
                         rateContainer.innerHTML = rate + '$/c';
                         centerContainer.appendChild(rateContainer);
                     }
