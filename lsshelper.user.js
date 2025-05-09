@@ -127,6 +127,7 @@
         document.lss_helper.getSetting('show_mission_age', 'true');
         document.lss_helper.getSetting('show_mission_credits', 'true');
         document.lss_helper.getSetting('show_mission_credits_rate', 'false');
+        document.lss_helper.getSetting('show_mission_max_distance', 'false');
         document.lss_helper.getSetting('show_mission_lf1', 'true');
         document.lss_helper.getSetting('show_mission_lf2', 'true');
         document.lss_helper.getSetting('show_mission_type', 'true');
@@ -396,6 +397,7 @@
         const age = document.lss_helper.printSettingsButton('show_mission_age');
         const credits = document.lss_helper.printSettingsButton('show_mission_credits');
         const creditsrate = document.lss_helper.printSettingsButton('show_mission_credits_rate');
+        const maxDistance = document.lss_helper.printSettingsButton('show_mission_max_distance');
         const type = document.lss_helper.printSettingsButton('show_mission_type');
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
@@ -718,13 +720,21 @@
                     centerContainer.appendChild(creditContainer);
                 }
 
-                if (document.lss_helper.getSetting('show_mission_credits_rate') && document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
+                if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
                     const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
                     const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
-                    const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
-                    const rateContainer = document.createElement('span');
-                    rateContainer.innerHTML = rate + '$/c';
-                    centerContainer.appendChild(rateContainer);
+                    if (document.lss_helper.getSetting('show_mission_credits_rate')) {
+                        const rate = Math.floor(parseFloat(m.data.average_credits) * 10 / vehiclesCount) / 10;
+                        const rateContainer = document.createElement('span');
+                        rateContainer.innerHTML = rate + '$/c';
+                        centerContainer.appendChild(rateContainer);
+                    }
+                    if (document.lss_helper.getSetting('show_mission_max_distance')) {
+                        const maxDistance = vehiclesToSend.reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0);
+                        const distanceSpan = document.createElement('span');
+                        distanceSpan.innerHTML = Math.round(maxDistance * 100) / 100;
+                        centerContainer.appendChild(distanceSpan);
+                    }
                 }
 
                 const txt = m.links[0];
