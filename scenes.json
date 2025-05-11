@@ -163,6 +163,7 @@
   "241" : { "POL": 1 }, //Wildunfall
   "243" : { "POL": 1, "NEF": 1, "RTW": 2 }, // Reitunfall mit Pkw
   "244" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
+  "245" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "250" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
