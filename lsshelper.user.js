@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-09-01
+// @version      202505-12-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
