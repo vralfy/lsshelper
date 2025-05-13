@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-12-01
+// @version      202505-13-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -889,8 +889,10 @@
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
 
-        if (mission.patients) {
+        if (scene['RTW'] && mission.patients) {
             scene['RTW'] = mission.patients;
+        } else if (scene['KTW'] && mission.patients) {
+            scene['KTW'] = mission.patients;
         }
 
         if (mission.prisoners) {
