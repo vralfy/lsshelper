@@ -213,6 +213,7 @@
   "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "GWH": 1 }, // Hoehenrettung am Fahrgeschäft
   "347" : { "LF": 6, "DLK": 1, "ELW": 1, "ELW2": 1, "RW": 2, "GWO": 1, "GWH": 1, "POL": 3, "FWK": 1, "NEF": 1, "RTW": 2 }, // Helikopter in Baum
   "349" : { "LF": 1 }, // Brandgeruch
+  "352" : { "LF": 12, "DLK": 3, "GWA": 1, "GWM": 1, "RW": 1, "SW": 1, "ELW": 3, "ELW2": 1, "POL": 4, "RTW": 5, "NEF": 2 }, // Brand in Mehrfamilienhaus
   "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "360" : { "LF": 1 }, // Brennender Blumenstrauß
