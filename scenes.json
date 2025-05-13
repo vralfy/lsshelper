@@ -115,6 +115,7 @@
   "144" : { "LF": 1 }, // Brennende Hecke
   "145" : { "POL": 1 }, // Trunkenheitsfahrt
   "146" : { "LF": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Brennendes Reetdachhaus
+  "147" : { "KTW": 1 }, // Krankentransport
   "148" : { "POL": 1 }, // Ampelausfall
   "149" : { "POL": 1 }, // Pannenfahrzeug
   "150" : { "POL": 1 }, // Hausfriedensbruch
