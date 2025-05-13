@@ -321,7 +321,7 @@
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "668" : { "POL": 2 }, // Ampelausfall
   "669" : { "LF": 6, "DLK": 2, "ELW": 2, "POL": 2, "RTW": 2 }, // Reihenhaus in Flammen
-  "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW1": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "RTW": 2 }, // Havarie in Kläranlage
+  "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "RTW": 2 }, // Havarie in Kläranlage
   "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
   "681" : { "RTW": 1 }, // Reitsportunfall
   "683" : { "POL": 1 }, // KFZ-Diebstahl
@@ -378,6 +378,7 @@
   "815" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall in THW-Ortsverband
   "821" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Kellerbrand in Mehrfamilienhaus
+  "822" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Brand in Arztpraxis
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
@@ -394,7 +395,7 @@
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
   "916" : { "LF": 6, "ELW": 2, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
-  "925" : { "LF": 14, "RW": 1, "ELW1": 3, "ELW2": 1, "GWM": 1, "GWA": 2, "DLK": 3, "SW": 1, "POL": 8 }, // Hochhausbrand mit Evakuierung
+  "925" : { "LF": 14, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "GWA": 2, "DLK": 3, "SW": 1, "POL": 8 }, // Hochhausbrand mit Evakuierung
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
 }
 // https://www.leitstellenspiel.de/einsaetze/0
