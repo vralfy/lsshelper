@@ -202,6 +202,8 @@
   "309" : { "TAUCHER": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Tauchunfall
   "310" : { "TAUCHER": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Tauchunfall
   "311" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Mitarbeiter unter PKW eingeklemmt
+  "312" : { "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
+  "313" : { "LF": 2, "DLK": 1, "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
   "319" : { "LF": 1, "RTW": 1 }, // Person in Baugrube
@@ -285,6 +287,7 @@
   "518" : { "LF": 1 }, // Brennender Baum
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
+  "538" : { "RTW": 1, "NEF": 1 }, // Verbrennung
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
   "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // LKW auf PKW gestürzt
   "552" : { "LF": 8, "ELW": 2, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
@@ -323,6 +326,7 @@
   "649" : { "RTW": 1 }, // Knalltrauma
   "650" : { "LF": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "POL": 2 }, // Ladungsbergung LKW
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
+  "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWBRG": 1, "THWGWN": 1, "THWLKW": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
   "669" : { "LF": 6, "DLK": 2, "ELW": 2, "POL": 2, "RTW": 2 }, // Reihenhaus in Flammen
   "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "RTW": 2 }, // Havarie in Kläranlage
