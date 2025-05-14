@@ -333,6 +333,7 @@
   "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "RTW": 2 }, // Havarie in Kläranlage
   "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
   "681" : { "RTW": 1 }, // Reitsportunfall
+  "682" : { "LF": 5, "DLK": 2, "SW": 2, "GWM": 1, "GWA": 1, "ELW2": 1, "ELW": 2, "POL": 4, "THWBRG": 1, "THWLKW": 1, "GKW": 1, "THWMTW": 1 }, // Brand auf Kompostieranlage
   "683" : { "POL": 1 }, // KFZ-Diebstahl
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
   "686" : { "LF": 1, "RTW": 1, "POL": 1 }, // Kind in Spielgerät eingeklemmt
