@@ -41,9 +41,9 @@
     if (!container) {
       container = document.createElement("div");
       container.id = 'lss_helper_addon_distribution';
-      container.classList = 'col-sm-8 overview_outer bigMapWindow';
-      const buildings = document.getElementById('radio_outer');
-      buildings.insertAdjacentElement('afterend', container);
+      container.classList = 'col-sm-12 overview_outer bigMapWindow';
+      const buildings = document.getElementById('chat_outer');
+      buildings.insertAdjacentElement('beforebegin', container);
     }
     var innerContainer = document.getElementById('lss_helper_addon_distribution_container');
     if (!innerContainer) {
@@ -60,7 +60,7 @@
       body.classList = 'panel-body';
       panel.append(body);
 
-      panel.innerHTML = '<div class="container"><div class="row" id="lss_helper_addon_distribution_container"></div></div>';
+      body.innerHTML = '<div class="container"><div class="row" id="lss_helper_addon_distribution_container"></div></div>';
     }
 
     document.lss_helper_distribution.update();
@@ -77,6 +77,10 @@
       return;
     }
 
+    const container = document.getElementById('lss_helper_addon_distribution');
+    container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
+
+    document.lss_helper.printSettingsButton('distribution', 'Distribution Feuerwehr', 'col-sm-12');
     document.lss_helper.printSettingsButton('distribution_firehouse');
     document.lss_helper.printSettingsButton('distribution_police');
     document.lss_helper.printSettingsButton('distribution_rescue');
