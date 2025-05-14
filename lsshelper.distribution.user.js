@@ -85,6 +85,7 @@
     document.lss_helper.printSettingsButton('distribution_police');
     document.lss_helper.printSettingsButton('distribution_rescue');
     document.lss_helper.printSettingsButton('distribution_thw');
+    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12');
 
     if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
       setTimeout(() => { document.lss_helper_distribution.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
@@ -176,6 +177,7 @@
 
     const types = Object.keys(document.lss_helper.vehicleTypes)
       .filter((gkey) => document.lss_helper.vehicles.filter((v) => v.type === gkey).length)
+      .sort((s1, s2) => s1 < s2 ? -1 : 1)
       .filter((gkey) => {
         const name = document.lss_helper.vehicleTypes[gkey];
         document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name);
@@ -184,7 +186,11 @@
 
     p5.stroke(0, 0, 0);
     p5.fill(255, 0, 0, 25);
-    document.lss_helper_distribution.delaunay(document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0));
+    document.lss_helper_distribution.delaunay(
+        document.lss_helper.vehicles
+        .filter((v) => types.indexOf(v.type) >= 0)
+        .filter((v) => v.available || !document.lss_helper.getSetting('distribution_available_only'))
+    );
 
     //p5.noLoop();
   };
