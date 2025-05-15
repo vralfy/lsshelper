@@ -124,6 +124,7 @@
   "152" : { "RTW": 1, "POL": 2}, // häusliche Gewalt
   "153" : { "RTW": 1, "POL": 1}, // Hilflose Person
   "154" : { "RTW": 1, "POL": 1}, // Hilflose Person
+  "156" : { "RTW": 1 }, // Harnröhrenblutung
   "158" : { "LF": 1 }, // Tiefgarage unter Wasser
   "159" : { "LF": 1 }, // Äste auf Fahrbahn
   "160" : { "LF": 1 }, // Umherfliegendes Baumaterial
