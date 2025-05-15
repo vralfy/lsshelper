@@ -94,6 +94,7 @@
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "107" : { "POL": 5 }, // Massenschlägerei
   "109" : { "LF": 1, "RTW": 1, "NEF": 1 }, // Beginnende Geburt
+  "110" : { "RTW": 1 }, // Vaginale Blutung
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "121" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "122" : { "POL": 1, "RTW": 2, "NEF": 1 }, // Motorradunfall
@@ -126,6 +127,7 @@
   "153" : { "RTW": 1, "POL": 1}, // Hilflose Person
   "154" : { "RTW": 1, "POL": 1}, // Hilflose Person
   "156" : { "RTW": 1 }, // Harnröhrenblutung
+  "157" : { "RTW": 1, "NEF": 1 }, // Herzrhythmusstörungen
   "158" : { "LF": 1 }, // Tiefgarage unter Wasser
   "159" : { "LF": 1 }, // Äste auf Fahrbahn
   "160" : { "LF": 1 }, // Umherfliegendes Baumaterial
