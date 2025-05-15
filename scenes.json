@@ -93,6 +93,7 @@
   "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "107" : { "POL": 5 }, // Massenschlägerei
+  "109" : { "LF": 1, "RTW": 1, "NEF": 1 }, // Beginnende Geburt
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "121" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "122" : { "POL": 1, "RTW": 2, "NEF": 1 }, // Motorradunfall
@@ -149,6 +150,7 @@
   "191" : { "LF": 1 }, // Baum auf Radweg
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "193" : { "LF": 2, "ELW": 1, "POL": 1 }, // Brennende Trafostation
+  "194" : { "LF": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Person unter Baum eingeklemmt
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "208" : { "LF": 8, "ELW": 1, "ELW2": 1, "RW": 2, "GWA": 1, "GWO": 1, "GWM": 2, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 5, "NEF": 1 }, // Leck in Chemikalientank
@@ -209,6 +211,7 @@
   "311" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Mitarbeiter unter PKW eingeklemmt
   "312" : { "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
   "313" : { "LF": 2, "DLK": 1, "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
+  "316" : { "LF": 12, "RW": 2, "ELW": 2, "ELW2": 1, "DEKONP": 1, "GWA": 1, "GWM": 2, "GWG": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Unbekannte Substanz
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
   "319" : { "LF": 1, "RTW": 1 }, // Person in Baugrube
@@ -312,6 +315,7 @@
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
   "593" : { "GKW": 1, "THWLKW": 1, "THWBRG": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
+  "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
   "596" : { "LF": 3, "RW": 2, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall (Personen eingeklemmt)
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
   "608" : { "POL": 1 }, // Abgebrochener Notruf
