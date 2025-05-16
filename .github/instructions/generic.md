@@ -12,4 +12,3 @@
 - Avoid generating code that conflicts with the game's original behavior.
 - Prioritize user experience and maintain a clean UI.
 - Suggest optimizations for existing functions where applicable.
-- Be kind!

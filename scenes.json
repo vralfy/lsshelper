@@ -93,6 +93,7 @@
   "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "107" : { "POL": 5 }, // Massenschlägerei
+  "108" : { "RTW": 1, "NEF": 1 }, // Schwangere in Notsituation
   "109" : { "LF": 1, "RTW": 1, "NEF": 1 }, // Beginnende Geburt
   "110" : { "RTW": 1 }, // Vaginale Blutung
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
