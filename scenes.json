@@ -268,6 +268,7 @@
   "446" : { "LF": 1, "ELW": 1, "POL": 1, "GWH": 1 }, // Osterhase auf Kran
   "448" : { "POL": 1 }, // Ermittlungen nach Unfallflucht
   "449" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // PKW in Supermarkt
+  "450" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // PKW in Supermarkt
   "451" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Gebäude
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
   "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
