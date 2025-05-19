@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202505-12-01
+// @version      202505-19-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -53,14 +53,14 @@
 
       const panelHeader = document.createElement('div');
       panelHeader.classList = 'panel-heading big_map_window_head';
-      panelHeader.innerHTML = 'Leitstellenspiel Helper - distribution';
+      panelHeader.innerHTML = 'Leitstellenspiel Helper - Distribution';
       panel.append(panelHeader);
 
       const body = document.createElement('div');
       body.classList = 'panel-body';
       panel.append(body);
 
-      body.innerHTML = '<div class="container"><div class="row" id="lss_helper_addon_distribution_container"></div></div>';
+      body.innerHTML = '<div class="container-fluid"><div class="row" id="lss_helper_addon_distribution_container"></div></div>';
     }
 
     document.lss_helper_distribution.update();
@@ -98,6 +98,7 @@
       setTimeout(() => document.lss_helper_distribution.p5Setup(), 1000);
       return;
     }
+    document.lss_helper_distribution.graph.width = document.getElementById('lss_helper_addon_distribution') ? document.getElementById('lss_helper_addon_distribution').clientWidth - 100 : document.lss_helper_distribution.graph.width;
     document.lss_helper_distribution.canvas = document.lss_helper_distribution.p5.createCanvas(document.lss_helper_distribution.graph.width, document.lss_helper_distribution.graph.height);
     document.lss_helper_distribution.canvas.parent('lss_helper_addon_distribution_container');
 
