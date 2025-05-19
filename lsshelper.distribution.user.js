@@ -32,6 +32,7 @@
       return;
     }
 
+    document.lss_helper.getSetting('distribution_size', '1000');
     document.lss_helper.getSetting('distribution_firehouse', 'true');
     document.lss_helper.getSetting('distribution_police', 'true');
     document.lss_helper.getSetting('distribution_rescue', 'false');
@@ -60,7 +61,7 @@
       body.classList = 'panel-body';
       panel.append(body);
 
-      body.innerHTML = '<div class="container-fluid"><div class="row" id="lss_helper_addon_distribution_container"></div></div>';
+      body.innerHTML = '<div class="container-fluid"><div class="row" id="lss_helper_addon_distribution_container" style="text-align: center"></div></div>';
     }
 
     document.lss_helper_distribution.update();
@@ -79,7 +80,7 @@
 
     const container = document.getElementById('lss_helper_addon_distribution');
     container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
-
+    document.lss_helper.printSettingsNumberInput('distribution_size');
     document.lss_helper.printSettingsButton('distribution', 'Distribution Feuerwehr', 'col-sm-12');
     document.lss_helper.printSettingsButton('distribution_firehouse');
     document.lss_helper.printSettingsButton('distribution_police');
@@ -99,6 +100,8 @@
       return;
     }
     document.lss_helper_distribution.graph.width = document.getElementById('lss_helper_addon_distribution') ? document.getElementById('lss_helper_addon_distribution').clientWidth - 100 : document.lss_helper_distribution.graph.width;
+    document.lss_helper_distribution.graph.width = Math.min(document.lss_helper_distribution.graph.width, document.lss_helper.getSetting('distribution_size', '1000'));
+    document.lss_helper_distribution.graph.height = document.lss_helper_distribution.graph.width;
     document.lss_helper_distribution.canvas = document.lss_helper_distribution.p5.createCanvas(document.lss_helper_distribution.graph.width, document.lss_helper_distribution.graph.height);
     document.lss_helper_distribution.canvas.parent('lss_helper_addon_distribution_container');
 
