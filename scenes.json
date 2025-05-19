@@ -217,6 +217,7 @@
   "312" : { "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
   "313" : { "LF": 2, "DLK": 1, "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
   "314" : { "LF": 3, "ELW": 1, "DLK": 1, "GWH": 1, "RTW": 1, "NEF": 1 }, // Verunglückter Fallschirmspringer
+  "315" : { "LF": 8, "ELW": 2, "ELW2": 1, "DLK": 1, "DEKONP": 1, "GWA": 1, "GWM": 1, "GWG": 2, "RTW": 1, "NEF": 1 }, // Chemieunfall an Schule
   "316" : { "LF": 12, "RW": 2, "ELW": 2, "ELW2": 1, "DEKONP": 1, "GWA": 1, "GWM": 2, "GWG": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Unbekannte Substanz
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
