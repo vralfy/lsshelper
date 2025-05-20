@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-19-01
+// @version      202505-20-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -335,13 +335,14 @@
         return innerContainer;
     };
 
-    document.lss_helper.printSettingsButton = (setting, caption, cls) => {
+    document.lss_helper.printSettingsButton = (setting, caption, cls, container) => {
         caption = caption || setting;
-        cls = cls || 'col-md-2';
-        let settingsContainer = document.getElementById('lss_helper_settings');
+        cls = cls || 'col-sm-2';
+        container = container || 'lss_helper_settings'
+        let settingsContainer = document.getElementById(container);
         if (!settingsContainer) {
             const container = document.createElement('div');
-            container.classList = 'col-md-12 container-fluid';
+            container.classList = 'col-sm-12 container-fluid';
             const main = document.lss_helper.getHelperContainer();
             main.appendChild(container);
 
@@ -366,12 +367,14 @@
         return btn;
     };
 
-    document.lss_helper.printSettingsNumberInput = (setting, caption) => {
+    document.lss_helper.printSettingsNumberInput = (setting, caption, cls, container) => {
         caption = caption || setting;
-        let settingsContainer = document.getElementById('lss_helper_settings');
+        cls = cls || 'col-sm-3';
+        container = container || 'lss_helper_settings'
+        let settingsContainer = document.getElementById(container);
         if (!settingsContainer) {
             const container = document.createElement('div');
-            container.classList = 'col-md-12 container-fluid';
+            container.classList = 'col-sm-12 container-fluid';
             const main = document.lss_helper.getHelperContainer();
             main.appendChild(container);
 
@@ -384,7 +387,7 @@
         let input = document.getElementById('lss_helper_settings_' + setting);
         if (!input) {
             const container = document.createElement('div');
-            container.classList = 'col-md-3';
+            container.classList = cls;
             container.style = 'display: flex; flex-direction:column';
             container.innerHTML = caption + ': ';
             settingsContainer.appendChild(container);
@@ -406,11 +409,60 @@
         return input;
     };
 
+    document.lss_helper.printSettingsSelect = (setting, caption, cls, options, container) => {
+        caption = caption || setting;
+        cls = cls || 'col-sm-3';
+        container = container || 'lss_helper_settings'
+        let settingsContainer = document.getElementById(container);
+        if (!settingsContainer) {
+            const container = document.createElement('div');
+            container.classList = 'col-sm-12 container-fluid';
+            const main = document.lss_helper.getHelperContainer();
+            main.appendChild(container);
+
+            settingsContainer = document.createElement("div");
+            settingsContainer.id = 'lss_helper_settings';
+            settingsContainer.classList = 'row';
+            container.appendChild(settingsContainer);
+        }
+
+        let input = document.getElementById('lss_helper_settings_' + setting);
+        if (!input) {
+            const container = document.createElement('div');
+            container.classList = cls;
+            container.style = 'display: flex; flex-direction:column';
+            container.innerHTML = caption + ': ';
+            settingsContainer.appendChild(container);
+
+            input = document.createElement("select");
+            input.id = 'lss_helper_settings_' + setting;
+            input.onblur = () => {
+                document.lss_helper.setSetting(setting, JSON.stringify(input.value));
+                document.lss_helper.renderHash = null;
+            };
+            container.appendChild(input);
+
+            options.forEach(option => {
+                const opt = document.createElement("option");
+                opt.value = option.value;
+                opt.innerHTML = option.label ?? option.value;
+                input.appendChild(opt);
+            });
+        }
+
+        const v = document.lss_helper.getSetting(setting, '0');
+        if (input.value != v && input !== document.activeElement) {
+            input.value = v;
+        }
+
+        return input;
+    };
+
     document.lss_helper.printSettings = () => {
         let settingsContainer = document.getElementById('lss_helper_settings');
         if (!settingsContainer) {
             const container = document.createElement('div');
-            container.classList = 'col-md-12 container-fluid';
+            container.classList = 'col-sm-12 container-fluid';
             const main = document.lss_helper.getHelperContainer();
             main.appendChild(container);
 
@@ -433,23 +485,33 @@
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
         const missing = document.lss_helper.printSettingsButton('show_vehicle_missing');
-        const optimize = document.lss_helper.printSettingsButton('optimize_scene', null, 'col-md-12');
+        const optimize = document.lss_helper.printSettingsButton('optimize_scene', null, 'col-sm-12');
 
-        const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-md-4');
-        const autoPatient = document.lss_helper.printSettingsButton('autoPatient', null, 'col-md-4');
-        const autoPrisoner = document.lss_helper.printSettingsButton('autoPrisoner', null, 'col-md-4');
+        const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-sm-4');
+        const autoPatient = document.lss_helper.printSettingsButton('autoPatient', null, 'col-sm-4');
+        const autoPrisoner = document.lss_helper.printSettingsButton('autoPrisoner', null, 'col-sm-4');
 
         const autoAccepInterval = document.lss_helper.printSettingsNumberInput('autoAcceptInterval');
         const autoAccepMaxAttend = document.lss_helper.printSettingsNumberInput('autoAcceptMaxAttended');
         const loglevel = document.lss_helper.printSettingsNumberInput('loglevel');
         const updateInterval = document.lss_helper.printSettingsNumberInput('updateInterval');
         const updateScenes = document.lss_helper.printSettingsNumberInput('update_scenes');
+        const sceneSort = document.lss_helper.printSettingsSelect('mission_sort', 'Sortierung', null, [
+            { value: 'none', label: 'Standard' },
+            { value: 'age', label: 'Alter' },
+            { value: 'creditRate', label: 'Credits/Fahrzeug' },
+            { value: 'credits', label: 'Credits' },
+            { value: 'maxDistance', label: 'Entfernung' },
+            { value: 'patients', label: 'Patienten' },
+            { value: 'prisoners', label: 'Gefangene' },
+            { value: 'vehicles', label: 'Fahrzeuge' },
+        ]);
 
         let hash = document.getElementById('lss_helper_settings_hash');
         if (!hash) {
             hash = document.createElement("div");
             hash.id = 'lss_helper_settings_hash';
-            hash.classList = 'col-md-2';
+            hash.classList = 'col-sm-2';
             settingsContainer.appendChild(hash);
         }
         hash.innerHTML = document.lss_helper.hash();
@@ -464,21 +526,21 @@
         if (!containerAvailable) {
             containerAvailable = document.createElement("ul");
             containerAvailable.id = 'lss_helper_vehicle_available';
-            containerAvailable.classList = 'col-md-3';
+            containerAvailable.classList = 'col-sm-6 col-md-3';
             main.appendChild(containerAvailable);
         }
 
         if (!containerUnavailable) {
             containerUnavailable = document.createElement("ul");
             containerUnavailable.id = 'lss_helper_vehicle_unavailable';
-            containerUnavailable.classList = 'col-md-3';
+            containerUnavailable.classList = 'col-sm-6 col-md-3';
             main.appendChild(containerUnavailable);
         }
 
         if (!containerSummary) {
             containerSummary = document.createElement("ul");
             containerSummary.id = 'lss_helper_vehicle_summary';
-            containerSummary.classList = 'col-md-6';
+            containerSummary.classList = 'col-sm-6 col-md-6';
             main.appendChild(containerSummary);
         }
 
@@ -637,7 +699,7 @@
         if (!container) {
             container = document.createElement("ul");
             container.id = 'lss_helper_vehicle_missing';
-            container.classList = 'col-md-3';
+            container.classList = 'col-sm-12 col-md-3';
             main.appendChild(container);
         }
 
@@ -670,7 +732,7 @@
         if (!missionsContainer) {
             missionsContainer = document.createElement("ul");
             missionsContainer.id = 'lss_helper_missions';
-            missionsContainer.classList = 'col-md-6';
+            missionsContainer.classList = 'col-sm-12 col-md-6';
 
             const main = document.lss_helper.getHelperContainer();
             main.appendChild(missionsContainer);
@@ -791,7 +853,7 @@
         if (!sceneContainer) {
             sceneContainer = document.createElement("div");
             sceneContainer.id = 'lss_helper_scene';
-            sceneContainer.classList = 'col-md-12 container-fluid';
+            sceneContainer.classList = 'col-sm-12 container-fluid';
 
             const main = document.lss_helper.getHelperContainer();
             main.appendChild(sceneContainer);
@@ -810,7 +872,7 @@
         sceneContainer.appendChild(row);
 
         const send = document.createElement('a');
-        send.classList = 'col-md-3 btn btn-xs btn-default';
+        send.classList = 'col-sm-6 col-md-3 btn btn-xs btn-default';
         send.innerHTML = '';
         if (mission.unattended) {
             send.innerHTML = '&nbsp;';
@@ -830,13 +892,13 @@
         row.appendChild(send);
 
         const title = document.createElement('div');
-        title.classList = 'col-md-6';
+        title.classList = 'col-sm-6';
         title.innerHTML = mission.data.caption + ' (' + mission.missionType + ')(' + mission.data.id + ')';
         row.appendChild(title);
 
         const close = document.createElement('div');
         close.innerHTML = 'X';
-        close.classList = 'col-md-3 btn btn-xs btn-default';
+        close.classList = 'col-sm-6 col-md-3 btn btn-xs btn-default';
         close.onclick = () => {
             document.lss_helper.missionDetails = null;
             document.lss_helper.printScene();

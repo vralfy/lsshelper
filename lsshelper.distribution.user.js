@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202505-19-01
+// @version      202505-20-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -61,7 +61,10 @@
       body.classList = 'panel-body';
       panel.append(body);
 
-      body.innerHTML = '<div class="container-fluid"><div class="row" id="lss_helper_addon_distribution_container" style="text-align: center"></div></div>';
+      body.innerHTML = '<div class="container-fluid"><div class="row">' +
+        '<div class="col-sm-12" id="lss_helper_addon_distribution_settings" style="text-align: center"></div>' +
+        '<div class="col-sm-12" id="lss_helper_addon_distribution_container" style="text-align: center"></div>' +
+        '</div></div>';
     }
 
     document.lss_helper_distribution.update();
@@ -79,14 +82,16 @@
     }
 
     const container = document.getElementById('lss_helper_addon_distribution');
+    const settingsContainer = 'lss_helper_addon_distribution_settings';
     container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
-    document.lss_helper.printSettingsNumberInput('distribution_size');
-    document.lss_helper.printSettingsButton('distribution', 'Distribution Feuerwehr', 'col-sm-12');
-    document.lss_helper.printSettingsButton('distribution_firehouse');
-    document.lss_helper.printSettingsButton('distribution_police');
-    document.lss_helper.printSettingsButton('distribution_rescue');
-    document.lss_helper.printSettingsButton('distribution_thw');
-    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12');
+    document.lss_helper.printSettingsButton('distribution', 'Verteilungsgraph', 'col-sm-12');
+    document.lss_helper.printSettingsButton('distribution_firehouse', 'Verteilung Feuerwehr', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_police', 'Verteilung Polizei', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_rescue', 'Verteilung Rettungswache', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_hospital', 'Verteilung Krankenhäuser', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_thw', 'Verteilung THW', null, settingsContainer);
+    document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12', settingsContainer);
 
     if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
       setTimeout(() => { document.lss_helper_distribution.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
@@ -173,6 +178,11 @@
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "2")); // Rettungswache
     }
+    if (document.lss_helper.getSetting('distribution_hospital')) {
+      p5.stroke(200, 100, 100);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "4")); // Rettungswache
+    }
     if (document.lss_helper.getSetting('distribution_thw')) {
       p5.stroke(0, 0, 200);
       p5.noFill();
@@ -184,7 +194,7 @@
       .sort((s1, s2) => s1 < s2 ? -1 : 1)
       .filter((gkey) => {
         const name = document.lss_helper.vehicleTypes[gkey];
-        document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name);
+        document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
         return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
       });
 
