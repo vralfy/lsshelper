@@ -952,6 +952,9 @@
 
     document.lss_helper.getVehiclesByMission = (mission, scene, noFillOrKill) => {
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
+        if (!document.lss_helper.scenes[scene]) {
+            return null;
+        }
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
 
         if (scene['RTW'] && mission.patients) {
