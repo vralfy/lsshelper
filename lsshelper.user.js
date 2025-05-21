@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-20-01
+// @version      202505-21-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -25,9 +25,9 @@
         statesTransit: ['7'],
         vehicleStatesAvailable: {},
         vehicleSpeed: [
-            {t: 49, s: 0.64},
-            {t: 636, s: 14.42},
-            {t: 370, s: 5.15}
+            { t: 49, s: 0.64 },
+            { t: 636, s: 14.42 },
+            { t: 370, s: 5.15 }
         ].map((o) => o.s / o.t).reduce((acc, cur) => acc + cur, 0) / 3,
         scenes: {
             "X": { "LF": 2 },
@@ -246,14 +246,14 @@
             })
             .map((m) => {
                 const proposedVehicles = document.lss_helper.getVehiclesByMission(m);
-                const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc,cur) => acc + cur, 0);
+                const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc, cur) => acc + cur, 0);
                 return {
                     stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
                     scene: document.lss_helper.scenes[m.missionType],
                     proposedVehicles: proposedVehicles,
-                    proposedVehiclesCount : proposedVehiclesCount,
-                    creditPerCar : proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
-                    maxDistance : (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
+                    proposedVehiclesCount: proposedVehiclesCount,
+                    creditPerCar: proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
+                    maxDistance: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
                     info: {
                         countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
                         progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
@@ -1193,7 +1193,10 @@
                 if (button2) {
                     fetch(button2.href, header)
                         .then((response) => response.text())
-                        .then((json) => document.lss_helper.debug(json));
+                        .then((json) => {
+                            document.lss_helper.debug(json);
+                            document.lss_helper.updateLists();
+                        });
                     return;
                 }
             });
@@ -1218,19 +1221,24 @@
         const header = { method: 'GET', cache: "no-cache" };
         return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
             .then((response) => response.text())
+            .then((html) => html.split("\n").filter((l) => l.includes('_prisons.push(')).join(''))
             .then((html) => {
-                const doc = new DOMParser().parseFromString(html, 'text/html');
-                const table = Array.from(doc.querySelectorAll('*[data-transport-request-type="prisoner"]')).pop();
-                if (!table) {
-                    return;
+                const erb_prisons = [];
+                const erb_alliance_prisons = [];
+                eval(html);
+
+                const prisons = [...erb_prisons, ...erb_alliance_prisons].filter((p) => p.free_cells !== '0');
+                if (prisons.length) {
+                    const prison = prisons[0];
+                    const url = 'https://www.leitstellenspiel.de/vehicles/' + call.id + '/gefangener/' + prison.id + '?load_all_prisons=true&show_only_available=false';
+                    fetch(url)
+                        .then((resp) => resp.text())
+                        .then((resp) => {
+                            document.lss_helper.debug(resp);
+                            document.lss_helper.updateLists();
+                        });
                 }
 
-                const button = Array.from(table.querySelectorAll('.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-                if (button) {
-                    fetch(button.href, header)
-                        .then((response) => response.text())
-                        .then((json) => document.lss_helper.debug(json));
-                }
             });
     };
 
