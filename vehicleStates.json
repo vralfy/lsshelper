@@ -1,9 +1,0 @@
-{
-  "default": ["1", "2"],
-  "call": ["5"],
-  "transit": ["7"],
-  "41": ["2"], // THW MzGW (FGr N)
-  "42": ["2"], // THW LKW K 9
-  "45": ["2"], // THW MLW 5
-  "64": ["2"], // GW-Wasserrettung
-}

@@ -1073,7 +1073,7 @@
         const header = { method: 'GET', cache: "no-cache" };
         return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
             .then((response) => response.text())
-            .then((response) => { var a; eval('a = ' + response); return a; })
+            .then((response) => { eval(response); return response; })
             .catch((err) => {
                 document.lss_helper.error(err);
                 //document.lss_helper.setSetting('update_scenes', '-1');
@@ -1087,32 +1087,11 @@
             return;
         }
 
-        document.lss_helper.fetchRemoteFile('vehiclesTypes.json')
-            .then((response) => {
-                document.lss_helper.vehicleTypes = { ...document.lss_helper.vehicleTypes, ...response };
-            });
-
-        document.lss_helper.fetchRemoteFile('vehicleGroups.json')
-            .then((response) => {
-                document.lss_helper.vehicleGroups = { ...document.lss_helper.vehicleGroups, ...response };
-            });
-        document.lss_helper.fetchRemoteFile('vehicleStates.json')
-            .then((response) => {
-                document.lss_helper.vehicleStatesAvailable = { ...document.lss_helper.vehicleStatesAvailable, ...response };
-                document.lss_helper.statesAvailable = document.lss_helper.vehicleStatesAvailable.default ?? ['1', '2'];
-                document.lss_helper.statesCall = document.lss_helper.vehicleStatesAvailable.call ?? ['5'];
-                document.lss_helper.statesTransit = document.lss_helper.vehicleStatesAvailable.transit ?? ['7'];
-            });
-
-        document.lss_helper.fetchRemoteFile('scenes.json')
-            .then((response) => {
-                document.lss_helper.scenes = { ...document.lss_helper.scenes, ...response };
-            });
-
-        document.lss_helper.fetchRemoteFile('vehicleReplacements.json')
-            .then((response) => {
-                document.lss_helper.vehicleReplacements = { ...document.lss_helper.vehicleReplacements, ...response };
-            });
+        document.lss_helper.fetchRemoteFile('vehiclesTypes.js');
+        document.lss_helper.fetchRemoteFile('vehicleGroups.js');
+        document.lss_helper.fetchRemoteFile('vehicleStates.js');
+        document.lss_helper.fetchRemoteFile('vehicleReplacements.js');
+        document.lss_helper.fetchRemoteFile('scenes.js');
     };
 
     document.lss_helper.hash = (str) => {
