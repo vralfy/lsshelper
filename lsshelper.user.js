@@ -150,7 +150,7 @@
             return;
         }
         document.lss_helper.debug('LSS Helper Update', timeout);
-        document.lss_helper.updateLists();
+        document.lss_helper.updateLists(-1);
         if (document.lss_helper.hash() !== document.lss_helper.renderHash) {
             document.lss_helper.printVehicleList();
             document.lss_helper.printMissions();
@@ -167,7 +167,7 @@
     document.lss_helper.updateLists = (timeout) => {
         if (timeout && timeout > 0) {
             document.lss_helper.debug('LSS List Update sheduled in', timeout, 'ms');
-            setTimeout(() => { document.lss_helper.updateLists(); }, timeout);
+            setTimeout(() => { document.lss_helper.updateLists(-1); }, timeout);
             return;
         }
 
@@ -289,7 +289,7 @@
                         prisoners: m.prisoners,
                         vehicles: m.proposedVehiclesCount,
                         creditRate: m.creditPerCar,
-                        maxDistance: m.maxDistance
+                        maxDistance: -m.maxDistance
                     },
                     ...m
                 };
@@ -317,6 +317,9 @@
             const panelHeader = document.createElement('div');
             panelHeader.classList = 'panel-heading big_map_window_head';
             panelHeader.innerHTML = 'Leitstellenspiel Helper';
+            panelHeader.onclick = () => {
+                document.lss_helper.updateLists(-1);
+            };
             panel.append(panelHeader);
 
             const body = document.createElement('div');
@@ -1039,7 +1042,7 @@
             document.lss_helper.warn('Sending LF:', mission.missionType, vehicles, mission);
             const v = vehicles.reduce((acc, cur) => [...acc, ...cur], []);
             document.lss_helper.sendVehicles(mission.missionId, v);
-            document.lss_helper.updateLists();
+            document.lss_helper.updateLists(-1);
         } else {
             document.lss_helper.warn('Not enough vehicles');
         }
@@ -1150,7 +1153,7 @@
         const m = missions[0];
         document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
         document.lss_helper.sendByScene(m, m.missionType);
-        document.lss_helper.updateLists();
+        document.lss_helper.updateLists(-1);
     };
 
     document.lss_helper.autoPatient = (force) => {
@@ -1195,7 +1198,7 @@
                         .then((response) => response.text())
                         .then((json) => {
                             document.lss_helper.debug(json);
-                            document.lss_helper.updateLists();
+                            document.lss_helper.updateLists(-1);
                         });
                     return;
                 }
@@ -1235,7 +1238,7 @@
                         .then((resp) => resp.text())
                         .then((resp) => {
                             document.lss_helper.debug(resp);
-                            document.lss_helper.updateLists();
+                            document.lss_helper.updateLists(-1);
                         });
                 }
 
