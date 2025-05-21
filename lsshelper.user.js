@@ -1089,12 +1089,7 @@
         if (document.lss_helper.getSetting('update_scenes', '100000') < 1) {
             return;
         }
-
-        document.lss_helper.fetchRemoteFile('vehiclesTypes.js');
-        document.lss_helper.fetchRemoteFile('vehicleGroups.js');
-        document.lss_helper.fetchRemoteFile('vehicleStates.js');
-        document.lss_helper.fetchRemoteFile('vehicleReplacements.js');
-        document.lss_helper.fetchRemoteFile('scenes.js');
+        document.lss_helper.fetchRemoteFile('lsshelper.update.js');
     };
 
     document.lss_helper.hash = (str) => {
