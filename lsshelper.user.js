@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-21-01
+// @version      202505-22-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -713,7 +713,7 @@
         document.lss_helper.missions
             .filter((m) => m.unattended)
             .filter((m) => !m.hasAlert)
-            .filter((m) => Object.values(m.missing).length)
+            .filter((m) => Object.values(m.missing ?? {}).length)
             .forEach((m) => {
                 Object.keys(m.missing).forEach((vt) => {
                     missing[vt] = missing[vt] || 0;
