@@ -11,7 +11,7 @@ The goal is to add a new scene description to scenes.json.
 * if the file does not exist, inform the user and exit
 * parse the file to find the mission title and needed vehicle types
 * explain the user which vehicle types are used in the mission
-* add a new entry to [](./scenes.json) but keep the existing entries
+* add a new entry to [](./scenes.js) but keep the existing entries
 * an entry should look like this:
 ```json
  "{missionId}" : ["type1": 3, "type2": 6], // {mission title}
