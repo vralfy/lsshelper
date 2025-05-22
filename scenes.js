@@ -316,6 +316,7 @@ document.lss_helper.scenes = {
   "553" : { "RTW": 1, "NEF": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
   "557" : { "LF": 4, "ELW": 1, "RW": 2, "GWO": 1, "POL": 5, "RTW": 4, "NEF": 1 }, // Schwerer Verkehrsunfall
+  "558" : { "LF": 8, "RW": 1, "DLK": 1, "ELW": 2, "POL": 4, "RTW": 10, "NEF": 1}, // Brennende Bühne
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
   "562" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall in Tunnel
   "566" : { "POL": 1 }, // Drogenhandel aufgeflogen
