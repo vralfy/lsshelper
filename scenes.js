@@ -382,6 +382,7 @@ document.lss_helper.scenes = {
   "727" : { "LF": 2 }, // Brennender Picknickkorb
   "728" : { "POL": 2 }, // Diebstahl von Kaelbern
   "729" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
+  "730" : { "RTW": 1 }, // Kälberdieb von Kuh angegriffen
   "731" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 1, "RTW": 2 }, // Zugevakuierung
   "733" : { "LF": 2 }, // Absicherung Osterfeuer
   "734" : { "LF": 1 }, // Geschmolzener Osterhase
