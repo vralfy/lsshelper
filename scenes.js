@@ -226,6 +226,7 @@ document.lss_helper.scenes = {
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
   "327" : { "LF": 6, "ELW": 1, "DLK": 2, "GWA": 2, "GWM": 1, "GWO": 1, "POL": 1, "RTW": 1 }, // Tiefgaragenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
+  "335" : { "LF": 8, "ELW": 2, "ELW2": 1, "RW": 1, "DLK": 1, "SW": 1, "RTW": 1, "NEF": 1 }, //  Brennendes Kleinflugzeug
   "335" : { "LF": 8, "ELW": 2, "ELW2": 1, "RW": 1, "DLK": 1, "SW": 1, "RTW": 1, "NEF": 1 }, // Brennendes Kleinflugzeug
   "339" : { "RTW": 1, "NEF": 1 }, // Herzinfarkt
   "340" : { "RTW": 1, "NEF": 1 }, // akuter Asthma-Anfall
