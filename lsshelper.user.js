@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202505-22-01
+// @version      202505-23-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -1142,7 +1142,7 @@
         }
         document.lss_helper.debug('auto patient running');
 
-        const types = ["28", "31", "38"];
+        const types = ["28", "31", "38", "73", "74"];
         const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
         if (!call) {
             return;
