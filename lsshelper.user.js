@@ -140,6 +140,7 @@
         document.lss_helper.getSetting('show_mission_lf2', 'true');
         document.lss_helper.getSetting('show_mission_type', 'true');
 
+        document.lss_helper.getSetting('mission_verband', 'false');
         document.lss_helper.getSetting('optimize_scene', 'false');
     };
 
@@ -294,6 +295,7 @@
                     ...m
                 };
             })
+            .filter((m) => !m.data.caption.includes('[Verband]') || document.lss_helper.getSetting('mission_verband'))
             .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] - m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'])
             .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
             .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
@@ -488,6 +490,7 @@
         const lf1 = document.lss_helper.printSettingsButton('show_mission_lf1');
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
         const missing = document.lss_helper.printSettingsButton('show_vehicle_missing');
+        const verband = document.lss_helper.printSettingsButton('mission_verband');
         const optimize = document.lss_helper.printSettingsButton('optimize_scene', null, 'col-sm-12');
 
         const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-sm-4');
