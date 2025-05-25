@@ -202,6 +202,7 @@ document.lss_helper.scenes = {
   "290" : { "LF": 2 }, // Eierkocherbrand
   "292" : { "POL": 1 }, // Tankbetrug
   "293" : { "RTW": 1 }, // Bluthochdruck
+  "295" : { "POL": 6 }, // Tankstellenüberfall
   "296" : { "LF": 3, "ELW": 1, "RTW": 1 }, // Gasunfall in der Werkstadt
   "297" : { "RTW": 1 }, // Arbeitsunfall im Garten
   "298" : { "LF": 1, "DLRG": 1, "MZB": 1, "RTW": 1 }, // Hilflose Person auf Wasser
