@@ -1,0 +1,27 @@
+{
+  "name": "lsshelper",
+  "version": "1.0.0",
+  "description": "1. Install [Tampermonkey](https://www.tampermonkey.net) 2. Enable developer mode in browser (if needed) 3. Click [here](https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js) to install",
+  "main": "lsshelper.distribution.user.js",
+  "scripts": {
+    "mcpserver": "node mcpserver.js",
+    "mcpcli": "node mcpcli.js",
+    "test": "echo \"Error: no test specified\" && exit 1"
+  },
+  "repository": {
+    "type": "git",
+    "url": "git+https://github.com/vralfy/lsshelper.git"
+  },
+  "keywords": [],
+  "author": "",
+  "license": "ISC",
+  "bugs": {
+    "url": "https://github.com/vralfy/lsshelper/issues"
+  },
+  "homepage": "https://github.com/vralfy/lsshelper#readme",
+  "dependencies": {
+    "@modelcontextprotocol/sdk": "^1.12.0",
+    "express": "^5.1.0",
+    "zod": "^3.25.28"
+  }
+}

@@ -1,0 +1,16 @@
+{
+  "servers": {
+    "mcpserver": {
+      "type": "http",
+      "url": "http://localhost:3000"
+    },
+    "mcpcli": {
+      "type": "stdio",
+      "command": "npm",
+      "args": [
+        "run",
+        "mcpcli"
+      ],
+    }
+  }
+}
