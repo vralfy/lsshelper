@@ -22,6 +22,7 @@ document.lss_helper.vehicleGroups = {
   "KTW": [38],
 
   "POL": [32],
+  "ZIV": [98],
 
   "GKW": [39],
   "THWMTW": [40],
