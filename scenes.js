@@ -105,11 +105,20 @@ document.lss_helper.scenes = {
   "103" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Feuer in Einfamilienhaus
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
   "105" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 1 }, // Feuer in Einfamilienhaus
-  
+  "106" : { "POL": 5 }, // Massenschlägerei
   "107" : { "POL": 5 }, // Massenschlägerei
   "108" : { "RTW": 1, "NEF": 1 }, // Schwangere in Notsituation
   "109" : { "LF": 1, "RTW": 1, "NEF": 1 }, // Beginnende Geburt
   "110" : { "RTW": 1 }, // Vaginale Blutung
+  "111": null,
+  "112": null,
+  "113": null,
+  "114": null,
+  "115": null,
+  "116": null,
+  "117": null,
+  "118": null,
+  "119": null,
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "121" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "122" : { "POL": 1, "RTW": 2, "NEF": 1 }, // Motorradunfall
@@ -119,10 +128,13 @@ document.lss_helper.scenes = {
   "126" : { "LF": 2, "RW": 1, "RTW": 3 }, // Verkehrsunfall
   "127" : { "LF": 2, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall
   "128" : { "LF": 1, "RTW": 1, "POL": 1 }, // Auffahrunfall
+  "129" : null,
+  "130" : null,
   "131" : { "LF": 5, "ELW": 1, "SW": 1 }, // Mittlerer Feldbrand
   "132" : { "LF": 6, "ELW": 1, "SW": 1 }, // Großer Feldbrand
   "133" : { "LF": 6, "ELW": 1, "SW": 1, "POL": 1 }, // Großer Feldbrand
   "134" : { "LF": 6, "ELW": 1, "SW": 1 }, // Großer Feldbrand
+  "135" : { "LF": 8, "SW": 1, "ELW": 1, "POL": 1 }, // Großer Waldbrand
   "136" : { "LF": 12, "WATER": 2, "ELW": 2, "ELW2": 1, "SW": 1, "POL": 1, "RTW": 1 }, // Großfeuer im Wald
   "138" : { "LF": 2 }, // Flächenbrand
   "139" : { "LF": 4 }, // Flächenbrand
