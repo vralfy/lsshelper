@@ -48,6 +48,25 @@ server.tool(
 );
 
 server.prompt(
+  "say",
+  { message: z.string() },
+  async ({ message }) => {
+    logger('Received message:', message);
+    return {
+      messages: [
+        {
+          role: "user",
+          context: {
+            type: "text",
+            text: "Say this message backwards: " + mesage,
+          }
+        }
+      ]
+    };
+  }
+);
+
+server.prompt(
   "createscene",
   { id: z.string() },
   async ({ id }) => {
