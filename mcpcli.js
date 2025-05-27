@@ -47,6 +47,17 @@ server.tool(
   })
 );
 
+server.resource(
+  "say",
+  new ResourceTemplate("say://{message}", { list: undefined }),
+  async (uri, { message }) => ({
+    contents: [{
+      uri: uri.href,
+      text: `Resource say: ${message}`
+    }]
+  })
+);
+
 server.prompt(
   "say",
   { message: z.string() },
