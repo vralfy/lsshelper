@@ -51,8 +51,14 @@ document.lss_helper.scenes = {
   "49" : { "RTW": 1 }, // Hohes Fieber
   "50" : { "RTW": 1 }, // Gestürzte Person
   "51" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "RTW": 1 }, // Brand in Werkstatt
+  "52" : null,
+  "53" : null,
+  "54" : null,
+  "55" : null,
+  "56" : null,
   "57" : { "RTW": 1 }, // Gestürzter Fußgänger
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
+  "59" : { "LF": 20, "GWM": 4, "GWG": 4, "ELW": 3, "ELW2": 1, "RW": 5, "DLK": 2, "GWA": 3, "RTW": 1 }, // Gefahrgutunfall
   "60" : { "POL": 1}, // Ladendiebstahl
   "61" : { "POL": 1}, // Ladendiebstahl
   "62" : { "POL": 1 }, // Parkendes Auto gerammt
@@ -68,6 +74,7 @@ document.lss_helper.scenes = {
   "72" : { "LF": 1, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1 }, // Bewußtloser Kranführer
   "73" : { "POL": 3, "RTW": 2 }, // Schlägerei
   "74" : { "POL": 2 }, // Randalierende Person
+  "75" : { "POL": 7 }, // Unangemeldete Demonstration
   "76" : { "LF": 2 }, // Küchenbrand
   "77" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person hinter Tuer
   "78" : { "LF": 1 }, // Kleintier in Not
@@ -80,6 +87,7 @@ document.lss_helper.scenes = {
   "85" : { "POL": 1 }, // Sachbeschädigung
   "86" : { "LF": 7, "ELW": 1, "ELW2": 1, "DLK": 2, "SW": 1, "GWA": 1 }, // Sporthallenbrand
   "87" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Kleinflugzeug abgestürzt
+  "88" : null,
   "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
   "90" : { "POL": 1}, // Ruhestörung
   "91" : { "LF": 1 }, // Keller unter Wasser
@@ -90,8 +98,14 @@ document.lss_helper.scenes = {
   "96" : { "LF": 3, "RTW": 1 }, // Feuer in Schnellrestaurant
   "97" : { "LF": 3, "ELW": 1, "GWO": 1 }, // Aufgerissener Öltank
   "98" : { "POL": 1, "RTW": 1 }, // Angefahrene Person
+  "99" : { "LF": 22, "GWA": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 2, "RW": 6, "POL": 10, "RTW": 10, "NEF": 2 }, // Flugzeug abgestürzt
+  "100" : { "LF": 1, "POL": 1 }, // Küchenbrand
+  "101" : null,
   "102" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
+  "103" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Feuer in Einfamilienhaus
   "104" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Feuer in Einfamilienhaus
+  "105" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 1 }, // Feuer in Einfamilienhaus
+  
   "107" : { "POL": 5 }, // Massenschlägerei
   "108" : { "RTW": 1, "NEF": 1 }, // Schwangere in Notsituation
   "109" : { "LF": 1, "RTW": 1, "NEF": 1 }, // Beginnende Geburt
@@ -427,6 +441,7 @@ document.lss_helper.scenes = {
   "822" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Brand in Arztpraxis
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
+
   "827" : { "POL": 1 }, // Holzdiebstahl
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "835" : { "POL": 1 }, // Fußstreife
