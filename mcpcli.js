@@ -1,4 +1,4 @@
-import { McpServer } from "@modelcontextprotocol/sdk/server/mcp.js"
+import { McpServer, ResourceTemplate } from "@modelcontextprotocol/sdk/server/mcp.js"
 import { StdioServerTransport } from "@modelcontextprotocol/sdk/server/stdio.js"
 import { z } from "zod"
 import fs from "fs"
@@ -38,6 +38,55 @@ const server = new McpServer(info.server, {
   },
 })
 
+// server.resource(
+//   "echo",
+//   new ResourceTemplate("echo://{message}", { list: undefined }),
+//   async (uri, { message }) => ({
+//     contents: [{
+//       uri: uri.href,
+//       text: `Resource echo: ${message}`
+//     }]
+//   })
+// );
+
+server.tool(
+  "echo",
+  "Echo a message backwards",
+  { message: z.string() },
+  async ({ message }) => ({
+    content: [{ type: "text", text: `Tool echo: ${message.split('').reverse().join('')}` }]
+  })
+);
+
+// server.prompt(
+//   "echo",
+//   { message: z.string() },
+//   async ({ message }) => {
+//     return {
+//       context: {
+//         type: "text",
+//         text: `Echo prompt context for message: ${message}`
+//       },
+//       messages: [
+//         {
+//           role: "system",
+//           content: {
+//             type: "text",
+//             text: `Echo prompt context for message: ${message}`
+//           }
+//         },
+//         {
+//           role: "user",
+//           content: {
+//             type: "text",
+//             text: `Please process this message: ${message}`
+//           }
+//         }
+//       ]
+//     };
+//   }
+// );
+
 server.tool(
   "add",
   "Add two numbers",
@@ -45,36 +94,6 @@ server.tool(
   async ({ a, b }) => ({
     content: [{ type: "text", text: String(a + b) }],
   })
-);
-
-server.resource(
-  "say",
-  new ResourceTemplate("say://{message}", { list: undefined }),
-  async (uri, { message }) => ({
-    contents: [{
-      uri: uri.href,
-      text: `Resource say: ${message}`
-    }]
-  })
-);
-
-server.prompt(
-  "say",
-  { message: z.string() },
-  async ({ message }) => {
-    logger('Received message:', message);
-    return {
-      messages: [
-        {
-          role: "user",
-          context: {
-            type: "text",
-            text: "Say this message backwards: " + mesage,
-          }
-        }
-      ]
-    };
-  }
 );
 
 server.prompt(
