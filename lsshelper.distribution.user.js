@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202505-21-01
+// @version      202505-28-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -190,14 +190,23 @@
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "9")); // THW
     }
 
-    const types = Object.keys(document.lss_helper.vehicleTypes)
-      .filter((gkey) => document.lss_helper.vehicles.filter((v) => v.type === gkey).length)
-      .sort((s1, s2) => s1 < s2 ? -1 : 1)
-      .filter((gkey) => {
-        const name = document.lss_helper.vehicleTypes[gkey];
-        document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
-        return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
-      });
+    const types = [
+        ...Object.keys(document.lss_helper.vehicleTypes)
+        .sort((s1, s2) => document.lss_helper.vehicleTypes[s1] < document.lss_helper.vehicleTypes[s2] ? -1 : 1)
+        .filter((gkey) => {
+            const name = document.lss_helper.vehicleTypes[gkey];
+            const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
+            document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
+            return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
+        }),
+
+    ];
+
+    Object.keys(document.lss_helper.vehicleTypes).forEach((gkey) => {
+        const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
+        const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
+        document.getElementById(id).style = 'display:' + (amount ? 'block' : 'none');
+    });
 
     p5.stroke(0, 0, 0);
     p5.fill(255, 0, 0, 25);
