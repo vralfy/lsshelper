@@ -404,6 +404,7 @@ document.lss_helper.scenes = {
   "686" : { "LF": 1, "RTW": 1, "POL": 1 }, // Kind in Spielgerät eingeklemmt
   "687" : { "LF": 2, "ELW": 1, "RW": 2, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Nitrose Gase auf Bauernhof
   "691" : { "RTW": 1, "NEF": 1 }, // Lungenödem
+  "692" : { "LF": 8, "DLK": 2, "ELW": 2, "ELW2": 1, "SW": 1, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 4, "RTW": 1 }, // Rauchentwicklung in Einkaufszentrum
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
@@ -468,6 +469,7 @@ document.lss_helper.scenes = {
   "842" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "844" : { "LF": 2, "RW": 1, "POL": 1 }, // Bierfässer ausgelaufen
+  "845" : { "POL": 1 }, // Lärmbelästigung durch Vatertagsfeier
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "880" : { "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
   "882" : { "POL": 1 }, // Schulschwänzer
