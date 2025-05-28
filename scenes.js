@@ -190,6 +190,7 @@ document.lss_helper.scenes = {
   "211" : { "RTW": 1 }, // Unterzuckerung
   "212" : { "RTW": 1 }, // Akute Bauchschmerzen
   "214" : { "LF": 6, "RW": 2, "ELW": 1, "DLK": 2, "GWA": 1, "POL": 2, "RTW": 5 }, // Bürobrand
+  "215": { "LF": 7, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 1, "GWG": 1, "POL": 4, "RTW": 5, "NEF": 1 }, // Chlorgasaustritt
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
   "228" : { "POL": 2 }, // Absicherung Musikumzug
@@ -377,6 +378,7 @@ document.lss_helper.scenes = {
   "626": { "RTW": 1 }, // Person tritt auf Glasscherben
   "627": { "LF": 1, "RTW": 1 }, // Grill in Flammen
   "628": { "LF": 1, "RTW": 1 }, // Brennendes Campingzelt
+  "630": { "POL": 1 }, // Gestohlener Picknick-Korb
   "631" : { "ZIV": 2 }, // Vollstreckung Durchsuchungsbeschluss
   "632" : { "POL": 5, "ZIV": 1 }, // Einbruch in Museum
   "633" : { "POL": 2, "ZIV": 1 }, // Einbruch in Wohnhaus
