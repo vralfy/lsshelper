@@ -87,7 +87,7 @@ document.lss_helper.scenes = {
   "85" : { "POL": 1 }, // Sachbeschädigung
   "86" : { "LF": 7, "ELW": 1, "ELW2": 1, "DLK": 2, "SW": 1, "GWA": 1 }, // Sporthallenbrand
   "87" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Kleinflugzeug abgestürzt
-  "88" : null,
+  "88" : { "LF": 1 }, // Brennender Bollerwagen
   "89" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // LKW Auffahrunfall
   "90" : { "POL": 1}, // Ruhestörung
   "91" : { "LF": 1 }, // Keller unter Wasser
