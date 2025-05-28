@@ -144,15 +144,22 @@ server.tool(
   "Provides a scene description",
   { id: z.number() },
   async ({ id }) => {
+    if (!fs.existsSync(process.cwd() + '/missions')) {
+      fs.mkdirSync(process.cwd() + '/missions', { recursive: true });
+    }
+    const file = process.cwd() + '/missions/' + id + '.html';
     try {
-      logger('Fetching scene description for ID:', id);
-      const response = await fetch('https://www.leitstellenspiel.de/einsaetze/' + id);
-      const ok = response.ok;
-      const html = await response.text();
-      logger('Response status:', response.status, 'OK:', ok);
-      //logger('Response headers:', JSON.stringify(response.headers.raw(), null, 2));
-      //logger('Response body:', html.slice(0, 200) + '...'); // Log first 200 characters of the body
-
+      if (!fs.existsSync(file)) {
+        logger('Fetching scene description for ID:', id);
+        const response = await fetch('https://www.leitstellenspiel.de/einsaetze/' + id);
+        const ok = response.ok;
+        const html = await response.text();
+        logger('Response status:', response.status, 'OK:', ok);
+        //logger('Response headers:', JSON.stringify(response.headers.raw(), null, 2));
+        //logger('Response body:', html.slice(0, 200) + '...'); // Log first 200 characters of the body
+        fs.writeFileSync(file, html, { encoding: 'utf8', flag: 'w+' });
+      }
+      const html = fs.readFileSync(file, 'utf8');
       return {
         content: [{ type: "text", text: html }],
       }

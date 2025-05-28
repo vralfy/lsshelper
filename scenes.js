@@ -451,6 +451,9 @@ document.lss_helper.scenes = {
   "800" : { "THWGWN": 1, "NEA": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
   "801" : { "THWGWN": 1, "NEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
   "802" : { "THWGWN": 1, "NEA": 1 }, // Ersatz-Stromversorgung einer Krankenhausstation
+  "803" : null,
+  "804" : null,
+  "805" : null,
   "806" : { "THWGWN": 1, "NEA": 1 }, // Bereitstellungsraum vor angekündigter Großdemo
   "812" : { "LF": 3, "RW": 2, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Schilderbrücke eingestürzt
   "814" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall in Feuerwehrwache
