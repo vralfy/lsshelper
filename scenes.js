@@ -376,6 +376,7 @@ document.lss_helper.scenes = {
   "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
   "626": { "RTW": 1 }, // Person tritt auf Glasscherben
   "627": { "LF": 1, "RTW": 1 }, // Grill in Flammen
+  "628": { "LF": 1, "RTW": 1 }, // Brennendes Campingzelt
   "631" : { "ZIV": 2 }, // Vollstreckung Durchsuchungsbeschluss
   "632" : { "POL": 5, "ZIV": 1 }, // Einbruch in Museum
   "633" : { "POL": 2, "ZIV": 1 }, // Einbruch in Wohnhaus
