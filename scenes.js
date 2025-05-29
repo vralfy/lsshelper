@@ -474,6 +474,7 @@ document.lss_helper.scenes = {
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
   "844" : { "LF": 2, "RW": 1, "POL": 1 }, // Bierfässer ausgelaufen
   "845" : { "POL": 1 }, // Lärmbelästigung durch Vatertagsfeier
+  "846" : { "POL": 1, "RTW": 1 }, // Betrunkene versuchen Kühe um zu Schubsen
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "880" : { "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
   "882" : { "POL": 1 }, // Schulschwänzer
