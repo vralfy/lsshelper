@@ -36,6 +36,9 @@
         },
         buildings: [],
         missions: [],
+        helper: {
+            formatNumber: (arg) => { return arg; }
+        }
     };
 
     document.lss_helper.debug = (...args) => {
@@ -617,7 +620,7 @@
             .forEach((i) => {
                 const li = document.createElement('li');
                 li.classList = 'lss_available';
-                li.innerHTML = i.length + ' ' + i.name;
+                li.innerHTML = document.lss_helper.helper.formatNumber(i.length) + ' ' + i.name;
                 containerAvailable.append(li)
             });
 
@@ -634,7 +637,7 @@
             .forEach((i) => {
                 const li = document.createElement('li');
                 li.classList = 'lss_in_motion';
-                li.innerHTML = i.length + ' ' + i.name;
+                li.innerHTML = document.lss_helper.helper.formatNumber(i.length) + ' ' + i.name;
                 containerUnavailable.append(li)
             });
 
@@ -651,7 +654,7 @@
             .forEach((i) => {
                 const li = document.createElement('li');
                 li.classList = 'lss_unavailable';
-                li.innerHTML = i.length + ' ' + i.name;
+                li.innerHTML = document.lss_helper.helper.formatNumber(i.length) + ' ' + i.name;
                 containerUnavailable.append(li)
             });
 
@@ -689,11 +692,11 @@
                 inMotion.innerHTML = i.inMotion;
                 li.append(sum);
                 li.innerHTML += '/';
-                li.append(available);
+                li.append(document.lss_helper.helper.formatNumber(available));
                 li.innerHTML += '/';
-                li.append(inMotion);
+                li.append(document.lss_helper.helper.formatNumber(inMotion));
                 li.innerHTML += '/';
-                li.append(unavailable);
+                li.append(document.lss_helper.helper.formatNumber(unavailable));
                 li.innerHTML += i.name;
             });
     };
@@ -727,7 +730,7 @@
         Object.keys(missing).forEach((vt) => {
             const li = document.createElement('li');
             container.appendChild(li);
-            li.innerHTML = (document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt)
+            li.innerHTML = document.lss_helper.helper.formatNumber((document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt))
                 + ' '
                 + missing[vt];
         });
@@ -783,7 +786,7 @@
                         const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
                         const btn2 = document.createElement('a');
                         btn2.classList = 'btn btn-xs btn-default';
-                        btn2.innerHTML = '🚨' + vehiclesCount;
+                        btn2.innerHTML = '🚨' + document.lss_helper.helper.formatNumber(vehiclesCount);
                         btn2.onclick = () => { document.lss_helper.sendByScene(m) };
                         leftContainer.appendChild(btn2);
                     } else {
@@ -921,7 +924,7 @@
                 vehicles.appendChild(header);
                 Object.values(mission.proposedVehicles).forEach((p) => {
                     const li = document.createElement('li');
-                    li.innerHTML = p.length + 'x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name);
+                    li.innerHTML = document.lss_helper.helper.formatNumber(p.length) + 'x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name);
                     vehicles.appendChild(li);
                 });
             } else {
@@ -931,7 +934,7 @@
                 const scene = document.lss_helper.scenes[mission.missionType] ?? {};
                 Object.keys(scene).forEach((k) => {
                     const li = document.createElement('li');
-                    li.innerHTML = scene[k] + 'x ' + k;
+                    li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + 'x ' + k;
                     vehicles.appendChild(li);
                 });
             }
@@ -1160,7 +1163,7 @@
                 if (!table) {
                     return;
                 }
-                const button = Array.from(table.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+                const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
                 if (button) {
                     fetch(button.href, header)
                         .then((response) => response.text())
@@ -1172,7 +1175,7 @@
                 if (!table2) {
                     return;
                 }
-                const button2 = Array.from(table2.querySelectorAll('a.btn[id^="btn_approach_"]:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+                const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
                 if (button2) {
                     fetch(button2.href, header)
                         .then((response) => response.text())
