@@ -686,17 +686,17 @@
                 available.classList = 'lss_available';
                 unavailable.classList = 'lss_unavailable';
                 inMotion.classList = 'lss_in_motion';
-                sum.innerHTML = i.sum;
-                available.innerHTML = i.available;
-                unavailable.innerHTML = i.unavailable;
-                inMotion.innerHTML = i.inMotion;
+                sum.innerHTML = document.lss_helper.helper.formatNumber(i.sum);
+                available.innerHTML = document.lss_helper.helper.formatNumber(i.available);
+                unavailable.innerHTML = document.lss_helper.helper.formatNumber(i.unavailable);
+                inMotion.innerHTML = document.lss_helper.helper.formatNumber(i.inMotion);
                 li.append(sum);
                 li.innerHTML += '/';
-                li.append(document.lss_helper.helper.formatNumber(available));
+                li.append(available);
                 li.innerHTML += '/';
-                li.append(document.lss_helper.helper.formatNumber(inMotion));
+                li.append(inMotion);
                 li.innerHTML += '/';
-                li.append(document.lss_helper.helper.formatNumber(unavailable));
+                li.append(unavailable);
                 li.innerHTML += i.name;
             });
     };
@@ -730,9 +730,10 @@
         Object.keys(missing).forEach((vt) => {
             const li = document.createElement('li');
             container.appendChild(li);
-            li.innerHTML = document.lss_helper.helper.formatNumber((document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt))
-                + ' '
-                + missing[vt];
+            li.innerHTML =
+                document.lss_helper.helper.formatNumber(missing[vt])
+                + ' x '
+                + (document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt);
         });
     };
 
@@ -924,7 +925,7 @@
                 vehicles.appendChild(header);
                 Object.values(mission.proposedVehicles).forEach((p) => {
                     const li = document.createElement('li');
-                    li.innerHTML = document.lss_helper.helper.formatNumber(p.length) + 'x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name);
+                    li.innerHTML = document.lss_helper.helper.formatNumber(p.length) + ' x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name);
                     vehicles.appendChild(li);
                 });
             } else {
@@ -934,7 +935,7 @@
                 const scene = document.lss_helper.scenes[mission.missionType] ?? {};
                 Object.keys(scene).forEach((k) => {
                     const li = document.createElement('li');
-                    li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + 'x ' + k;
+                    li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + ' x ' + k;
                     vehicles.appendChild(li);
                 });
             }
