@@ -37,33 +37,16 @@
         buildings: [],
         missions: [],
         helper: {
-            formatNumber: (arg) => { return arg; }
+            formatNumber: (arg) => { return arg; },
+            hash: () => { return '' + Math.floor(Math.random() * 1000000); },
+            getDistance: (obj1, obj2) => 0,
         }
     };
 
-    document.lss_helper.debug = (...args) => {
-        if (document.lss_helper.getSetting('loglevel', '550') >= 700) {
-            console.debug('[🐛 LSS Helper]', ...args);
-        }
-    };
-
-    document.lss_helper.log = (...args) => {
-        if (document.lss_helper.getSetting('loglevel', '550') >= 600) {
-            console.log('[ℹ️ LSS Helper]', ...args);
-        }
-    };
-
-    document.lss_helper.warn = (...args) => {
-        if (document.lss_helper.getSetting('loglevel', '550') >= 500) {
-            console.warn('[⚠️ LSS Helper]', ...args);
-        }
-    };
-
-    document.lss_helper.error = (...args) => {
-        if (document.lss_helper.getSetting('loglevel', '550') >= 400) {
-            console.error('[❌ LSS Helper]', ...args);
-        }
-    };
+    document.lss_helper.debug = console.debug;
+    document.lss_helper.log = console.log;
+    document.lss_helper.warn = console.warn;
+    document.lss_helper.error = console.error;
 
     document.lss_helper.getSetting = (key, def) => {
         if (!localStorage.getItem('lss_helper_' + key)) {
@@ -155,12 +138,12 @@
         }
         document.lss_helper.debug('LSS Helper Update', timeout);
         document.lss_helper.updateLists(-1);
-        if (document.lss_helper.hash() !== document.lss_helper.renderHash) {
+        if (document.lss_helper.helper.hash() !== document.lss_helper.renderHash) {
             document.lss_helper.printVehicleList();
             document.lss_helper.printMissions();
             document.lss_helper.printMissingVehicles();
             document.lss_helper.printScene();
-            document.lss_helper.renderHash = document.lss_helper.hash();
+            document.lss_helper.renderHash = document.lss_helper.helper.hash();
         }
         document.lss_helper.printSettings();
         if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
@@ -523,7 +506,7 @@
             hash.classList = 'col-sm-2';
             settingsContainer.appendChild(hash);
         }
-        hash.innerHTML = document.lss_helper.hash();
+        hash.innerHTML = document.lss_helper.helper.hash();
     };
 
     document.lss_helper.printVehicleList = () => {
@@ -942,21 +925,6 @@
         }
     };
 
-    document.lss_helper.getDistance = (obj1, obj2) => {
-        const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
-        const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
-        // return Math.sqrt(lat * lat + lng * lng);
-        const radius = 6371; // Radius of the Earth in km
-        const radLat1 = obj1.lat * Math.PI / 180;
-        const radLat2 = obj2.lat * Math.PI / 180;
-        const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
-        const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
-        const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-            Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-        const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-        return radius * c; // Distance in km
-    }
-
     document.lss_helper.getVehiclesByMission = (mission, scene, noFillOrKill) => {
         scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
         if (!document.lss_helper.scenes[scene]) {
@@ -983,7 +951,7 @@
                 .filter((v) => v.available)
                 .map((v) => {
                     return {
-                        distance: document.lss_helper.getDistance(mission, v),
+                        distance: document.lss_helper.helper.getDistance(mission, v),
                         ...v,
                     };
                 })
@@ -1019,7 +987,7 @@
             .filter((v) => v.available)
             .map((v) => {
                 return {
-                    distance: document.lss_helper.getDistance(mission, v),
+                    distance: document.lss_helper.helper.getDistance(mission, v),
                     ...v,
                 };
             })
@@ -1099,134 +1067,22 @@
         document.lss_helper.fetchRemoteFile('lsshelper.update.js');
     };
 
-    document.lss_helper.hash = (str) => {
-        str = str || JSON.stringify({ mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles });
-        let hash = 0;
-        if (!str.length) {
-            return 0;
-        }
-
-        for (let i = 0; i < str.length; i++) {
-            let char = str.charCodeAt(i);
-            hash = ((hash << 5) - hash) + char;
-            hash = hash & hash;
-        }
-
-        return hash;
-    };
-
     document.lss_helper.autoAccept = (force) => {
         if (!force) {
             setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
-        if (!force && !document.lss_helper.getSetting('autoAccept')) {
-            return;
-        }
-        document.lss_helper.debug('auto accept running');
-        const missions = document.lss_helper.missions
-            .filter((m) => m.unattended && !m.hasAlerts)
-            .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType));
-        if (missions.length < 1) {
-            return;
-        }
-        const inProgress = document.lss_helper.missions.filter((m) => m.hasAlert || m.attended).length;
-        const maxInProgress = document.lss_helper.getSetting('autoAcceptMaxAttended', '5');
-        if (!force && maxInProgress > 0 && maxInProgress <= inProgress) {
-            return;
-        }
-        const m = missions[0];
-        document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
-        document.lss_helper.sendByScene(m, m.missionType);
-        document.lss_helper.updateLists(-1);
     };
 
     document.lss_helper.autoPatient = (force) => {
         if (!force) {
             setTimeout(() => { document.lss_helper.autoPatient(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
-        if (!force && !document.lss_helper.getSetting('autoPatient')) {
-            return;
-        }
-        document.lss_helper.debug('auto patient running');
-
-        const types = ["28", "31", "38", "73", "74"];
-        const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
-        if (!call) {
-            return;
-        }
-
-        const header = { method: 'GET', cache: "no-cache" };
-        return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
-            .then((response) => response.text())
-            .then((html) => {
-                const doc = new DOMParser().parseFromString(html, 'text/html');
-                const table = doc.querySelector('table#own-hospitals');
-                if (!table) {
-                    return;
-                }
-                const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-                if (button) {
-                    fetch(button.href, header)
-                        .then((response) => response.text())
-                        .then((json) => document.lss_helper.debug(json));
-                    return;
-                }
-
-                const table2 = doc.querySelector('table#alliance-hospitals');
-                if (!table2) {
-                    return;
-                }
-                const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-                if (button2) {
-                    fetch(button2.href, header)
-                        .then((response) => response.text())
-                        .then((json) => {
-                            document.lss_helper.debug(json);
-                            document.lss_helper.updateLists(-1);
-                        });
-                    return;
-                }
-            });
     };
 
     document.lss_helper.autoPrisoner = (force) => {
         if (!force) {
             setTimeout(() => { document.lss_helper.autoPrisoner(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
-        if (!force && !document.lss_helper.getSetting('autoPrisoner')) {
-            return;
-        }
-        document.lss_helper.debug('auto prisoner running');
-
-        const types = ["32"];
-        const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
-
-        if (!call) {
-            return;
-        }
-
-        const header = { method: 'GET', cache: "no-cache" };
-        return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
-            .then((response) => response.text())
-            .then((html) => html.split("\n").filter((l) => l.includes('_prisons.push(')).join(''))
-            .then((html) => {
-                const erb_prisons = [];
-                const erb_alliance_prisons = [];
-                eval(html);
-
-                const prisons = [...erb_prisons, ...erb_alliance_prisons].filter((p) => p.free_cells !== '0');
-                if (prisons.length) {
-                    const prison = prisons[0];
-                    const url = 'https://www.leitstellenspiel.de/vehicles/' + call.id + '/gefangener/' + prison.id + '?load_all_prisons=true&show_only_available=false';
-                    fetch(url)
-                        .then((resp) => resp.text())
-                        .then((resp) => {
-                            document.lss_helper.debug(resp);
-                            document.lss_helper.updateLists(-1);
-                        });
-                }
-
-            });
     };
 
     document.lss_helper.init();
