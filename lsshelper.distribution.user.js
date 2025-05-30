@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202505-28-01
+// @version      202505-30-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -33,6 +33,7 @@
     }
 
     document.lss_helper.getSetting('distribution_size', '1000');
+    document.lss_helper.getSetting('distribution_leitstelle', 'true');
     document.lss_helper.getSetting('distribution_firehouse', 'true');
     document.lss_helper.getSetting('distribution_police', 'true');
     document.lss_helper.getSetting('distribution_rescue', 'false');
@@ -86,6 +87,7 @@
     const settingsContainer = 'lss_helper_addon_distribution_settings';
     container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
     document.lss_helper.printSettingsButton('distribution', 'Verteilungsgraph', 'col-sm-12');
+    document.lss_helper.printSettingsButton('distribution_leitstelle', 'Verteilung Leitstelle', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_firehouse', 'Verteilung Feuerwehr', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_police', 'Verteilung Polizei', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_rescue', 'Verteilung Rettungswache', null, settingsContainer);
@@ -164,6 +166,11 @@
 
     p5.translate(graph.width / 2, graph.height / 2);
 
+    if (document.lss_helper.getSetting('distribution_leitstelle')) {
+      p5.stroke(0, 200, 200);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "7")); // Feuerwehr
+    }
     if (document.lss_helper.getSetting('distribution_firehouse')) {
       p5.stroke(255, 0, 0);
       p5.noFill();
