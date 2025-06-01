@@ -408,6 +408,7 @@ document.lss_helper.scenes = {
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
+  "699" : { "LF": 10, "ELW": 2, "ELW2": 1, "SW": 3, "GWA": 1, "GWM": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWLKW": 1, "THWGWN": 1, "THWBRG": 1, "WATER": 2 }, // Moorbrand
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
   "701" : { "LF": 6, "DLK": 2, "ELW": 1, "POL": 4, "RTW": 3, "NEF": 1 }, // Wohnhausbrand
   "702" : { "LF": 12, "DLK": 2, "ELW": 3, "ELW2": 1, "RW": 2, "POL": 4, "RTW": 2 }, // Brand in Großwäscherei
