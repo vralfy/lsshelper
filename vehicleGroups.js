@@ -27,7 +27,7 @@ document.lss_helper.vehicleGroups = {
   "GKW": [39],
   "THWMTW": [40],
   "THWGWN": [41],
-  "THWLKW": [42],
+  "THWLKWK9": [42],
   "THWMLW": [45],
 
   "THWBRG": [43],
