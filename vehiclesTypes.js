@@ -76,6 +76,8 @@ document.lss_helper.vehicleTypes = {
   "89": "🚒 MLF",
   "90": "🚒 HLF10",
   "91": "🚑 SEG Rettungshundefahrzeug",
+  "92": "🛠️ THW Hund Anh",
+  "93": "🛠️ THW MTW-O",
   "94": "🚓 POL DHFuKW",
   "95": "🚓 POL Motorrad",
   "96": "🚁 POL Aussenlastbehaelter",
