@@ -6,6 +6,7 @@ document.lss_helper.vehicleStatesAvailable = {
   "42": ["2"], // THW LKW K 9
   "45": ["2"], // THW MLW 5
   "64": ["2"], // GW-Wasserrettung
+  "93": ["2"], // THW MTW-O
 };
 
 document.lss_helper.statesAvailable = document.lss_helper.vehicleStatesAvailable.default ?? ['1', '2'];
