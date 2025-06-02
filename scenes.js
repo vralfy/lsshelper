@@ -356,6 +356,7 @@ document.lss_helper.scenes = {
   "570" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Wohnhaus
   "571" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Dachstuhlbrand
   "572" : { "POL": 6 }, // Überfall auf Spielhalle
+  "573" : { "LF": 8, "RW": 2, "DLK": 1, "ELW": 2, "ELW2": 1, "GWA": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 3, "RTW": 3, "NEF": 1 }, // Chemikalienaustritt - Klärwerk
   "574" : { "LF": 2, "POL": 2, "RTW": 1 }, // Brandsicherheitswache bei Feuerwerk
   "575" : { "LF": 1}, // unklare Rauchentwicklung
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
