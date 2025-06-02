@@ -390,6 +390,7 @@ document.lss_helper.scenes = {
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
   "649" : { "RTW": 1 }, // Knalltrauma
   "650" : { "LF": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2 }, // Ladungsbergung LKW
+  "651" : { "LF": 8, "RW": 2, "DLK": 1, "ELW": 2, "GWA": 1, "GWM": 1, "POL": 4, "SW": 2, "THWMTW": 1, "GKW": 1, "THWLKWK9": 1, "THWBRG": 1, "THWGWN": 1, "THWDLE": 1, "RTW": 1 }, // Brand in Getreidesilo
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "654" : { "LF": 15, "RW": 1, "DLK": 3, "ELW": 1, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "RTW": 4 }, // Großbrand Möbelhaus
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWBRG": 1, "THWGWN": 1, "THWLKWK9": 1, "THWMTW": 1 }, // Strohballenstapelbrand
