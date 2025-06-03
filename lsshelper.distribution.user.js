@@ -35,9 +35,12 @@
     document.lss_helper.getSetting('distribution_size', '1000');
     document.lss_helper.getSetting('distribution_leitstelle', 'true');
     document.lss_helper.getSetting('distribution_firehouse', 'true');
-    document.lss_helper.getSetting('distribution_police', 'true');
+    document.lss_helper.getSetting('distribution_police', 'false');
     document.lss_helper.getSetting('distribution_rescue', 'false');
     document.lss_helper.getSetting('distribution_thw', 'false');
+    document.lss_helper.getSetting('distribution_dlrg', 'false');
+    document.lss_helper.getSetting('distribution_bepo', 'false');
+    document.lss_helper.getSetting('distribution_school', 'false');
 
     var container = document.getElementById('lss_helper_addon_distribution');
     if (!container) {
@@ -93,6 +96,10 @@
     document.lss_helper.printSettingsButton('distribution_rescue', 'Verteilung Rettungswache', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_hospital', 'Verteilung Krankenhäuser', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_thw', 'Verteilung THW', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_dlrg', 'Verteilung Wasserrettung', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_bepo', 'Verteilung Bereitschaftspolizei', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_school', 'Verteilung Schulen', null, settingsContainer);
+
     document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12', settingsContainer);
 
@@ -195,6 +202,21 @@
       p5.stroke(0, 0, 200);
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "9")); // THW
+    }
+    if (document.lss_helper.getSetting('distribution_dlrg')) {
+      p5.stroke(0, 0, 255);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "15")); // Wasserrettung
+    }
+    if (document.lss_helper.getSetting('distribution_bepo')) {
+      p5.stroke(0, 200, 0);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["11", "13", "17"].indexOf(b.type) >= 0)); // Bereitschaftspolizei
+    }
+    if (document.lss_helper.getSetting('distribution_school')) {
+      p5.stroke(100, 200, 0);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["1", "3", "8", "10"].indexOf(b.type) >= 0)); // Schulen
     }
 
     const types = [
