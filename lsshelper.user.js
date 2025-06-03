@@ -277,9 +277,18 @@
                 if (patientSummary.length) {
                     patients = parseInt(patientSummary[0].innerHTML.replaceAll(/[^0-9]*/gi, ''));
                 }
+                let prisoners = m.info.prisoners.children.length;
+
+                if (m.data.patients_count) {
+                    patients = m.data.patients_count[0];
+                }
+                if (m.data.prisoners_count) {
+                    patients = m.data.prisoners_count[0];
+                }
+
                 return {
                     patients: patients,
-                    prisoners: m.info.prisoners.children.length,
+                    prisoners: prisoners,
                     ...m
                 };
             })
@@ -287,19 +296,22 @@
                 return {
                     sort: {
                         none: 0,
-                        credits: parseInt(m.data.average_credits),
-                        age: m.age,
-                        patients: m.patients,
-                        prisoners: m.prisoners,
-                        vehicles: m.proposedVehiclesCount,
-                        creditRate: m.creditPerCar,
-                        maxDistance: -m.maxDistance
+                        missionId: parseInt(m.missionId),
+                        missionType: parseInt(m.missionType),
+                        missionTitle: m.data.caption,
+                        credits: 0-parseInt(m.data.average_credits),
+                        age: 0-m.age,
+                        patients: 0-m.patients,
+                        prisoners: 0-m.prisoners,
+                        vehicles: 0-m.proposedVehiclesCount,
+                        creditRate: 0-m.creditPerCar,
+                        maxDistance: m.maxDistance
                     },
                     ...m
                 };
             })
             .filter((m) => !m.data.caption.includes('[Verband]') || document.lss_helper.getSetting('mission_verband'))
-            .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] - m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'])
+            .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] > m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] ? -1 : 1)
             .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
             .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
     };
@@ -514,6 +526,9 @@
             { value: 'patients', label: 'Patienten' },
             { value: 'prisoners', label: 'Gefangene' },
             { value: 'vehicles', label: 'Fahrzeuge' },
+            { value: 'missionId', label: 'Missions ID' },
+            { value: 'missionType', label: 'Missions Typ' },
+            { value: 'missionTitle', label: 'Missions Titel' },
         ]);
 
         let hash = document.getElementById('lss_helper_settings_hash');
