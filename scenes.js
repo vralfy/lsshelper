@@ -195,6 +195,7 @@ document.lss_helper.scenes = {
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
+  "232" : { "POL": 2, "POLH": 1 }, // Kabeldiebstahl
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1}, // Verletzte Person auf Hochspannungsmast
   "237" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall mit Zug
