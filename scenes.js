@@ -406,6 +406,7 @@ document.lss_helper.scenes = {
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
   "686" : { "LF": 1, "RTW": 1, "POL": 1 }, // Kind in Spielgerät eingeklemmt
   "687" : { "LF": 2, "ELW": 1, "RW": 2, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Nitrose Gase auf Bauernhof
+  "688" : { "POL": 4, "POLH": 1 }, // Fahndung nach KFZ-Diebstahl
   "691" : { "RTW": 1, "NEF": 1 }, // Lungenödem
   "692" : { "LF": 8, "DLK": 2, "ELW": 2, "ELW2": 1, "SW": 1, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 4, "RTW": 1 }, // Rauchentwicklung in Einkaufszentrum
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
