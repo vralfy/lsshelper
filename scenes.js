@@ -196,6 +196,7 @@ document.lss_helper.scenes = {
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "232" : { "POL": 2, "POLH": 1 }, // Kabeldiebstahl
+  "233" : { "LF": 1, "POL": 2, "POLH": 1, "RTW": 1 }, // Suche nach Vermissten
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1}, // Verletzte Person auf Hochspannungsmast
   "237" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall mit Zug
@@ -393,6 +394,7 @@ document.lss_helper.scenes = {
   "649" : { "RTW": 1 }, // Knalltrauma
   "650" : { "LF": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2 }, // Ladungsbergung LKW
   "651" : { "LF": 8, "RW": 2, "DLK": 1, "ELW": 2, "GWA": 1, "GWM": 1, "POL": 4, "SW": 2, "THWMTW": 1, "GKW": 1, "THWLKWK9": 1, "THWBRG": 1, "THWGWN": 1, "THWDLE": 1, "RTW": 1 }, // Brand in Getreidesilo
+  "652" : { "POL": 2 }, // Aufgeplatzter Asphalt auf Autobahn
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "654" : { "LF": 15, "RW": 1, "DLK": 3, "ELW": 1, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "RTW": 4 }, // Großbrand Möbelhaus
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWBRG": 1, "THWGWN": 1, "THWLKWK9": 1, "THWMTW": 1 }, // Strohballenstapelbrand
