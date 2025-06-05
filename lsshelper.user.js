@@ -756,7 +756,8 @@
         colsMD += document.lss_helper.getSetting('show_vehicle_available') ? 3 : 0;
         colsMD += document.lss_helper.getSetting('show_vehicle_unavailable') ? 3 : 0;
         colsMD += document.lss_helper.getSetting('show_vehicle_summary') ? 3 : 0;
-        colsMD = Math.max(6, 12 - (colsMD % 12));
+        colsMD = 12 - (colsMD % 12);
+        colsMD = colsMD < 6 ? 12 : colsMD;
 
         missionsContainer.classList = 'col-sm-' + colsSM + ' col-md-' + colsMD;
         missionsContainer.innerHTML = '';
