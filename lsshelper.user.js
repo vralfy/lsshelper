@@ -108,6 +108,7 @@
         document.lss_helper.setDefaultSetting('updateInterval', '1000');
         document.lss_helper.setDefaultSetting('autoAcceptInterval', '5000');
         document.lss_helper.setDefaultSetting('autoAcceptMaxAttended', '5');
+        document.lss_helper.setDefaultSetting('autoAcceptMaxDistance', '9999');
         document.lss_helper.setDefaultSetting('update_scenes', '100000');
 
         document.lss_helper.getSetting('mission_sort', '"none"');
@@ -497,6 +498,7 @@
 
         const autoAccepInterval = document.lss_helper.printSettingsNumberInput('autoAcceptInterval');
         const autoAccepMaxAttend = document.lss_helper.printSettingsNumberInput('autoAcceptMaxAttended');
+        const autoAccepMaxDistance = document.lss_helper.printSettingsNumberInput('autoAcceptMaxDistance');
         const loglevel = document.lss_helper.printSettingsNumberInput('loglevel');
         const updateInterval = document.lss_helper.printSettingsNumberInput('updateInterval');
         const updateScenes = document.lss_helper.printSettingsNumberInput('update_scenes');
