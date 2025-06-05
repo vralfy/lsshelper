@@ -23,15 +23,17 @@ document.lss_helper.vehicleGroups = {
 
   "POL": [32],
   "ZIV": [98],
+  "POLH": [61, 156],
 
   "GKW": [39],
   "THWMTW": [40],
   "THWGWN": [41],
-  "THWLKW": [42],
+  "THWLKWK9": [42],
   "THWMLW": [45],
 
   "THWBRG": [43],
   "THWDLE": [44],
+  "THWDOG": [92],
   "NEA": [110],
 
   "DLRG": [64],

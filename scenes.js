@@ -172,7 +172,7 @@ document.lss_helper.scenes = {
   "171" : { "LF": 1, "ELW": 1, "SW": 1, "GWO": 1, "POL": 2 }, // Parkdeck voll Wasser gelaufen
   "172" : { "LF": 1 }, // Straße unter Wasser
   "173" : { "LF": 1, "POL": 2 }, // Straße unter Wasser
-  "174" : { "GKW": 1, "THWMTW": 1, "THWBRG": 1, "THWLKW": 1, "POL": 2 }, // Erdrutsch
+  "174" : { "GKW": 1, "THWMTW": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2 }, // Erdrutsch
   "176" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1 }, // LKW in Hauswand
   "178" : { "LF": 3, "ELW": 1, "RW": 1, "GWG": 1, "GKW": 1, "THWBRG": 1, "POL": 2, "RTW": 1 }, // Gefahrgut-LKW verunglückt
   "188" : { "POL": 1 }, // Personenkontrolle
@@ -195,6 +195,7 @@ document.lss_helper.scenes = {
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
+  "232" : { "POL": 2, "POLH": 1 }, // Kabeldiebstahl
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1}, // Verletzte Person auf Hochspannungsmast
   "237" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall mit Zug
@@ -331,17 +332,17 @@ document.lss_helper.scenes = {
   "510" : { "RTW": 1, "POL": 2 }, // Zwangseinweisung
   "511" : { "POL": 1 }, // herrenloses Gepaeckstück
   "512" : { "POL": 1 }, // herrenloses Gepaeckstück
-  "513" : { "LF": 4, "RW": 2, "DLK": 2, "ELW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "POL": 2, "RTW": 1 }, // Hausdach eingestürzt
+  "513" : { "LF": 4, "RW": 2, "DLK": 2, "ELW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2, "RTW": 1 }, // Hausdach eingestürzt
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "519" : { "LF": 3, "POL": 1, "RW": 1, "ELW": 1, "RTW": 3, "NEF": 1 }, // Hüpfburgunfall
   "522" : { "DLK": 1, "RTW": 1 }, // Medizinischer Notfall in Flugzeug
-  "524" : { "LF": 6, "RW": 2, "DLK": 2, "ELW": 3, "GWA": 1, "SW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWLKW": 1, "THWBRG": 1 }, // Brand in Spänebunker
+  "524" : { "LF": 6, "RW": 2, "DLK": 2, "ELW": 3, "GWA": 1, "SW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWLKWK9": 1, "THWBRG": 1 }, // Brand in Spänebunker
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "538" : { "RTW": 1, "NEF": 1 }, // Verbrennung
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
-  "545" : { "LF": 14, "RW": 2, "DLK": 3, "ELW": 2, "GWA": 1, "SW": 1, "POL": 4, "GKW": 1, "THWLKW": 1, "THWBRG": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Brand bei Holzverarbeiter
+  "545" : { "LF": 14, "RW": 2, "DLK": 3, "ELW": 2, "GWA": 1, "SW": 1, "POL": 4, "GKW": 1, "THWLKWK9": 1, "THWBRG": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Brand bei Holzverarbeiter
   "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // LKW auf PKW gestürzt
   "551" : { "POL": 2 }, // Einbruch auf Betriebsgelände
   "552" : { "LF": 8, "ELW": 2, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
@@ -356,11 +357,12 @@ document.lss_helper.scenes = {
   "570" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Wohnhaus
   "571" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Dachstuhlbrand
   "572" : { "POL": 6 }, // Überfall auf Spielhalle
+  "573" : { "LF": 8, "RW": 2, "DLK": 1, "ELW": 2, "ELW2": 1, "GWA": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 3, "RTW": 3, "NEF": 1 }, // Chemikalienaustritt - Klärwerk
   "574" : { "LF": 2, "POL": 2, "RTW": 1 }, // Brandsicherheitswache bei Feuerwerk
   "575" : { "LF": 1}, // unklare Rauchentwicklung
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
-  "593" : { "GKW": 1, "THWLKW": 1, "THWBRG": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
+  "593" : { "GKW": 1, "THWLKWK9": 1, "THWBRG": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
   "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
   "596" : { "LF": 3, "RW": 2, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall (Personen eingeklemmt)
@@ -383,22 +385,23 @@ document.lss_helper.scenes = {
   "632" : { "POL": 5, "ZIV": 1 }, // Einbruch in Museum
   "633" : { "POL": 2, "ZIV": 1 }, // Einbruch in Wohnhaus
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
-  "639" : { "LF": 10, "RW": 2, "ELW": 2, "ELW2": 1, "GWG": 2, "GWM": 2, "GWA": 1, "DEKONP": 1, "FWK": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "RTW": 2, "NEF": 1 }, // Gefahrgutzug verunglückt
+  "639" : { "LF": 10, "RW": 2, "ELW": 2, "ELW2": 1, "GWG": 2, "GWM": 2, "GWA": 1, "DEKONP": 1, "FWK": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKWK9": 1, "RTW": 2, "NEF": 1 }, // Gefahrgutzug verunglückt
   "640" : { "RTW": 1, "NEF": 1 }, // Amputationsverletzung
   "643" : { "LF": 3, "RW": 2, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 2, "RTW": 1 }, // Unfall in Getreidesilo
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "SW": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
   "649" : { "RTW": 1 }, // Knalltrauma
-  "650" : { "LF": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "POL": 2 }, // Ladungsbergung LKW
+  "650" : { "LF": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2 }, // Ladungsbergung LKW
+  "651" : { "LF": 8, "RW": 2, "DLK": 1, "ELW": 2, "GWA": 1, "GWM": 1, "POL": 4, "SW": 2, "THWMTW": 1, "GKW": 1, "THWLKWK9": 1, "THWBRG": 1, "THWGWN": 1, "THWDLE": 1, "RTW": 1 }, // Brand in Getreidesilo
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "654" : { "LF": 15, "RW": 1, "DLK": 3, "ELW": 1, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "RTW": 4 }, // Großbrand Möbelhaus
-  "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWBRG": 1, "THWGWN": 1, "THWLKW": 1, "THWMTW": 1 }, // Strohballenstapelbrand
+  "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWBRG": 1, "THWGWN": 1, "THWLKWK9": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
   "669" : { "LF": 6, "DLK": 2, "ELW": 2, "POL": 2, "RTW": 2 }, // Reihenhaus in Flammen
-  "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKW": 1, "RTW": 2 }, // Havarie in Kläranlage
+  "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWBRG": 1, "THWLKWK9": 1, "RTW": 2 }, // Havarie in Kläranlage
   "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
   "681" : { "RTW": 1 }, // Reitsportunfall
-  "682" : { "LF": 5, "DLK": 2, "SW": 2, "GWM": 1, "GWA": 1, "ELW2": 1, "ELW": 2, "POL": 4, "THWBRG": 1, "THWLKW": 1, "GKW": 1, "THWMTW": 1 }, // Brand auf Kompostieranlage
+  "682" : { "LF": 5, "DLK": 2, "SW": 2, "GWM": 1, "GWA": 1, "ELW2": 1, "ELW": 2, "POL": 4, "THWBRG": 1, "THWLKWK9": 1, "GKW": 1, "THWMTW": 1 }, // Brand auf Kompostieranlage
   "683" : { "POL": 1 }, // KFZ-Diebstahl
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
   "686" : { "LF": 1, "RTW": 1, "POL": 1 }, // Kind in Spielgerät eingeklemmt
@@ -408,6 +411,7 @@ document.lss_helper.scenes = {
   "693" : { "POL": 1}, // Kraftstoffdiebstahl
   "694" : { "LF": 2, "RW": 1, "POL": 1}, // Gülle ausgelaufen
   "698" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2}, // Autogasaustritt am PKW
+  "699" : { "LF": 10, "ELW": 2, "ELW2": 1, "SW": 3, "GWA": 1, "GWM": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWLKWK9": 1, "THWGWN": 1, "THWBRG": 1, "WATER": 2 }, // Moorbrand
   "700" : { "RTW": 1 }, // Bewusstlose Person am LKW-Steuer
   "701" : { "LF": 6, "DLK": 2, "ELW": 1, "POL": 4, "RTW": 3, "NEF": 1 }, // Wohnhausbrand
   "702" : { "LF": 12, "DLK": 2, "ELW": 3, "ELW2": 1, "RW": 2, "POL": 4, "RTW": 2 }, // Brand in Großwäscherei
