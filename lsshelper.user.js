@@ -547,7 +547,7 @@
         if (!containerSummary) {
             containerSummary = document.createElement("ul");
             containerSummary.id = 'lss_helper_vehicle_summary';
-            containerSummary.classList = 'col-sm-6 col-md-6';
+            containerSummary.classList = 'col-sm-6 col-md-3';
             main.appendChild(containerSummary);
         }
 
@@ -745,6 +745,20 @@
             const main = document.lss_helper.getHelperContainer();
             main.appendChild(missionsContainer);
         }
+
+        let colsSM = 0;
+        colsSM += document.lss_helper.getSetting('show_vehicle_available') ? 6 : 0;
+        colsSM += document.lss_helper.getSetting('show_vehicle_unavailable') ? 6 : 0;
+        colsSM += document.lss_helper.getSetting('show_vehicle_summary') ? 6 : 0;
+        colsSM = Math.max(6, 12 - (colsSM % 12));
+
+        let colsMD = 0;
+        colsMD += document.lss_helper.getSetting('show_vehicle_available') ? 3 : 0;
+        colsMD += document.lss_helper.getSetting('show_vehicle_unavailable') ? 3 : 0;
+        colsMD += document.lss_helper.getSetting('show_vehicle_summary') ? 3 : 0;
+        colsMD = Math.max(6, 12 - (colsMD % 12));
+
+        missionsContainer.classList = 'col-sm-' + colsSM + ' col-md-' + colsMD;
         missionsContainer.innerHTML = '';
         missionsContainer.style = document.lss_helper.getSetting('show_missions') ? '' : 'display:none';
 
