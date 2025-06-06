@@ -175,7 +175,8 @@ document.lss_helper.scenes = {
   "174" : { "GKW": 1, "THWMTW": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2 }, // Erdrutsch
   "176" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1 }, // LKW in Hauswand
   "178" : { "LF": 3, "ELW": 1, "RW": 1, "GWG": 1, "GKW": 1, "THWBRG": 1, "POL": 2, "RTW": 1 }, // Gefahrgut-LKW verunglückt
-  "181" : { "RTH": 1, "NEF": 1 }, // Sturz aus Höhe
+  "178" : { "RTW": 1, "NEF": 1, "LF": 1 }, // Schädelverletzung
+  "181" : { "RTW": 1, "RTH": 1, "NEF": 1 }, // Sturz aus Höhe
   "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
