@@ -2,9 +2,12 @@ document.lss_helper.autoAccept = (force) => {
   if (!force) {
       setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
   }
-  if (!force && !document.lss_helper.getSetting('autoAccept')) {
+  const missionFrameOpen = Array.from(document.getElementById('lightbox_box').getElementsByTagName('iframe')).length > 0;
+
+  if (!force && (!document.lss_helper.getSetting('autoAccept') || missionFrameOpen)) {
       return;
   }
+
   document.lss_helper.debug('auto accept running');
   const missions = document.lss_helper.missions
       .filter((m) => m.unattended && !m.hasAlerts)
