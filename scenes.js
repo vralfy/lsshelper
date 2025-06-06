@@ -226,6 +226,7 @@ document.lss_helper.scenes = {
   "278" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1, "POL": 2, "RTW": 1 }, // LKW in Supermarkt
   "279" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1, "POL": 2, "RTW": 2 }, // LKW in Supermarkt
   "280" : { "LF": 3, "ELW": 1, "RW": 1, "DLK": 1 }, // Baum auf Oberleitung
+  "281" : { "LF": 1, "RTW": 1, "NEF": 1, "RTH": 1 }, // Stromschlag
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
   "284" : { "POL": 1 }, // Ostereierdieb
   "285" : { "POL": 1 }, // Pinsel aus Werkstatt entwendet
