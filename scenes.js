@@ -178,6 +178,7 @@ document.lss_helper.scenes = {
   "179" : { "RTW": 1, "NEF": 1, "LF": 1 }, // Schädelverletzung
   "180" : { "RTW": 1, "NEF": 1, "RTH": 1 }, // Wirbelsäulenverletzung
   "181" : { "RTW": 1, "RTH": 1, "NEF": 1 }, // Sturz aus Höhe
+  "182" : { "RTW": 1, "NEF": 1 }, // Sturz aus Höhe
   "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
   "190" : { "POL": 1 }, // Diebstahl aus Kfz
