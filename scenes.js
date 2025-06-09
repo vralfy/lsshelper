@@ -456,6 +456,7 @@ document.lss_helper.scenes = {
   "752" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "POL": 1, "GWH": 1 }, // Verletzte Person auf Dach
   "753" : { "LF": 1, "RW": 1, "RTW": 1 }, // Person in Foerderband eingeklemmt
   "755" : { "LF": 2, "ELW": 2, "POL": 2 }, // Kurzschluss an Freileitungsmast
+  "775" : { "LF": 1, "ELW": 1, "GWG": 1, "POL": 4, "ZIV": 2, "GRUKW": 3, "BEFKW": 1 }, // Drogenlabor gefunden
   "776" : { "LF": 1, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Rolltreppe eingeklemmt
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
   "780" : { "RTW": 1 }, // Treppensturz
