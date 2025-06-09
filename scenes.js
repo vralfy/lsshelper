@@ -200,6 +200,7 @@ document.lss_helper.scenes = {
   "215" : { "LF": 7, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 1, "GWG": 1, "POL": 4, "RTW": 5, "NEF": 1 }, // Chlorgasaustritt
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
+  "227" : { "RTW": 1, "POL": 3, "GRUKW": 6, "BEFKW": 2, "FUEKW": 1 }, // Angemeldete Demonstration
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
   "232" : { "POL": 2, "POLH": 1 }, // Kabeldiebstahl
