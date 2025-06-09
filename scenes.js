@@ -488,6 +488,7 @@ document.lss_helper.scenes = {
   "835" : { "POL": 1 }, // Fußstreife
   "838" : { "THWGWN": 1, "NEA": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
+  "840" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1, "NEF": 1 }, // Personensuche im Wald
   "841" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "842" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "843" : { "POL": 1 }, // ausgelößte Höhenkontrolle
