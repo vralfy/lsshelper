@@ -186,6 +186,7 @@ document.lss_helper.scenes = {
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "193" : { "LF": 2, "ELW": 1, "POL": 1 }, // Brennende Trafostation
   "194" : { "LF": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Person unter Baum eingeklemmt
+  "196" : { "GRUKW": 3, "BEFKW": 1 }, // Schwerpunkteinsatz Verkehrsüberwachung
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "208" : { "LF": 8, "ELW": 1, "ELW2": 1, "RW": 2, "GWA": 1, "GWO": 1, "GWM": 2, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 5, "NEF": 1 }, // Leck in Chemikalientank
