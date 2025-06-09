@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202506-04-01
+// @version      202506-09-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -267,7 +267,7 @@
                     patients = m.data.patients_count[0];
                 }
                 if (m.data.prisoners_count) {
-                    patients = m.data.prisoners_count[0];
+                    prisoners = m.data.prisoners_count[0];
                 }
 
                 return {
