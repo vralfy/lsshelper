@@ -317,6 +317,7 @@ document.lss_helper.scenes = {
   "449" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // PKW in Supermarkt
   "450" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // PKW in Supermarkt
   "451" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Gebäude
+  "458" : { "POL": 3, "GRUKW": 3, "BEFKW": 1, "THWGWN": 1, "NEA": 1 }, // Schwerlastkontrolle
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
   "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
   "463" : { "LF": 1, "RW": 1, "POL": 2 }, // Gesprengter Geldautomat
