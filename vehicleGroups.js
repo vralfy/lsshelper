@@ -24,6 +24,10 @@ document.lss_helper.vehicleGroups = {
   "POL": [32],
   "ZIV": [98],
   "POLH": [61, 156],
+  "BEFKW": [35],
+  "GRUKW": [50],
+  "FUEKW": [51],
+  "GEFKW": [52],
 
   "GKW": [39],
   "THWMTW": [40],
