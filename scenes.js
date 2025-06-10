@@ -275,6 +275,7 @@ document.lss_helper.scenes = {
   "347" : { "LF": 6, "DLK": 1, "ELW": 1, "ELW2": 1, "RW": 2, "GWO": 1, "GWH": 1, "POL": 3, "FWK": 1, "NEF": 1, "RTW": 2 }, // Helikopter in Baum
   "349" : { "LF": 1 }, // Brandgeruch
   "352" : { "LF": 12, "DLK": 3, "GWA": 1, "GWM": 1, "RW": 1, "SW": 1, "ELW": 3, "ELW2": 1, "POL": 4, "RTW": 5, "NEF": 2 }, // Brand in Mehrfamilienhaus
+  "353" : { "GRUKW": 3, "BEFKW": 1, "POL": 3, "THWGWN": 1, "NEA": 1,  }, // Großkontrolle Betäubungsmittel
   "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "360" : { "LF": 1 }, // Brennender Blumenstrauß
