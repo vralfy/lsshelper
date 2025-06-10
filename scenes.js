@@ -186,6 +186,7 @@ document.lss_helper.scenes = {
   "192" : { "LF": 2, "ELW": 2 }, // Brennende Trafostation
   "193" : { "LF": 2, "ELW": 1, "POL": 1 }, // Brennende Trafostation
   "194" : { "LF": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Person unter Baum eingeklemmt
+  "195" : { "GRUKW": 3, "BEFKW": 1 }, // Schwerpunkteinsatz Tageswohnungseinbrüche
   "196" : { "GRUKW": 3, "BEFKW": 1 }, // Schwerpunkteinsatz Verkehrsüberwachung
   "197" : { "GRUKW": 3, "BEFKW": 1 }, // Präsenzeinsatz Volksfest
   "198" : { "POL": 2, "GRUKW": 3, "BEFKW": 1 }, // Jugendschutzkontrolle in Diskothek
