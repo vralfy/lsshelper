@@ -198,6 +198,7 @@ document.lss_helper.scenes = {
   "210" : { "RTW": 1, "NEF": 1 }, // Unfall mit Motorsäge
   "211" : { "RTW": 1 }, // Unterzuckerung
   "212" : { "RTW": 1 }, // Akute Bauchschmerzen
+  "213" : { "LF": 20, "RW": 2, "DLK": 2, "ELW": 5, "ELW2": 1, "SW": 2, "GWM": 2, "GWA": 2, "POL": 4, "GKW": 1, "THWBRG": 1, "THWLKWK9": 1, "THWDLE": 1, "THWMTW": 1, "THWGWN": 1, "THWGWSB": 1 }, // Gasexplosion
   "214" : { "LF": 6, "RW": 2, "ELW": 1, "DLK": 2, "GWA": 1, "POL": 2, "RTW": 5 }, // Bürobrand
   "215" : { "LF": 7, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 1, "GWG": 1, "POL": 4, "RTW": 5, "NEF": 1 }, // Chlorgasaustritt
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
