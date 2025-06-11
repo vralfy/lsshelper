@@ -191,6 +191,7 @@ document.lss_helper.scenes = {
   "197" : { "GRUKW": 3, "BEFKW": 1 }, // Präsenzeinsatz Volksfest
   "198" : { "POL": 2, "GRUKW": 3, "BEFKW": 1 }, // Jugendschutzkontrolle in Diskothek
   "199" : { "GRUKW": 3, "BEFKW": 1 }, // Geländedurchsuchung nach Beweismittel
+  "200" : { "POL": 2, "GRUKW": 6, "BEFKW": 2, "GEFKW": 1 },  // Geplante Razzia
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "208" : { "LF": 8, "ELW": 1, "ELW2": 1, "RW": 2, "GWA": 1, "GWO": 1, "GWM": 2, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 5, "NEF": 1 }, // Leck in Chemikalientank
