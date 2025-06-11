@@ -207,6 +207,7 @@ document.lss_helper.scenes = {
   "227" : { "RTW": 1, "POL": 3, "GRUKW": 6, "BEFKW": 2, "FUEKW": 1 }, // Angemeldete Demonstration
   "228" : { "POL": 2 }, // Absicherung Musikumzug
   "230" : { "LF": 1 }, // Feuerprobealarm an Schule
+  "231" : { "POL": 10, "POLH": 1 }, // Entflohener Gefangener
   "232" : { "POL": 2, "POLH": 1 }, // Kabeldiebstahl
   "233" : { "LF": 1, "POL": 2, "POLH": 1, "RTW": 1 }, // Suche nach Vermissten
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
