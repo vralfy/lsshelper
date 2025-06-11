@@ -12,4 +12,4 @@ document.lss_helper.fetchRemoteFile('script.container.js');
 document.lss_helper.fetchRemoteFile('script.log.js');
 document.lss_helper.fetchRemoteFile('script.settings.js');
 
-document.lss_helper.fetchRemoteFile('script.intercept.js');
+// document.lss_helper.fetchRemoteFile('script.intercept.js');
