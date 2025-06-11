@@ -502,6 +502,7 @@ document.lss_helper.scenes = {
   "845" : { "POL": 1 }, // Lärmbelästigung durch Vatertagsfeier
   "846" : { "POL": 1, "RTW": 1 }, // Betrunkene versuchen Kühe um zu Schubsen
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
+  "879" : { "LF": 8, "ELW": 1, "GWSAN": 1, "RTW": 5, "POL": 2 }, // Absicherung Flugshow
   "880" : { "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
