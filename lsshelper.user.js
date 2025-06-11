@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202506-09-01
+// @version      202506-11-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -20,6 +20,7 @@
         vehicleGroups: {
             'TEST': [1, 2],
         },
+        stateOrder: ['2', '1', '7', '3', '4', '5', '8', '9', '6'],
         statesAvailable: ['1', '2'],
         statesCall: ['5'],
         statesTransit: ['7'],
@@ -206,8 +207,9 @@
         })
             .reduce((acc, cur) => [...acc, ...cur], [])
             .sort((a, b) => a.name < b.name ? -1 : 1)
-            .sort((a, b) => a.type < b.type ? -1 : 1)
-            .sort((a, b) => a.status < b.status ? -1 : 1);
+            .sort((a, b) => parseInt(a.type) - parseInt(b.type))
+            .sort((a, b) => document.lss_helper.stateOrder.indexOf(a.status) - document.lss_helper.stateOrder.indexOf(b.status))
+        ;
 
         document.lss_helper.missions = Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
             .map((m) => {
@@ -242,6 +244,7 @@
                     proposedVehiclesCount: proposedVehiclesCount,
                     creditPerCar: proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
                     maxDistance: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
+                    maxTime: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.time), 0),
                     info: {
                         countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
                         progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
@@ -289,7 +292,8 @@
                         prisoners: 0-m.prisoners,
                         vehicles: 0-m.proposedVehiclesCount,
                         creditRate: 0-m.creditPerCar,
-                        maxDistance: m.maxDistance
+                        maxDistance: m.maxDistance,
+                        maxTime: m.maxTime
                     },
                     ...m
                 };
@@ -508,6 +512,7 @@
             { value: 'creditRate', label: 'Credits/Fahrzeug' },
             { value: 'credits', label: 'Credits' },
             { value: 'maxDistance', label: 'Entfernung' },
+            { value: 'maxTime', label: 'Zeit' },
             { value: 'patients', label: 'Patienten' },
             { value: 'prisoners', label: 'Gefangene' },
             { value: 'vehicles', label: 'Fahrzeuge' },
@@ -977,6 +982,7 @@
         mission.missing = {};
         let nonReplaceable = [];
         const vehicleCounts = {};
+        const sortKey = 'time';
 
         if (document.lss_helper.getSetting('optimize_scene')) {
             let available = document.lss_helper.vehicles
@@ -984,11 +990,12 @@
                 .map((v) => {
                     return {
                         distance: document.lss_helper.helper.getDistance(mission, v),
+                        time: vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
                         ...v,
                     };
                 })
                 .sort((v1, v2) => {
-                    return v1.distance - v2.distance;
+                    return v1[sortKey] - v2[sortKey];
                 });
             const preVehicles = Object.keys(scene).map((vt) => {
                 const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
@@ -1020,11 +1027,12 @@
             .map((v) => {
                 return {
                     distance: document.lss_helper.helper.getDistance(mission, v),
+                    time: vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
                     ...v,
                 };
             })
             .sort((v1, v2) => {
-                return v1.distance - v2.distance;
+                return v1[sortKey] - v2[sortKey];
             });
         let vehicles = Object.keys(scene).filter((vt) => scene[vt] > 0).map((vt) => {
             const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
