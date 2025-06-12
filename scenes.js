@@ -336,6 +336,7 @@ document.lss_helper.scenes = {
   "471" : { "DLRG": 1, "MZB": 1, "TAUCHER": 1, "POL": 2 }, // Beweismittelsuche im Wasser
   "472" : { "DLRG": 1, "MZB": 1, "TAUCHER": 1, "POL": 2 }, // Beweismittelsuche im Wasser
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
+  "478" : { "LF": 5, "RW": 2, "DLK": 1, "FWK": 1, "ELW": 2, "ELW2": 1, "POL": 2, "RTW": 1 }, // Baum auf Zug
   "479" : { "LF": 5, "RW": 2, "DLK": 1, "FWK": 1, "ELW": 2, "POL": 2, "RTW": 1 }, // Baum auf Zug
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
