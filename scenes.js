@@ -357,6 +357,7 @@ document.lss_helper.scenes = {
   "519" : { "LF": 3, "POL": 1, "RW": 1, "ELW": 1, "RTW": 3, "NEF": 1 }, // Hüpfburgunfall
   "522" : { "DLK": 1, "RTW": 1 }, // Medizinischer Notfall in Flugzeug
   "524" : { "LF": 6, "RW": 2, "DLK": 2, "ELW": 3, "GWA": 1, "SW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWLKWK9": 1, "THWBRG": 1 }, // Brand in Spänebunker
+  "527" : { "DOG": 1, "LF": 2, "RW": 1, "GKW": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Verschüttete Person
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "538" : { "RTW": 1, "NEF": 1 }, // Verbrennung
