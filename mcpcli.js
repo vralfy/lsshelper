@@ -38,16 +38,16 @@ const server = new McpServer(info.server, {
   },
 })
 
-// server.resource(
-//   "echo",
-//   new ResourceTemplate("echo://{message}", { list: undefined }),
-//   async (uri, { message }) => ({
-//     contents: [{
-//       uri: uri.href,
-//       text: `Resource echo: ${message}`
-//     }]
-//   })
-// );
+server.resource(
+  "echo",
+  new ResourceTemplate("echo://{message}", { list: undefined }),
+  async (uri, { message }) => ({
+    contents: [{
+      uri: uri.href,
+      text: `Resource echo: ${message}`
+    }]
+  })
+);
 
 server.tool(
   "echo",
