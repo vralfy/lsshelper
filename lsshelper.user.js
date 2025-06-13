@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202506-11-01
+// @version      202506-13-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -944,8 +944,9 @@
                 header.innerHTML = 'Verfügbar';
                 vehicles.appendChild(header);
                 Object.values(mission.proposedVehicles).forEach((p) => {
+                    const distance = Math.round(p.reduce((a,c) => Math.max(a,c.distance), 0) * 100) / 100;
                     const li = document.createElement('li');
-                    li.innerHTML = document.lss_helper.helper.formatNumber(p.length) + ' x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name);
+                    li.innerHTML = document.lss_helper.helper.formatNumber(p.length) + ' x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name) + ' (' + distance + 'km)';
                     vehicles.appendChild(li);
                 });
             } else {
@@ -1051,7 +1052,7 @@
         //if (nonReplaceable.length) {
         //console.warn('counts', vehicleCounts, 'replacements', nonReplaceable, 'ids', nonReplaceableIds, 'scene', scene, 'send', vehicles);
         //}
-        return (vehicles.filter((v) => v === null).length && !noFillOrKill) ? null : vehicles.filter((v) => v !== null);
+        return JSON.parse(JSON.stringify((vehicles.filter((v) => v === null).length && !noFillOrKill) ? null : vehicles.filter((v) => v !== null)));
     };
 
     document.lss_helper.sendByScene = (mission, scene, noFillOrKill) => {
