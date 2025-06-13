@@ -348,6 +348,7 @@ document.lss_helper.scenes = {
   "494" : { "POL": 1 }, // beschädigte Radarfalle
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
+  "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
   "508" : { "LF": 1, "RW": 1, "RTW": 1, "POL": 1 }, // Pfählungsverletzung
   "509" : { "LF": 6, "DLK": 2, "SW": 1, "GWA": 1, "ELW": 2, "POL": 2 }, // Brennender Stall
@@ -399,7 +400,7 @@ document.lss_helper.scenes = {
   "617" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "ELW": 1, "LF": 4, "FWK": 1, "POL": 2, "RTW": 1 }, // Güterzug entgleist
   "622" : { "RTW": 1 }, // Allergischer Schock
   "623" : { "LF": 3, "ELW": 1, "RW": 2, "DLK": 1, "GWH": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Baugerüst eingestürzt
-  "624" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "GWO": 1,  "POL": 8, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "RTW": 15, "NEF": 5 }, // Zusammenstoß zweier Busse
+  "624" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "GWO": 1,  "POL": 8, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "RTW": 5, "NEF": 5 }, // Zusammenstoß zweier Busse
   "625" : { "LF": 1, "POL": 1, "RTW": 1 }, // Person steckt mit Hand in Kanaldeckel
   "626" : { "RTW": 1 }, // Person tritt auf Glasscherben
   "627" : { "LF": 1, "RTW": 1 }, // Grill in Flammen

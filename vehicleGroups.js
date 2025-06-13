@@ -18,7 +18,7 @@ document.lss_helper.vehicleGroups = {
 
   "RTH": [31, 157],
   "RTW": [28],
-  "NEF": [29],
+  "NEF": [29, 74],
   "KTW": [38],
   "GWSAN": [60],
 
