@@ -307,6 +307,7 @@ document.lss_helper.scenes = {
   "420" : { "RTW": 1 }, // Schlechter Allgemeinzustand
   "421" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Bushaltestelle
   "422" : { "POL": 1 }, // Sachbeschädigung an PKW
+  "423" : { "LF": 6, "DLK": 1, "RW": 1, "ELW": 2, "ELW2": 1, "POL": 3, "SW": 1, "GWA": 1, "RTW": 1 }, // Brand in Klassenraum
   "425" : { "RTW": 1 }, // Verstauchter Knöchel
   "426" : { "RTW": 1 }, // Gebrochenes Bein
   "427" : { "RTW": 1 }, // Gebrochener Arm
@@ -337,6 +338,7 @@ document.lss_helper.scenes = {
   "470" : { "LF": 6, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "POL": 3, "RTW": 2, "NEF": 1 }, // Feuer in Museum
   "471" : { "DLRG": 1, "MZB": 1, "TAUCHER": 1, "POL": 2 }, // Beweismittelsuche im Wasser
   "472" : { "DLRG": 1, "MZB": 1, "TAUCHER": 1, "POL": 2 }, // Beweismittelsuche im Wasser
+  "473" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 6, "RTW": 1 }, // Pfefferspray in Bahn
   "474" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 6, "RTW": 1 }, // Pfefferspray in Bahn
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "478" : { "LF": 5, "RW": 2, "DLK": 1, "FWK": 1, "ELW": 2, "ELW2": 1, "POL": 2, "RTW": 1 }, // Baum auf Zug
