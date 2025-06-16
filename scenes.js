@@ -214,6 +214,7 @@ document.lss_helper.scenes = {
   "233" : { "LF": 1, "POL": 2, "POLH": 1, "RTW": 1 }, // Suche nach Vermissten
   "234" : { "LF": 10, "ELW": 1, "ELW2": 1, "POL": 5 }, // Entschärfung von Weltkriegsbombe
   "235" : { "LF": 2, "ELW": 1, "RTW": 1, "POL": 1, "GWH": 1}, // Verletzte Person auf Hochspannungsmast
+  "236" : { "LF": 2, "GWH": 1, "ELW": 1, "DLK": 1, "POL": 1, "RTW": 1, "NEF": 1, "RTH": 1 }, // Verletzte Person auf Hochspannungsmast
   "237" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall mit Zug
   "238" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Verkehrsunfall mit Linienbus
   "239" : { "LF": 5, "ELW": 2, "ELW2": 1, "RW": 2, "FWK": 1, "GWO": 1, "POL": 4, "RTW": 2 }, // Verkehrsunfall mit Linienbus
