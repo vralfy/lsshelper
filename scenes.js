@@ -368,6 +368,7 @@ document.lss_helper.scenes = {
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "538" : { "RTW": 1, "NEF": 1 }, // Verbrennung
+  "541" : { "GKW": 1, "THWMTW": 1, "THWBRG": 1, "THWLKWK9": 1, "POL": 2, "THWSB": 1, "DOG": 1 }, // Erdrutsch
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
   "545" : { "LF": 14, "RW": 2, "DLK": 3, "ELW": 2, "GWA": 1, "SW": 1, "POL": 4, "GKW": 1, "THWLKWK9": 1, "THWBRG": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Brand bei Holzverarbeiter
   "550" : { "LF": 5, "RW": 3, "ELW": 1, "GWO": 1, "FWK": 1, "GKW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // LKW auf PKW gestürzt
@@ -473,6 +474,7 @@ document.lss_helper.scenes = {
   "748" : { "POL": 2 }, // Gestohlene Glückwunschkarte
   "749" : { "LF": 1, "POL": 1 }, // E-Call ausgelöst
   "750" : { "LF": 4, "ELW": 1, "POL": 3, "RTW": 2 }, // Brand auf Flohmarkt
+  "751" : { "LF": 2, "ELW": 1, "GWM": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // Reizgas in geschlossenem Raum
   "752" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "POL": 1, "GWH": 1 }, // Verletzte Person auf Dach
   "753" : { "LF": 1, "RW": 1, "RTW": 1 }, // Person in Foerderband eingeklemmt
   "755" : { "LF": 2, "ELW": 2, "POL": 2 }, // Kurzschluss an Freileitungsmast
