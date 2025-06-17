@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202506-13-01
+// @version      202506-17-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -85,6 +85,8 @@
             ".state_attended { color: #000; background: #ff0 }",
             "#mission_general_info, #back_to_mission { text-align:right }",
             ".mission_detail { display: block; padding: 2px 4px; margin: 0; border-left: 1px solid #0007; border-right: 1px solid #3337; }",
+            "#missions .panel-success .panel-heading {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
+            "#missions .panel-success .panel-body {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
             "</style>"
         ].join("\n")).appendTo("head");
 
@@ -696,12 +698,18 @@
                 unavailable.innerHTML = document.lss_helper.helper.formatNumber(i.unavailable);
                 inMotion.innerHTML = document.lss_helper.helper.formatNumber(i.inMotion);
                 li.append(sum);
-                li.innerHTML += '/';
-                li.append(available);
-                li.innerHTML += '/';
-                li.append(inMotion);
-                li.innerHTML += '/';
-                li.append(unavailable);
+                if (i.available) {
+                    li.innerHTML += '/';
+                    li.append(available);
+                }
+                if (i.inMotion) {
+                    li.innerHTML += '/';
+                    li.append(inMotion);
+                }
+                if (i.unavailable) {
+                    li.innerHTML += '/';
+                    li.append(unavailable);
+                }
                 li.innerHTML += i.name;
             });
     };
