@@ -241,6 +241,7 @@ document.lss_helper.scenes = {
   "280" : { "LF": 3, "ELW": 1, "RW": 1, "DLK": 1 }, // Baum auf Oberleitung
   "281" : { "LF": 1, "RTW": 1, "NEF": 1, "RTH": 1 }, // Stromschlag
   "282" : { "LF": 2, "ELW": 1, "RW": 1 }, // Geplatzte Wasserleitung
+  "283" : { "LF": 10, "RW": 2, "ELW": 3, "ELW2": 1, "DLK": 2, "GWA": 1, "POL":3, "RTW": 5 }, // Bürobrand (Groß) (Brandmeldeanlage)
   "284" : { "POL": 1 }, // Ostereierdieb
   "285" : { "POL": 1 }, // Pinsel aus Werkstatt entwendet
   "288" : { "LF": 1 }, // Brennendes Osternest
@@ -526,5 +527,6 @@ document.lss_helper.scenes = {
   "916" : { "LF": 6, "ELW": 2, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
   "925" : { "LF": 14, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "GWA": 2, "DLK": 3, "SW": 1, "POL": 8 }, // Hochhausbrand mit Evakuierung
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
+  "933" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "GWG": 1, "GWM": 1, "DEKONP": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Gefahrgut-Austritt in Paketzentrum
 }
 // https://www.leitstellenspiel.de/einsaetze/0
