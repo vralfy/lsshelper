@@ -521,6 +521,7 @@ document.lss_helper.scenes = {
   "880" : { "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
+  "884" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 2, "POL": 4, "RTW": 3 }, // Verkehrsunfall mit Stadtbahn
   "897" : { "KTW": 1 }, // Patientenübernahme von Ambulanzflug
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
