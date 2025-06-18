@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202506-17-01
+// @version      202506-18-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -75,6 +75,8 @@
             ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
             ".hidden { display: none }",
             "#lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }",
+            "#lss_helper_container #lss_helper_missions .sendVehicles {}",
+            "#lss_helper_container.sendVehicles #lss_helper_missions .sendVehicles { display: none }",
             ".lss_available, .lss_in_motion, .lss_unavailable {background: #505050;font-size:18px;padding:0 2px}",
             ".lss_available { color: #0a0; }",
             ".lss_in_motion { color: #aa0; }",
@@ -814,21 +816,21 @@
                         const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
                         const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
                         const btn2 = document.createElement('a');
-                        btn2.classList = 'btn btn-xs btn-default';
+                        btn2.classList = 'btn btn-xs btn-default sendVehicles';
                         btn2.innerHTML = '🚨' + document.lss_helper.helper.formatNumber(vehiclesCount);
                         btn2.onclick = () => { document.lss_helper.sendByScene(m) };
                         leftContainer.appendChild(btn2);
                     } else {
                         if (document.lss_helper.getVehiclesByMission(m, 'lf1') && document.lss_helper.getSetting('show_mission_lf1')) {
                             const btn = document.createElement('a');
-                            btn.classList = 'btn btn-xs btn-default';
+                            btn.classList = 'btn btn-xs btn-default sendLf1';
                             btn.innerHTML = '🚒';
                             btn.onclick = () => { document.lss_helper.sendByScene(m, 'lf1') };
                             leftContainer.appendChild(btn);
                         }
                         if (document.lss_helper.getVehiclesByMission(m) && document.lss_helper.getSetting('show_mission_lf2')) {
                             const btn2 = document.createElement('a');
-                            btn2.classList = 'btn btn-xs btn-default';
+                            btn2.classList = 'btn btn-xs btn-default sendLf2';
                             btn2.innerHTML = '🚒🚒';
                             btn2.onclick = () => { document.lss_helper.sendByScene(m) };
                             leftContainer.appendChild(btn2);
@@ -1076,6 +1078,10 @@
     };
 
     document.lss_helper.sendVehicles = (missionid, vehicles) => {
+        const main = document.lss_helper.getHelperContainer();
+        console.error(main, );
+        main.classList = [...Array.from(main.classList), 'sendVehicles'].join(' ');
+
         const url = "/missions/" + missionid + "/alarm";
         const body = {
             //utf8: "",
@@ -1092,7 +1098,11 @@
         const vehicleids = vehicles.map((v) => new URLSearchParams('vehicle_ids[]') + v.id).join('&');
         fetch(url, { method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
             .then((response) => response.text())
-            .then((json) => document.lss_helper.debug(json))
+            .then((json) => {
+              document.lss_helper.debug(json);
+              main.classList = Array.from(main.classList).filter((c) => c !== 'sendVehicles').join(' ');
+              document.lss_helper.update(-1);
+            })
     };
 
     document.lss_helper.fetchRemoteFile = (filename) => {
@@ -1103,7 +1113,6 @@
             .then((response) => { eval(response); return response; })
             .catch((err) => {
                 document.lss_helper.error(err);
-                //document.lss_helper.setSetting('update_scenes', '-1');
             });
     };
 
