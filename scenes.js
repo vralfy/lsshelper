@@ -385,6 +385,7 @@ document.lss_helper.scenes = {
   "562" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall in Tunnel
   "566" : { "POL": 1 }, // Drogenhandel aufgeflogen
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
+  "569" : { "POL": 6, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Tankstellenüberfall - Eskaliert
   "570" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Wohnhaus
   "571" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Dachstuhlbrand
   "572" : { "POL": 6 }, // Überfall auf Spielhalle
