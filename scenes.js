@@ -285,6 +285,7 @@ document.lss_helper.scenes = {
   "352" : { "LF": 12, "DLK": 3, "GWA": 1, "GWM": 1, "RW": 1, "SW": 1, "ELW": 3, "ELW2": 1, "POL": 4, "RTW": 5, "NEF": 2 }, // Brand in Mehrfamilienhaus
   "353" : { "GRUKW": 3, "BEFKW": 1, "POL": 3, "THWGWN": 1, "NEA": 1,  }, // Großkontrolle Betäubungsmittel
   "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
+  "356" : { "POL": 4, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Häusliche Gewalt - eskaliert
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "360" : { "LF": 1 }, // Brennender Blumenstrauß
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
