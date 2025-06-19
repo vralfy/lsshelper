@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202506-04-01
+// @version      202506-19-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -41,6 +41,8 @@
     document.lss_helper.getSetting('distribution_dlrg', 'false');
     document.lss_helper.getSetting('distribution_bepo', 'false');
     document.lss_helper.getSetting('distribution_school', 'false');
+
+    document.lss_helper.getSetting('distribution_mission', 'true');
 
     var container = document.getElementById('lss_helper_addon_distribution');
     if (!container) {
@@ -102,6 +104,7 @@
 
     document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_mission', 'Einsatz', null, settingsContainer);
 
     if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
       setTimeout(() => { document.lss_helper_distribution.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
@@ -244,6 +247,25 @@
         .filter((v) => types.indexOf(v.type) >= 0)
         .filter((v) => v.available || !document.lss_helper.getSetting('distribution_available_only'))
     );
+
+    if (document.lss_helper.getSetting('distribution_mission') && document.lss_helper.missionDetails) {
+        p5.stroke(0,0,0);
+        p5.fill(255, 0, 0, 255);
+        const mission = document.lss_helper.missions.find((m) => m.data.id === document.lss_helper.missionDetails);
+        const mx = (mission.lng + graph.offsetX) * graph.scaleX;
+        const my = (mission.lat + graph.offsetY) * graph.scaleY;
+        p5.circle(mx, my, 5);
+        if (mission.proposedVehicles) {
+            const vehicles = mission.proposedVehicles.reduce((acc, cur) => [...acc, ...cur], []);
+            p5.stroke(255,0,0);
+            p5.noFill();
+            vehicles.forEach((v) => {
+                const vx = (v.lng + graph.offsetX) * graph.scaleX;
+                const vy = (v.lat + graph.offsetY) * graph.scaleY;
+                p5.line(mx, my, vx, vy)
+            });
+        }
+    }
 
     //p5.noLoop();
   };
