@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202506-19-01
+// @version      202506-20-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -21,7 +21,8 @@
     graph: {
       width: 1000,
       height: 800,
-      border: 0.05,
+      borderX: 0.05,
+      borderY: 0.05,
     }
   };
 
@@ -111,6 +112,21 @@
     }
   };
 
+  document.lss_helper_distribution.coord = (lng, lat) => {
+      if (typeof lng === 'object') {
+          lat = lng.lat; // y
+          lng = lng.lng; // x
+      }
+      const graph = document.lss_helper_distribution.graph;
+      return {
+          x: (lng - graph.centerX) * graph.scaleX,
+          y: (lat - graph.centerY) * graph.scaleY,
+          // Map longitude and latitude to canvas coordinates relative to minLng/minLat
+          // x: (lng - graph.minLng) * gr0aph.scaleX - graph.width / 2,
+          // y: (lat - graph.minLat) * graph.scaleY - graph.height / 2,
+      }
+  }
+
   document.lss_helper_distribution.p5Setup = () => {
     if (!document.lss_helper_distribution.p5) {
       console.warn('p5js not ready yet');
@@ -130,9 +146,8 @@
     const graph = document.lss_helper_distribution.graph;
 
     const points = buildings.reduce((acc, cur) => {
-      const x = (cur.lng + graph.offsetX) * graph.scaleX;
-      const y = (cur.lat + graph.offsetY) * graph.scaleY;
-      return [...acc, x, y]
+      const c = document.lss_helper_distribution.coord(cur);
+      return [...acc, c.x, c.y]
     }, []);
     const delaunay = new d3.Delaunay(points);
     const voronoi = delaunay.voronoi([graph.width / -2, graph.height / -2, graph.width / 2, graph.height / 2]);
@@ -146,10 +161,9 @@
 
     p5.fill(0);
     buildings.forEach((b) => {
-      const x = (b.lng + graph.offsetX) * graph.scaleX;
-      const y = (b.lat + graph.offsetY) * graph.scaleY;
-      p5.circle(x, y, 3);
-      p5.text(b.name, x, y);
+      const c = document.lss_helper_distribution.coord(b);
+      p5.circle(c.x, c.y, 3);
+      p5.text(b.name, c.x, c.y);
     });
   };
 
@@ -165,16 +179,25 @@
     const graph = document.lss_helper_distribution.graph;
     p5.background(255);
 
-    graph.minLat = document.lss_helper.buildings.reduce((acc, cur) => Math.min(acc, cur.lat), 720) - graph.border;
-    graph.maxLat = document.lss_helper.buildings.reduce((acc, cur) => Math.max(acc, cur.lat), -720) + graph.border;
-    graph.minLng = document.lss_helper.buildings.reduce((acc, cur) => Math.min(acc, cur.lng), 720) - graph.border;
-    graph.maxLng = document.lss_helper.buildings.reduce((acc, cur) => Math.max(acc, cur.lng), -720) + graph.border;
+    graph.minLat = document.lss_helper.buildings.reduce((acc, cur) => Math.min(acc, cur.lat), 720) - graph.borderY;
+    graph.maxLat = document.lss_helper.buildings.reduce((acc, cur) => Math.max(acc, cur.lat), -720) + graph.borderY;
+    graph.minLng = document.lss_helper.buildings.reduce((acc, cur) => Math.min(acc, cur.lng), 720) - graph.borderX;
+    graph.maxLng = document.lss_helper.buildings.reduce((acc, cur) => Math.max(acc, cur.lng), -720) + graph.borderX;
     graph.offsetX = (graph.minLng + graph.maxLng) / -2;
     graph.offsetY = (graph.minLat + graph.maxLat) / -2;
+    graph.centerX = graph.minLng + (graph.maxLng - graph.minLng) / 2;
+    graph.centerY = graph.minLat + (graph.maxLat - graph.minLat) / 2;
     graph.scaleX = graph.width / (graph.maxLng - graph.minLng);
     graph.scaleY = graph.height / (graph.maxLat - graph.minLat) * -1;
 
     p5.translate(graph.width / 2, graph.height / 2);
+
+    // DEBUG
+    //p5.stroke(200, 0, 200);
+    //p5.noFill();
+    //p5.circle(0, 0, 10);
+    //p5.circle(document.lss_helper_distribution.coord(0,0).x, document.lss_helper_distribution.coord(0,0).y, 5);
+    //p5.line(graph.width, graph.height, -graph.width, -graph.height);
 
     if (document.lss_helper.getSetting('distribution_leitstelle')) {
       p5.stroke(0, 200, 200);
@@ -252,17 +275,15 @@
         p5.stroke(0,0,0);
         p5.fill(255, 0, 0, 255);
         const mission = document.lss_helper.missions.find((m) => m.data.id === document.lss_helper.missionDetails);
-        const mx = (mission.lng + graph.offsetX) * graph.scaleX;
-        const my = (mission.lat + graph.offsetY) * graph.scaleY;
-        p5.circle(mx, my, 5);
+        const cm = document.lss_helper_distribution.coord(mission);
+        p5.circle(cm.x, cm.y, 5);
         if (mission.proposedVehicles) {
             const vehicles = mission.proposedVehicles.reduce((acc, cur) => [...acc, ...cur], []);
             p5.stroke(255,0,0);
             p5.noFill();
             vehicles.forEach((v) => {
-                const vx = (v.lng + graph.offsetX) * graph.scaleX;
-                const vy = (v.lat + graph.offsetY) * graph.scaleY;
-                p5.line(mx, my, vx, vy)
+                const cv = document.lss_helper_distribution.coord(v);
+                p5.line(cm.x, cm.y, cv.x, cv.y);
             });
         }
     }
