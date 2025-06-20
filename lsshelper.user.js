@@ -239,16 +239,9 @@
                 }
             })
             .map((m) => {
-                const proposedVehicles = document.lss_helper.getVehiclesByMission(m);
-                const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc, cur) => acc + cur, 0);
                 return {
                     stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
                     scene: document.lss_helper.scenes[m.missionType],
-                    proposedVehicles: proposedVehicles,
-                    proposedVehiclesCount: proposedVehiclesCount,
-                    creditPerCar: proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
-                    maxDistance: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
-                    maxTime: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.time), 0),
                     info: {
                         countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
                         progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
@@ -280,6 +273,18 @@
                 return {
                     patients: patients,
                     prisoners: prisoners,
+                    ...m
+                };
+            })
+            .map((m) => {
+                const proposedVehicles = document.lss_helper.getVehiclesByMission(m);
+                const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc, cur) => acc + cur, 0);
+                return {
+                    proposedVehicles: proposedVehicles,
+                    proposedVehiclesCount: proposedVehiclesCount,
+                    creditPerCar: proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
+                    maxDistance: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
+                    maxTime: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.time), 0),
                     ...m
                 };
             })
@@ -974,7 +979,7 @@
     };
 
     document.lss_helper.getVehiclesByMission = (mission, scene, noFillOrKill) => {
-        scene = scene || (document.lss_helper.scenes[mission.missionType] ? mission.missionType : null) || 'X';
+        scene = scene || (mission.missionType || 'X');
         if (!document.lss_helper.scenes[scene]) {
             return null;
         }
