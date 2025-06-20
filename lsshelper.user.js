@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202506-18-01
+// @version      202506-20-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -979,11 +979,20 @@
             return null;
         }
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
+        const countLNA = document.lss_helper.vehicles.filter(v => v.type === '55').filter(v => v.available).length;
+        const countORGL = document.lss_helper.vehicles.filter(v => v.type === '56').filter(v => v.available).length;
 
         if (scene['RTW'] && mission.patients) {
             scene['RTW'] = mission.patients;
         } else if (scene['KTW'] && mission.patients) {
             scene['KTW'] = mission.patients;
+        }
+
+        if (countLNA && mission.patients >= 5) {
+            scene['LNA'] = 1;
+        }
+        if (countORGL && mission.patients >= 10) {
+            scene['ORGL'] = 1;
         }
 
         if (mission.prisoners) {
@@ -1079,7 +1088,6 @@
 
     document.lss_helper.sendVehicles = (missionid, vehicles) => {
         const main = document.lss_helper.getHelperContainer();
-        console.error(main, );
         main.classList = [...Array.from(main.classList), 'sendVehicles'].join(' ');
 
         const url = "/missions/" + missionid + "/alarm";
