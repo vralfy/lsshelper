@@ -758,11 +758,15 @@
 
     Object.keys(missing).forEach((vt) => {
       const li = document.createElement('li');
+      li.classList = 'lss_unavailable';
       container.appendChild(li);
+      let name = vt;
+      name = (document.lss_helper.vehicleGroups[name] ?? [name])[0] ?? name;
+      name = document.lss_helper.vehicleTypes[name] ?? name;
       li.innerHTML =
         document.lss_helper.helper.formatNumber(missing[vt])
         + ' x '
-        + (document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt);
+        + name;
     });
   };
 
@@ -981,7 +985,10 @@
         const scene = document.lss_helper.getScene(mission.missionType) ?? {};
         Object.keys(scene).forEach((k) => {
           const li = document.createElement('li');
-          li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + ' x ' + k;
+          let name = k;
+          name = (document.lss_helper.vehicleGroups[name] ?? [name])[0] ?? name;
+          name = document.lss_helper.vehicleTypes[name] ?? name;
+          li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + ' x ' + name;
           vehicles.appendChild(li);
         });
       }
