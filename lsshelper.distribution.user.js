@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202506-20-01
+// @version      202506-22-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -34,6 +34,8 @@
     }
 
     document.lss_helper.getSetting('distribution_size', '1000');
+    document.lss_helper.getSetting('distribution_all_names', 'false');
+    document.lss_helper.getSetting('distribution_building', 'false');
     document.lss_helper.getSetting('distribution_leitstelle', 'true');
     document.lss_helper.getSetting('distribution_firehouse', 'true');
     document.lss_helper.getSetting('distribution_police', 'false');
@@ -83,16 +85,18 @@
       return;
     }
     if (!document.lss_helper_distribution.p5 && document.lss_helper.getSetting('distribution')) {
-        document.lss_helper_distribution.p5 = new p5((sketch) => {
-            sketch.setup = document.lss_helper_distribution.p5Setup;
-            sketch.draw = document.lss_helper_distribution.p5Draw;
-        });
+      document.lss_helper_distribution.p5 = new p5((sketch) => {
+        sketch.setup = document.lss_helper_distribution.p5Setup;
+        sketch.draw = document.lss_helper_distribution.p5Draw;
+      });
     }
 
     const container = document.getElementById('lss_helper_addon_distribution');
     const settingsContainer = 'lss_helper_addon_distribution_settings';
     container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
     document.lss_helper.printSettingsButton('distribution', 'Verteilungsgraph', 'col-sm-12');
+    document.lss_helper.printSettingsButton('distribution_all_names', 'Alle Gebaeudenamen', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_building', 'Alle Gebaeude', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_leitstelle', 'Verteilung Leitstelle', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_firehouse', 'Verteilung Feuerwehr', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_police', 'Verteilung Polizei', null, settingsContainer);
@@ -113,18 +117,18 @@
   };
 
   document.lss_helper_distribution.coord = (lng, lat) => {
-      if (typeof lng === 'object') {
-          lat = lng.lat; // y
-          lng = lng.lng; // x
-      }
-      const graph = document.lss_helper_distribution.graph;
-      return {
-          x: (lng - graph.centerX) * graph.scaleX,
-          y: (lat - graph.centerY) * graph.scaleY,
-          // Map longitude and latitude to canvas coordinates relative to minLng/minLat
-          // x: (lng - graph.minLng) * gr0aph.scaleX - graph.width / 2,
-          // y: (lat - graph.minLat) * graph.scaleY - graph.height / 2,
-      }
+    if (typeof lng === 'object') {
+      lat = lng.lat; // y
+      lng = lng.lng; // x
+    }
+    const graph = document.lss_helper_distribution.graph;
+    return {
+      x: (lng - graph.centerX) * graph.scaleX,
+      y: (lat - graph.centerY) * graph.scaleY,
+      // Map longitude and latitude to canvas coordinates relative to minLng/minLat
+      // x: (lng - graph.minLng) * gr0aph.scaleX - graph.width / 2,
+      // y: (lat - graph.minLat) * graph.scaleY - graph.height / 2,
+    }
   }
 
   document.lss_helper_distribution.p5Setup = () => {
@@ -159,12 +163,14 @@
       document.lss_helper_distribution.p5.endShape();
     });
 
-    p5.fill(0);
-    buildings.forEach((b) => {
-      const c = document.lss_helper_distribution.coord(b);
-      p5.circle(c.x, c.y, 3);
-      p5.text(b.name, c.x, c.y);
-    });
+    if (!document.lss_helper.getSetting('distribution_all_names')) {
+      p5.fill(0);
+      buildings.forEach((b) => {
+        const c = document.lss_helper_distribution.coord(b);
+        p5.circle(c.x, c.y, 3);
+        p5.text(b.name, c.x, c.y);
+      });
+    }
   };
 
   document.lss_helper_distribution.p5Draw = () => {
@@ -198,7 +204,21 @@
     //p5.circle(0, 0, 10);
     //p5.circle(document.lss_helper_distribution.coord(0,0).x, document.lss_helper_distribution.coord(0,0).y, 5);
     //p5.line(graph.width, graph.height, -graph.width, -graph.height);
+    if (document.lss_helper.getSetting('distribution_all_names')) {
+      p5.stroke(0);
+      p5.fill(0);
+      document.lss_helper.buildings.forEach((b) => {
+        const c = document.lss_helper_distribution.coord(b);
+        p5.circle(c.x, c.y, 3);
+        p5.text(b.name, c.x, c.y);
+      });
+    }
 
+    if (document.lss_helper.getSetting('distribution_building')) {
+      p5.stroke(0, 0, 0);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings); // All
+    }
     if (document.lss_helper.getSetting('distribution_leitstelle')) {
       p5.stroke(0, 200, 200);
       p5.noFill();
@@ -246,46 +266,46 @@
     }
 
     const types = [
-        ...Object.keys(document.lss_helper.vehicleTypes)
+      ...Object.keys(document.lss_helper.vehicleTypes)
         .sort((s1, s2) => document.lss_helper.vehicleTypes[s1] < document.lss_helper.vehicleTypes[s2] ? -1 : 1)
         .filter((gkey) => {
-            const name = document.lss_helper.vehicleTypes[gkey];
-            const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
-            document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
-            return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
+          const name = document.lss_helper.vehicleTypes[gkey];
+          const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
+          document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
+          return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
         }),
 
     ];
 
     Object.keys(document.lss_helper.vehicleTypes).forEach((gkey) => {
-        const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
-        const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
-        document.getElementById(id).style = 'display:' + (amount ? 'block' : 'none');
+      const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
+      const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
+      document.getElementById(id).style = 'display:' + (amount ? 'block' : 'none');
     });
 
     p5.stroke(0, 0, 0);
     p5.fill(255, 0, 0, 25);
     document.lss_helper_distribution.delaunay(
-        document.lss_helper.vehicles
+      document.lss_helper.vehicles
         .filter((v) => types.indexOf(v.type) >= 0)
         .filter((v) => v.available || !document.lss_helper.getSetting('distribution_available_only'))
     );
 
     if (document.lss_helper.getSetting('distribution_mission') && document.lss_helper.missionDetails) {
-        p5.stroke(0,0,0);
-        p5.fill(255, 0, 0, 255);
-        const mission = document.lss_helper.missions.find((m) => m.data.id === document.lss_helper.missionDetails);
-        const cm = document.lss_helper_distribution.coord(mission);
-        p5.circle(cm.x, cm.y, 5);
-        if (mission.proposedVehicles) {
-            const vehicles = mission.proposedVehicles.reduce((acc, cur) => [...acc, ...cur], []);
-            p5.stroke(255,0,0);
-            p5.noFill();
-            vehicles.forEach((v) => {
-                const cv = document.lss_helper_distribution.coord(v);
-                p5.line(cm.x, cm.y, cv.x, cv.y);
-            });
-        }
+      p5.stroke(0, 0, 0);
+      p5.fill(255, 0, 0, 255);
+      const mission = document.lss_helper.missions.find((m) => m.data.id === document.lss_helper.missionDetails);
+      const cm = document.lss_helper_distribution.coord(mission);
+      p5.circle(cm.x, cm.y, 5);
+      if (mission.proposedVehicles) {
+        const vehicles = mission.proposedVehicles.reduce((acc, cur) => [...acc, ...cur], []);
+        p5.stroke(255, 0, 0);
+        p5.noFill();
+        vehicles.forEach((v) => {
+          const cv = document.lss_helper_distribution.coord(v);
+          p5.line(cm.x, cm.y, cv.x, cv.y);
+        });
+      }
     }
 
     //p5.noLoop();
