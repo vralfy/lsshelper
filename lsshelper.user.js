@@ -106,6 +106,8 @@
       }
     }, 500);
 
+    document.lss_helper.getSetting('channel', '"master"');
+
     document.lss_helper.setSetting('autoAccept', 'false');
     document.lss_helper.setSetting('autoPatient', 'false');
     document.lss_helper.setSetting('autoPrisoner', 'false');
@@ -531,6 +533,10 @@
       { value: 'missionId', label: 'Missions ID' },
       { value: 'missionType', label: 'Missions Typ' },
       { value: 'missionTitle', label: 'Missions Titel' },
+    ]);
+    const channel = document.lss_helper.printSettingsSelect('channel', 'Version', null, [
+      { value: 'master', label: 'Stabil' },
+      { value: 'dev', label: 'Instabil' },
     ]);
 
     let hash = document.getElementById('lss_helper_settings_hash');
@@ -1150,7 +1156,9 @@
   document.lss_helper.fetchRemoteFile = (filename) => {
     document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
     const header = { method: 'GET', cache: "no-cache" };
-    return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
+    const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
+    const channel = document.lss_helper.getSetting('channel', '"master"');
+    return fetch(repo + '/refs/heads/' + channel + '/' + filename, header)
       .then((response) => response.text())
       .then((response) => { eval(response); return response; })
       .catch((err) => {
