@@ -398,6 +398,7 @@ document.lss_helper.scenes = {
   "575" : { "LF": 1}, // unklare Rauchentwicklung
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
+  "580" : { "POL": 6, "GRUKW": 6, "BEFKW": 2, "RTW": 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
   "593" : { "GKW": 1, "AAOTHWR": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
   "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
