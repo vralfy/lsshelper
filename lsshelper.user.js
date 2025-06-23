@@ -106,6 +106,8 @@
       }
     }, 500);
 
+    document.lss_helper.getSetting('channel', '"master"');
+
     document.lss_helper.setSetting('autoAccept', 'false');
     document.lss_helper.setSetting('autoPatient', 'false');
     document.lss_helper.setSetting('autoPrisoner', 'false');
@@ -532,6 +534,10 @@
       { value: 'missionType', label: 'Missions Typ' },
       { value: 'missionTitle', label: 'Missions Titel' },
     ]);
+    const channel = document.lss_helper.printSettingsSelect('channel', 'Version', null, [
+      { value: 'master', label: 'Stabil' },
+      { value: 'dev', label: 'Instabil' },
+    ]);
 
     let hash = document.getElementById('lss_helper_settings_hash');
     if (!hash) {
@@ -752,11 +758,15 @@
 
     Object.keys(missing).forEach((vt) => {
       const li = document.createElement('li');
+      li.classList = 'lss_unavailable';
       container.appendChild(li);
+      let name = vt;
+      name = (document.lss_helper.vehicleGroups[name] ?? [name])[0] ?? name;
+      name = document.lss_helper.vehicleTypes[name] ?? name;
       li.innerHTML =
         document.lss_helper.helper.formatNumber(missing[vt])
         + ' x '
-        + (document.lss_helper.vehicleTypes[vt] ? document.lss_helper.vehicleTypes[vt] : vt);
+        + name;
     });
   };
 
@@ -975,7 +985,10 @@
         const scene = document.lss_helper.getScene(mission.missionType) ?? {};
         Object.keys(scene).forEach((k) => {
           const li = document.createElement('li');
-          li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + ' x ' + k;
+          let name = k;
+          name = (document.lss_helper.vehicleGroups[name] ?? [name])[0] ?? name;
+          name = document.lss_helper.vehicleTypes[name] ?? name;
+          li.innerHTML = document.lss_helper.helper.formatNumber(scene[k]) + ' x ' + name;
           vehicles.appendChild(li);
         });
       }
@@ -1150,7 +1163,9 @@
   document.lss_helper.fetchRemoteFile = (filename) => {
     document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
     const header = { method: 'GET', cache: "no-cache" };
-    return fetch('https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/' + filename, header)
+    const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
+    const channel = document.lss_helper.getSetting('channel', '"master"');
+    return fetch(repo + '/refs/heads/' + channel + '/' + filename, header)
       .then((response) => response.text())
       .then((response) => { eval(response); return response; })
       .catch((err) => {

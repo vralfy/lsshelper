@@ -353,6 +353,7 @@ document.lss_helper.scenes = {
   "484" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "GWM": 2, "GWA": 1, "RTW": 1, "NEF": 1 }, // Transportunfall mit Strahler
   "486" : { "POLH": 1, "GRUKW": 3, "BEFKW": 1, "POL": 4 }, // Cannabisplantage entdeckt
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
+  "493" : { "LF": 2, "ELW": 1, "POL": 2, "RTW": 10 }, // Massenanfall an Erkrankten - Diskothek
   "494" : { "POL": 1 }, // beschädigte Radarfalle
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
@@ -397,6 +398,7 @@ document.lss_helper.scenes = {
   "575" : { "LF": 1}, // unklare Rauchentwicklung
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
+  "580" : { "POL": 6, "GRUKW": 6, "BEFKW": 2, "RTW": 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
   "593" : { "GKW": 1, "AAOTHWR": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
   "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
@@ -432,6 +434,7 @@ document.lss_helper.scenes = {
   "652" : { "POL": 2 }, // Aufgeplatzter Asphalt auf Autobahn
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "654" : { "LF": 15, "RW": 1, "DLK": 3, "ELW": 1, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "RTW": 4 }, // Großbrand Möbelhaus
+  "655" : { "AAOTHWWP": 1, "RW": 2, "GWO": 1, "ELW2": 1, "THWMTW": 1, "GKW": 1, "POL": 2 }, // Parkhaus voll Wasser gelaufen
   "666" : { "LF": 8, "ELW": 1, "DLK": 1, "SW": 2, "GWA": 1, "POL": 3, "RTW": 5, "NEF": 2 }, // Brand auf Campingplatz
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
