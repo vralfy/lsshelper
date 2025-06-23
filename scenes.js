@@ -344,6 +344,7 @@ document.lss_helper.scenes = {
   "472" : { "DLRG": 1, "MZB": 1, "TAUCHER": 1, "POL": 2 }, // Beweismittelsuche im Wasser
   "473" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 6, "RTW": 1 }, // Pfefferspray in Bahn
   "474" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 6, "RTW": 1 }, // Pfefferspray in Bahn
+  "475" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 6, "RTW": 1 }, // Pfefferspray in Bahn
   "476" : { "RTW": 1, "POL": 1}, // Angefahrener Radfahrer
   "477" : { "LF": 5, "RW": 2, "DLK": 1, "FWK": 1, "ELW": 2, "POL": 2, "RTW": 1 }, // Baum auf Zug
   "478" : { "LF": 5, "RW": 2, "DLK": 1, "FWK": 1, "ELW": 2, "ELW2": 1, "POL": 2, "RTW": 1 }, // Baum auf Zug
