@@ -112,6 +112,7 @@
 
         document.lss_helper.setSetting('autoAccept', 'false');
         document.lss_helper.setSetting('autoResend', 'false');
+        document.lss_helper.getSetting('autoResendAll', 'true');
         document.lss_helper.setSetting('autoPatient', 'false');
         document.lss_helper.setSetting('autoPrisoner', 'false');
 
@@ -337,6 +338,7 @@
                             }
                             return false;
                         }
+                        document.lss_helper.vehicleResendMissing.splice(document.lss_helper.vehicleResendMissing.indexOf(s.type), 1);
                         return true;
                     })
                     .map((s) => {
@@ -354,7 +356,7 @@
                     ...m,
                     resend,
                     resendScene,
-                    resendVehicles: document.lss_helper.getVehiclesByScene(JSON.parse(JSON.stringify(m)), JSON.parse(JSON.stringify(resendScene))),
+                    resendVehicles: document.lss_helper.getVehiclesByScene(JSON.parse(JSON.stringify(m)), JSON.parse(JSON.stringify(resendScene)), !document.lss_helper.getSetting('autoResendAll')),
                 }
             })
             .filter((m) => !m.data.caption.includes('[Verband]') || document.lss_helper.getSetting('mission_verband'))
