@@ -22,6 +22,8 @@ document.lss_helper.vehicleResend = {
   'Gerätekraftwagen (GKW)': 'GKW',
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
   'MzGW (FGr N)': 'THWGWN',
+  'Radlader (BRmG R)': 'THWBRG',
+  'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
 
   'Betreuungs- und Verpflegungsausstattung': 'TBD',
