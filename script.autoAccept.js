@@ -4,7 +4,7 @@ document.lss_helper.autoAccept = (force) => {
     }
     const missionFrameOpen = Array.from(document.getElementById('lightbox_box').getElementsByTagName('iframe')).length > 0;
 
-    if (!force || missionFrameOpen) {
+    if (!force && missionFrameOpen) {
         return;
     }
 
