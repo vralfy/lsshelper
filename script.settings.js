@@ -170,6 +170,10 @@ document.lss_helper.printSettings = () => {
       { value: 'prisoners', label: 'Gefangene' },
       { value: 'vehicles', label: 'Fahrzeuge' },
   ]);
+  const channel = document.lss_helper.printSettingsSelect('channel', 'Version', null, [
+    { value: 'master', label: 'Stabil' },
+    { value: 'dev', label: 'Instabil' },
+  ]);
 
   let hash = document.getElementById('lss_helper_settings_hash');
   if (!hash) {
