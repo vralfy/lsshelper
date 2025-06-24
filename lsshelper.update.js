@@ -12,6 +12,11 @@ document.lss_helper.fetchRemoteFile('script.autoPatient.js');
 document.lss_helper.fetchRemoteFile('script.autoPrisoner.js');
 document.lss_helper.fetchRemoteFile('script.container.js');
 document.lss_helper.fetchRemoteFile('script.log.js');
-document.lss_helper.fetchRemoteFile('script.settings.js');
+
+document.lss_helper.fetchRemoteFile('script.print.missingVehicle.js');
+document.lss_helper.fetchRemoteFile('script.print.missions.js');
+document.lss_helper.fetchRemoteFile('script.print.scene.js');
+document.lss_helper.fetchRemoteFile('script.print.settings.js');
+document.lss_helper.fetchRemoteFile('script.print.vehicles.js');
 
 // document.lss_helper.fetchRemoteFile('script.intercept.js');
