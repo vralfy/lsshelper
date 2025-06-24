@@ -149,6 +149,7 @@ document.lss_helper.printSettingsButton = (setting, caption, cls, container) => 
         const lf2 = document.lss_helper.printSettingsButton('show_mission_lf2');
         const missing = document.lss_helper.printSettingsButton('show_vehicle_missing');
         const verband = document.lss_helper.printSettingsButton('mission_verband');
+        const autoResendAll = document.lss_helper.printSettingsButton('autoResendAll');
         const optimize = document.lss_helper.printSettingsButton('optimize_scene', null, 'col-sm-12');
 
         const autoAccept = document.lss_helper.printSettingsButton('autoAccept', null, 'col-sm-3 col-md-3');
