@@ -11,6 +11,7 @@ document.lss_helper.vehicleResend = {
   'ELW 2': 'ELW2',
   'GW-Atemschutz': 'GWA',
   'GW-Höhenrettung': 'GWH',
+  'GW-Öl': 'GWO',
 
   'FuStW': 'POL',
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',
@@ -20,5 +21,6 @@ document.lss_helper.vehicleResend = {
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
   'MzGW (FGr N)': 'THWGWN',
 
-  // 'Betreuungs- und Verpflegungsausstattung': 'AAO...',
+  'Betreuungs- und Verpflegungsausstattung': 'TBD',
+  'Drohneneinheit': 'TBD',
 };
