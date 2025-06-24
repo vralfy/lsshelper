@@ -10,12 +10,14 @@ document.lss_helper.vehicleResend = {
   'ELW 2': 'ELW2',
   'GW-Atemschutz': 'GWA',
   'GW-Höhenrettung': 'GWH',
+  'GW-Messtechnik': 'GWM',
   'GW-Öl': 'GWO',
 
   'FuStW': 'POL',
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',
   'Funkstreifenwagen oder Polizeimotorräder': 'POL',
   'FüKW (Polizei)': 'FUEKW',
+  'GruKw': 'GRUKW',
   'SEK-Fahrzeuge': 'SEK',
   'MEK-Fahrzeuge': 'MEK',
 
