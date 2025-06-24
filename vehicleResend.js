@@ -1,4 +1,3 @@
-document.lss_helper.vehicleResendMissing = [];
 document.lss_helper.vehicleResend = {
   'Löschfahrzeug (LF)': 'LF',
   'Löschfahrzeuge (LF)': 'LF',
@@ -16,10 +15,14 @@ document.lss_helper.vehicleResend = {
   'FuStW': 'POL',
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',
   'Funkstreifenwagen oder Polizeimotorräder': 'POL',
+  'FüKW (Polizei)': 'FUEKW',
+  'SEK-Fahrzeuge': 'SEK',
+  'MEK-Fahrzeuge': 'MEK',
 
   'Gerätekraftwagen (GKW)': 'GKW',
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
   'MzGW (FGr N)': 'THWGWN',
+  'Rettungshundestaffel': 'DOG',
 
   'Betreuungs- und Verpflegungsausstattung': 'TBD',
   'Drohneneinheit': 'TBD',
