@@ -10,7 +10,7 @@ document.lss_helper.autoAccept = (force) => {
 
   document.lss_helper.debug('auto accept running');
   const missions = document.lss_helper.missions
-      .filter((m) => m.unattended && !m.hasAlerts)
+      .filter((m) => m.unattended && !m.hasAlert)
       .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType))
       .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= m.maxDistance);
   if (missions.length < 1) {
