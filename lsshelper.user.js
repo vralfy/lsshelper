@@ -351,7 +351,7 @@
                     });
                 ['NEF', 'RTW', 'RTH', 'LNA', 'OrgL'].forEach((vt) => {
                     if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
-                        resend.push({ scene: vt, count: 1 });
+                        resend.push({ scene: vt.toUpperCase(), count: 1 });
                     }
                 });
                 const resendScene = {};
