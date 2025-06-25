@@ -1,8 +1,16 @@
 document.lss_helper.printVehicleList = () => {
   const main = document.lss_helper.getHelperContainer();
+  let containerCall = document.getElementById('lss_helper_vehicle_call');
   let containerAvailable = document.getElementById('lss_helper_vehicle_available');
   let containerUnavailable = document.getElementById('lss_helper_vehicle_unavailable');
   let containerSummary = document.getElementById('lss_helper_vehicle_summary');
+
+  if (!containerCall) {
+    containerCall = document.createElement("ul");
+    containerCall.id = 'lss_helper_vehicle_call';
+    containerCall.classList = 'col-sm-12';
+    main.appendChild(containerCall);
+  }
 
   if (!containerAvailable) {
     containerAvailable = document.createElement("ul");
@@ -25,10 +33,12 @@ document.lss_helper.printVehicleList = () => {
     main.appendChild(containerSummary);
   }
 
+  containerCall.style = document.lss_helper.getSetting('show_vehicle_call') ? '' : 'display:none';
   containerAvailable.style = document.lss_helper.getSetting('show_vehicle_available') ? '' : 'display:none';
   containerUnavailable.style = document.lss_helper.getSetting('show_vehicle_unavailable') ? '' : 'display:none';
   containerSummary.style = document.lss_helper.getSetting('show_vehicle_summary') ? '' : 'display:none';
 
+  containerCall.innerHTML = '';
   containerAvailable.innerHTML = '';
   containerUnavailable.innerHTML = '';
   containerSummary.innerHTML = '';
@@ -73,8 +83,10 @@ document.lss_helper.printVehicleList = () => {
       li.append(i.link);
       if (document.lss_helper.getSetting('show_vehicle_summary')) {
         containerSummary.append(li)
-      } else {
+      } else if (document.lss_helper.getSetting('show_vehicle_available')) {
         containerAvailable.append(li)
+      } else {
+        containerCall.append(li);
       }
     });
   }
