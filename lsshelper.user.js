@@ -349,7 +349,7 @@
                             scene: document.lss_helper.vehicleResend[s.type],
                         }
                     });
-                ['NEF', 'RTW', 'RTH', 'LNA'].forEach((vt) => {
+                ['NEF', 'RTW', 'RTH', 'LNA', 'OrgL'].forEach((vt) => {
                     if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
                         resend.push({ scene: vt, count: 1 });
                     }
