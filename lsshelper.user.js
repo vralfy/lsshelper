@@ -550,10 +550,17 @@
 
     document.lss_helper.printVehicleList = () => {
         const main = document.lss_helper.getHelperContainer();
+        let containerCall = document.getElementById('lss_helper_vehicle_call');
         let containerAvailable = document.getElementById('lss_helper_vehicle_available');
         let containerUnavailable = document.getElementById('lss_helper_vehicle_unavailable');
         let containerSummary = document.getElementById('lss_helper_vehicle_summary');
 
+        if (!containerCall) {
+            containerCall = document.createElement("ul");
+            containerCall.id = 'lss_helper_vehicle_call';
+            containerCall.classList = 'col-sm-12';
+            main.appendChild(containerCall);
+        }
         if (!containerAvailable) {
             containerAvailable = document.createElement("ul");
             containerAvailable.id = 'lss_helper_vehicle_available';
