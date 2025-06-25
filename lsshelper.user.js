@@ -823,4 +823,17 @@
     document.lss_helper.autoPrisoner();
 
     document.lss_helper.fetchRemotes();
+
+    document.lss_helper.tst = () => {
+        const resends = document.lss_helper.missions.filter((m) => m.resend?.length && m.resendVehicles?.length && m.unattended);
+        console.warn(resends);
+        if (resends.length > 0 && document.lss_helper.getSetting('autoResend')) {
+            const m = resends[0];
+            document.lss_helper.debug('AutoResend', m.missionType, m);
+            const v = m.resendVehicles.reduce((acc, cur) => [...acc, ...cur], []);
+            document.lss_helper.sendVehicles(m.missionId, v);
+            document.lss_helper.updateLists(-1);
+            return;
+        }
+    }
 })();
