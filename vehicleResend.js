@@ -1,6 +1,7 @@
 document.lss_helper.vehicleResend = {
   'Löschfahrzeug (LF)': 'LF',
   'Löschfahrzeuge (LF)': 'LF',
+  'Löschfahrzeug oder Rüstwagen': 'LF',
   'Rüstwagen oder HLF': 'RW',
   'Drehleiter (DLK 23)': 'DLK',
   'Drehleitern (DLK 23)': 'DLK',
