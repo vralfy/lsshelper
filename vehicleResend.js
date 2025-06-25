@@ -28,6 +28,7 @@ document.lss_helper.vehicleResend = {
   'GruKw': 'GRUKW',
   'SEK-Fahrzeuge': 'SEK',
   'MEK-Fahrzeuge': 'MEK',
+  'Polizeihubschrauber': 'POLH',
 
   'Gerätekraftwagen (GKW)': 'GKW',
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
