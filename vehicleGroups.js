@@ -55,5 +55,5 @@ document.lss_helper.vehicleGroups = {
   "SONDER": [11, 121, 166, 167],
   "BOAT": [70],
   "DOG": [92],
-  "DROHNE": [125],
+  "DROHNE": [125, 127],
 };
