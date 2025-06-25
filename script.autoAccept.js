@@ -9,7 +9,9 @@ document.lss_helper.autoAccept = (force) => {
     }
 
     if (document.lss_helper.getSetting('autoResend')) {
-        const resends = document.lss_helper.missions.filter((m) => m.resend?.length && m.resendVehicles?.length && m.unattended);
+        const resends = document.lss_helper.missions
+            .filter((m) => m.resend?.length && m.resendVehicles?.length && m.unattended)
+            .filter((m) => m.type !== 'sicherheitswache');
         if (resends.length > 0) {
             const m = resends[0];
             document.lss_helper.debug('AutoResend', m.missionType, m);

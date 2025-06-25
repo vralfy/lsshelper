@@ -338,7 +338,9 @@
                             }
                             return false;
                         }
-                        document.lss_helper.vehicleResendMissing.splice(document.lss_helper.vehicleResendMissing.indexOf(s.type), 1);
+                        if (document.lss_helper.vehicleResendMissing.indexOf(s.type) >= 0) {
+                            document.lss_helper.vehicleResendMissing.splice(document.lss_helper.vehicleResendMissing.indexOf(s.type), 1);
+                        }
                         return true;
                     })
                     .map((s) => {

@@ -9,9 +9,14 @@ document.lss_helper.vehicleResend = {
   'ELW 1': 'ELW',
   'ELW 2': 'ELW2',
   'GW-Atemschutz': 'GWA',
+  'GW-Gefahrgut': 'GWG',
   'GW-Höhenrettung': 'GWH',
   'GW-Messtechnik': 'GWM',
   'GW-Öl': 'GWO',
+  'Dekon-P': 'DEKONP',
+
+  'RTW oder KTW oder KTW-B': 'RTW',
+  'GW-San': 'GWSAN',
 
   'FuStW': 'POL',
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',
@@ -27,7 +32,9 @@ document.lss_helper.vehicleResend = {
   'Radlader (BRmG R)': 'THWBRG',
   'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
+  'NEA50': 'TBD',
 
   'Betreuungs- und Verpflegungsausstattung': 'TBD',
-  'Drohneneinheit': 'TBD',
+  'Boot': 'BOAT',
+  'Drohneneinheit': 'DROHNE',
 };
