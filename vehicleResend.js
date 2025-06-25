@@ -37,9 +37,9 @@ document.lss_helper.vehicleResend = {
   'Radlader (BRmG R)': 'THWBRG',
   'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
-  'NEA50': 'TBD',
+  'NEA50': 'AAOTHWNEA',
 
-  'Betreuungs- und Verpflegungsausstattung': 'TBD',
+  'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
   'Boot': 'BOAT',
   'Drohneneinheit': 'DROHNE',
 };
