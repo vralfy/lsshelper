@@ -349,9 +349,11 @@
                             scene: document.lss_helper.vehicleResend[s.type],
                         }
                     });
-                if (m.info?.patients?.innerText.indexOf(' LNA') >= 0) {
-                    resend.push({ scene: 'LNA', count: 1 });
-                }
+                ['NEF', 'RTW', 'RTH', 'LNA'].forEach((vt) => {
+                    if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
+                        resend.push({ scene: vt, count: 1 });
+                    }
+                });
                 const resendScene = {};
                 resend.forEach((r) => {
                     resendScene[r.scene] = (resendScene[r.scene] || 0) + r.count;
