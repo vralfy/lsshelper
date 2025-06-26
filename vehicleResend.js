@@ -38,6 +38,7 @@ document.lss_helper.vehicleResend = {
   'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
   'NEA50': 'AAOTHWNEA',
+  'Schmutzwasserpumpen': 'TBD',
 
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
   'Boot': 'BOAT',

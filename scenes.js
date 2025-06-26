@@ -373,6 +373,7 @@ document.lss_helper.scenes = {
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "519" : { "LF": 3, "POL": 1, "RW": 1, "ELW": 1, "RTW": 3, "NEF": 1 }, // Hüpfburgunfall
+  "520" : { "LF": 12, "DLK": 4, "ELW": 3, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOSEGBT": 1 }, // Hotelbrand
   "522" : { "DLK": 1, "RTW": 1 }, // Medizinischer Notfall in Flugzeug
   "524" : { "LF": 6, "RW": 2, "DLK": 2, "ELW": 3, "GWA": 1, "SW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1 }, // Brand in Spänebunker
   "527" : { "DOG": 1, "LF": 2, "RW": 1, "GKW": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Verschüttete Person
@@ -440,6 +441,7 @@ document.lss_helper.scenes = {
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "654" : { "LF": 15, "RW": 1, "DLK": 3, "ELW": 1, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "RTW": 4 }, // Großbrand Möbelhaus
   "655" : { "AAOTHWWP": 1, "RW": 2, "GWO": 1, "ELW2": 1, "THWMTW": 1, "GKW": 1, "POL": 2 }, // Parkhaus voll Wasser gelaufen
+  "658" : { "SWP": 2, "RW": 4, "LF": 4, "GKW": 2, "THWGWN": 1, "THWMTW": 1, "POL": 3, "ELW": 1, "SW": 1, "GWO": 1 }, // Tunnel unter Wasser (Groß)
   "666" : { "LF": 8, "ELW": 1, "DLK": 1, "SW": 2, "GWA": 1, "POL": 3, "RTW": 5, "NEF": 2 }, // Brand auf Campingplatz
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
