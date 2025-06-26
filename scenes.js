@@ -270,6 +270,7 @@ document.lss_helper.scenes = {
   "317" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Baumschine eingeklemmt
   "318" : { "LF": 1 }, // Ausgelöster Heimrauchmelder
   "319" : { "LF": 1, "RTW": 1 }, // Person in Baugrube
+  "320" : { "LF": 20, "RW": 2, "SLF": 1, "DLK": 5, "ELW": 6, "ELW2": 1, "SW": 2, "GWA": 3, "GWM": 3, "GWG": 2, "GWH": 1, "POL": 6, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "DROHNE": 1, "RTW": 15, "NEF": 5 }, // Großfeuer im Krankenhaus (Brandmeldeanlage)
   "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "GWA": 1 }, // Saunabrand
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
   "327" : { "LF": 6, "ELW": 1, "DLK": 2, "GWA": 2, "GWM": 1, "GWO": 1, "POL": 1, "RTW": 1 }, // Tiefgaragenbrand
