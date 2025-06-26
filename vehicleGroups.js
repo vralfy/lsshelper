@@ -52,7 +52,7 @@ document.lss_helper.vehicleGroups = {
 
   "WATER": [121, 166],
   "smallOil": [10, 0,1,6,7,8,9,30,88,89,90, 4],
-  "SONDER": [11, 121, 166, 167],
+  "SLF": [11, 121, 166, 167],
   "BOAT": [70],
   "DOG": [92],
   "DROHNE": [125, 127],
