@@ -517,6 +517,7 @@ document.lss_helper.scenes = {
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
   "827" : { "POL": 1 }, // Holzdiebstahl
   "829" : { "LF": 5, "ELW": 2, "DLK": 1, "RW": 1, "POL": 4, "RTW": 1 }, // Brennender Regionalbahnhof
+  "830" : { "LF": 20, "RW": 2, "SLF": 2, "ELW": 5, "ELW2": 1, "DLK": 5, "GWM": 3, "GWG": 2, "GWA": 3, "SW": 5, "POL": 6, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOTHWR": 1, "DROHNE": 1, 'RTW': 8 }, // Brennender Güterbahnhof
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "835" : { "POL": 1 }, // Fußstreife
   "838" : { "AAOTHWNEA": 1 }, // Stromausfall im Stellwerk (klein)
