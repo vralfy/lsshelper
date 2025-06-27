@@ -458,6 +458,7 @@ document.lss_helper.scenes = {
   "682" : { "LF": 5, "DLK": 2, "SW": 2, "GWM": 1, "GWA": 1, "ELW2": 1, "ELW": 2, "POL": 4, "AAOTHWR": 1, "GKW": 1, "THWMTW": 1 }, // Brand auf Kompostieranlage
   "683" : { "POL": 1 }, // KFZ-Diebstahl
   "684" : { "LF": 3, "DLK": 1, "ELW": 1, "RW": 1, "POL": 2, "RTW": 3 }, // Brand in metallverarbeitendem Betrieb
+  "685" : { "LF": 20, "SLF": 1, "DLK": 5, "ELW": 6, "RW": 2, "ELW2": 1, "SW": 2, "GWA": 1, "GWM": 1, "POL": 6, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 5, "NEF": 5 }, // Großbrand in Museum
   "686" : { "LF": 1, "RTW": 1, "POL": 1 }, // Kind in Spielgerät eingeklemmt
   "687" : { "LF": 2, "ELW": 1, "RW": 2, "GWA": 1, "GWM": 1, "GWG": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Nitrose Gase auf Bauernhof
   "688" : { "POL": 4, "POLH": 1 }, // Fahndung nach KFZ-Diebstahl
