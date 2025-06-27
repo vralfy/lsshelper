@@ -292,6 +292,7 @@ document.lss_helper.scenes = {
   "358" : { "POL": 8, "POLH": 1, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Banküberfall
   "360" : { "LF": 1 }, // Brennender Blumenstrauß
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
+  "368" : { "LF": 15, "DLK": 3, "SW": 2, "GWA": 2, "RW": 4, "ELW": 3, "ELW2": 1, "GWM": 1, "SLF": 2,  "POL": 4, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "AAOTHWR": 1, "DLE": 1, "RTW": 1 }, // Brennende Kirche
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "370" : { "POL": 4 }, // Geisterfahrer
   "377" : { "RTW": 1 }, // Überzuckerung
