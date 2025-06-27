@@ -439,6 +439,7 @@ document.lss_helper.scenes = {
   "643" : { "LF": 3, "RW": 2, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 2, "RTW": 1 }, // Unfall in Getreidesilo
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "SW": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
+  "647" : { "LF": 1, "POL": 1 }, // Illegales Lagerfeuer in Park
   "648" : { "RTW": 1 }, // Verkeimter Eiswagen
   "649" : { "RTW": 1 }, // Knalltrauma
   "650" : { "LF": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "POL": 2 }, // Ladungsbergung LKW
