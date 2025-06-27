@@ -31,6 +31,7 @@ document.lss_helper.vehicleGroups = {
   "GRUKW": [50],
   "FUEKW": [51],
   "GEFKW": [52],
+  "LAUKW": [165],
   "SEK": [79, 80],
   "MEK": [81, 82],
 
@@ -56,4 +57,5 @@ document.lss_helper.vehicleGroups = {
   "BOAT": [70],
   "DOG": [92],
   "DROHNE": [125, 127],
+  "SWP": [101, 102], // Schmutzwasserpumpen
 };
