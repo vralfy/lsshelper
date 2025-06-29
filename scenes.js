@@ -285,6 +285,7 @@ document.lss_helper.scenes = {
   "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "GWH": 1 }, // Hoehenrettung am Fahrgeschäft
   "346" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "NEA": 1, "BEFKW": 1, "GRUKW": 3, "LAUKW": 1 }, // Gebäudesprengung
   "347" : { "LF": 6, "DLK": 1, "ELW": 1, "ELW2": 1, "RW": 2, "GWO": 1, "GWH": 1, "POL": 3, "FWK": 1, "NEF": 1, "RTW": 2 }, // Helikopter in Baum
+  "348" : { "LF": 20, "DLK": 2, "RW": 4, "GWA": 2, "GWM": 1, "GWO": 1, "SW": 2, "ELW": 4, "ELW2": 1, "POL": 3, "RTW": 1, "AAOTHWR": 1, "THWGWN": 1, "GKW": 1, "THWMTW": 1, "DROHNE": 1 }, // Explosion in Biogasanlage
   "349" : { "LF": 1 }, // Brandgeruch
   "352" : { "LF": 12, "DLK": 3, "GWA": 1, "GWM": 1, "RW": 1, "SW": 1, "ELW": 3, "ELW2": 1, "POL": 4, "RTW": 5, "NEF": 2 }, // Brand in Mehrfamilienhaus
   "353" : { "GRUKW": 3, "BEFKW": 1, "POL": 3, "AAOTHWNEA": 1 }, // Großkontrolle Betäubungsmittel
