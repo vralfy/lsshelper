@@ -342,6 +342,7 @@ document.lss_helper.scenes = {
   "458" : { "POL": 3, "GRUKW": 3, "BEFKW": 1, "AAOTHWNEA": 1 }, // Schwerlastkontrolle
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
   "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
+  "461" : { "RTW": 1 }, // Dehydrierte Person
   "462" : { "LF": 18, "RW": 4, "SLF": 2, "DLK": 6, "SW": 2, "ELW": 5, "ELW2": 1, "FWK": 1, "GWA": 2, "GWM": 3, "GWG": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "DROHNE": 1, "RTW": 1 }, // Großfeuer in Lagerhalle (Brandmeldeanlage)
   "463" : { "LF": 1, "RW": 1, "POL": 2 }, // Gesprengter Geldautomat
   "464" : { "LF": 1, "ELW": 1, "FWK": 1, "RW": 2, "POL": 3, "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Eingestürzter Funkmast
