@@ -451,6 +451,7 @@ document.lss_helper.scenes = {
   "653" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2 }, // Brand auf Schultoilette
   "654" : { "LF": 15, "RW": 1, "DLK": 3, "ELW": 1, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "RTW": 4 }, // Großbrand Möbelhaus
   "655" : { "AAOTHWWP": 1, "RW": 2, "GWO": 1, "ELW2": 1, "THWMTW": 1, "GKW": 1, "POL": 2 }, // Parkhaus voll Wasser gelaufen
+  "656" : { "SWP": 1, "GKW": 2 }, // Mehrere Keller unter Wasser
   "658" : { "SWP": 2, "RW": 4, "LF": 4, "GKW": 2, "THWGWN": 1, "THWMTW": 1, "POL": 3, "ELW": 1, "SW": 1, "GWO": 1 }, // Tunnel unter Wasser (Groß)
   "660" : { "SWP": 1, "GKW": 1, "THWMTW": 1 }, // Bach droht über Ufer zu treten
   "661" : { "SWP": 1, "LF": 2, "SW": 1, "GKW": 1, "THWDLE": 1 }, // Gewässer gekippt (Klein)
