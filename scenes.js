@@ -559,6 +559,7 @@ document.lss_helper.scenes = {
   "916" : { "LF": 6, "ELW": 2, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
   "925" : { "LF": 14, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "GWA": 2, "DLK": 3, "SW": 1, "POL": 8, "RTW": 20 }, // Hochhausbrand mit Evakuierung
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
+  "931" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "SWP": 1 }, // Ausgefallene Pumpen in Kläranlage
   "933" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "GWG": 1, "GWM": 1, "DEKONP": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Gefahrgut-Austritt in Paketzentrum
   "934" : { "LF": 5, "ELW": 2, "RW": 1, "DLK": 2, "GWA": 1, "GWM": 1, "GWG": 1, "SW": 1, "DEKONP": 1, "GKW": 1, "AAOTHWR": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Brand auf Recyclinghof
 }
