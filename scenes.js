@@ -369,6 +369,7 @@ document.lss_helper.scenes = {
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
+  "503" : { "LF": 4, "SW": 3, "ELW": 2, "ELW2": 1, "RW": 2, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "POL": 3, "POLH": 1, "DROHNE": 1 }, // Damm droht zu brechen
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
   "508" : { "LF": 1, "RW": 1, "RTW": 1, "POL": 1 }, // Pfählungsverletzung
   "509" : { "LF": 6, "DLK": 2, "SW": 1, "GWA": 1, "ELW": 2, "POL": 2 }, // Brennender Stall
