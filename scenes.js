@@ -180,6 +180,7 @@ document.lss_helper.scenes = {
   "181" : { "RTW": 1, "RTH": 1, "NEF": 1 }, // Sturz aus Höhe
   "182" : { "RTW": 1, "NEF": 1 }, // Sturz aus Höhe
   "183" : { "RTW": 1 }, // Sonnenstich
+  "184" : { "RTW": 1 }, // Hitzschlag
   "186" : { "LF": 5, "ELW": 1, "ELW2": 1, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 1, "SLF": 1, "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "POL": 2, "RTW": 1 }, // Lagerhallenbrand (Brandmeldeanlage)
   "188" : { "POL": 1 }, // Personenkontrolle
   "189" : { "POL": 1 }, // Verkehrsbehinderung
