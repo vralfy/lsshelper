@@ -300,6 +300,7 @@ document.lss_helper.scenes = {
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "370" : { "POL": 4 }, // Geisterfahrer
   "371" : { "LF": 1 }, // Fußball aufpumpen
+  "372" : { "POL": 1 }, // Mannschaftsbus in Halteverbot abgestellt
   "373" : { "RTW": 1 }, // Behandlung nach Schwalbe
   "375" : { "LF": 1 }, // Tor gefallen
   "377" : { "RTW": 1 }, // Überzuckerung
