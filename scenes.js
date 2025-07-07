@@ -303,6 +303,7 @@ document.lss_helper.scenes = {
   "371" : { "LF": 1 }, // Fußball aufpumpen
   "372" : { "POL": 1 }, // Mannschaftsbus in Halteverbot abgestellt
   "373" : { "RTW": 1 }, // Behandlung nach Schwalbe
+  "374" : { "RTW": 1 }, // Prellung nach Lattenpraller
   "375" : { "LF": 1 }, // Tor gefallen
   "376" : { "POL": 2 }, // Pokal geklaut
   "377" : { "RTW": 1 }, // Überzuckerung
