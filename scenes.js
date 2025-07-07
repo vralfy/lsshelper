@@ -448,6 +448,7 @@ document.lss_helper.scenes = {
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
   "639" : { "LF": 10, "RW": 2, "ELW": 2, "ELW2": 1, "GWG": 2, "GWM": 2, "GWA": 1, "DEKONP": 1, "FWK": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 2, "NEF": 1 }, // Gefahrgutzug verunglückt
   "640" : { "RTW": 1, "NEF": 1 }, // Amputationsverletzung
+  "642" : { "POL": 1, "AAOTHWR": 1 }, // Mauer auf Spielfeld
   "643" : { "LF": 3, "RW": 2, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 2, "RTW": 1 }, // Unfall in Getreidesilo
   "644" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "SW": 1 }, // Brand Holzpolter
   "645" : { "LF": 8, "ELW": 1, "POL": 2, "WATER": 1, "GWA": 1, "SW": 1 }, // Brand Holzpolter
