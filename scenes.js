@@ -304,6 +304,7 @@ document.lss_helper.scenes = {
   "372" : { "POL": 1 }, // Mannschaftsbus in Halteverbot abgestellt
   "373" : { "RTW": 1 }, // Behandlung nach Schwalbe
   "375" : { "LF": 1 }, // Tor gefallen
+  "376" : { "POL": 2 }, // Pokal geklaut
   "377" : { "RTW": 1 }, // Überzuckerung
   "379" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "380" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
