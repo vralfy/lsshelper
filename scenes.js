@@ -299,6 +299,7 @@ document.lss_helper.scenes = {
   "368" : { "LF": 15, "DLK": 3, "SW": 2, "GWA": 2, "RW": 4, "ELW": 3, "ELW2": 1, "GWM": 1, "SLF": 2,  "POL": 4, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "AAOTHWR": 1, "THWDLE": 1, "RTW": 1 }, // Brennende Kirche
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "370" : { "POL": 4 }, // Geisterfahrer
+  "371" : { "LF": 1 }, // Fußball aufpumpen
   "377" : { "RTW": 1 }, // Überzuckerung
   "379" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "380" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
