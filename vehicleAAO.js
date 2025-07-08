@@ -6,5 +6,5 @@ document.lss_helper.vehicleAAO = {
   "AAOTHWNEA200": { 122: 1, 112: 1 },
   "AAOTHWR"  : { 42: 1, 43: 1 },
   "AAOTHWWP" : { 100: 1, 101: 1, 102: 1, 123: 1 },
-  "AAOSEGBT" : { 130: 1, 131: 1, 132: 1, 133: 1 },
+  "AAOSEGBT" : { 130: 1, 132: 1, 133: 1 },
 }
