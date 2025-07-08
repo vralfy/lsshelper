@@ -349,7 +349,13 @@
                             scene: document.lss_helper.vehicleResend[s.type],
                         }
                     });
-                ['NEF', 'RTW', 'RTH', 'LNA', 'OrgL'].forEach((vt) => {
+                ['LNA', 'OrgL'].forEach((vt) => {
+                    if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
+                        resend.push({ scene: vt.toUpperCase(), count: 1 });
+                    }
+                });
+                ['NEF', 'RTW', 'RTH'].forEach((vt) => {
+                    // TODO: send right amount
                     if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
                         resend.push({ scene: vt.toUpperCase(), count: 1 });
                     }
@@ -729,8 +735,12 @@
 
         const countLNA = document.lss_helper.vehicles.filter(v => v.type === '55').filter(v => v.available).length;
         const countORGL = document.lss_helper.vehicles.filter(v => v.type === '56').filter(v => v.available).length;
+        const countELW = document.lss_helper.vehicles.filter(v => v.type === '59').filter(v => v.available).length;
 
         if (scene['RTW'] && mission.patients) {
+            if (scene['RTW'] > document.lss_helper.getSetting('maxRTW', 10) && countELW) {
+                scene['SEGELW'] = 1;
+            }
             scene['RTW'] = Math.min(mission.patients, document.lss_helper.getSetting('maxRTW', 10));
         } else if (scene['KTW'] && mission.patients) {
             scene['KTW'] = mission.patients;

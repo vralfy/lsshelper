@@ -22,6 +22,7 @@ document.lss_helper.vehicleGroups = {
   "KTW": [38],
   "LNA": [55],
   "ORGL": [56],
+  "SEGELW": [59],
   "GWSAN": [60],
 
   "POL": [32],

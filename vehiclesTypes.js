@@ -85,7 +85,7 @@ document.lss_helper.vehicleTypes = {
   "93": "🛠️ THW MTW-O",
   "94": "🚓 POL DHFuKW",
   "95": "🚓 POL Motorrad",
-  "96": "🚁 POL Aussenlastbehaelter",
+  "96": "🚁 POL Außenlastbehälter",
   "97": "🚑 SAN ITW",
   "98": "🚓 POL Zivilstreife",
   "100": "🛠️ THW MLW 4",

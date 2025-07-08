@@ -29,6 +29,7 @@ document.lss_helper.vehicleResend = {
   'SEK-Fahrzeuge': 'SEK',
   'MEK-Fahrzeuge': 'MEK',
   'Polizeihubschrauber': 'POLH',
+  'Außenlastbehälter (allgemein)': '96',
 
   'Gerätekraftwagen (GKW)': 'GKW',
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
@@ -38,9 +39,14 @@ document.lss_helper.vehicleResend = {
   'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
   'NEA50': 'AAOTHWNEA',
+  'Anhänger Drucklufterzeugung': 'DLE',
   'Schmutzwasserpumpen': 'THWSWP',
+  'Schmutzwasserpumpe': 'THWSWP',
+  'GW-Taucher': '63',
 
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
+  'Betreuungs- und Verpflegungsausstattungen': 'AAOSEGBT',
   'Boot': 'BOAT',
   'Drohneneinheit': 'DROHNE',
+
 };
