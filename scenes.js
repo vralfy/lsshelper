@@ -560,6 +560,7 @@ document.lss_helper.scenes = {
   "845" : { "POL": 1 }, // Lärmbelästigung durch Vatertagsfeier
   "846" : { "POL": 1, "RTW": 1 }, // Betrunkene versuchen Kühe um zu Schubsen
   "850" : { "LF": 15, "DLK": 2, "ELW": 4, "ELW2": 1, "SW": 4, "GWA": 2, "POL": 12, "RTW": 10, "NEF": 5 }, // Großbrand im Stadion
+  "851" : { "POL": 1, "ZIV": 1 }, // Sommermärchen geplatzt
   "852" : { "RTW": 1 }, // Schwalbe fliegt gegen Mauer
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "879" : { "LF": 8, "ELW": 1, "GWSAN": 1, "RTW": 5, "POL": 2 }, // Absicherung Flugshow
