@@ -523,6 +523,8 @@ document.lss_helper.scenes = {
   "753" : { "LF": 1, "RW": 1, "RTW": 1 }, // Person in Foerderband eingeklemmt
   "754" : { "RTW": 1, "NEF": 1 }, // Wespenangriff
   "755" : { "LF": 2, "ELW": 2, "POL": 2 }, // Kurzschluss an Freileitungsmast
+  "756" : { "LF": 1 }, // Unfall beim Backen des Jubiläumskuchens
+  "757" : { "LF": 1, "DLK": 1 }, // Jubiläumsluftballon eines Gastes bleibt im Baum hängen
   "775" : { "LF": 1, "ELW": 1, "GWG": 1, "POL": 4, "ZIV": 2, "GRUKW": 3, "BEFKW": 1 }, // Drogenlabor gefunden
   "776" : { "LF": 1, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Rolltreppe eingeklemmt
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
