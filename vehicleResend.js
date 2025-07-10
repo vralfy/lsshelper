@@ -39,7 +39,7 @@ document.lss_helper.vehicleResend = {
   'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
   'NEA50': 'AAOTHWNEA',
-  'Anhänger Drucklufterzeugung': 'DLE',
+  'Anhänger Drucklufterzeugung': 'THWDLE',
   'Schmutzwasserpumpen': 'THWSWP',
   'Schmutzwasserpumpe': 'THWSWP',
   'GW-Taucher': '63',

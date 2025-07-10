@@ -7,7 +7,7 @@ document.lss_helper.autoPrisoner = (force) => {
   }
   document.lss_helper.debug('auto prisoner running');
 
-  const types = ["32"];
+  const types = ['32', '52', '98'];
   const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
 
   if (!call) {
