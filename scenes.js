@@ -527,11 +527,19 @@ document.lss_helper.scenes = {
   "757" : { "LF": 1, "DLK": 1 }, // Jubiläumsluftballon eines Gastes bleibt im Baum hängen
   "758" : { "LF": 2 }, // Kabelbrand in Jubiläums-Party-Dekoration (klein)
   "759" : { "LF": 4, "ELW": 1 }, // Kabelbrand in Jubiläums-Party-Dekoration (groß)
+  "760" : { "POL": 1 }, // Jubiläumsgeschenk gestohlen
   "761" : { "POL": 2 }, // Sabotierte Lautsprecher auf Jubiläumsparty
   "762" : { "POL": 3 }, // Vermisster Jubiläumsgast
+  "763" : { "POL": 4 }, // Jubiläumsgäste haben Dekoration gestohlen
+  "764" : { "POL": 5 }, // Jubiläumsgäste haben Kuchen gestohlen
   "765" : { "RTW": 1 }, // Gast hat zu viel Jubiläumskuchen gegessen
+  "766" : { "RTW": 1 }, // Papierschnitt beim Öffnen von Jubiläumsgeschenken
   "767" : { "RTW": 1 }, // Jubiläumsgast mit Gelenkschmerzen nach dem Tanzen
+  "768" : { "RTW": 1 }, // Jubiläumsgast von Korken getroffen
   "769" : { "RTW": 1 }, // Jubiläumsgast bewusstlos
+  "770" : { "LF": 1, "RW": 1, "DLK": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Personen auf der Tanzfläche vermisst
+  "771" : { "LF": 3, "RW": 2, "DLK": 2, "POL": 1, "RTW": 2 }, // Luftballons für Jubiläumsparty aufblasen
+  "772" : { "POL": 3, "RTW": 5, "SEGELW": 1 }, // Luftballons für Jubiläumsparty aufblasen
   "775" : { "LF": 1, "ELW": 1, "GWG": 1, "POL": 4, "ZIV": 2, "GRUKW": 3, "BEFKW": 1 }, // Drogenlabor gefunden
   "776" : { "LF": 1, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Rolltreppe eingeklemmt
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
