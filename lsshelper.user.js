@@ -738,7 +738,7 @@
         const countELW = document.lss_helper.vehicles.filter(v => v.type === '59').filter(v => v.available).length;
 
         if (scene['RTW'] && mission.patients) {
-            if (scene['RTW'] > document.lss_helper.getSetting('maxRTW', 10) && countELW) {
+            if (mission.patients > document.lss_helper.getSetting('maxRTW', 10) && countELW) {
                 scene['SEGELW'] = 1;
             }
             scene['RTW'] = Math.min(mission.patients, document.lss_helper.getSetting('maxRTW', 10));
