@@ -375,6 +375,7 @@ document.lss_helper.scenes = {
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
   "493" : { "LF": 2, "ELW": 1, "POL": 2, "RTW": 10 }, // Massenanfall an Erkrankten - Diskothek
   "494" : { "POL": 1 }, // beschädigte Radarfalle
+  "495" : { "POL": 9, "RTW": 2 }, // Massenpanik in Diskothek
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
