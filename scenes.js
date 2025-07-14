@@ -328,6 +328,7 @@ document.lss_helper.scenes = {
   "421" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Bushaltestelle
   "422" : { "POL": 1 }, // Sachbeschädigung an PKW
   "423" : { "LF": 6, "DLK": 1, "RW": 1, "ELW": 2, "ELW2": 1, "POL": 3, "SW": 1, "GWA": 1, "RTW": 1 }, // Brand in Klassenraum
+  "424" : { "LF": 12, "DLK": 4, "RW": 4, "SLF": 2, "ELW": 3, "ELW2": 1, "GWA": 1, "GWM": 1, "DEKONP": 1, "AAOTHWR": 1, "THWGWN": 1, "THWMTW": 1, "AAOTHWDLE": 1, "DROHNE": 1, "AAOSEGBT": 1, "POL": 5, "RTW": 1 }, // Großbrand Müllverbrennungsanlage
   "425" : { "RTW": 1 }, // Verstauchter Knöchel
   "426" : { "RTW": 1 }, // Gebrochenes Bein
   "427" : { "RTW": 1 }, // Gebrochener Arm
