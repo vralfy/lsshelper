@@ -397,7 +397,7 @@ document.lss_helper.scenes = {
   "524" : { "LF": 6, "RW": 2, "DLK": 2, "ELW": 3, "GWA": 1, "SW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1 }, // Brand in Spänebunker
   "527" : { "DOG": 1, "LF": 2, "RW": 1, "GKW": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Verschüttete Person
   "532" : { "LF": 1, "POL": 2, "POLH": 1, "DOG": 1, "RTW": 1 }, // Suche nach Vermissten
-  "535" : { "LF": 6, "RW": 2, "ELW": 1, "FWK": 1, "DLK": 1, "THWGKW": 2, "THWGWN": 2, "THWMTW": 2, "AAOTHWR": 1, "AAOTHWDLE": 1, "THWGWSB": 1, "DROHNE": 1, "DOG": 1, "RTW": 1 }, // Schwimmbaddach eingestürzt
+  "535" : { "LF": 6, "RW": 2, "ELW": 1, "FWK": 1, "DLK": 1, "GKW": 2, "THWGWN": 2, "THWMTW": 2, "AAOTHWR": 1, "AAOTHWDLE": 1, "THWGWSB": 1, "DROHNE": 1, "DOG": 1, "RTW": 1 }, // Schwimmbaddach eingestürzt
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "538" : { "RTW": 1, "NEF": 1 }, // Verbrennung
