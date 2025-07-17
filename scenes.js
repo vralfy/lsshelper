@@ -379,6 +379,7 @@ document.lss_helper.scenes = {
   "494" : { "POL": 1 }, // beschädigte Radarfalle
   "495" : { "POL": 9, "RTW": 2 }, // Massenpanik in Diskothek
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
+  "499" : { "LF": 10, "RW": 5, "ELW": 1, "GWO": 2, "DROHNE": 1, "POL": 8, "RTW": 6 }, // Massenkarambolage auf Autobahn
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
   "503" : { "LF": 4, "SW": 3, "ELW": 2, "ELW2": 1, "RW": 2, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "POL": 3, "POLH": 1, "DROHNE": 1 }, // Damm droht zu brechen
