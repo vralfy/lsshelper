@@ -396,6 +396,7 @@ document.lss_helper.scenes = {
   "520" : { "LF": 12, "DLK": 4, "ELW": 3, "ELW2": 1, "GWA": 1, "SW": 1, "POL": 4, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOSEGBT": 1 }, // Hotelbrand
   "522" : { "DLK": 1, "RTW": 1 }, // Medizinischer Notfall in Flugzeug
   "524" : { "LF": 6, "RW": 2, "DLK": 2, "ELW": 3, "GWA": 1, "SW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1 }, // Brand in Spänebunker
+  "526" : { "POL": 2, "ELW": 1, "DLK": 2, "LF": 4, "RW": 3, "FWK": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "AAOTHWDLE": 1, "THWGWSB": 1, "DROHNE": 1, "DOG": 1, "RTW": 4, "NEF": 4 }, // Supermarkt eingestürzt
   "527" : { "DOG": 1, "LF": 2, "RW": 1, "GKW": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Verschüttete Person
   "532" : { "LF": 1, "POL": 2, "POLH": 1, "DOG": 1, "RTW": 1 }, // Suche nach Vermissten
   "535" : { "LF": 6, "RW": 2, "ELW": 1, "FWK": 1, "DLK": 1, "GKW": 2, "THWGWN": 2, "THWMTW": 2, "AAOTHWR": 1, "AAOTHWDLE": 1, "THWGWSB": 1, "DROHNE": 1, "DOG": 1, "RTW": 1 }, // Schwimmbaddach eingestürzt
