@@ -111,6 +111,7 @@ document.lss_helper.vehicleTypes = {
   "121": "🚒 GT-LF",
   "122": "🛠️ THW LKW K 7 Lbw E",
   "123": "🛠️ THW LKW K 7 Lbw WP",
+  "124": "🛠️ THW MTW-OV",
   "125": "🛠️ THW MTW-Tr UL",
   "126": "🚒 Drohne MTF",
   "127": "🚑 SEG GW-UAS",
