@@ -233,6 +233,7 @@ document.lss_helper.scenes = {
   "250" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "252" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
+  "253" : { "LF": 3, "ELW": 1, "POL": 2, "BOAT": 2, "TAUCHER": 2 }, // Personensuche nahe Gewässer
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
@@ -379,6 +380,7 @@ document.lss_helper.scenes = {
   "494" : { "POL": 1 }, // beschädigte Radarfalle
   "495" : { "POL": 9, "RTW": 2 }, // Massenpanik in Diskothek
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
+  "498" : { "LF": 1, "POLH": 1, "POL": 6, "BOAT": 2, "ELW": 1, "RTW": 1, "NEF": 1 }, // Personensuche nahe Gewässer
   "499" : { "LF": 10, "RW": 5, "ELW": 1, "GWO": 2, "DROHNE": 1, "POL": 8, "RTW": 6 }, // Massenkarambolage auf Autobahn
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
@@ -564,6 +566,7 @@ document.lss_helper.scenes = {
   "814" : { "AAOTHWNEA": 1 }, // Stromausfall in Feuerwehrwache
   "815" : { "AAOTHWNEA": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "AAOTHWNEA": 1 }, // Stromausfall in THW-Ortsverband
+  "818" : { "AAOTHWNEA200": 1 }, // Stromausfall im Rathaus
   "821" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Kellerbrand in Mehrfamilienhaus
   "822" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Brand in Arztpraxis
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
