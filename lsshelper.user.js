@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202507-08-01
+// @version      202507-22-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -108,6 +108,12 @@
             }
         }, 500);
 
+        document.lss_helper.getSetting('ui_map', 'true');
+        document.lss_helper.getSetting('ui_missions', 'true');
+        document.lss_helper.getSetting('ui_buildings', 'true');
+        document.lss_helper.getSetting('ui_chat', 'true');
+        document.lss_helper.getSetting('ui_radio', 'true');
+
         document.lss_helper.getSetting('channel', '"master"');
 
         document.lss_helper.setSetting('autoAccept', 'false');
@@ -159,6 +165,15 @@
             document.lss_helper.printScene();
             document.lss_helper.renderHash = document.lss_helper.helper.hash();
         }
+
+        ['map', 'missions', 'buildings', 'chat', 'radio']
+            .forEach((s) => {
+                const display = document.lss_helper.getSetting('ui_' + s, 'true') ? 'block' : 'none';
+                if (document.getElementById(s + '_outer')?.style) {
+                    document.getElementById(s + '_outer').style.display = display;
+                }
+            });
+
         document.lss_helper.printSettings();
         if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
             setTimeout(() => { document.lss_helper.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));

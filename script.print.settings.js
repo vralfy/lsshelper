@@ -183,6 +183,12 @@ document.lss_helper.printSettingsButton = (setting, caption, cls, container) => 
             { value: 'dev', label: 'Instabil' },
         ]);
 
+        document.lss_helper.printSettingsNumberInput('ui_map');
+        document.lss_helper.printSettingsNumberInput('ui_missions');
+        document.lss_helper.printSettingsNumberInput('ui_buildings');
+        document.lss_helper.printSettingsNumberInput('ui_chat');
+        document.lss_helper.printSettingsNumberInput('ui_radio');
+
         let hash = document.getElementById('lss_helper_settings_hash');
         if (!hash) {
             hash = document.createElement("div");
