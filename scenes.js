@@ -380,6 +380,7 @@ document.lss_helper.scenes = {
   "494" : { "POL": 1 }, // beschädigte Radarfalle
   "495" : { "POL": 9, "RTW": 2 }, // Massenpanik in Diskothek
   "496" : { "LF": 1, "RW": 1, "DLK": 1 }, // Pferd in Jauchegrube
+  "497" : { "LF": 1, "POLH": 1, "POL": 6, "BOAT": 2, "ELW": 1, "RTW": 1, "NEF": 1 }, // Personensuche nahe Gewässer
   "498" : { "LF": 1, "POLH": 1, "POL": 6, "BOAT": 2, "ELW": 1, "RTW": 1, "NEF": 1 }, // Personensuche nahe Gewässer
   "499" : { "LF": 10, "RW": 5, "ELW": 1, "GWO": 2, "DROHNE": 1, "POL": 8, "RTW": 6 }, // Massenkarambolage auf Autobahn
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
