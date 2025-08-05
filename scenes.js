@@ -234,6 +234,8 @@ document.lss_helper.scenes = {
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "252" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "253" : { "LF": 3, "ELW": 1, "POL": 2, "BOAT": 2, "TAUCHER": 2 }, // Personensuche nahe Gewässer
+  "254" : { "LF": 5, "ELW": 1, "POL": 3, "BOOT": 3, "TAUCHER": 3, "RTW": 1 }, // LKW in Wasser
+  "255" : { "LF": 5, "ELW": 1, "POL": 3, "BOOT": 3, "TAUCHER": 3, "RTW": 1 }, // Bus in Wasser
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
