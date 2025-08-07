@@ -230,6 +230,7 @@ document.lss_helper.scenes = {
   "244" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "245" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
+  "249" : { "LF": 5, "POL": 3, "BOAT": 3, "TAUCHER": 3, "ELW": 1 }, // Bus in Wasser
   "250" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "251" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
   "252" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
