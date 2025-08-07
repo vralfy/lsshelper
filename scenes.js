@@ -406,6 +406,7 @@ document.lss_helper.scenes = {
   "527" : { "DOG": 1, "LF": 2, "RW": 1, "GKW": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Verschüttete Person
   "528" : { "LF": 3, "RW": 1, "ELW": 1, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "BOAT": 2, "POL": 2}, // Fischsterben in Gewässer
   "532" : { "LF": 1, "POL": 2, "POLH": 1, "DOG": 1, "RTW": 1 }, // Suche nach Vermissten
+  "533" : { "LF": 1, "POLH": 1, "POL": 6, "BOAT": 2, "ELW": 1, "DOG": 1, "RTW": 1, "NEF": 1 }, // Personensuche nahe Gewässer
   "535" : { "LF": 6, "RW": 2, "ELW": 1, "FWK": 1, "DLK": 1, "GKW": 2, "THWGWN": 2, "THWMTW": 2, "AAOTHWR": 1, "AAOTHWDLE": 1, "THWGWSB": 1, "DROHNE": 1, "DOG": 1, "RTW": 1 }, // Schwimmbaddach eingestürzt
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
