@@ -174,6 +174,7 @@ document.lss_helper.scenes = {
   "173" : { "LF": 1, "POL": 2 }, // Straße unter Wasser
   "174" : { "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "POL": 2 }, // Erdrutsch
   "176" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1 }, // LKW in Hauswand
+  "177" : { "GKW": 2, "THWMTW": 1, "THWGWN": 1, "LF": 3, "ELW": 1, "RW": 1, "FWK": 1, "POL": 2, "THWGWSB": 1, "DOG": 1, "DROHNE": 1, "RTW": 1, "AAOTHWR": 1 }, // Eingestürztes Wohnhaus
   "178" : { "LF": 3, "ELW": 1, "RW": 1, "GWG": 1, "GKW": 1, "THWBRG": 1, "POL": 2, "RTW": 1 }, // Gefahrgut-LKW verunglückt
   "179" : { "RTW": 1, "NEF": 1, "LF": 1 }, // Schädelverletzung
   "180" : { "RTW": 1, "NEF": 1, "RTH": 1 }, // Wirbelsäulenverletzung
