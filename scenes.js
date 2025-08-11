@@ -575,6 +575,7 @@ document.lss_helper.scenes = {
   "815" : { "AAOTHWNEA": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "AAOTHWNEA": 1 }, // Stromausfall in THW-Ortsverband
   "818" : { "AAOTHWNEA200": 1 }, // Stromausfall im Rathaus
+  "819" : { "AAOTHWNEA200": 1 }, // Stromausfall in Polizeiwache
   "820" : { "AAOTHWNEA200": 1 }, // Stromausfall durch Kabelschaden
   "821" : { "LF": 4, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Kellerbrand in Mehrfamilienhaus
   "822" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Brand in Arztpraxis
