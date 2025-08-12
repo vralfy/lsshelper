@@ -284,6 +284,7 @@ document.lss_helper.scenes = {
   "320" : { "LF": 20, "RW": 2, "SLF": 1, "DLK": 5, "ELW": 6, "ELW2": 1, "SW": 2, "GWA": 3, "GWM": 3, "GWG": 2, "GWH": 1, "POL": 6, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "DROHNE": 1, "RTW": 15, "NEF": 5 }, // Großfeuer im Krankenhaus (Brandmeldeanlage)
   "321" : { "LF": 3, "DLK": 1, "ELW": 1, "POL": 2, "GWA": 1 }, // Saunabrand
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
+  "324" : { "LF": 15, "DLK": 3, "GWA": 2, "GWM": 2, "GWG": 1, "SW": 1, "FWK": 1, "ELW": 5, "ELW2": 1, "RW": 1, "SLF": 2, "AAOTHWR": 2, "THWGWN": 2, "GKW": 2, "THWMTW": 2, "POL": 5, "RTW": 1, "NEF": 1 }, // Brand in Baumarkt
   "327" : { "LF": 6, "ELW": 1, "DLK": 2, "GWA": 2, "GWM": 1, "GWO": 1, "POL": 1, "RTW": 1 }, // Tiefgaragenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
   "334" : { "LF": 8, "ELW": 2, "ELW2": 1, "RW": 1, "DLK": 1, "SW": 1, "RTW": 1, "NEF": 1 }, //  Brennendes Kleinflugzeug
