@@ -509,6 +509,7 @@ document.lss_helper.scenes = {
   "702" : { "LF": 12, "DLK": 2, "ELW": 3, "ELW2": 1, "RW": 2, "POL": 4, "RTW": 2 }, // Brand in Großwäscherei
   "703" : { "RTW": 1 }, // Akute Rückenschmerzen
   "709" : { "LF": 4, "ELW": 1, "RW": 2, "POL": 4, "RTW": 6, "NEF": 1 }, // Bus in Haltestelle
+  "720" : { "LF": 1, "ELW": 4, "RW": 2, "ELW2": 2, "SW": 6, "GWA": 2, "GWM": 2, "POL": 6, "GKW": 2, "THWMTW": 1, "AAOTHWR": 3, "THWGWN": 1, "POLH": 1 }, // Großfeuer im Moor
   "721" : { "RTW": 1, "POL": 2 }, // randalierender Fluggast
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
   "723" : { "RTW": 1 }, // Allergische Reaktion auf Pollen
