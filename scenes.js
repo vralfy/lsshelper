@@ -200,6 +200,7 @@ document.lss_helper.scenes = {
   "200" : { "POL": 2, "GRUKW": 6, "BEFKW": 2, "GEFKW": 1 },  // Geplante Razzia
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
+  "206" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 4, "GWA": 2, "SW": 2, "POL": 3, "GKW": 2, "THWMTW": 1, "AAOTHWR": 2, "RTW": 2, "NEF": 2 }, // Feuer auf Bauernhof - Groß
   "208" : { "LF": 8, "ELW": 1, "ELW2": 1, "RW": 2, "GWA": 1, "GWO": 1, "GWM": 2, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 5, "NEF": 1 }, // Leck in Chemikalientank
   "209" : { "POL": 1 }, // Fahraddiebstahl
   "210" : { "RTW": 1, "NEF": 1 }, // Unfall mit Motorsäge
