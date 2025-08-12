@@ -575,6 +575,7 @@ document.lss_helper.scenes = {
   "814" : { "AAOTHWNEA": 1 }, // Stromausfall in Feuerwehrwache
   "815" : { "AAOTHWNEA": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "AAOTHWNEA": 1 }, // Stromausfall in THW-Ortsverband
+  "817" : { "AAOTHWNEA200": 1 }, // Stromausfall in Pflegeeinrichtung
   "818" : { "AAOTHWNEA200": 1 }, // Stromausfall im Rathaus
   "819" : { "AAOTHWNEA200": 1 }, // Stromausfall in Polizeiwache
   "820" : { "AAOTHWNEA200": 1 }, // Stromausfall durch Kabelschaden
