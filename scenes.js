@@ -414,6 +414,7 @@ document.lss_helper.scenes = {
   "536" : { "POL": 2 }, // Einbruch in Supermarkt
   "537" : { "POL": 4 }, // Einbruch in Supermarkt
   "538" : { "RTW": 1, "NEF": 1 }, // Verbrennung
+  "539" : { "POL": 2, "RW": 1, "LF": 2, "AAOTHWR": 2, "THWMTW": 2, "THWGWN": 2, "GKW": 2, "DOG": 2, "THWGWSB": 1, "DROHNE": 1, "RTW": 1, "NEF": 1}, // Verschüttete Personen
   "541" : { "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "POL": 2, "THWGWSB": 1, "DOG": 1 }, // Erdrutsch
   "544" : { "LF": 3, "RW": 1, "ELW": 1, "GWM": 1, "GWG": 1, "DEKONP": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Säureangriff auf Hauswand
   "545" : { "LF": 14, "RW": 2, "DLK": 3, "ELW": 2, "GWA": 1, "SW": 1, "POL": 4, "GKW": 1, "AAOTHWR": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Brand bei Holzverarbeiter
