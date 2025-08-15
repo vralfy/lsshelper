@@ -610,6 +610,7 @@ document.lss_helper.scenes = {
   "883" : { "POL": 1 }, // Schulschwänzer
   "884" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 2, "POL": 4, "RTW": 3 }, // Verkehrsunfall mit Stadtbahn
   "897" : { "KTW": 1 }, // Patientenübernahme von Ambulanzflug
+  "899" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "DLK": 3, "FWK": 1, "GKW": 2, "THWMTW": 2, "THWGWSB": 2, "AAOTHWR": 2, "AAOTHWDLE": 2, "POL": 3, "DOG": 1, "RTW": 10, "NEF": 5 }, // Sporthalle eingestürzt
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "914" : { "LF": 12, "DLK": 3, "ELW": 4, "ELW2": 1, "GWM": 2, "GWA": 2, "GWG": 1, "DEKONP": 1, "SW": 2, "RW": 3, "POL": 8, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "SLF": 1 }, // Brand in Düngemittellager
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
