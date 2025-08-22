@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel - Send Direct Fix
 // @namespace    http://tampermonkey.net/
-// @version      2025-08-20
+// @version      202508-22-01
 // @description  Sometime incidents get stuck when vehicles are send twice. This fix resends all vehicles directly to the incident
 // @author       You
 // @match        https://www.leitstellenspiel.de/missions/*
@@ -14,8 +14,12 @@
 
     document.lss_helper = document.lss_helper || {};
 
+    document.lss_helper.getLinks = () => {
+        return Array.from(document.getElementsByClassName('btn-xs')).filter((btn) => btn.href && btn.href.indexOf('vehicles') > 0 && btn.href.indexOf('?ifs=at_fi&next_mission=1&return=mission_new&sd=a&sk=cr') > 0);
+    };
+
     document.lss_helper.directSend = () => {
-        const btns = Array.from(document.getElementsByClassName('btn-xs')).filter((btn) => btn.href && btn.href.indexOf('vehicles') > 0 && btn.href.indexOf('?ifs=at_fi&next_mission=1&return=mission_new&sd=a&sk=cr') > 0);
+        const btns = document.lss_helper.getLinks();
         btns.forEach((btn, idx) => setTimeout(() => {
             console.log(idx, btn);
             const header = { method: 'GET', cache: "no-cache" };
@@ -38,7 +42,7 @@
         }
 
         var btn = document.getElementById('lss_helper_direct_send_btn');
-        if (!btn) {
+        if (!btn && document.lss_helper.getLinks().length) {
             btn = document.createElement("button");
             btn.id = 'lss_helper_direct_send_btn';
             btn.innerText = 'Send Direct';
