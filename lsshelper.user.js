@@ -817,9 +817,11 @@
     document.lss_helper.fetchRemoteFile = (filename) => {
         document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
         const header = { method: 'GET', cache: "no-cache" };
-        const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
+        // https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/lsshelper.user.js
+        // https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js
+        const repo = document.lss_helper.getSetting('repository', '"https://github.com/vralfy/lsshelper/raw"');
         const channel = document.lss_helper.getSetting('channel', '"master"');
-        return fetch(repo + '/refs/heads/' + channel + '/' + filename, header)
+        return fetch(repo + '/' + channel + '/' + filename, header)
             .then((response) => response.text())
             .then((response) => { eval(response); return response; })
             .catch((err) => {
