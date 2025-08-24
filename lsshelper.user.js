@@ -819,7 +819,8 @@
         const header = { method: 'GET', cache: "no-cache" };
         // https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/lsshelper.user.js
         // https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js
-        const repo = document.lss_helper.getSetting('repository', '"https://github.com/vralfy/lsshelper/raw"');
+        // https://raw.githubusercontent.com/vralfy/lsshelper/dev/lsshelper.user.js
+        const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
         const channel = document.lss_helper.getSetting('channel', '"master"');
         return fetch(repo + '/' + channel + '/' + filename, header)
             .then((response) => response.text())
