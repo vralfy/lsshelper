@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202507-22-01
+// @version      202508-25-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -51,6 +51,7 @@
     document.lss_helper.log = console.log;
     document.lss_helper.warn = console.warn;
     document.lss_helper.error = console.error;
+    document.lss_helper.info = console.info;
 
     document.lss_helper.getSetting = (key, def) => {
         if (!localStorage.getItem('lss_helper_' + key)) {
