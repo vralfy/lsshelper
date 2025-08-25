@@ -22,6 +22,7 @@ document.lss_helper.vehicleGroups = {
   "KTW": [38],
   "LNA": [55],
   "ORGL": [56],
+  "SEGELW": [59],
   "GWSAN": [60],
 
   "POL": [32],
@@ -31,19 +32,21 @@ document.lss_helper.vehicleGroups = {
   "GRUKW": [50],
   "FUEKW": [51],
   "GEFKW": [52],
+  "LAUKW": [165],
   "SEK": [79, 80],
   "MEK": [81, 82],
 
   "GKW": [39],
   "THWMTW": [40],
   "THWGWN": [41],
-  "THWLKWK9": [42],
   "THWGWSB": [109],
   "THWMLW": [45],
 
+  "THWLKWK9": [42],
   "THWBRG": [43],
   "THWDLE": [44],
   "THWDOG": [92],
+  "THWSWP": [101, 102],
   "NEA": [110],
 
   "DLRG": [64],
@@ -52,6 +55,9 @@ document.lss_helper.vehicleGroups = {
 
   "WATER": [121, 166],
   "smallOil": [10, 0,1,6,7,8,9,30,88,89,90, 4],
-  "SONDER": [11, 121, 166, 167],
+  "SLF": [11, 121, 166, 167],
+  "BOAT": [70],
   "DOG": [92],
+  "DROHNE": [125, 127],
+  "SWP": [101, 102], // Schmutzwasserpumpen
 };
