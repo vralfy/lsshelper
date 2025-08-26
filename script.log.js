@@ -48,16 +48,18 @@ document.lss_helper.info = (...args) => {
     document.body.appendChild(notifyContainer);
   }
 
+  const id = "lss_helper_notify_" + Date.now();
   let msg = document.createElement("div");
   msg.className = "lss_helper_notify";
-  msg.id = "lss_helper_notify_" + Date.now();
+  msg.id = id;
   msg.innerHTML = args.map(arg => JSON.stringify(arg)).join(" ");
   notifyContainer.appendChild(msg);
   setTimeout(() => {
-    msg.remove();
+    document.getElementById(id)?.remove();
     const n = document.getElementById("lss_helper_notify_container")
     if (!n.childElementCount) {
       n.remove();
     }
-  }, 5000);
+  }, document.lss_helper.getSetting('notificationtimeout', '5000'));
+  return msg;
 };

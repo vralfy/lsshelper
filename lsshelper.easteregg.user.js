@@ -21,14 +21,19 @@
       return;
     }
 
+    document.lss_helper.setDefaultSetting('easteregg_interval', '60000');
+    document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
+
     let btn = document.createElement("div");
     btn.id = "lss_helper_easteregg_btn";
     btn.classList = "col-sm-12 btn btn-xs btn-default";
     btn.innerHTML = "EasterEgg";
     settingsContainer.appendChild(btn);
     btn.onclick = () => {
-      document.lss_helper_easteregg.search();
+      document.lss_helper_easteregg.search(true);
     };
+
+    setTimeout(() => {document.lss_helper_easteregg.search()}, 10000);
   };
 
   document.lss_helper_easteregg.claim = (mission, html) => {
@@ -47,11 +52,15 @@
     }
   };
 
-  document.lss_helper_easteregg.search = () => {
-    document.lss_helper.info('Looking for EasterEggs');
+  document.lss_helper_easteregg.search = (force) => {
+    const msg = document.lss_helper.info('Looking for EasterEggs');
     document.lss_helper.missions.forEach((m, idx) => {
       setTimeout(() => {
         document.lss_helper.log(idx, 'EasterEgg search for', m);
+        if (msg) {
+          msg.id = 'lss_helper_easteregg_' + idx;
+          msg.innerHTML = 'Looking for EasterEggs: ' + idx + '/' + document.lss_helper.missions.length;
+        }
         const header = { method: 'GET', cache: "no-cache" };
         const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
         fetch(url, header)
@@ -64,10 +73,17 @@
           });
       }, idx * 500);
     });
+
+    if (msg) {
+      setTimeout(() => { msg?.remove(); }, (document.lss_helper.missions.length + 2) * 500);
+    }
+
+    if (!force) {
+      setTimeout(() => { document.lss_helper_easteregg.search(); }, document.lss_helper.getSetting('easteregg_interval', '60000') || 60000);
+    }
   };
 
     setTimeout(() => {
         document.lss_helper_easteregg.init();
     }, 2000);
-    setInterval(() => {document.lss_helper_easteregg.search()}, 60000);
 })();
