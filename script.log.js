@@ -29,8 +29,8 @@ document.lss_helper.info = (...args) => {
     notifyContainer.id = "lss_helper_notify_container";
     notifyContainer.style.position = "fixed";
     notifyContainer.style.top = "50px";
-    notifyContainer.style.left = "0px";
-    notifyContainer.style.right = "0px";
+    notifyContainer.style.left = "20px";
+    // notifyContainer.style.right = "20px";
     notifyContainer.style.zIndex = "9999";
     notifyContainer.style.background = 'rgba(255, 50, 50, 0.8)';
     notifyContainer.style.border = '1px solid rgba(255, 50, 50, 1)';
