@@ -56,10 +56,10 @@
     const msg = document.lss_helper.info('Looking for EasterEggs');
     document.lss_helper.missions.forEach((m, idx) => {
       setTimeout(() => {
-        document.lss_helper.log(idx, 'EasterEgg search for', m);
+        //document.lss_helper.log(idx, 'EasterEgg search for', m);
         if (msg) {
           msg.id = 'lss_helper_easteregg_' + idx;
-          msg.innerHTML = 'Looking for EasterEggs: ' + idx + '/' + document.lss_helper.missions.length;
+          msg.innerHTML = 'Looking for EasterEggs: ' + (idx + 1) + '/' + document.lss_helper.missions.length;
         }
         const header = { method: 'GET', cache: "no-cache" };
         const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
@@ -75,7 +75,10 @@
     });
 
     if (msg) {
-      setTimeout(() => { msg?.remove(); }, (document.lss_helper.missions.length + 2) * 500);
+      setTimeout(() => {
+        msg?.remove();
+        document.lss_helper.info('Looking for EasterEggs ... done');
+      }, (document.lss_helper.missions.length + 2) * 500);
     }
 
     if (!force) {
