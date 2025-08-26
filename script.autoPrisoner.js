@@ -14,6 +14,7 @@ document.lss_helper.autoPrisoner = (force) => {
       return;
   }
 
+  document.lss_helper.info('sending prisoner', call);
   const header = { method: 'GET', cache: "no-cache" };
   return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
       .then((response) => response.text())

@@ -16,6 +16,7 @@ document.lss_helper.autoAccept = (force) => {
             const m = resends[0];
             document.lss_helper.debug('AutoResend', m.missionType, m);
             const v = m.resendVehicles.reduce((acc, cur) => [...acc, ...cur], []);
+            document.lss_helper.info('resending', m.missionId, v);
             document.lss_helper.sendVehicles(m.missionId, v);
             document.lss_helper.updateLists(-1);
             return;
@@ -38,6 +39,7 @@ document.lss_helper.autoAccept = (force) => {
         }
         const m = missions[0];
         document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
+        document.lss_helper.info('sending', m.missionId);
         document.lss_helper.sendByScene(m, m.missionType);
         document.lss_helper.updateLists(-1);
     }

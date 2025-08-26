@@ -12,7 +12,7 @@ document.lss_helper.autoPatient = (force) => {
   if (!call) {
       return;
   }
-
+  document.lss_helper.info('sending patient', call);
   const header = { method: 'GET', cache: "no-cache" };
   return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
       .then((response) => response.text())
