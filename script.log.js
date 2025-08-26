@@ -25,6 +25,9 @@ document.lss_helper.error = (...args) => {
 document.lss_helper.info = (...args) => {
   let notifyContainer = document.getElementById("lss_helper_notify_container");
   if (!notifyContainer) {
+    document.lss_helper.setDefaultSetting('notificationtimeout', '5000');
+    document.lss_helper.printSettingsNumberInput('notificationtimeout', 'Notification Timeout');
+
     notifyContainer = document.createElement("div");
     notifyContainer.id = "lss_helper_notify_container";
     notifyContainer.style.position = "fixed";
@@ -60,6 +63,6 @@ document.lss_helper.info = (...args) => {
     if (!n.childElementCount) {
       n.remove();
     }
-  }, document.lss_helper.getSetting('notificationtimeout', '5000'));
+  }, document.lss_helper.getSetting('notificationtimeout', '5000') || 5000);
   return msg;
 };
