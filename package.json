@@ -4,8 +4,7 @@
   "description": "1. Install [Tampermonkey](https://www.tampermonkey.net) 2. Enable developer mode in browser (if needed) 3. Click [here](https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js) to install",
   "main": "lsshelper.distribution.user.js",
   "scripts": {
-    "mcpserver": "node mcpserver.js",
-    "mcpcli": "node mcpcli.js",
+    "mcp": "npm run server --prefix ./unicornMCP",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {

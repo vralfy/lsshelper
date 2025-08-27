@@ -1,0 +1,3 @@
+[submodule "unicornMCP"]
+	path = unicornMCP
+	url = https://github.com/vralfy/unicornMCP.git
