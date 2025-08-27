@@ -232,6 +232,7 @@ document.lss_helper.scenes = {
   "244" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "245" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
+  "247" : { "POL": 2, "BOAT": 2, "TAUCHER": 2, "LF": 3, "ELW 1": 1, "RTW": 1, "NEF": 1 }, // Pkw in Wasser
   "248" : { "POL": 3, "BOAT": 3, "TAUCHER": 3, "LF": 5, "ELW": 1 }, // LKW in Wasser
   "249" : { "LF": 5, "POL": 3, "BOAT": 3, "TAUCHER": 3, "ELW": 1 }, // Bus in Wasser
   "250" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
@@ -576,6 +577,7 @@ document.lss_helper.scenes = {
   "805" : null,
   "806" : { "AAOTHWNEA": 1 }, // Bereitstellungsraum vor angekündigter Großdemo
   "812" : { "LF": 3, "RW": 2, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Schilderbrücke eingestürzt
+  "813" : { "LF": 1, "RW": 1, "ELW 1": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "NEA200": 1, "RTW": 1, "NEF": 1 }, // Stromausfall in Krankenhaus
   "814" : { "AAOTHWNEA": 1 }, // Stromausfall in Feuerwehrwache
   "815" : { "AAOTHWNEA": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "AAOTHWNEA": 1 }, // Stromausfall in THW-Ortsverband
