@@ -5,6 +5,8 @@
   "main": "lsshelper.distribution.user.js",
   "scripts": {
     "mcp": "npm run server --prefix ./unicornMCP",
+    "pull": "git submodule update --init --recursive && git pull --recurse-submodules",
+    "push": "git submodule foreach git push && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
