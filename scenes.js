@@ -136,6 +136,7 @@ document.lss_helper.scenes = {
   "134" : { "LF": 6, "ELW": 1, "SW": 1 }, // Großer Feldbrand
   "135" : { "LF": 8, "SW": 1, "ELW": 1, "POL": 1 }, // Großer Waldbrand
   "136" : { "LF": 12, "WATER": 2, "ELW": 2, "ELW2": 1, "SW": 1, "POL": 1, "RTW": 1 }, // Großfeuer im Wald
+  "137" : null,
   "138" : { "LF": 2 }, // Flächenbrand
   "139" : { "LF": 4 }, // Flächenbrand
   "140" : { "LF": 2, "POL": 2 }, // Flächenbrand
@@ -173,6 +174,7 @@ document.lss_helper.scenes = {
   "172" : { "LF": 1 }, // Straße unter Wasser
   "173" : { "LF": 1, "POL": 2 }, // Straße unter Wasser
   "174" : { "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "POL": 2 }, // Erdrutsch
+  "175" : null,
   "176" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1 }, // LKW in Hauswand
   "177" : { "GKW": 2, "THWMTW": 1, "THWGWN": 1, "LF": 3, "ELW": 1, "RW": 1, "FWK": 1, "POL": 2, "THWGWSB": 1, "DOG": 1, "DROHNE": 1, "RTW": 1, "AAOTHWR": 1 }, // Eingestürztes Wohnhaus
   "178" : { "LF": 3, "ELW": 1, "RW": 1, "GWG": 1, "GKW": 1, "THWBRG": 1, "POL": 2, "RTW": 1 }, // Gefahrgut-LKW verunglückt
@@ -211,6 +213,7 @@ document.lss_helper.scenes = {
   "215" : { "LF": 7, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 1, "GWG": 1, "POL": 4, "RTW": 5, "NEF": 1 }, // Chlorgasaustritt
   "223" : { "LF": 3, "POL": 1, "F": 1}, // Brandsicherheitswache bei Volksfest
   "224" : { "LF": 3, "RTW": 1 }, // Brandsicherheitswache im Theater
+  "225" : { "LF": 3, "RTW": 3, "GWSAN": 1, "NEA50": 1 }, // Dorf/Stadtfest
   "226" : { "RTW": 3, "GWSAN": 1 }, // Volkslauf
   "227" : { "RTW": 1, "POL": 3, "GRUKW": 6, "BEFKW": 2, "FUEKW": 1 }, // Angemeldete Demonstration
   "228" : { "POL": 2 }, // Absicherung Musikumzug
@@ -295,12 +298,12 @@ document.lss_helper.scenes = {
   "340" : { "RTW": 1, "NEF": 1 }, // akuter Asthma-Anfall
   "341" : { "RTW": 1, "NEF": 1 }, // Krampfanfall
   "345" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1, "RTW": 1, "GWH": 1 }, // Hoehenrettung am Fahrgeschäft
-  "346" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "NEA": 1, "BEFKW": 1, "GRUKW": 3, "LAUKW": 1 }, // Gebäudesprengung
+  "346" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "AAOTHWNEA50": 1, "BEFKW": 1, "GRUKW": 3, "LAUKW": 1 }, // Gebäudesprengung
   "347" : { "LF": 6, "DLK": 1, "ELW": 1, "ELW2": 1, "RW": 2, "GWO": 1, "GWH": 1, "POL": 3, "FWK": 1, "NEF": 1, "RTW": 2 }, // Helikopter in Baum
   "348" : { "LF": 20, "DLK": 2, "RW": 4, "GWA": 2, "GWM": 1, "GWO": 1, "SW": 2, "ELW": 4, "ELW2": 1, "POL": 3, "RTW": 1, "AAOTHWR": 1, "THWGWN": 1, "GKW": 1, "THWMTW": 1, "DROHNE": 1 }, // Explosion in Biogasanlage
   "349" : { "LF": 1 }, // Brandgeruch
   "352" : { "LF": 12, "DLK": 3, "GWA": 1, "GWM": 1, "RW": 1, "SW": 1, "ELW": 3, "ELW2": 1, "POL": 4, "RTW": 5, "NEF": 2 }, // Brand in Mehrfamilienhaus
-  "353" : { "GRUKW": 3, "BEFKW": 1, "POL": 3, "AAOTHWNEA": 1 }, // Großkontrolle Betäubungsmittel
+  "353" : { "GRUKW": 3, "BEFKW": 1, "POL": 3, "NEA50": 1 }, // Großkontrolle Betäubungsmittel
   "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
   "356" : { "POL": 4, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Häusliche Gewalt - eskaliert
   "357" : { "POL": 2 }, // Bank: stiller Alarm
@@ -358,7 +361,7 @@ document.lss_helper.scenes = {
   "449" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // PKW in Supermarkt
   "450" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // PKW in Supermarkt
   "451" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 1 }, // PKW in Gebäude
-  "458" : { "POL": 3, "GRUKW": 3, "BEFKW": 1, "AAOTHWNEA": 1 }, // Schwerlastkontrolle
+  "458" : { "POL": 3, "GRUKW": 3, "BEFKW": 1, "NEA50": 1 }, // Schwerlastkontrolle
   "459" : { "LF": 2, "ELW": 1, "RW": 1, "POL": 2, "RTW": 2 }, // Brennende Baumaschine
   "460" : { "LF": 1, "DLK": 1, "ELW": 1, "RW": 1, "RTW": 1 }, // Person in Schacht
   "461" : { "RTW": 1 }, // Dehydrierte Person
@@ -569,18 +572,18 @@ document.lss_helper.scenes = {
   "781" : { "LF": 2, "ELW": 1, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
-  "800" : { "AAOTHWNEA": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
-  "801" : { "AAOTHWNEA": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
-  "802" : { "AAOTHWNEA": 1 }, // Ersatz-Stromversorgung einer Krankenhausstation
+  "800" : { "AAOTHWNEA50": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
+  "801" : { "AAOTHWNEA50": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
+  "802" : { "AAOTHWNEA50": 1 }, // Ersatz-Stromversorgung einer Krankenhausstation
   "803" : null,
   "804" : null,
   "805" : null,
-  "806" : { "AAOTHWNEA": 1 }, // Bereitstellungsraum vor angekündigter Großdemo
+  "806" : { "AAOTHWNEA50": 1 }, // Bereitstellungsraum vor angekündigter Großdemo
   "812" : { "LF": 3, "RW": 2, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Schilderbrücke eingestürzt
-  "813" : { "LF": 1, "RW": 1, "ELW 1": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "NEA200": 1, "RTW": 1, "NEF": 1 }, // Stromausfall in Krankenhaus
-  "814" : { "AAOTHWNEA": 1 }, // Stromausfall in Feuerwehrwache
-  "815" : { "AAOTHWNEA": 1 }, // Stromausfall in Rettungsdienstwache
-  "816" : { "AAOTHWNEA": 1 }, // Stromausfall in THW-Ortsverband
+  "813" : { "LF": 1, "RW": 1, "ELW 1": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWNEA200": 1, "RTW": 1, "NEF": 1 }, // Stromausfall in Krankenhaus
+  "814" : { "AAOTHWNEA50": 1 }, // Stromausfall in Feuerwehrwache
+  "815" : { "AAOTHWNEA50": 1 }, // Stromausfall in Rettungsdienstwache
+  "816" : { "AAOTHWNEA50": 1 }, // Stromausfall in THW-Ortsverband
   "817" : { "AAOTHWNEA200": 1 }, // Stromausfall in Pflegeeinrichtung
   "818" : { "AAOTHWNEA200": 1 }, // Stromausfall im Rathaus
   "819" : { "AAOTHWNEA200": 1 }, // Stromausfall in Polizeiwache
@@ -594,8 +597,8 @@ document.lss_helper.scenes = {
   "830" : { "LF": 20, "RW": 2, "SLF": 2, "ELW": 5, "ELW2": 1, "DLK": 5, "GWM": 3, "GWG": 2, "GWA": 3, "SW": 5, "POL": 6, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOTHWR": 1, "DROHNE": 1, 'RTW': 8 }, // Brennender Güterbahnhof
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "835" : { "POL": 1 }, // Fußstreife
-  "838" : { "AAOTHWNEA": 1 }, // Stromausfall im Stellwerk (klein)
-  "839" : { "NEA200": 1 }, // Stromausfall im Stellwerk (groß)
+  "838" : { "AAOTHWNEA50": 1 }, // Stromausfall im Stellwerk (klein)
+  "839" : { "AAOTHWNEA200": 1 }, // Stromausfall im Stellwerk (groß)
   "840" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1, "NEF": 1 }, // Personensuche im Wald
   "841" : { "RTW": 1 }, // Unterstützung Hausnotruf
   "842" : { "RTW": 1 }, // Unterstützung Hausnotruf

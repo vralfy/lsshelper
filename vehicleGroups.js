@@ -47,7 +47,8 @@ document.lss_helper.vehicleGroups = {
   "THWDLE": [44],
   "THWDOG": [92],
   "THWSWP": [101, 102],
-  "NEA": [110],
+  "NEA50": [110, 111],
+  "NEA200": [112],
 
   "DLRG": [64],
   "TAUCHER": [63],
