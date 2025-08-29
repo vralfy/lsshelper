@@ -38,7 +38,7 @@ document.lss_helper.vehicleResend = {
   'Radlader (BRmG R)': 'THWBRG',
   'LKW Kipper (LKW K 9)': 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
-  'NEA50': 'AAOTHWNEA',
+  'NEA50': 'AAOFFNEA',
   'Anhänger Drucklufterzeugung': 'THWDLE',
   'Schmutzwasserpumpen': 'THWSWP',
   'Schmutzwasserpumpe': 'THWSWP',
