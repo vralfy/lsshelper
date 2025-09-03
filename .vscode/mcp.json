@@ -6,8 +6,8 @@
 			"args": [
 				"npm",
 				"run",
-				"cli",
-				"--prefix=~/git/docker/project/lsshelper/unicornMCP"
+				"mcp",
+				"--prefix=~/git/docker/project/lsshelper"
 			],
 			"env": {
 				"NODE_TLS_REJECT_UNAUTHORIZED": "0"
@@ -18,7 +18,7 @@
 			"command": "npm",
 			"args": [
 				"run",
-				"cli",
+				"mcp",
 				"--prefix=${workspaceFolder}/unicornMCP"
 			],
 			"env": {

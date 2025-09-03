@@ -1,0 +1,10 @@
+{
+  "server": {
+    "name": "Leitstellenspiel MCP Server",
+    "version": "1.0.0"
+  },
+  "logfile": "../mcp.log",
+  "mods": [
+    { "file": "mods/leitstellenspiel.ts", "className": "mcpLeitstellenspiel"}
+  ]
+}
