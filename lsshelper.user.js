@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202508-25-01
+// @version      202509-03-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -194,14 +194,17 @@
             .map((building) => {
                 const markerImage = Array.from(building.getElementsByClassName('building_marker_image'))[0];
                 const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
+                const links = Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true));
+                const id = links[0].id.replace(/.*_/, '');
                 return {
+                    id,
                     name: position.innerHTML.trim(),
                     leitstelleId: building.attributes.leitstelle_building_id.value.trim(),
                     type: building.attributes.building_type_id.value.trim(),
                     lat: parseFloat(position.attributes['data-latitude'].value.trim()),
                     lng: parseFloat(position.attributes['data-longitude'].value.trim()),
                     vehicles: Array.from(building.getElementsByClassName('building_list_vehicle_element')),
-                    links: Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true)),
+                    links,
                     origin: building,
                     markerImage,
                     position,
@@ -877,5 +880,5 @@
             document.lss_helper.updateLists(-1);
             return;
         }
-    }
+    };
 })();
