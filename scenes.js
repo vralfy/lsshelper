@@ -434,6 +434,7 @@ document.lss_helper.scenes = {
   "558" : { "LF": 8, "RW": 1, "DLK": 1, "ELW": 2, "POL": 4, "RTW": 10, "NEF": 1}, // Brennende Bühne
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
   "562" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall in Tunnel
+  "564" : { "FUEKW": 1, "MEK": 4, "POL": 1 }, // Geplante Festnahme
   "566" : { "POL": 1 }, // Drogenhandel aufgeflogen
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
   "569" : { "POL": 6, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Tankstellenüberfall - Eskaliert
@@ -469,6 +470,7 @@ document.lss_helper.scenes = {
   "631" : { "ZIV": 2 }, // Vollstreckung Durchsuchungsbeschluss
   "632" : { "POL": 5, "ZIV": 1 }, // Einbruch in Museum
   "633" : { "POL": 2, "ZIV": 1 }, // Einbruch in Wohnhaus
+  "636" : { "POL": 4, "POLH": 1, "ZIV": 2, "MEK": 4, "FUEKW": 1, "RTW": 1}, // Entführung
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
   "639" : { "LF": 10, "RW": 2, "ELW": 2, "ELW2": 1, "GWG": 2, "GWM": 2, "GWA": 1, "DEKONP": 1, "FWK": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 2, "NEF": 1 }, // Gefahrgutzug verunglückt
   "640" : { "RTW": 1, "NEF": 1 }, // Amputationsverletzung
