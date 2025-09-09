@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202509-03-01
+// @version      202509-09-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -96,19 +96,6 @@
             "</style>"
         ].join("\n")).appendTo("head");
 
-        const vehicleListElement = document.getElementById('building_panel_body');
-        vehicleListElement.scrollTo(0, 0);
-        const scrollInterval = setInterval(() => {
-            if (vehicleListElement) {
-                document.lss_helper.log('Try to scroll down vehicle list');
-                const scroll = 400;
-                vehicleListElement.scrollTo(0, vehicleListElement.scrollTop + scroll);
-                if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2 * scroll)) {
-                    clearInterval(scrollInterval);
-                }
-            }
-        }, 500);
-
         document.lss_helper.getSetting('ui_map', 'true');
         document.lss_helper.getSetting('ui_missions', 'true');
         document.lss_helper.getSetting('ui_buildings', 'true');
@@ -181,6 +168,46 @@
         }
     };
 
+    document.lss_helper.loadVehiclesMap = () => {
+        if (document.lss_helper.vehiclesFetched) {
+            return;
+        }
+
+        if (document.lss_helper.getSetting('scrollVehicles', 'true')) {
+            const vehicleListElement = document.getElementById('building_panel_body');
+            vehicleListElement.scrollTo(0, 0);
+
+            const scrollInterval = setInterval(() => {
+                if (vehicleListElement) {
+                    document.lss_helper.log('Try to scroll down vehicle list');
+                    const scroll = 400;
+                    vehicleListElement.scrollTo(0, vehicleListElement.scrollTop + scroll);
+                    if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2 * scroll)) {
+                        clearInterval(scrollInterval);
+                        document.lss_helper.vehiclesFetched = true;
+                    }
+                }
+            }, 500);
+        } else {
+            document.lss_helper.info('Update buildings');
+            const buildings = document.lss_helper.buildings.map(b => 'building_ids[]=' + b.id).join('&');
+            const params = {
+                method: 'POST',
+                body: new URLSearchParams(buildings),
+                headers: {
+                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "X-Csrf-token": document.lss_helper.authToken
+                }
+            };
+            fetch('/buildings/vehiclesMap', params)
+                .then((response) => response.text())
+                .then((json) => {
+                    eval(json);
+                });
+        }
+        document.lss_helper.vehiclesFetched = true;
+    };
+
     document.lss_helper.updateLists = (timeout) => {
         if (timeout && timeout > 0) {
             document.lss_helper.debug('LSS List Update sheduled in', timeout, 'ms');
@@ -211,6 +238,7 @@
                 };
             });
 
+        document.lss_helper.loadVehiclesMap();
         document.lss_helper.vehicles = document.lss_helper.buildings.map((b) => {
             return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
                 .map((vehicle) => {
