@@ -308,6 +308,7 @@ document.lss_helper.scenes = {
   "356" : { "POL": 4, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Häusliche Gewalt - eskaliert
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "358" : { "POL": 8, "POLH": 1, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Banküberfall
+  "359" : { "POLH": 1, "POL": 5, "GRUKW": 6, "BEFKW": 2, "GEFKW": 1, "FUEKW": 1, "MEK": 4 }, // Geplante Razzia - Verdächtiger flüchtig
   "360" : { "LF": 1 }, // Brennender Blumenstrauß
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
   "368" : { "LF": 15, "DLK": 3, "SW": 2, "GWA": 2, "RW": 4, "ELW": 3, "ELW2": 1, "GWM": 1, "SLF": 2,  "POL": 4, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "AAOTHWR": 1, "THWDLE": 1, "RTW": 1 }, // Brennende Kirche
@@ -582,6 +583,7 @@ document.lss_helper.scenes = {
   "804" : null,
   "805" : null,
   "806" : { "AAOTHWNEA50": 1 }, // Bereitstellungsraum vor angekündigter Großdemo
+  "807" : { "AAOTHWNEA200": 1 }, // Ersatz-Stromversorgung in Krankenhaus
   "812" : { "LF": 3, "RW": 2, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Schilderbrücke eingestürzt
   "813" : { "LF": 1, "RW": 1, "ELW 1": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWNEA200": 1, "RTW": 1, "NEF": 1 }, // Stromausfall in Krankenhaus
   "814" : { "AAOTHWNEA50": 1 }, // Stromausfall in Feuerwehrwache
