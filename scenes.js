@@ -305,6 +305,7 @@ document.lss_helper.scenes = {
   "352" : { "LF": 12, "DLK": 3, "GWA": 1, "GWM": 1, "RW": 1, "SW": 1, "ELW": 3, "ELW2": 1, "POL": 4, "RTW": 5, "NEF": 2 }, // Brand in Mehrfamilienhaus
   "353" : { "GRUKW": 3, "BEFKW": 1, "POL": 3, "NEA50": 1 }, // Großkontrolle Betäubungsmittel
   "354" : { "RTW": 1, "NEF": 1}, // Grillunfall
+  "355" : { "MEK": 4, "POL": 4, "FUEKW": 1 }, // Waffenentzug
   "356" : { "POL": 4, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Häusliche Gewalt - eskaliert
   "357" : { "POL": 2 }, // Bank: stiller Alarm
   "358" : { "POL": 8, "POLH": 1, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Banküberfall
@@ -436,6 +437,7 @@ document.lss_helper.scenes = {
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
   "562" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall in Tunnel
   "564" : { "FUEKW": 1, "MEK": 4, "POL": 1 }, // Geplante Festnahme
+  "565" : { "FUEKW": 1, "MEK": 4, "POL": 4 }, // Zugriff bei Geldübergabe
   "566" : { "POL": 1 }, // Drogenhandel aufgeflogen
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
   "569" : { "POL": 6, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Tankstellenüberfall - Eskaliert
