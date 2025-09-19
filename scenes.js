@@ -503,7 +503,9 @@ document.lss_helper.scenes = {
   "669" : { "LF": 6, "DLK": 2, "ELW": 2, "POL": 2, "RTW": 2 }, // Reihenhaus in Flammen
   "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 2 }, // Havarie in Kläranlage
   "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
+  "672" : { "RTW": 1 }, // Person auf Laub ausgerutscht
   "674" : { "RTW": 1 }, // Person in Laubhaufen gestürzt
+  "675" : { "POL": 1, "RTW": 1 }, // Laubsauger außer Kontrolle
   "678" : { "LF": 2, "RW": 1, "RTW": 1 }, // Verkehrsunfall auf nebliger Straße
   "681" : { "RTW": 1 }, // Reitsportunfall
   "682" : { "LF": 5, "DLK": 2, "SW": 2, "GWM": 1, "GWA": 1, "ELW2": 1, "ELW": 2, "POL": 4, "AAOTHWR": 1, "GKW": 1, "THWMTW": 1 }, // Brand auf Kompostieranlage
