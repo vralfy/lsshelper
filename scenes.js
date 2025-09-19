@@ -505,6 +505,7 @@ document.lss_helper.scenes = {
   "670" : { "LF": 10, "RW": 2, "DLK": 2, "ELW": 2, "ELW2": 1, "GWA": 2, "GWM": 2, "DEKONP": 1, "FWK": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 2 }, // Havarie in Kläranlage
   "671" : { "LF": 1, "DLRG": 1, "TAUCHER": 1, "MZB": 1, "POL": 1 }, // Unbekanntes Objekt in Wasser
   "672" : { "RTW": 1 }, // Person auf Laub ausgerutscht
+  "673" : { "LF": 1, "RW": 1, "POL": 1, "RTW": 1 }, // Verkehrsunfall durch Laub
   "674" : { "RTW": 1 }, // Person in Laubhaufen gestürzt
   "675" : { "POL": 1, "RTW": 1 }, // Laubsauger außer Kontrolle
   "676" : { "RW": 1 }, // Von Laub verstopfter Gulli
