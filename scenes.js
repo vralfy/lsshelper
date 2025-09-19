@@ -508,6 +508,7 @@ document.lss_helper.scenes = {
   "674" : { "RTW": 1 }, // Person in Laubhaufen gestürzt
   "675" : { "POL": 1, "RTW": 1 }, // Laubsauger außer Kontrolle
   "678" : { "LF": 2, "RW": 1, "RTW": 1 }, // Verkehrsunfall auf nebliger Straße
+  "680" : { "LF": 2 }, // Brennender Laubhaufen
   "681" : { "RTW": 1 }, // Reitsportunfall
   "682" : { "LF": 5, "DLK": 2, "SW": 2, "GWM": 1, "GWA": 1, "ELW2": 1, "ELW": 2, "POL": 4, "AAOTHWR": 1, "GKW": 1, "THWMTW": 1 }, // Brand auf Kompostieranlage
   "683" : { "POL": 1 }, // KFZ-Diebstahl
