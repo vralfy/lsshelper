@@ -507,6 +507,7 @@ document.lss_helper.scenes = {
   "672" : { "RTW": 1 }, // Person auf Laub ausgerutscht
   "674" : { "RTW": 1 }, // Person in Laubhaufen gestürzt
   "675" : { "POL": 1, "RTW": 1 }, // Laubsauger außer Kontrolle
+  "676" : { "RW": 1 }, // Von Laub verstopfter Gulli
   "678" : { "LF": 2, "RW": 1, "RTW": 1 }, // Verkehrsunfall auf nebliger Straße
   "679" : { "LF": 2, "POL": 1, "RW": 1, "RTW": 1 }, // Verkehrsunfall bei Wildwechsel
   "680" : { "LF": 2 }, // Brennender Laubhaufen
