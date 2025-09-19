@@ -323,6 +323,7 @@ document.lss_helper.scenes = {
   "375" : { "LF": 1 }, // Tor gefallen
   "376" : { "POL": 2 }, // Pokal geklaut
   "377" : { "RTW": 1 }, // Überzuckerung
+  "378" : { "MEK": 4, "FUEKW": 1 }, // Observation
   "379" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "380" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "381" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
