@@ -8,7 +8,8 @@
 				"cli",
 				"--prefix=${workspaceFolder}/unicornMCP",
 				"--",
-				"--config=${workspaceFolder}/mcp.config.json"
+				"--config=${workspaceFolder}/mcp.config.json",
+				"--secrets=${workspaceFolder}/mcp.secrets.json"
 			],
 			"env": {
 				"NODE_TLS_REJECT_UNAUTHORIZED": "0"
