@@ -46,6 +46,8 @@ document.lss_helper.getResendMissions = () => {
                 { key: 'rescue', fok: true },
                 { key: 'rescue2', fok: true },
                 { key: 'water', fok: true },
+                { key: 'firefighter', fok: false },
+                { key: 'slf', fok: false },
             ].map((i) => {
                 if (!resendGroupsScene[i.key]) {
                     return null;
