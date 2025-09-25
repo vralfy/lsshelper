@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202509-25-01
+// @version      202509-29-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -368,7 +368,7 @@
                     .map((s) => s.trim())
                     .filter((s) => s && s.length)
                     .map((s) => {
-                        const p = s.match(/^([0-9]+)\s+(.+)$/);
+                        const p = s.replaceAll(/\n.*/g, "").match(/^([0-9]+)\s+(.+)$/);
                         if (!p || p.length < 3) {
                             return null;
                         }
@@ -416,7 +416,7 @@
                     ...m,
                     resend,
                     resendScene,
-                    resendVehicles: document.lss_helper.getVehiclesByScene(JSON.parse(JSON.stringify(m)), JSON.parse(JSON.stringify(resendScene)), !document.lss_helper.getSetting('autoResendAll')),
+                    resendVehicles: document.lss_helper.getVehiclesByScene(JSON.parse(JSON.stringify(m)), JSON.parse(JSON.stringify(document.lss_helper.addAAOtoScene(resendScene))), !document.lss_helper.getSetting('autoResendAll')),
                 }
             })
             .filter((m) => !m.data.caption.includes('[Verband]') || document.lss_helper.getSetting('mission_verband'))
@@ -678,6 +678,11 @@
             return null;
         }
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
+
+        return document.lss_helper.addAAOtoScene(scene, debug);
+    };
+
+    document.lss_helper.addAAOtoScene = (scene, debug) => {
         if (debug) {
             scene = { ...scene, "AAODEBUG": 2 };
         }
@@ -898,5 +903,4 @@
     document.lss_helper.autoPrisoner();
 
     document.lss_helper.fetchRemotes();
-
 })();

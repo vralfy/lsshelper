@@ -9,7 +9,7 @@
 // @grant        none
 // ==/UserScript==
 
-(function() {
+(function () {
     'use strict';
 
     document.lss_helper = document.lss_helper || {};
@@ -28,17 +28,17 @@
                 .catch((err) => {
                     document.lss_helper.error(err);
                 });
-        }, idx*200));
+        }, idx * 200));
     }
 
     document.lss_helper.createContainer = () => {
-      var container = document.getElementById('lss_helper_direct_send');
+        var container = document.getElementById('lss_helper_direct_send');
         if (!container) {
             container = document.createElement("div");
             container.id = 'lss_helper_direct_send';
             container.classList = 'col-sm-8 overview_outer bigMapWindow';
             const buildings = document.getElementById('mission_progress_info');
-            buildings.insertAdjacentElement('afterend', container);
+            buildings?.insertAdjacentElement('afterend', container);
         }
 
         var btn = document.getElementById('lss_helper_direct_send_btn');
