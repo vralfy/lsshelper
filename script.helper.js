@@ -37,7 +37,7 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     return radius * c; // Distance in km
   }
-  diffLat = Math.abs((obj1.lat ?? 0) - (obj2.lat ?? 0));
-  diffLng = Math.abs((obj1.lng ?? 0) - (obj2.lng ?? 0));
+  const diffLat = Math.abs((obj1.lat ?? 0) - (obj2.lat ?? 0));
+  const diffLng = Math.abs((obj1.lng ?? 0) - (obj2.lng ?? 0));
   return Math.sqrt(diffLat * diffLat + diffLng * diffLng);
 }
