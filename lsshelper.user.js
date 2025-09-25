@@ -422,6 +422,11 @@
             .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] > m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] ? -1 : 1)
             .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
             .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
+
+        ['buildings', 'vehicles', 'missions'].forEach((list) => {
+            document.lss_helper[list] = document.lss_helper['post_' + list] ? document.lss_helper['post_' + list](document.lss_helper[list]) : document.lss_helper[list];
+        });
+
     };
 
     document.lss_helper.getHelperContainer = () => {
