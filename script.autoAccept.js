@@ -18,8 +18,8 @@ document.lss_helper.getResendMissions = () => {
             resendGroupsScene['rescue'] = m.info?.patients?.innerText
                 .split("\n")
                 .filter(t => t.indexOf('Wir benötigen') >= 0)
-                .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
                 .map(t => t.startsWith('Wir') ? '1x ' + t : t)
+                .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
                 .map(t => t.match(/([0-9]+)x (.*)/))
                 .filter(t => !!t)
                 .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }))
