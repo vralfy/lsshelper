@@ -4,6 +4,7 @@ document.lss_helper.getResendMissions = () => {
         .filter((m) => m.type !== 'sicherheitswache')
         .map((m) => {
             const resendGroups = {};
+            const resendGroupsScene = {};
             ['LNA', 'OrgL'].forEach((vt) => {
                 const vtk = vt.toUpperCase();
                 const rsg = 'rescue2';
@@ -14,24 +15,24 @@ document.lss_helper.getResendMissions = () => {
                 }
             });
 
-            resendGroups['rescue'] = m.info?.patients?.innerText
-                    .split("\n")
-                    .filter(t => t.indexOf('Wir benötigen') >= 0)
-                    .map(t => t.replaceAll(/Wir benötigen:\s+/g,''))
-                    .map(t => t.match(/([0-9]+)x (.*)/))
-                    .map(mg => ({count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim())}))
-                    .map(mg => ({...mg, vehicles: mg.vehicles.filter(v => ['NEF', 'RTW', 'RTH'].indexOf(v)>=0)}))
-                    .filter(mg => mg.vehicles.length > 0)
-                    .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
-
+            resendGroupsScene['rescue'] = m.info?.patients?.innerText
+                .split("\n")
+                .filter(t => t.indexOf('Wir benötigen') >= 0)
+                .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
+                .map(t => t.match(/([0-9]+)x (.*)/))
+                .filter(t => !!t)
+                .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }))
+                .map(mg => ({ ...mg, vehicles: mg.vehicles.filter(v => ['NEF', 'RTW', 'RTH'].indexOf(v) >= 0) }))
+                .filter(mg => mg.vehicles.length > 0)
+                .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
             // ['NEF', 'RTW', 'RTH'].forEach((vt) => {
-                // const vtk = vt.toUpperCase();
-                // const rsg = 'rescue';
-                // if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
-                //     resendGroups[rsg] = (resendGroups[rsg] || []);
-                //     resendGroups[rsg].push({ scene: vtk, count: 1 });
-                //     delete m.resendScene[vtk];
-                // }
+            // const vtk = vt.toUpperCase();
+            // const rsg = 'rescue';
+            // if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
+            //     resendGroups[rsg] = (resendGroups[rsg] || []);
+            //     resendGroups[rsg].push({ scene: vtk, count: 1 });
+            //     delete m.resendScene[vtk];
+            // }
             // });
 
             const missing = m.info.missing.innerText.replaceAll(/\s+/g, ' ').trim();
@@ -43,7 +44,6 @@ document.lss_helper.getResendMissions = () => {
                 resendGroups['slf'] = [{ scene: 'SLF', count: 1 }];
             }
 
-            const resendGroupsScene = {};
             Object.keys(resendGroups).forEach((rgk) => {
                 m.resend = m.resend.filter((r) => r.scene.toUpperCase() !== rgk.toUpperCase());
                 resendGroupsScene[rgk] = resendGroupsScene[rgk] || {};
@@ -53,7 +53,7 @@ document.lss_helper.getResendMissions = () => {
             });
 
             const resendGroupsVehicles = [
-                ...Object.keys(resendGroupsScene).filter((k) => ['slf'].indexOf(k) >= 0).map((k) => ({ key: k, fok: true })),
+                ...Object.keys(resendGroupsScene).filter((k) => ['slf'].indexOf(k) < 0).map((k) => ({ key: k, fok: true })),
                 { key: 'slf', fok: false },
             ].map((i) => {
                 if (!resendGroupsScene[i.key]) {
@@ -63,7 +63,7 @@ document.lss_helper.getResendMissions = () => {
                     key: i.key,
                     vehicles: document.lss_helper.getVehiclesByScene(JSON.parse(JSON.stringify(m)), JSON.parse(JSON.stringify(document.lss_helper.addAAOtoScene(resendGroupsScene[i.key]))), i.fok),
                 }
-            }).filter((i) => !!i);
+            }).filter((i) => !!i && i.vehicles?.length);
 
             return {
                 ...m,
