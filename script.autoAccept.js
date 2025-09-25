@@ -43,6 +43,7 @@ document.lss_helper.getResendMissions = () => {
             });
 
             const resendGroupsVehicles = [
+                ...Object.keys(resendGroupsScene).map((k) => ({ key: k, fok: true })),
                 { key: 'rescue', fok: true },
                 { key: 'rescue2', fok: true },
                 { key: 'water', fok: true },
