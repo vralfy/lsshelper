@@ -129,17 +129,16 @@ document.lss_helper.autoResend = (force) => {
         }
 
         const vehiclesReduced = (vehicles.vehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []);
-        document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, vehicles.key);
+        document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, vehicles.key, m.resendGroupsScene[vehicles.key]);
         document.lss_helper.sendVehicles(m.missionId, vehiclesReduced);
     });
 
     if ((m.resendVehicles ?? []).length) {
         const vehiclesReduced = (m.resendVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []);
-        document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption);
+        document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, m.resendScene);
         document.lss_helper.sendVehicles(m.missionId, vehiclesReduced);
     }
 
     document.lss_helper.updateLists(-1);
     return true;
 };
-
