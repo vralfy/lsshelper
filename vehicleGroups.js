@@ -61,5 +61,5 @@ document.lss_helper.vehicleGroups = {
   "DOG": [91, 92, 94, 153],
   "DROHNE": [125, 127],
   "SWP": [101, 102], // Schmutzwasserpumpen
-  "RESENDWATER": [0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 11, 121, 166, 167]
+  "RESENDWATER": [0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 121, 166, 167],
 };

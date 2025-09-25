@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202509-09-01
+// @version      202509-25-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -311,12 +311,12 @@
                 };
             })
             .map((m) => {
-                let patients = m.info.patients.children.length;
-                const patientSummary = m.info.patients.getElementsByTagName('strong');
-                if (patientSummary.length) {
+                let patients = m.info.patients?.children?.length;
+                const patientSummary = m.info.patients?.getElementsByTagName('strong');
+                if ((patientSummary ?? []).length) {
                     patients = parseInt(patientSummary[0].innerHTML.replaceAll(/[^0-9]*/gi, ''));
                 }
-                let prisoners = m.info.prisoners.children.length;
+                let prisoners = m.info.prisoners?.children?.length;
 
                 if (m.data.patients_count) {
                     patients = m.data.patients_count[0];
@@ -377,6 +377,7 @@
                             type: p[2].trim().replace(/\s/g, ' '),
                         };
                     })
+                    .filter((s) => !!s)
                     .filter((s) => {
                         if (Object.keys(document.lss_helper.vehicleResend).indexOf(s.type) < 0) {
                             if (document.lss_helper.vehicleResendMissing.indexOf(s.type) < 0) {
@@ -422,11 +423,6 @@
             .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] > m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] ? -1 : 1)
             .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
             .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
-
-        ['buildings', 'vehicles', 'missions'].forEach((list) => {
-            document.lss_helper[list] = document.lss_helper['post_' + list] ? document.lss_helper['post_' + list](document.lss_helper[list]) : document.lss_helper[list];
-        });
-
     };
 
     document.lss_helper.getHelperContainer = () => {
@@ -773,6 +769,7 @@
         if (document.lss_helper.getSetting('optimize_scene') && nonReplaceable.length) {
             vehicles = [...vehicles, ...[nonReplaceable]];
         }
+
         //if (nonReplaceable.length) {
         //document.lss_helper.warn('counts', vehicleCounts, 'replacements', nonReplaceable, 'ids', nonReplaceableIds, 'scene', scene, 'send', vehicles);
         //}
@@ -902,16 +899,4 @@
 
     document.lss_helper.fetchRemotes();
 
-    document.lss_helper.tst = () => {
-        const resends = document.lss_helper.missions.filter((m) => m.resend?.length && m.resendVehicles?.length && m.unattended);
-        console.warn(resends);
-        if (resends.length > 0 && document.lss_helper.getSetting('autoResend')) {
-            const m = resends[0];
-            document.lss_helper.debug('AutoResend', m.missionType, m);
-            const v = m.resendVehicles.reduce((acc, cur) => [...acc, ...cur], []);
-            document.lss_helper.sendVehicles(m.missionId, v);
-            document.lss_helper.updateLists(-1);
-            return;
-        }
-    };
 })();
