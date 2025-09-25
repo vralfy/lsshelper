@@ -397,6 +397,7 @@
                             scene: document.lss_helper.vehicleResend[s.type],
                         }
                     });
+                /**
                 ['LNA', 'OrgL'].forEach((vt) => {
                     if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
                         resend.push({ scene: vt.toUpperCase(), count: 1 });
@@ -408,6 +409,7 @@
                         resend.push({ scene: vt.toUpperCase(), count: 1 });
                     }
                 });
+                /** */
                 const resendScene = {};
                 resend.forEach((r) => {
                     resendScene[r.scene] = (resendScene[r.scene] || 0) + r.count;
