@@ -62,4 +62,5 @@ document.lss_helper.vehicleGroups = {
   "DROHNE": [125, 127],
   "SWP": [101, 102], // Schmutzwasserpumpen
   "RESENDWATER": [0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 121, 166, 167],
+  "RESENDFIREFIGHTER": [0, 1, 6, 7, 8, 9, 30, 36, 90 ],
 };

@@ -24,8 +24,13 @@ document.lss_helper.getResendMissions = () => {
                 }
             });
 
-            if (m.info.missing.innerText.replaceAll(/\s+/g, ' ').indexOf('l. Wasser') > 0) {
+            const missing = m.info.missing.innerText.replaceAll(/\s+/g, ' ').trim();
+            if (missing.indexOf('l. Wasser') > 0) {
                 resendGroups['water'] = [{ scene: 'RESENDWATER', count: 1 }];
+            } else if (missing.indexOf('Feuerwehrleute') > 0) {
+                resendGroups['firefighter'] = [{ scene: 'RESENDFIREFIGHTER', count: 1 }];
+            } else if (missing.indexOf('Sonderlöschmittel') > 0) {
+                resendGroups['slf'] = [{ scene: 'SLF', count: 1 }];
             }
 
             const resendGroupsScene = {};
