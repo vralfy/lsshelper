@@ -28,6 +28,7 @@ document.lss_helper.vehicleResend = {
   'GruKw': 'GRUKW',
   'SEK-Fahrzeuge': 'SEK',
   'MEK-Fahrzeuge': 'MEK',
+  'DHuFüKW': '94',
   'Polizeihubschrauber': 'POLH',
   'Außenlastbehälter (allgemein)': '96',
 
