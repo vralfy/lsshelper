@@ -235,7 +235,7 @@ document.lss_helper.scenes = {
   "244" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "245" : { "DLRG": 1, "MZB": 1, "RTW": 1 }, // Person in Wasser
   "246" : { "LF": 3, "ELW": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
-  "247" : { "POL": 2, "BOAT": 2, "TAUCHER": 2, "LF": 3, "ELW 1": 1, "RTW": 1, "NEF": 1 }, // Pkw in Wasser
+  "247" : { "POL": 2, "BOAT": 2, "TAUCHER": 2, "LF": 3, "ELW": 1, "RTW": 1, "NEF": 1 }, // Pkw in Wasser
   "248" : { "POL": 3, "BOAT": 3, "TAUCHER": 3, "LF": 5, "ELW": 1 }, // LKW in Wasser
   "249" : { "LF": 5, "POL": 3, "BOAT": 3, "TAUCHER": 3, "ELW": 1 }, // Bus in Wasser
   "250" : { "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Person in Wasser
@@ -600,7 +600,7 @@ document.lss_helper.scenes = {
   "806" : { "AAOTHWNEA50": 1 }, // Bereitstellungsraum vor angekündigter Großdemo
   "807" : { "AAOTHWNEA200": 1 }, // Ersatz-Stromversorgung in Krankenhaus
   "812" : { "LF": 3, "RW": 2, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Schilderbrücke eingestürzt
-  "813" : { "LF": 1, "RW": 1, "ELW 1": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWNEA200": 1, "RTW": 1, "NEF": 1 }, // Stromausfall in Krankenhaus
+  "813" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWNEA200": 1, "RTW": 1, "NEF": 1 }, // Stromausfall in Krankenhaus
   "814" : { "AAOTHWNEA50": 1 }, // Stromausfall in Feuerwehrwache
   "815" : { "AAOTHWNEA50": 1 }, // Stromausfall in Rettungsdienstwache
   "816" : { "AAOTHWNEA50": 1 }, // Stromausfall in THW-Ortsverband
@@ -646,6 +646,7 @@ document.lss_helper.scenes = {
   "931" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "SWP": 1 }, // Ausgefallene Pumpen in Kläranlage
   "933" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "GWG": 1, "GWM": 1, "DEKONP": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Gefahrgut-Austritt in Paketzentrum
   "934" : { "LF": 5, "ELW": 2, "RW": 1, "DLK": 2, "GWA": 1, "GWM": 1, "GWG": 1, "SW": 1, "DEKONP": 1, "GKW": 1, "AAOTHWR": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Brand auf Recyclinghof
+  "935" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1}, // Herabstürzende Brückenteile
   "936" : { "LF": 5, "RW": 1, "ELW": 1, "SW": 1, "GWM": 1, "GWA": 1, "POL": 2, "RTW": 1 }, // Brand einer Gasstation
   "937" : { "LF": 3, "RW": 1, "SW": 1, "GWG": 1, "DROHNE": 1 }, // Bauernhof steht unter Wasser
 }
