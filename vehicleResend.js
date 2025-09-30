@@ -44,6 +44,8 @@ document.lss_helper.vehicleResend = {
   'Schmutzwasserpumpen': 'THWSWP',
   'Schmutzwasserpumpe': 'THWSWP',
   'GW-Taucher': '63',
+  'FüKomKW': '145',
+  'Anh FüLa': '146',
 
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
   'Betreuungs- und Verpflegungsausstattungen': 'AAOSEGBT',
