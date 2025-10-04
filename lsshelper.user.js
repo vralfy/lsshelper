@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202509-29-01
+// @version      202510-04-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -311,6 +311,7 @@
                 };
             })
             .map((m) => {
+                if (!m.unattended) return m;
                 let patients = m.info.patients?.children?.length;
                 const patientSummary = m.info.patients?.getElementsByTagName('strong');
                 if ((patientSummary ?? []).length) {
@@ -332,6 +333,7 @@
                 };
             })
             .map((m) => {
+                if (!m.unattended) return m;
                 const proposedVehicles = document.lss_helper.getVehiclesByMission(m);
                 const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc, cur) => acc + cur, 0);
                 return {
@@ -362,6 +364,7 @@
                     ...m
                 };
             }).map((m) => {
+                if (!m.unattended || !m.hasAlert) return m;
                 const resend = (m.info?.missing?.querySelector('[data-requirement-type="vehicles"]')?.innerText ?? '')
                     .replaceAll(/.*: /g, '')
                     .split(',')
