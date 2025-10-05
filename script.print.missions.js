@@ -58,9 +58,10 @@ document.lss_helper.printMissions = () => {
         leftContainer.appendChild(alert);
       }
 
+      const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+
       if (!m.hasAlert && m.unattended) {
-        if (m.scene && document.lss_helper.getVehiclesByMission(m, m.missionType) && document.lss_helper.getSetting('show_mission_type')) {
-          const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+        if (document.lss_helper.getSetting('show_mission_type') && m.scene && vehiclesToSend) {
           const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
           const btn2 = document.createElement('a');
           btn2.classList = 'btn btn-xs btn-default sendVehicles';
@@ -68,7 +69,7 @@ document.lss_helper.printMissions = () => {
           btn2.onclick = () => { document.lss_helper.sendByScene(m) };
           leftContainer.appendChild(btn2);
         } else {
-          if (document.lss_helper.getVehiclesByMission(m, 'lf1') && document.lss_helper.getSetting('show_mission_lf1')) {
+          if (document.lss_helper.getSetting('show_mission_lf1') &&document.lss_helper.getVehiclesByMission(m, 'lf1')) {
             const btn = document.createElement('a');
             btn.classList = 'btn btn-xs btn-default sendLf1';
             btn.innerHTML = '🚒';
@@ -99,9 +100,8 @@ document.lss_helper.printMissions = () => {
         centerContainer.appendChild(ageContainer);
       }
 
-      if (m.scene && document.lss_helper.getVehiclesByMission(m, m.missionType)) {
-        const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
-        const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
+      if (m.scene && vehiclesToSend) {
+        //const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
         if (document.lss_helper.getSetting('show_mission_max_distance')) {
           const distanceSpan = document.createElement('span');
           distanceSpan.classList = 'mission_detail';
