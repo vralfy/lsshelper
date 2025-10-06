@@ -36,8 +36,8 @@ document.lss_helper.vehicleResend = {
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
   'MzGW (FGr N)': 'THWGWN',
   'MzGW SB': 'THWGWSB',
-  'Radlader (BRmG R)': 'THWBRG',
-  'LKW Kipper (LKW K 9)': 'THWLKWK9',
+  // 'Radlader (BRmG R)': 'THWBRG', // cant be send alone
+  'LKW Kipper (LKW K 9)': 'THWBRG', // used to be 'THWLKWK9',
   'Rettungshundestaffel': 'DOG',
   'NEA50': 'AAOFFNEA',
   'Anhänger Drucklufterzeugung': 'THWDLE',
