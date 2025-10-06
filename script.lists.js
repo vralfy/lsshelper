@@ -1,4 +1,3 @@
-document.lss_helper = document.lss_helper || {};
 document.lss_helper.getBuildingsList = () => {
   return Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
     .map((building) => {

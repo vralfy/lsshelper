@@ -11,7 +11,7 @@ document.lss_helper.fetchRemoteFile('script.autoAccept.js');
 document.lss_helper.fetchRemoteFile('script.autoPatient.js');
 document.lss_helper.fetchRemoteFile('script.autoPrisoner.js');
 document.lss_helper.fetchRemoteFile('script.container.js');
-document.lss_helper.fetchRemoteFile('script.list.js');
+document.lss_helper.fetchRemoteFile('script.lists.js');
 document.lss_helper.fetchRemoteFile('script.log.js');
 
 document.lss_helper.fetchRemoteFile('script.print.missingVehicle.js');
