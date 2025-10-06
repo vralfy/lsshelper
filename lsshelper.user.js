@@ -9,9 +9,12 @@
 // @grant        none
 // ==/UserScript==
 
+const { version } = require("react");
+
 (function () {
     'use strict';
     document.lss_helper = {
+        version: '202510-06-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"

@@ -66,3 +66,24 @@ document.lss_helper.info = (...args) => {
   }, document.lss_helper.getSetting('notificationtimeout', '5000') || 5000);
   return msg;
 };
+
+document.lss_helper.notifiedUpdate = false;
+if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != '202510-06-01')) {
+  document.lss_helper.notifiedUpdate = true;
+  const el = document.lss_helper.info('A new version of LSS-Helper is available! Please update.');
+  el.id = 'lss_helper_notify_update' + Date.now();
+  el.style.color = 'rgba(0, 0, 0, 0.8)';
+  el.style.background = 'rgba(50, 255, 50, 0.8)';
+  el.style.border = '1px solid rgba(50, 255, 50, 1)';
+  el.style.pointerEvents = 'auto';
+  const btn = document.createElement('a');
+  btn.innerHTML = 'Update now';
+  btn.style.marginLeft = '10px';
+  btn.classList = 'btn btn-default btn-xs';
+  btn.href = 'https://github.com/vralfy/lsshelper/raw/refs/heads/' + document.lss_helper.getSetting('channel', '"master"') + '/lsshelper.user.js';
+  btn.target = '_blank';
+  btn.onclick = () => {
+    document.getElementById(el.id)?.remove();
+  };
+  el.appendChild(btn);
+}
