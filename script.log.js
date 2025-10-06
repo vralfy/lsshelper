@@ -67,7 +67,6 @@ document.lss_helper.info = (...args) => {
   return msg;
 };
 
-document.lss_helper.notifiedUpdate = false;
 if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != '202510-06-01')) {
   document.lss_helper.notifiedUpdate = true;
   const el = document.lss_helper.info('A new version of LSS-Helper is available! Please update.');
