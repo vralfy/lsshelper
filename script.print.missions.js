@@ -125,7 +125,7 @@ document.lss_helper.printMissions = () => {
           centerContainer.appendChild(distanceSpan);
         }
 
-        if (settings.show_mission_credits_rate) {
+        if (settings.show_mission_credits_rate && m.creditPerCar) {
           const rate = Math.floor(m.creditPerCar * 10) / 10;
           const rateContainer = document.createElement('span');
           rateContainer.classList = 'mission_detail';
