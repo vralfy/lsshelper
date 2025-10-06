@@ -586,7 +586,7 @@ document.lss_helper.scenes = {
   "774" : { "LF": 1, "ELW": 1, "RW": 1, "POL": 2, "BOAT": 1, "RTW": 1}, // Kollision zwischen Frachtschiff und Motorboot
   "775" : { "LF": 1, "ELW": 1, "GWG": 1, "POL": 4, "ZIV": 2, "GRUKW": 3, "BEFKW": 1 }, // Drogenlabor gefunden
   "776" : { "LF": 1, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Rolltreppe eingeklemmt
-  "777" : { "LF": 12, "DLK": 2, "ELW": 4, "RW": 1, "ELW2": 1, "GWA": 2, "GWG": 1, "SLF": 1, "POL": 4, "POLH": 1, "RTW": 7, "NEF": 1}, // Kraftwerksbrand
+  "777" : { "LF": 12, "DLK": 2, "ELW": 4, "RW": 1, "ELW2": 1, "GWA": 2, "GWG": 1, "SLF": 1, "POL": 4, "POLH": 1, "RTW": 1, "NEF": 1}, // Kraftwerksbrand
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
   "780" : { "RTW": 1 }, // Treppensturz
   "781" : { "LF": 2, "ELW": 1, "POL": 1 }, // Gartenschuppenbrand
