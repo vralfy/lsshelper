@@ -102,7 +102,7 @@ document.lss_helper.printMissions = () => {
 
       if (m.scene && vehiclesToSend) {
         //const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
-        if (document.lss_helper.getSetting('show_mission_max_distance')) {
+        if (document.lss_helper.getSetting('show_mission_max_distance') && m.maxDistance) {
           const distanceSpan = document.createElement('span');
           distanceSpan.classList = 'mission_detail';
           distanceSpan.innerHTML = (Math.round(m.maxDistance * 100) / 100) + 'km';
