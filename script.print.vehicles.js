@@ -33,10 +33,17 @@ document.lss_helper.printVehicleList = () => {
     main.appendChild(containerSummary);
   }
 
-  containerCall.style = document.lss_helper.getSetting('show_vehicle_call') ? '' : 'display:none';
-  containerAvailable.style = document.lss_helper.getSetting('show_vehicle_available') ? '' : 'display:none';
-  containerUnavailable.style = document.lss_helper.getSetting('show_vehicle_unavailable') ? '' : 'display:none';
-  containerSummary.style = document.lss_helper.getSetting('show_vehicle_summary') ? '' : 'display:none';
+  const settings = {
+    show_vehicle_call: document.lss_helper.getSetting('show_vehicle_call'),
+    show_vehicle_available: document.lss_helper.getSetting('show_vehicle_available'),
+    show_vehicle_unavailable: document.lss_helper.getSetting('show_vehicle_unavailable'),
+    show_vehicle_summary: document.lss_helper.getSetting('show_vehicle_summary'),
+  };
+
+  containerCall.style = settings.show_vehicle_call ? '' : 'display:none';
+  containerAvailable.style = settings.show_vehicle_available ? '' : 'display:none';
+  containerUnavailable.style = settings.show_vehicle_unavailable ? '' : 'display:none';
+  containerSummary.style = settings.show_vehicle_summary ? '' : 'display:none';
 
   containerCall.innerHTML = '';
   containerAvailable.innerHTML = '';
@@ -75,15 +82,15 @@ document.lss_helper.printVehicleList = () => {
       itemsUnavailable[idx].push(v);
     });
 
-  if (document.lss_helper.getSetting('show_vehicle_call')) {
+  if (settings.show_vehicle_call) {
     Object.values(itemsCall).forEach((i) => {
       const li = document.createElement('li');
       li.classList = 'lss_call';
       li.innerHTML = (document.lss_helper.vehicleTypes[i.type] || i.type) + ' - ' + i.name;
       li.append(i.link);
-      if (document.lss_helper.getSetting('show_vehicle_summary')) {
+      if (settings.show_vehicle_summary) {
         containerSummary.append(li)
-      } else if (document.lss_helper.getSetting('show_vehicle_available')) {
+      } else if (settings.show_vehicle_available) {
         containerAvailable.append(li)
       } else {
         containerCall.append(li);

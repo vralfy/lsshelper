@@ -9,23 +9,39 @@ document.lss_helper.printMissions = () => {
     main.appendChild(missionsContainer);
   }
 
+  const settings = {
+    show_vehicle_available: document.lss_helper.getSetting('show_vehicle_available'),
+    show_vehicle_unavailable: document.lss_helper.getSetting('show_vehicle_unavailable'),
+    show_vehicle_summary: document.lss_helper.getSetting('show_vehicle_summary'),
+    show_missions: document.lss_helper.getSetting('show_missions'),
+    show_mission_type: document.lss_helper.getSetting('show_mission_type'),
+    show_mission_lf1: document.lss_helper.getSetting('show_mission_lf1'),
+    show_mission_lf2: document.lss_helper.getSetting('show_mission_lf2'),
+    show_mission_credits: document.lss_helper.getSetting('show_mission_credits'),
+    show_mission_age: document.lss_helper.getSetting('show_mission_age'),
+    show_mission_max_distance: document.lss_helper.getSetting('show_mission_max_distance'),
+    show_mission_credits_rate: document.lss_helper.getSetting('show_mission_credits_rate'),
+
+    show_mission_type: document.lss_helper.getSetting('show_mission_type'),
+  };
+
   let colsSM = 0;
-  colsSM += document.lss_helper.getSetting('show_vehicle_available') ? 6 : 0;
-  colsSM += document.lss_helper.getSetting('show_vehicle_unavailable') ? 6 : 0;
-  colsSM += document.lss_helper.getSetting('show_vehicle_summary') ? 6 : 0;
+  colsSM += settings.show_vehicle_available ? 6 : 0;
+  colsSM += settings.show_vehicle_unavailable ? 6 : 0;
+  colsSM += settings.show_vehicle_summary ? 6 : 0;
   colsSM = Math.max(6, 12 - (colsSM % 12));
   colsSM = 12;
 
   let colsMD = 0;
-  colsMD += document.lss_helper.getSetting('show_vehicle_available') ? 3 : 0;
-  colsMD += document.lss_helper.getSetting('show_vehicle_unavailable') ? 3 : 0;
-  colsMD += document.lss_helper.getSetting('show_vehicle_summary') ? 4 : 0;
+  colsMD += settings.show_vehicle_available ? 3 : 0;
+  colsMD += settings.show_vehicle_unavailable ? 3 : 0;
+  colsMD += settings.show_vehicle_summary ? 4 : 0;
   colsMD = 12 - (colsMD % 12);
   colsMD = colsMD < 6 ? 12 : colsMD;
 
   missionsContainer.classList = 'col-sm-' + colsSM + ' col-md-' + colsMD;
   missionsContainer.innerHTML = '';
-  missionsContainer.style = document.lss_helper.getSetting('show_missions') ? '' : 'display:none';
+  missionsContainer.style = settings.show_missions ? '' : 'display:none';
 
   document.lss_helper.missions
     //.filter((m) => m.state != 'finishing')
@@ -61,7 +77,7 @@ document.lss_helper.printMissions = () => {
       const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
 
       if (!m.hasAlert && m.unattended) {
-        if (document.lss_helper.getSetting('show_mission_type') && m.scene && vehiclesToSend) {
+        if (settings.show_mission_type && m.scene && vehiclesToSend) {
           const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
           const btn2 = document.createElement('a');
           btn2.classList = 'btn btn-xs btn-default sendVehicles';
@@ -69,14 +85,14 @@ document.lss_helper.printMissions = () => {
           btn2.onclick = () => { document.lss_helper.sendByScene(m) };
           leftContainer.appendChild(btn2);
         } else {
-          if (document.lss_helper.getSetting('show_mission_lf1') &&document.lss_helper.getVehiclesByMission(m, 'lf1')) {
+          if (settings.show_mission_lf1 && document.lss_helper.getVehiclesByMission(m, 'lf1')) {
             const btn = document.createElement('a');
             btn.classList = 'btn btn-xs btn-default sendLf1';
             btn.innerHTML = '🚒';
             btn.onclick = () => { document.lss_helper.sendByScene(m, 'lf1') };
             leftContainer.appendChild(btn);
           }
-          if (document.lss_helper.getVehiclesByMission(m) && document.lss_helper.getSetting('show_mission_lf2')) {
+          if (settings.show_mission_lf2 && document.lss_helper.getVehiclesByMission(m)) {
             const btn2 = document.createElement('a');
             btn2.classList = 'btn btn-xs btn-default sendLf2';
             btn2.innerHTML = '🚒🚒';
@@ -86,14 +102,14 @@ document.lss_helper.printMissions = () => {
         }
       }
 
-      if (document.lss_helper.getSetting('show_mission_credits')) {
+      if (settings.show_mission_credits) {
         const creditContainer = document.createElement('span');
         creditContainer.classList = 'mission_detail';
         creditContainer.innerHTML = m.data.average_credits + '$';
         centerContainer.appendChild(creditContainer);
       }
 
-      if (document.lss_helper.getSetting('show_mission_age')) {
+      if (settings.show_mission_age) {
         const ageContainer = document.createElement('span');
         ageContainer.classList = 'mission_detail';
         ageContainer.innerHTML = m.age + 'h';
@@ -102,14 +118,14 @@ document.lss_helper.printMissions = () => {
 
       if (m.scene && vehiclesToSend) {
         //const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
-        if (document.lss_helper.getSetting('show_mission_max_distance') && m.maxDistance) {
+        if (settings.show_mission_max_distance && m.maxDistance) {
           const distanceSpan = document.createElement('span');
           distanceSpan.classList = 'mission_detail';
           distanceSpan.innerHTML = (Math.round(m.maxDistance * 100) / 100) + 'km';
           centerContainer.appendChild(distanceSpan);
         }
 
-        if (document.lss_helper.getSetting('show_mission_credits_rate')) {
+        if (settings.show_mission_credits_rate) {
           const rate = Math.floor(m.creditPerCar * 10) / 10;
           const rateContainer = document.createElement('span');
           rateContainer.classList = 'mission_detail';
@@ -119,11 +135,11 @@ document.lss_helper.printMissions = () => {
       }
 
       const txt = m.links[0];
-      txt.innerHTML = m.data.caption + (document.lss_helper.getSetting('show_mission_type') ? ' (' + m.missionType + ')' : '');
+      txt.innerHTML = m.data.caption + (settings.show_mission_type ? ' (' + m.missionType + ')' : '');
       txt.style = 'margin-left: 4px';
       rightContainer.appendChild(txt);
 
-      if (document.lss_helper.scenes[m.missionType] && document.lss_helper.getSetting('show_mission_type')) {
+      if (settings.show_mission_type && document.lss_helper.scenes[m.missionType]) {
         const checkmark = document.createElement('span');
         checkmark.innerHTML = '✔️';
         checkmark.onclick = () => {
