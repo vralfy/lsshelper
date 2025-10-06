@@ -25,7 +25,8 @@ document.lss_helper.helper.hash = (str) => {
 document.lss_helper.helper.getDistance = (obj1, obj2) => {
   const diffLat = Math.abs((obj1.lat ?? 0) - (obj2.lat ?? 0));
   const diffLng = Math.abs((obj1.lng ?? 0) - (obj2.lng ?? 0));
-  if (document.lss_helper.getSetting('exactDistance') || !document.lss_helper.kmperdegree) {
+  document.lss_helper.useExactDistance = document.lss_helper.useExactDistance === undefined ? document.lss_helper.getSetting('exactDistance') : document.lss_helper.useExactDistance;
+  if (document.lss_helper.useExactDistance || !document.lss_helper.kmperdegree) {
     // const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
     // const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
     // return Math.sqrt(lat * lat + lng * lng);
