@@ -9,8 +9,6 @@
 // @grant        none
 // ==/UserScript==
 
-const { version } = require("react");
-
 (function () {
     'use strict';
     document.lss_helper = {
