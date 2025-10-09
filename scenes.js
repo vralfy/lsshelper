@@ -502,6 +502,7 @@ document.lss_helper.scenes = {
   "660" : { "SWP": 1, "GKW": 1, "THWMTW": 1 }, // Bach droht über Ufer zu treten
   "661" : { "SWP": 1, "LF": 2, "SW": 1, "GKW": 1, "THWDLE": 1 }, // Gewässer gekippt (Klein)
   "663" : { "LF": 4, "DLK": 1, "ELW": 1, "GWO": 1, "SW": 1, "GWH": 1, "SWP": 1, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "THWDLE": 1, "AAOTHWR": 1, "POL": 2 }, // Wassereinbruch Großbaustelle
+  "664" : { "LF": 28, "DLK": 1, "RW": 5, "FKW": 2, "SW": 4, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "SWP": 3, "BOAT": 3, "TAUCHER": 2, "POL": 8, "ELW": 4, "ELW2": 1, "RTW": 1, "NEF": 1}, // Hochwasserschadenslage
   "666" : { "LF": 8, "ELW": 1, "DLK": 1, "SW": 2, "GWA": 1, "POL": 3, "RTW": 5, "NEF": 2 }, // Brand auf Campingplatz
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
