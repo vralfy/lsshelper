@@ -402,6 +402,7 @@ document.lss_helper.scenes = {
   "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
   "503" : { "LF": 4, "SW": 3, "ELW": 2, "ELW2": 1, "RW": 2, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "POL": 3, "POLH": 1, "DROHNE": 1 }, // Damm droht zu brechen
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
+  "507" : { "LF": 28, "DLK": 1, "RW": 5, "FWK": 2, "SW": 4, "ELW": 4, "ELW2": 1, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "AAOTHWFUE": 1, "BOAT": 3, "TAUCHER": 2, "POL": 8, "RTW": 1, "NEF": 1 }, // Hochwasserschadenslage
   "508" : { "LF": 1, "RW": 1, "RTW": 1, "POL": 1 }, // Pfählungsverletzung
   "509" : { "LF": 6, "DLK": 2, "SW": 1, "GWA": 1, "ELW": 2, "POL": 2 }, // Brennender Stall
   "510" : { "RTW": 1, "POL": 2 }, // Zwangseinweisung
