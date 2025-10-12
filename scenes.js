@@ -657,5 +657,6 @@ document.lss_helper.scenes = {
   "935" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1}, // Herabstürzende Brückenteile
   "936" : { "LF": 5, "RW": 1, "ELW": 1, "SW": 1, "GWM": 1, "GWA": 1, "POL": 2, "RTW": 1 }, // Brand einer Gasstation
   "937" : { "LF": 3, "RW": 1, "SW": 1, "GWG": 1, "DROHNE": 1 }, // Bauernhof steht unter Wasser
+  "942" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Tragwerkssicherung
 }
 // https://www.leitstellenspiel.de/einsaetze/0
