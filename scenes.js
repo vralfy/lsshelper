@@ -110,15 +110,15 @@ document.lss_helper.scenes = {
   "108" : { "RTW": 1, "NEF": 1 }, // Schwangere in Notsituation
   "109" : { "LF": 1, "RTW": 1, "NEF": 1 }, // Beginnende Geburt
   "110" : { "RTW": 1 }, // Vaginale Blutung
-  "111" : null,
-  "112" : null,
-  "113" : null,
-  "114" : null,
-  "115" : null,
-  "116" : null,
-  "117" : null,
-  "118" : null,
-  "119" : null,
+  "111" : { "LF": 1 }, // Brennende Vogelscheuche
+  "112" : { "LF": 2 }, // Brennendes Kürbisfeld
+  "113" : { "LF": 2, "ELW": 1, "GWA": 1, "RTW": 1 }, // Kürbissuppe übergekocht
+  "114" : { "DLK": 1, "LF": 1, "RTW": 1, "NEF": 1 }, // Hexe hängt in Baum
+  "115" : { "RTW": 1, "NEF": 1 }, // Zombiebiss
+  "116" : { "POL": 4 }, // Monster ausgebrochen
+  "117" : { "POL": 1 }, // Kürbisse geklaut
+  "118" : { "POL": 3 }, // Frankensteins Monster gesichtet
+  "119" : { "POL": 1 }, // Süßigkeitendiebstahl
   "120" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "121" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1, "FWK": 1}, // LKW umgestürzt
   "122" : { "POL": 1, "RTW": 2, "NEF": 1 }, // Motorradunfall
@@ -658,5 +658,6 @@ document.lss_helper.scenes = {
   "936" : { "LF": 5, "RW": 1, "ELW": 1, "SW": 1, "GWM": 1, "GWA": 1, "POL": 2, "RTW": 1 }, // Brand einer Gasstation
   "937" : { "LF": 3, "RW": 1, "SW": 1, "GWG": 1, "DROHNE": 1 }, // Bauernhof steht unter Wasser
   "942" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Tragwerkssicherung
+  "944" : { "LF": 2, "GWM": 1, "GWG": 1, "DEKONP": 1, "ELW": 1, "RTW": 1}, // Chemieunfall beim Zaubertrank-Brauen
 }
 // https://www.leitstellenspiel.de/einsaetze/0
