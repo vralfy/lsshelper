@@ -96,7 +96,8 @@ document.lss_helper.autoAccept = (force) => {
             .filter((m) => m.unattended && !m.hasAlert)
             .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType))
             .filter((m) => !!m.maxDistance)
-            .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= m.maxDistance);
+            .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= m.maxDistance)
+            .filter((m) => document.lss_helper.lastMissionSend !== m.data.id);
         if (missions.length < 1) {
             return;
         }
@@ -109,6 +110,7 @@ document.lss_helper.autoAccept = (force) => {
         document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
         document.lss_helper.info('sending vehicles to', m.data.caption);
         document.lss_helper.sendByScene(m, m.missionType);
+        document.lss_helper.lastMissionSend = m.data.id;
         document.lss_helper.updateLists(-1);
     }
 };
@@ -116,7 +118,8 @@ document.lss_helper.autoAccept = (force) => {
 document.lss_helper.autoResend = (force) => {
     const missions = document.lss_helper
         .getResendMissions()
-        .filter((m) => (m.resendGroupsVehicles ?? []).length || (m.resendVehicles ?? []).length);
+        .filter((m) => (m.resendGroupsVehicles ?? []).length || (m.resendVehicles ?? []).length)
+        .filter((m) => document.lss_helper.lastMissionResend !== m.data.id);
 
     if (missions.length < 1) {
         return false;
@@ -138,6 +141,7 @@ document.lss_helper.autoResend = (force) => {
         const vehiclesReduced = (m.resendVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []);
         document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, m.resendScene);
         document.lss_helper.sendVehicles(m.missionId, vehiclesReduced);
+        document.lss_helper.lastMissionResend = m.data.id;
     }
 
     document.lss_helper.updateLists(-1);
