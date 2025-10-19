@@ -469,6 +469,7 @@ document.lss_helper.scenes = {
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "617" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "ELW": 1, "LF": 4, "FWK": 1, "POL": 2, "RTW": 1 }, // Güterzug entgleist
+  "619" :  {"LF": 10, "ELW": 2, "ELW2": 1, "DLK": 1, "RW": 2, "GWO": 1, "BOAT": 4, "TAUCHER": 2, "POL": 7, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 10 }, // Havariertes Flussfahrtschiff
   "622" : { "RTW": 1 }, // Allergischer Schock
   "623" : { "LF": 3, "ELW": 1, "RW": 2, "DLK": 1, "GWH": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Baugerüst eingestürzt
   "624" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "GWO": 1,  "POL": 8, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "RTW": 5, "NEF": 5 }, // Zusammenstoß zweier Busse
