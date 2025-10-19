@@ -402,7 +402,7 @@ document.lss_helper.scenes = {
   "500" : { "RTW": 1 }, // Herzkreislaufprobleme
   "502" : { "LF": 10, "GWA": 1, "SW": 1, "ELW": 2, "ELW2": 1, "DLK": 4, "POL": 4, "RTW": 2 }, // Brand in Betreuungseinrichtung
   "503" : { "LF": 4, "SW": 3, "ELW": 2, "ELW2": 1, "RW": 2, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "POL": 3, "POLH": 1, "DROHNE": 1 }, // Damm droht zu brechen
-  "505" : { "LF": 28, "DLK": 1, "RW": 5, "FKW": 2, "SW": 4, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "BOAT": 3, "TAUCHER": 2, "POL": 8, "ELW": 4, "ELW2": 1, "RTW": 1, "NEF": 1}, // Hochwasserschadenslage
+  "505" : { "LF": 28, "DLK": 1, "RW": 5, "FWK": 2, "SW": 4, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "BOAT": 3, "TAUCHER": 2, "POL": 8, "ELW": 4, "ELW2": 1, "RTW": 1, "NEF": 1}, // Hochwasserschadenslage
   "506" : { "RTW": 1, "POL": 2 }, // Hundeangriff
   "507" : { "LF": 28, "DLK": 1, "RW": 5, "FWK": 2, "SW": 4, "ELW": 4, "ELW2": 1, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "AAOTHWFUE": 1, "BOAT": 3, "TAUCHER": 2, "POL": 8, "RTW": 1, "NEF": 1 }, // Hochwasserschadenslage
   "508" : { "LF": 1, "RW": 1, "RTW": 1, "POL": 1 }, // Pfählungsverletzung
@@ -504,7 +504,7 @@ document.lss_helper.scenes = {
   "661" : { "SWP": 1, "LF": 2, "SW": 1, "GKW": 1, "THWDLE": 1 }, // Gewässer gekippt (Klein)
   "662" : { "LF": 2, "SW": 2, "ELW": 2, "ELW2": 1, "GWM": 1, "SWP": 2, "GKW": 2, "THWMTW": 1, "THWDLE": 3}, // Gewässer gekippt (Groß)
   "663" : { "LF": 4, "DLK": 1, "ELW": 1, "GWO": 1, "SW": 1, "GWH": 1, "SWP": 1, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "THWDLE": 1, "AAOTHWR": 1, "POL": 2 }, // Wassereinbruch Großbaustelle
-  "664" : { "LF": 28, "DLK": 1, "RW": 5, "FKW": 2, "SW": 4, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "SWP": 3, "BOAT": 3, "TAUCHER": 2, "POL": 8, "ELW": 4, "ELW2": 1, "RTW": 1, "NEF": 1}, // Hochwasserschadenslage
+  "664" : { "LF": 28, "DLK": 1, "RW": 5, "FWK": 2, "SW": 4, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "SWP": 3, "BOAT": 3, "TAUCHER": 2, "POL": 8, "ELW": 4, "ELW2": 1, "RTW": 1, "NEF": 1}, // Hochwasserschadenslage
   "666" : { "LF": 8, "ELW": 1, "DLK": 1, "SW": 2, "GWA": 1, "POL": 3, "RTW": 5, "NEF": 2 }, // Brand auf Campingplatz
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
