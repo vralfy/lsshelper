@@ -662,5 +662,7 @@ document.lss_helper.scenes = {
   "942" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Tragwerkssicherung
   "943" : { "LF": 15, "RW": 2, "DLK": 3, "ELW": 2, "ELW2": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4, "RTW": 10 }, // Brennendes Spukschloss
   "944" : { "LF": 2, "GWM": 1, "GWG": 1, "DEKONP": 1, "ELW": 1, "RTW": 1}, // Chemieunfall beim Zaubertrank-Brauen
+  "945" : { "RTW": 1 }, // Kopf steckt in ausgehöhltem Kürbis fest
+  "946" : { "LF": 1, "POL": 1, "RTW": 1 }, // Hilflose Geisterjäger in Spukhaus
 }
 // https://www.leitstellenspiel.de/einsaetze/0
