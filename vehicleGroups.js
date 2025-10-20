@@ -57,7 +57,7 @@ document.lss_helper.vehicleGroups = {
   "WATER": [121, 166],
   "smallOil": [10, 0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 4],
   "SLF": [11, 121, 166, 167],
-  "BOAT": [70],
+  "BOAT": [67, 68, 70, 71],
   "DOG": [91, 92, 94, 153],
   "DROHNE": [125, 127],
   "SWP": [101, 102], // Schmutzwasserpumpen
