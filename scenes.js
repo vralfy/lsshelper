@@ -349,6 +349,7 @@ document.lss_helper.scenes = {
   "426" : { "RTW": 1 }, // Gebrochenes Bein
   "427" : { "RTW": 1 }, // Gebrochener Arm
   "429" : { "LF": 5, "ELW": 1, "DLK": 1, "GWA": 1, "SW": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "POL": 2, "RTW": 1 }, // Staubexplosion
+  "430" : { "LF": 15, "ELW": 3, "ELW2": 1, "DEKONP": 2, "GWM": 2, "GWG": 2, "GWA": 1, "DLK": 1, "SW": 2, "RW": 4, "POL": 8, "RTW": 1 }, // Ammoniakaustritt in Eishalle
   "431" : { "RTW": 1 }, // Kreislaufkollaps
   "432" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "POL": 2}, //Fassadenbrand
   "433" : { "LF": 10, "ELW": 3, "ELW2": 1, "DLK": 3, "RW": 2, "SLF": 1, "POL": 5, "RTW": 5, "NEF": 2 }, // Großfeuer in Bank
