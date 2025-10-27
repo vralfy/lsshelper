@@ -601,6 +601,7 @@ document.lss_helper.scenes = {
   "780" : { "RTW": 1 }, // Treppensturz
   "781" : { "LF": 2, "ELW": 1, "POL": 1 }, // Gartenschuppenbrand
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
+  "797" : { "LF": 12, "ELW": 3, "DLK": 3, "GWA": 1, "SW": 1, "POL": 6, "DGL": 1, "RTW": 4, "NEF": 1}, // Brand in Gebäudekomplex
   "799" : { "RTW": 1 }, // Fremdkörper in Atemweg
   "800" : { "AAOTHWNEA50": 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
   "801" : { "AAOTHWNEA50": 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
