@@ -313,6 +313,7 @@ document.lss_helper.scenes = {
   "359" : { "POLH": 1, "POL": 5, "GRUKW": 6, "BEFKW": 2, "GEFKW": 1, "FUEKW": 1, "MEK": 4 }, // Geplante Razzia - Verdächtiger flüchtig
   "360" : { "LF": 1 }, // Brennender Blumenstrauß
   "366" : { "POL": 2}, // Vollstreckung Haftbefehl
+  "367" : {"POL": 6, "FUEKW": 1, "SEK": 4 }, // Vollstreckung Haftbefehl - eskaliert
   "368" : { "LF": 15, "DLK": 3, "SW": 2, "GWA": 2, "RW": 4, "ELW": 3, "ELW2": 1, "GWM": 1, "SLF": 2,  "POL": 4, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "AAOTHWR": 1, "THWDLE": 1, "RTW": 1 }, // Brennende Kirche
   "369" : { "LF": 2, "ELW": 1, "POL": 1, "RTW": 1 }, // Austritt Kohlenmonoxid
   "370" : { "POL": 4 }, // Geisterfahrer
@@ -630,6 +631,7 @@ document.lss_helper.scenes = {
   "830" : { "LF": 20, "RW": 2, "SLF": 2, "ELW": 5, "ELW2": 1, "DLK": 5, "GWM": 3, "GWG": 2, "GWA": 3, "SW": 5, "POL": 6, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOTHWR": 1, "DROHNE": 1, 'RTW': 8 }, // Brennender Güterbahnhof
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "835" : { "POL": 1 }, // Fußstreife
+  "836" : { "POLBIKE": 2 }, // Motorradstreife
   "838" : { "AAOTHWNEA50": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "AAOTHWNEA200": 1 }, // Stromausfall im Stellwerk (groß)
   "840" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1, "NEF": 1 }, // Personensuche im Wald
