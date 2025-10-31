@@ -626,6 +626,7 @@ document.lss_helper.scenes = {
   "822" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Brand in Arztpraxis
   "823" : { "LF": 1, "RW": 1, "ELW": 1, "POL": 1, "RTW": 4 }, // Unfall mit Reinigungsmitteln
   "824" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
+  "826" : { "LF": 10, "RW": 2, "GWM": 1, "GWA": 2, "ELW": 2, "ELW2": 1, "POL": 4, "DGL": 1, "RTW": 5 }, // LKW brennt in Tunnel
   "827" : { "POL": 1 }, // Holzdiebstahl
   "829" : { "LF": 5, "ELW": 2, "DLK": 1, "RW": 1, "POL": 4, "RTW": 1 }, // Brennender Regionalbahnhof
   "830" : { "LF": 20, "RW": 2, "SLF": 2, "ELW": 5, "ELW2": 1, "DLK": 5, "GWM": 3, "GWG": 2, "GWA": 3, "SW": 5, "POL": 6, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOTHWR": 1, "DROHNE": 1, 'RTW': 8 }, // Brennender Güterbahnhof
