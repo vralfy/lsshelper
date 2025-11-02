@@ -594,6 +594,7 @@ document.lss_helper.scenes = {
   "770" : { "LF": 1, "RW": 1, "DLK": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Personen auf der Tanzfläche vermisst
   "771" : { "LF": 3, "RW": 2, "DLK": 2, "POL": 1, "RTW": 2 }, // Luftballons für Jubiläumsparty aufblasen
   "772" : { "POL": 3, "RTW": 5, "SEGELW": 1 }, // Luftballons für Jubiläumsparty aufblasen
+  "773" : { "LF": 25, "SLF": 2, "DLK": 4, "ELW": 4, "RW": 2, "ELW2": 1, "SW": 2, "GWA": 1, "GWM": 1, "POL": 8, "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "THWGWN": 1, "RTW": 10 }, // Großfeuer in Einkaufszentrum
   "774" : { "LF": 1, "ELW": 1, "RW": 1, "POL": 2, "BOAT": 1, "RTW": 1}, // Kollision zwischen Frachtschiff und Motorboot
   "775" : { "LF": 1, "ELW": 1, "GWG": 1, "POL": 4, "ZIV": 2, "GRUKW": 3, "BEFKW": 1 }, // Drogenlabor gefunden
   "776" : { "LF": 1, "RW": 1, "ELW": 1, "RTW": 1 }, // Person in Rolltreppe eingeklemmt
