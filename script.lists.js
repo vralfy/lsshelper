@@ -34,7 +34,13 @@ document.lss_helper.getVehiclesList = () => {
         const state = status.innerHTML.trim();
         const type = link.attributes.vehicle_type_id.value.trim();
         const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
-        const marker = vehicle_markers.filter(m => m.vehicle_id === id).pop();
+        const marker = {
+          ...vehicle_markers.filter(m => m.vehicle_id === id).pop(),
+          polyline: undefined,
+          _map: undefined,
+          _mapToAdd: undefined,
+          _tooltip: undefined,
+        };
         return {
           id,
           status: state,
