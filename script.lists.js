@@ -5,7 +5,12 @@ document.lss_helper.getBuildingsList = () => {
       const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
       const links = Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true));
       const id = links[0].id.replace(/.*_/, '');
-      const marker = building_markers.filter(b => b.building_id === parseInt(id)).pop();
+      const marker = {
+        ...building_markers.filter(b => b.building_id === parseInt(id)).pop(),
+        _map: undefined,
+        _mapToAdd: undefined,
+        _tooltip: undefined,
+      };
       return {
         id,
         name: position.innerHTML.trim(),
@@ -72,7 +77,12 @@ document.lss_helper.getMissionsList = () => {
       const missionId = m.attributes['mission_id'].value.trim();
       const links = Array.from(m.getElementsByTagName('a')).map((l) => l.cloneNode(true));
       const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
-      const marker = mission_markers.filter(mk => mk.mission_id === parseInt(missionId)).pop();
+      const marker = {
+        ...mission_markers.filter(mk => mk.mission_id === parseInt(missionId)).pop(),
+        _map: undefined,
+        _mapToAdd: undefined,
+        _tooltip: undefined,
+      };
       return {
         id,
         missionId,
