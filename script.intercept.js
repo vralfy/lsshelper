@@ -6,7 +6,7 @@ document.lss_helper.functions = document.lss_helper.functions || {
     console.log('intersecting', f);
     document.lss_helper.functions.original[f] = eval(f);
     document.lss_helper.functions.addition[f] = document.lss_helper.functions.addition[f] || function (...args) {
-      console.error(f, ...args);
+      console.error(f, 'called with', ...args);
     };
     document.lss_helper.functions.replacement[f] = (...args) => {
       document.lss_helper.functions.original[f](...args);
@@ -17,25 +17,32 @@ document.lss_helper.functions = document.lss_helper.functions || {
 };
 
 [
+  'buildingMarkerAddSingle',
+  'vehicleMarkerAdd',
   'missionMarkerAddSingle',
   // 'missionMarkerBulkAdd',
   // 'patientMarkerAdd',
   // 'prisonerMarkerAdd',
   // 'radioMessage',
   // 'vehicleDrive',
-  // 'vehicleMarkerAdd'
 ]
 .filter(f => !document.lss_helper.functions.original[f])
 .forEach((f) => {
   document.lss_helper.functions.create(f);
 });
 
+document.lss_helper.marker = document.lss_helper.marker || {
+  missions: {},
+  vehicles: {},
+  buildings: {},
+};
+
+document.lss_helper.functions.addition.buildingMarkerAddSingle = (a1) => {
+  document.lss_helper.marker.buildings[a1.id] = a1;
+};
+document.lss_helper.functions.addition.vehicleMarkerAdd = (a1) => {
+  document.lss_helper.marker.vehicles[a1.id] = a1;
+};
 document.lss_helper.functions.addition.missionMarkerAddSingle = (a1) => {
-  console.log('missionMarkerAddSingle called with', a1);
-  // const mission = (document.lss_helper.missions ?? []).filter((f) => f.data.id === a1.id).pop();
-  // if (a1.missing_text && mission?.unattended) {
-  //   console.warn('missionMarkerAddSingle', a1, mission);
-  // } else {
-  //   console.log('missionMarkerAddSingle', a1, mission);
-  // }
+  document.lss_helper.marker.missions[a1.id] = a1;
 };
