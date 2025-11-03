@@ -5,6 +5,7 @@ document.lss_helper.getBuildingsList = () => {
       const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
       const links = Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true));
       const id = links[0].id.replace(/.*_/, '');
+      const marker = building_markers.filter(b => b.building_id === parseInt(id)).pop();
       return {
         id,
         name: position.innerHTML.trim(),
@@ -17,6 +18,7 @@ document.lss_helper.getBuildingsList = () => {
         origin: building,
         markerImage,
         position,
+        marker,
       };
     });
 };
@@ -25,14 +27,16 @@ document.lss_helper.getVehiclesList = () => {
   return (document.lss_helper.buildings ?? []).map((b) => {
     return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
       .map((vehicle) => {
+        const id = parseInt(vehicle.attributes.vehicle_id.value.trim());
         const img = vehicle.getElementsByTagName('img')[0];
         const status = vehicle.getElementsByTagName('span')[0];
         const link = vehicle.getElementsByTagName('a')[0];
         const state = status.innerHTML.trim();
         const type = link.attributes.vehicle_type_id.value.trim();
         const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
+        const marker = vehicle_markers.filter(m => m.vehicle_id === id).pop();
         return {
-          id: parseInt(vehicle.attributes.vehicle_id.value.trim()),
+          id,
           status: state,
           type: type,
           name: link.innerHTML.trim(),
@@ -44,6 +48,7 @@ document.lss_helper.getVehiclesList = () => {
           building: b,
           lat: b.lat,
           lng: b.lng,
+          marker,
         };
       });
   })
@@ -57,11 +62,14 @@ document.lss_helper.getVehiclesList = () => {
 document.lss_helper.getMissionsList = () => {
   return Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
     .map((m) => {
+      const id = m.attributes['id'].value.trim();
+      const missionId = m.attributes['mission_id'].value.trim();
       const links = Array.from(m.getElementsByTagName('a')).map((l) => l.cloneNode(true));
       const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
+      const marker = mission_markers.filter(mk => mk.mission_id === parseInt(missionId)).pop();
       return {
-        id: m.attributes['id'].value.trim(),
-        missionId: m.attributes['mission_id'].value.trim(),
+        id,
+        missionId,
         type: m.attributes['data-mission-type-filter'].value.trim(),
         state: m.attributes['data-mission-state-filter'].value.trim(),
         participation: m.attributes['data-mission-participation-filter'].value.trim(),
@@ -76,6 +84,7 @@ document.lss_helper.getMissionsList = () => {
         finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
         origin: m,
         position,
+        marker,
       }
     })
     .map((m) => {
