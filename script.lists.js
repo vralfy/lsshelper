@@ -7,6 +7,12 @@ document.lss_helper.markerTrim = {
   _tooltip: null
 };
 
+document.lss_helper.marker = document.lss_helper.marker || {
+  missions: {},
+  vehicles: {},
+  buildings: {},
+};
+
 document.lss_helper.getBuildingsList = () => {
   return Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
     .map((building) => {
@@ -17,6 +23,7 @@ document.lss_helper.getBuildingsList = () => {
       const marker = {
         ...building_markers.filter(b => b.building_id === parseInt(id)).pop(),
         ...document.lss_helper.markerTrim,
+        ...document.lss_helper.marker.buildings[id],
       };
       return {
         id,
@@ -49,6 +56,7 @@ document.lss_helper.getVehiclesList = () => {
         const marker = {
           ...vehicle_markers.filter(m => m.vehicle_id === id).pop(),
           ...document.lss_helper.markerTrim,
+          ...document.lss_helper.marker.vehicles[id],
         };
         return {
           id,
@@ -84,6 +92,7 @@ document.lss_helper.getMissionsList = () => {
       const marker = {
         ...mission_markers.filter(mk => mk.mission_id === parseInt(missionId)).pop(),
         ...document.lss_helper.markerTrim,
+        ...document.lss_helper.marker.missions[parseInt(missionId)],
       };
       return {
         id,
