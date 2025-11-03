@@ -1,3 +1,12 @@
+document.lss_helper.markerTrim = {
+  dragging: null,
+  polyline: null,
+  _events: null,
+  _map: null,
+  _mapToAdd: null,
+  _tooltip: null
+};
+
 document.lss_helper.getBuildingsList = () => {
   return Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
     .map((building) => {
@@ -7,9 +16,7 @@ document.lss_helper.getBuildingsList = () => {
       const id = links[0].id.replace(/.*_/, '');
       const marker = {
         ...building_markers.filter(b => b.building_id === parseInt(id)).pop(),
-        _map: undefined,
-        _mapToAdd: undefined,
-        _tooltip: undefined,
+        ...document.lss_helper.markerTrim,
       };
       return {
         id,
@@ -23,7 +30,7 @@ document.lss_helper.getBuildingsList = () => {
         origin: building,
         markerImage,
         position,
-        // marker,
+        marker,
       };
     });
 };
@@ -41,10 +48,7 @@ document.lss_helper.getVehiclesList = () => {
         const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
         const marker = {
           ...vehicle_markers.filter(m => m.vehicle_id === id).pop(),
-          polyline: undefined,
-          _map: undefined,
-          _mapToAdd: undefined,
-          _tooltip: undefined,
+          ...document.lss_helper.markerTrim,
         };
         return {
           id,
@@ -59,7 +63,7 @@ document.lss_helper.getVehiclesList = () => {
           building: b,
           lat: b.lat,
           lng: b.lng,
-          // marker,
+          marker,
         };
       });
   })
@@ -79,9 +83,7 @@ document.lss_helper.getMissionsList = () => {
       const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
       const marker = {
         ...mission_markers.filter(mk => mk.mission_id === parseInt(missionId)).pop(),
-        _map: undefined,
-        _mapToAdd: undefined,
-        _tooltip: undefined,
+        ...document.lss_helper.markerTrim,
       };
       return {
         id,
@@ -100,7 +102,7 @@ document.lss_helper.getMissionsList = () => {
         finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
         origin: m,
         position,
-        // marker,
+        marker,
       }
     })
     .map((m) => {
