@@ -23,7 +23,7 @@ document.lss_helper.getBuildingsList = () => {
         origin: building,
         markerImage,
         position,
-        marker,
+        // marker,
       };
     });
 };
@@ -59,7 +59,7 @@ document.lss_helper.getVehiclesList = () => {
           building: b,
           lat: b.lat,
           lng: b.lng,
-          marker,
+          // marker,
         };
       });
   })
@@ -100,7 +100,7 @@ document.lss_helper.getMissionsList = () => {
         finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
         origin: m,
         position,
-        marker,
+        // marker,
       }
     })
     .map((m) => {
