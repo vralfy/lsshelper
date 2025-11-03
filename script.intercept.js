@@ -24,7 +24,9 @@ document.lss_helper.functions = document.lss_helper.functions || {
   // 'radioMessage',
   // 'vehicleDrive',
   // 'vehicleMarkerAdd'
-].forEach((f) => {
+]
+.filter(f => !document.lss_helper.functions.original[f])
+.forEach((f) => {
   document.lss_helper.functions.create(f);
 });
 
