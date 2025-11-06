@@ -8,9 +8,9 @@ document.lss_helper.markerTrim = {
 };
 
 document.lss_helper.marker = document.lss_helper.marker || {
-  missions: {},
-  vehicles: {},
   buildings: {},
+  vehicles: {},
+  missions: {},
 };
 
 document.lss_helper.getBuildingsList = () => {

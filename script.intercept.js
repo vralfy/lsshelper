@@ -32,9 +32,9 @@ document.lss_helper.functions = document.lss_helper.functions || {
 });
 
 document.lss_helper.marker = document.lss_helper.marker || {
-  missions: {},
-  vehicles: {},
   buildings: {},
+  vehicles: {},
+  missions: {},
 };
 
 document.lss_helper.functions.addition.buildingMarkerAddSingle = (a1) => {
