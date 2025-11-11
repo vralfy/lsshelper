@@ -30,7 +30,7 @@ document.lss_helper.vehicleTypes = {
   "37": "🚒 TSF-W",
   "38": "🚑 SAN KTW",
   "39": "🛠️ THW GKW",
-  "40": "🛠️ THW MTW",
+  "40": "🛠️ THW MTW-TZ",
   "41": "🛠️ THW MzGW (FGr N)",
   "42": "🛠️ THW LKW K 9",
   "43": "🛠️ THW BRmG R",
