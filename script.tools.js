@@ -28,3 +28,36 @@ document.lss_helper.buyFirebrigadeExtension = (extensionId, start, end) => docum
 document.lss_helper.buyPoliceExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '6', start, end);
 document.lss_helper.buyTHWExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '9', start, end);
 document.lss_helper.buySEGExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '12', start, end);
+
+document.lss_helper.makeGreenVerband = () => {
+  document.lss_helper.missions.filter(m => m.finishing && !m.isVerband && m.missionType !== '147').forEach((m, idx) => {
+    setTimeout(() => {
+      document.lss_helper.makeVerband(m);
+    }, idx * 500);
+  });
+};
+
+document.lss_helper.makeVerband = (mission) => {
+  if (!mission || mission.isVerband || mission.missionType === '147') {
+    return;
+  }
+
+  const url = "/missions/" + mission.missionId + "/alarm";
+  const body = {
+      //utf8: "",
+      authenticity_token: document.lss_helper.authToken,
+      next_mission: 0,
+      next_mission_id: 0,
+      alliance_mission_publish: 1,
+      sk: "cr",
+      sd: "a",
+      ifs: "at_fi",
+  };
+  console.warn("Making mission " + mission.missionId + " a verband mission.", body);
+  fetch(url, { method: 'POST', body: new URLSearchParams(body), headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
+    .then((response) => response.text())
+    .then((json) => {
+        document.lss_helper.debug(json);
+        document.lss_helper.update(-1);
+    })
+};
