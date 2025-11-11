@@ -94,6 +94,7 @@ document.lss_helper.getMissionsList = () => {
         ...document.lss_helper.markerTrim,
         ...document.lss_helper.marker.missions[parseInt(missionId)],
       };
+      const isVerband = Array.from(m.getElementsByClassName('panel-success')).length > 0;
       return {
         id,
         missionId,
@@ -109,6 +110,7 @@ document.lss_helper.getMissionsList = () => {
         unattended: Array.from(m.querySelectorAll(".panel.mission_panel_red")).length > 0,
         attended: Array.from(m.querySelectorAll(".panel.mission_panel_yellow")).length > 0,
         finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
+        isVerband,
         origin: m,
         position,
         marker,
