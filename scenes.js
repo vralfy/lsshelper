@@ -674,6 +674,7 @@ document.lss_helper.scenes = {
   "945" : { "RTW": 1 }, // Kopf steckt in ausgehöhltem Kürbis fest
   "946" : { "LF": 1, "POL": 1, "RTW": 1 }, // Hilflose Geisterjäger in Spukhaus
   "947" : { "LF": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Giftiges Kleintier entflohen
-  "948" : {"POL": 2}, // Schwerer Erntediebstahl
+  "948" : { "POL": 2 }, // Schwerer Erntediebstahl
+  "949" : { "RTW": 1, "CARRY": 1 }, // Pilzsucher im Wald verunglückt
 }
 // https://www.leitstellenspiel.de/einsaetze/0
