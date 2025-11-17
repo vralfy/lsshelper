@@ -484,6 +484,7 @@ document.lss_helper.scenes = {
   "631" : { "ZIV": 2 }, // Vollstreckung Durchsuchungsbeschluss
   "632" : { "POL": 5, "ZIV": 1 }, // Einbruch in Museum
   "633" : { "POL": 2, "ZIV": 1 }, // Einbruch in Wohnhaus
+  "634" : { "POL": 4, "ZIV": 1, "DOG": 1 }, // Einbruch in Wohnhaus - Täter am Ort
   "636" : { "POL": 4, "POLH": 1, "ZIV": 2, "MEK": 4, "FUEKW": 1, "RTW": 1}, // Entführung
   "638" : { "LF": 2, "RW": 1, "POL": 1, "RTW": 1 }, // LKW droht umzustürzen
   "639" : { "LF": 10, "RW": 2, "ELW": 2, "ELW2": 1, "GWG": 2, "GWM": 2, "GWA": 1, "DEKONP": 1, "FWK": 1, "POL": 4, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 2, "NEF": 1 }, // Gefahrgutzug verunglückt
