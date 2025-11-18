@@ -357,6 +357,7 @@ document.lss_helper.scenes = {
   "436" : { "LF": 1, "RW": 1, "POL": 1 }, // Verschmutzte Fahrbahn
   "437" : { "POL": 2 }, // Taxi - Stiller Alarm
   "438" : { "LF": 2, "RW": 1, "ELW": 1, "GWO": 1, "POL": 2, "RTW": 1 }, // PKW in Zapfsäule
+  "439" : { "LF": 18, "RW": 2, "SW": 1, "DLK": 3, "FWK": 2, "ELW": 5, "ELW2": 1, "POL": 10, "THWMTW": 2, "THWGWN": 2, "AAOTHWR": 2, "GKW": 2, "RTW": 1, "NEF": 1}, // Einsturz Parkhaus
   "440" : { "RTW": 1, "NEF": 1 }, // Akute Atemnot
   "441" : { "LF": 3, "ELW": 1, "RW": 1 }, // Brennende Waldhütte
   "443" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 2, "FWK": 1 }, // Osterei-LKW gestürzt
