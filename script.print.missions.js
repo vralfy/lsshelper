@@ -75,9 +75,10 @@ document.lss_helper.printMissions = () => {
         leftContainer.appendChild(alert);
       }
 
-      const vehiclesToSend = document.lss_helper.getVehiclesByMission(m, m.missionType);
+      const needsVehicles = !m.hasAlert && m.unattended;
+      const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? document.lss_helper.getVehiclesByMission(m, m.missionType)) : [];
 
-      if (!m.hasAlert && m.unattended) {
+      if (needsVehicles) {
         if (settings.show_mission_type && m.scene && vehiclesToSend) {
           const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
           const btn2 = document.createElement('a');
