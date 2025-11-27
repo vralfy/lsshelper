@@ -154,5 +154,13 @@ document.lss_helper.vehicleTypes = {
   "167": "🚒 SLF",
   "168": "🚒 Anh Sonderloeschmittel",
   "169": "🚒📦 AB Sonderloeschmittel",
-  "170": "🚒📦 AB Wasser/Schaum"
+  "170": "🚒📦 AB Wasser/Schaum",
+  "171": "🚑 SEG GW-TeSi",
+  "172": "🚑 SEG LKW Technik (Notstrom)",
+  "173": "🚑 SEG MTW-TeSi",
+  "174": "🚑 SEG Anh TeSi",
+  "175": "🚑 SEG NEA50",
+  "176": "🛠️ THW LKW 7 Lbw (FGr Log-V)",
+  "177": "🛠️ THW MTW-FGr Log-V",
+  "178": "🛠️ THW Anh 12 Lbw (FGr Log-V)"
 };
