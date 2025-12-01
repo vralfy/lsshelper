@@ -460,6 +460,7 @@ document.lss_helper.scenes = {
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
   "580" : { "POL": 6, "GRUKW": 6, "BEFKW": 2, "RTW": 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
+  "584":  { "LF": 3, "RW": 1, "ELW": 1, "POL": 6, "RTW": 35}, // Massenanfall durch Lebkuchenverzehr (groß)
   "586" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "GWH": 1, "RTW": 1 }, // Weihnachtsschlitten in Baum
   "587" : { "LF": 1, "RW": 1, "DLK": 1, "FWK": 1, "RTW": 1 }, // Weihnachtsmann in Kamin steckengeblieben
   "590" : { "POL": 1 }, // Diebstahl aus Weihnachtsbäckerei
