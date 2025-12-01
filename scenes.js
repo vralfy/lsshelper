@@ -460,9 +460,14 @@ document.lss_helper.scenes = {
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
   "580" : { "POL": 6, "GRUKW": 6, "BEFKW": 2, "RTW": 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
-  "584":  { "LF": 3, "RW": 1, "ELW": 1, "POL": 6, "RTW": 35}, // Massenanfall durch Lebkuchenverzehr (groß)
+  "582" : { "RTW": 1 }, // "Sturzverletzung beim Schlittschuhlaufen"
+  "583" : { "LF": 2, "ELW": 1, "POL": 2, "RTW": 10 }, // "Massenanfall durch Lebkuchenverzehr (klein)"
+  "584" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 6, "RTW": 35}, // Massenanfall durch Lebkuchenverzehr (groß)
+  "585" : { "LF": 16, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "DEKONP": 1, "POL": 14, "RTW": 120}, // Massenanfall durch Lebkuchenverzehr (riesig)
   "586" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "GWH": 1, "RTW": 1 }, // Weihnachtsschlitten in Baum
   "587" : { "LF": 1, "RW": 1, "DLK": 1, "FWK": 1, "RTW": 1 }, // Weihnachtsmann in Kamin steckengeblieben
+  "588" : { "RTW": 1 }, // "Betrunkener Weihnachtsmann"
+  "589" : { "POL": 1 }, // "Verkehrsunsicherer Rentierschlitten"
   "590" : { "POL": 1 }, // Diebstahl aus Weihnachtsbäckerei
   "593" : { "GKW": 1, "AAOTHWR": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
