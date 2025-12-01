@@ -200,6 +200,9 @@ document.lss_helper.scenes = {
   "198" : { "POL": 2, "GRUKW": 3, "BEFKW": 1 }, // Jugendschutzkontrolle in Diskothek
   "199" : { "GRUKW": 3, "BEFKW": 1 }, // Geländedurchsuchung nach Beweismittel
   "200" : { "POL": 2, "GRUKW": 6, "BEFKW": 2, "GEFKW": 1 },  // Geplante Razzia
+  "201" : { "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "GEFKW": 1, "POL": 2 }, // Fußball Bundesliga-Spiel
+  "202" : { "POL": 1 }, // Diebstahl auf Weihnachtsmarkt
+  "203" : { "LF": 2, "RTW": 1 }, // Brennende Weihnachtsmarktbude
   "204" : { "LF": 6, "ELW": 1, "WATER": 1 }, // Scheunenbrand
   "205" : { "LF": 7, "ELW": 2, "ELW2": 1, "DLK": 2, "GWA": 1, "SW": 1, "POL": 3, "RTW": 3 }, // Feuer auf Bauernhof - Mittel
   "206" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 4, "GWA": 2, "SW": 2, "POL": 3, "GKW": 2, "THWMTW": 1, "AAOTHWR": 2, "RTW": 2, "NEF": 2 }, // Feuer auf Bauernhof - Groß
@@ -671,6 +674,7 @@ document.lss_helper.scenes = {
   "897" : { "KTW": 1 }, // Patientenübernahme von Ambulanzflug
   "899" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "DLK": 3, "FWK": 1, "GKW": 2, "THWMTW": 2, "THWGWSB": 2, "AAOTHWR": 2, "AAOTHWDLE": 2, "POL": 3, "DOG": 1, "RTW": 10, "NEF": 5 }, // Sporthalle eingestürzt
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
+  "901" : { "LF": 4, "DLK": 1, "GWA": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Brand in Weihnachtsbäckerei
   "902" : { "ELW": 2, "ELW2": 1, "LF": 10, "RW": 5, "DLK": 2, "FWK": 1, "GWH": 1, "POL": 4, "THWMTW": 2, "GKW": 2, "THWGWN": 2, "AAOTHWR": 2, "THWDLE": 1, "RTW": 5, "NEF": 1, "DOG": 2}, // Brückeneinsturz (klein)
   "911" : { "LF": 5, "RW": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Abgestürzter Weihnachtsschlitten
   "914" : { "LF": 12, "DLK": 3, "ELW": 4, "ELW2": 1, "GWM": 2, "GWA": 2, "GWG": 1, "DEKONP": 1, "SW": 2, "RW": 3, "POL": 8, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "SLF": 1 }, // Brand in Düngemittellager
