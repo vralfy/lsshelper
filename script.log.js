@@ -25,12 +25,15 @@ document.lss_helper.error = (...args) => {
 document.lss_helper.info = (...args) => {
   let notifyContainer = document.getElementById("lss_helper_notify_container");
   if (!notifyContainer) {
+    document.lss_helper.setDefaultSetting('notificationtimeout', '5000');
+    document.lss_helper.printSettingsNumberInput('notificationtimeout', 'Notification Timeout');
+
     notifyContainer = document.createElement("div");
     notifyContainer.id = "lss_helper_notify_container";
     notifyContainer.style.position = "fixed";
     notifyContainer.style.top = "50px";
-    notifyContainer.style.left = "0px";
-    notifyContainer.style.right = "0px";
+    notifyContainer.style.left = "20px";
+    // notifyContainer.style.right = "20px";
     notifyContainer.style.zIndex = "9999";
     notifyContainer.style.background = 'rgba(255, 50, 50, 0.8)';
     notifyContainer.style.border = '1px solid rgba(255, 50, 50, 1)';
@@ -48,16 +51,39 @@ document.lss_helper.info = (...args) => {
     document.body.appendChild(notifyContainer);
   }
 
+  const id = "lss_helper_notify_" + Date.now();
   let msg = document.createElement("div");
   msg.className = "lss_helper_notify";
-  msg.id = "lss_helper_notify_" + Date.now();
+  msg.id = id;
   msg.innerHTML = args.map(arg => JSON.stringify(arg)).join(" ");
   notifyContainer.appendChild(msg);
   setTimeout(() => {
-    msg.remove();
+    document.getElementById(id)?.remove();
     const n = document.getElementById("lss_helper_notify_container")
     if (!n.childElementCount) {
       n.remove();
     }
-  }, 5000);
+  }, document.lss_helper.getSetting('notificationtimeout', '5000') || 5000);
+  return msg;
 };
+
+if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != '202511-11-01')) {
+  document.lss_helper.notifiedUpdate = true;
+  const el = document.lss_helper.info('A new version of LSS-Helper is available! Please update.');
+  el.id = 'lss_helper_notify_update' + Date.now();
+  el.style.color = 'rgba(0, 0, 0, 0.8)';
+  el.style.background = 'rgba(50, 255, 50, 0.8)';
+  el.style.border = '1px solid rgba(50, 255, 50, 1)';
+  el.style.padding = '10px';
+  el.style.pointerEvents = 'auto';
+  const btn = document.createElement('a');
+  btn.innerHTML = 'Update now';
+  btn.style.marginLeft = '10px';
+  btn.classList = 'btn btn-default btn-xs';
+  btn.href = 'https://github.com/vralfy/lsshelper/raw/refs/heads/' + document.lss_helper.getSetting('channel', '"master"') + '/lsshelper.user.js';
+  btn.target = '_blank';
+  btn.onclick = () => {
+    document.getElementById(el.id)?.remove();
+  };
+  el.appendChild(btn);
+}

@@ -4,8 +4,10 @@
   "description": "1. Install [Tampermonkey](https://www.tampermonkey.net) 2. Enable developer mode in browser (if needed) 3. Click [here](https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js) to install",
   "main": "lsshelper.distribution.user.js",
   "scripts": {
-    "mcpserver": "node mcpserver.js",
-    "mcpcli": "node mcpcli.js",
+    "mcp": "npm run cli --prefix ./unicornMCP -- -c ../mcp.config.json",
+    "mcpserver": "npm run server --prefix ./unicornMCP -- -c ../mcp.config.json",
+    "pull": "git submodule update --init --recursive && git pull --recurse-submodules",
+    "push": "git submodule foreach git push && git push",
     "test": "echo \"Error: no test specified\" && exit 1"
   },
   "repository": {
@@ -18,11 +20,5 @@
   "bugs": {
     "url": "https://github.com/vralfy/lsshelper/issues"
   },
-  "homepage": "https://github.com/vralfy/lsshelper#readme",
-  "dependencies": {
-    "@modelcontextprotocol/sdk": "^1.0.0",
-    "express": "^5.0.0",
-    "node-fetch": "^3.0.0",
-    "zod": "^3.0.0"
-  }
+  "homepage": "https://github.com/vralfy/lsshelper#readme"
 }

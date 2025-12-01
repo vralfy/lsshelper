@@ -23,16 +23,26 @@ document.lss_helper.helper.hash = (str) => {
 };
 
 document.lss_helper.helper.getDistance = (obj1, obj2) => {
-  const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
-  const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
-  // return Math.sqrt(lat * lat + lng * lng);
-  const radius = 6371; // Radius of the Earth in km
-  const radLat1 = obj1.lat * Math.PI / 180;
-  const radLat2 = obj2.lat * Math.PI / 180;
-  const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
-  const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
-  const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
-  const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
-  return radius * c; // Distance in km
+  const diffLat = Math.abs((obj1.lat ?? 0) - (obj2.lat ?? 0));
+  const diffLng = Math.abs((obj1.lng ?? 0) - (obj2.lng ?? 0));
+  document.lss_helper.useExactDistance = document.lss_helper.useExactDistance === undefined ? document.lss_helper.getSetting('exactDistance') : document.lss_helper.useExactDistance;
+  if (document.lss_helper.useExactDistance || !document.lss_helper.kmperdegree) {
+    // const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
+    // const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
+    // return Math.sqrt(lat * lat + lng * lng);
+    const radius = 6371; // Radius of the Earth in km
+    const radLat1 = obj1.lat * Math.PI / 180;
+    //const radLat2 = obj2.lat * Math.PI / 180;
+    const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
+    const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
+    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
+        Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
+    const distanceKm = radius * c; // Distance in km
+    const distanceDeg = Math.sqrt(diffLat * diffLat + diffLng * diffLng);
+    document.lss_helper.kmperdegree = distanceKm / distanceDeg;
+    return distanceKm;
+  }
+
+  return Math.sqrt(diffLat * diffLat + diffLng * diffLng) * (document.lss_helper.kmperdegree || 1);
 }

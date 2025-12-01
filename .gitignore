@@ -1,3 +1,5 @@
 node_modules
 missions
 mcp.log
+mcp.secrets.json
+package-lock.json

@@ -1,0 +1,5 @@
+{
+  "mods": [
+    { "file": "mods/leitstellenspiel.ts", "className": "mcpLeitstellenspiel"}
+  ]
+}

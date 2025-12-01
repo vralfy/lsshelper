@@ -1,4 +1,7 @@
 document.lss_helper.printMissingVehicles = () => {
+  const settings = {
+    show_vehicle_missing: document.lss_helper.getSetting('show_vehicle_missing'),
+  };
   const main = document.lss_helper.getHelperContainer();
   let container = document.getElementById('lss_helper_vehicle_missing');
 
@@ -9,7 +12,7 @@ document.lss_helper.printMissingVehicles = () => {
     main.appendChild(container);
   }
 
-  container.style = document.lss_helper.getSetting('show_vehicle_missing') ? '' : 'display:none';
+  container.style = settings.show_vehicle_missing ? '' : 'display:none';
   container.innerHTML = '';
 
   const missing = {};

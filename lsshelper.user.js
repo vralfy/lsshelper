@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202508-25-01
+// @version      202511-11-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,6 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
+        version: '202511-11-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -89,25 +90,13 @@
             ".state_finishing { color: #000; background: #0f0 }",
             ".state_unattended { color: #000; background: #f00 }",
             ".state_attended { color: #000; background: #ff0 }",
+            ".state_verband { border: 1px solid #6a6; border-radius: 20px }",
             "#mission_general_info, #back_to_mission { text-align:right }",
             ".mission_detail { display: block; padding: 2px 4px; margin: 0; border-left: 1px solid #0007; border-right: 1px solid #3337; }",
             "#missions .panel-success .panel-heading {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
             "#missions .panel-success .panel-body {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
             "</style>"
         ].join("\n")).appendTo("head");
-
-        const vehicleListElement = document.getElementById('building_panel_body');
-        vehicleListElement.scrollTo(0, 0);
-        const scrollInterval = setInterval(() => {
-            if (vehicleListElement) {
-                document.lss_helper.log('Try to scroll down vehicle list');
-                const scroll = 400;
-                vehicleListElement.scrollTo(0, vehicleListElement.scrollTop + scroll);
-                if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2 * scroll)) {
-                    clearInterval(scrollInterval);
-                }
-            }
-        }, 500);
 
         document.lss_helper.getSetting('ui_map', 'true');
         document.lss_helper.getSetting('ui_missions', 'true');
@@ -181,6 +170,58 @@
         }
     };
 
+    document.lss_helper.loadVehiclesMap = () => {
+        if (document.lss_helper.vehiclesFetched) {
+            return;
+        }
+
+        if (document.lss_helper.getSetting('scrollVehicles', 'true')) {
+            const vehicleListElement = document.getElementById('building_panel_body');
+            vehicleListElement.scrollTo(0, 0);
+
+            const scrollInterval = setInterval(() => {
+                if (vehicleListElement) {
+                    document.lss_helper.log('Try to scroll down vehicle list');
+                    const scroll = 400;
+                    vehicleListElement.scrollTo(0, vehicleListElement.scrollTop + scroll);
+                    if (vehicleListElement.scrollHeight < (vehicleListElement.scrollTop + 2 * scroll)) {
+                        clearInterval(scrollInterval);
+                        document.lss_helper.vehiclesFetched = true;
+                    }
+                }
+            }, 500);
+        } else {
+            document.lss_helper.info('Update buildings');
+            const buildings = document.lss_helper.buildings.map(b => 'building_ids[]=' + b.id).join('&');
+            const params = {
+                method: 'POST',
+                body: new URLSearchParams(buildings),
+                headers: {
+                    "Content-type": "application/x-www-form-urlencoded; charset=UTF-8",
+                    "X-Csrf-token": document.lss_helper.authToken
+                }
+            };
+            fetch('/buildings/vehiclesMap', params)
+                .then((response) => response.text())
+                .then((json) => {
+                    eval(json);
+                });
+        }
+        document.lss_helper.vehiclesFetched = true;
+    };
+
+    document.lss_helper.getBuildingsList = () => {
+        return [];
+    }
+
+    document.lss_helper.getVehiclesList = () => {
+        return [];
+    }
+
+    document.lss_helper.getMissionsList = () => {
+        return [];
+    }
+
     document.lss_helper.updateLists = (timeout) => {
         if (timeout && timeout > 0) {
             document.lss_helper.debug('LSS List Update sheduled in', timeout, 'ms');
@@ -190,207 +231,12 @@
 
         document.lss_helper.authToken = Array.from(document.getElementsByName('csrf-token'))[0].content;
 
-        document.lss_helper.buildings = Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
-            .map((building) => {
-                const markerImage = Array.from(building.getElementsByClassName('building_marker_image'))[0];
-                const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
-                return {
-                    name: position.innerHTML.trim(),
-                    leitstelleId: building.attributes.leitstelle_building_id.value.trim(),
-                    type: building.attributes.building_type_id.value.trim(),
-                    lat: parseFloat(position.attributes['data-latitude'].value.trim()),
-                    lng: parseFloat(position.attributes['data-longitude'].value.trim()),
-                    vehicles: Array.from(building.getElementsByClassName('building_list_vehicle_element')),
-                    links: Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true)),
-                    origin: building,
-                    markerImage,
-                    position,
-                };
-            });
+        document.lss_helper.buildings = document.lss_helper.getBuildingsList();
 
-        document.lss_helper.vehicles = document.lss_helper.buildings.map((b) => {
-            return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
-                .map((vehicle) => {
-                    const img = vehicle.getElementsByTagName('img')[0];
-                    const status = vehicle.getElementsByTagName('span')[0];
-                    const link = vehicle.getElementsByTagName('a')[0];
-                    const state = status.innerHTML.trim();
-                    const type = link.attributes.vehicle_type_id.value.trim();
-                    const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
-                    return {
-                        id: parseInt(vehicle.attributes.vehicle_id.value.trim()),
-                        status: state,
-                        type: type,
-                        name: link.innerHTML.trim(),
-                        available: (availableStates.indexOf(state) >= 0),
-                        call: (document.lss_helper.statesCall.indexOf(state) >= 0),
-                        transit: (document.lss_helper.statesTransit.indexOf(state) >= 0),
-                        link: link.cloneNode(true),
-                        origin: vehicle,
-                        building: b,
-                        lat: b.lat,
-                        lng: b.lng,
-                    };
-                });
-        })
-            .reduce((acc, cur) => [...acc, ...cur], [])
-            .sort((a, b) => a.name < b.name ? -1 : 1)
-            .sort((a, b) => parseInt(a.type) - parseInt(b.type))
-            .sort((a, b) => document.lss_helper.stateOrder.indexOf(a.status) - document.lss_helper.stateOrder.indexOf(b.status))
-            ;
+        document.lss_helper.loadVehiclesMap();
+        document.lss_helper.vehicles = document.lss_helper.getVehiclesList();
 
-        document.lss_helper.missions = Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
-            .map((m) => {
-                const links = Array.from(m.getElementsByTagName('a')).map((l) => l.cloneNode(true));
-                const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
-                return {
-                    id: m.attributes['id'].value.trim(),
-                    missionId: m.attributes['mission_id'].value.trim(),
-                    type: m.attributes['data-mission-type-filter'].value.trim(),
-                    state: m.attributes['data-mission-state-filter'].value.trim(),
-                    participation: m.attributes['data-mission-participation-filter'].value.trim(),
-                    data: JSON.parse(m.attributes['data-sortable-by'].value.trim()),
-                    missionType: m.attributes['mission_type_id'].value.trim(),
-                    lat: parseFloat(position.attributes['data-latitude']?.value.trim() ?? '0'),
-                    lng: parseFloat(position.attributes['data-longitude']?.value.trim() ?? '0'),
-                    links,
-                    hasAlert: Array.from(m.querySelectorAll(".alert.alert-danger")).length > 0,
-                    unattended: Array.from(m.querySelectorAll(".panel.mission_panel_red")).length > 0,
-                    attended: Array.from(m.querySelectorAll(".panel.mission_panel_yellow")).length > 0,
-                    finishing: Array.from(m.querySelectorAll(".panel.mission_panel_green")).length > 0,
-                    origin: m,
-                    position,
-                }
-            })
-            .map((m) => {
-                return {
-                    stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
-                    scene: document.lss_helper.getScene(m.missionType),
-                    info: {
-                        countdown: document.getElementById('mission_overview_countdown_' + m.data.id),
-                        progressbar: document.getElementById('mission_bar_outer_' + m.data.id),
-                        missing: document.getElementById('mission_missing_' + m.data.id),
-                        missingShort: document.getElementById('mission_missing_short_' + m.data.id),
-                        pump: document.getElementById('mission_pump_progress_' + m.data.id),
-                        patients: document.getElementById('mission_patients_' + m.data.id),
-                        prisoners: document.getElementById('mission_prisoners_' + m.data.id),
-                    },
-                    age: Math.floor(Math.abs(new Date() - new Date(m.data.created_at * 1000)) / (100 * 60 * 60)) / 10,
-                    ...m
-                };
-            })
-            .map((m) => {
-                let patients = m.info.patients.children.length;
-                const patientSummary = m.info.patients.getElementsByTagName('strong');
-                if (patientSummary.length) {
-                    patients = parseInt(patientSummary[0].innerHTML.replaceAll(/[^0-9]*/gi, ''));
-                }
-                let prisoners = m.info.prisoners.children.length;
-
-                if (m.data.patients_count) {
-                    patients = m.data.patients_count[0];
-                }
-                if (m.data.prisoners_count) {
-                    prisoners = m.data.prisoners_count[0];
-                }
-
-                return {
-                    patients: patients,
-                    prisoners: prisoners,
-                    ...m
-                };
-            })
-            .map((m) => {
-                const proposedVehicles = document.lss_helper.getVehiclesByMission(m);
-                const proposedVehiclesCount = (proposedVehicles ?? []).map(a => a.length).reduce((acc, cur) => acc + cur, 0);
-                return {
-                    proposedVehicles: proposedVehicles,
-                    proposedVehiclesCount: proposedVehiclesCount,
-                    creditPerCar: proposedVehiclesCount ? parseInt(m.data.average_credits) / proposedVehiclesCount : 0,
-                    maxDistance: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.distance), 0),
-                    maxTime: (proposedVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []).reduce((acc, cur) => Math.max(acc, cur.time), 0),
-                    ...m
-                };
-            })
-            .map((m) => {
-                return {
-                    sort: {
-                        none: 0,
-                        missionId: parseInt(m.missionId),
-                        missionType: parseInt(m.missionType),
-                        missionTitle: m.data.caption,
-                        credits: 0 - parseInt(m.data.average_credits),
-                        age: 0 - m.age,
-                        patients: 0 - m.patients,
-                        prisoners: 0 - m.prisoners,
-                        vehicles: 0 - m.proposedVehiclesCount,
-                        creditRate: 0 - m.creditPerCar,
-                        maxDistance: m.maxDistance,
-                        maxTime: m.maxTime
-                    },
-                    ...m
-                };
-            }).map((m) => {
-                const resend = (m.info?.missing?.querySelector('[data-requirement-type="vehicles"]')?.innerText ?? '')
-                    .replaceAll(/.*: /g, '')
-                    .split(',')
-                    .map((s) => s.trim())
-                    .filter((s) => s && s.length)
-                    .map((s) => {
-                        const p = s.match(/^([0-9]+)\s+(.+)$/);
-                        if (!p || p.length < 3) {
-                            return null;
-                        }
-                        return {
-                            count: parseInt(p[1]),
-                            type: p[2].trim().replace(/\s/g, ' '),
-                        };
-                    })
-                    .filter((s) => {
-                        if (Object.keys(document.lss_helper.vehicleResend).indexOf(s.type) < 0) {
-                            if (document.lss_helper.vehicleResendMissing.indexOf(s.type) < 0) {
-                                document.lss_helper.vehicleResendMissing.push(s.type);
-                                document.lss_helper.warn('Unknown Resend Type', s.type);
-                            }
-                            return false;
-                        }
-                        if (document.lss_helper.vehicleResendMissing.indexOf(s.type) >= 0) {
-                            document.lss_helper.vehicleResendMissing.splice(document.lss_helper.vehicleResendMissing.indexOf(s.type), 1);
-                        }
-                        return true;
-                    })
-                    .map((s) => {
-                        return {
-                            ...s,
-                            scene: document.lss_helper.vehicleResend[s.type],
-                        }
-                    });
-                ['LNA', 'OrgL'].forEach((vt) => {
-                    if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
-                        resend.push({ scene: vt.toUpperCase(), count: 1 });
-                    }
-                });
-                ['NEF', 'RTW', 'RTH'].forEach((vt) => {
-                    // TODO: send right amount
-                    if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
-                        resend.push({ scene: vt.toUpperCase(), count: 1 });
-                    }
-                });
-                const resendScene = {};
-                resend.forEach((r) => {
-                    resendScene[r.scene] = (resendScene[r.scene] || 0) + r.count;
-                });
-                return {
-                    ...m,
-                    resend,
-                    resendScene,
-                    resendVehicles: document.lss_helper.getVehiclesByScene(JSON.parse(JSON.stringify(m)), JSON.parse(JSON.stringify(resendScene)), !document.lss_helper.getSetting('autoResendAll')),
-                }
-            })
-            .filter((m) => !m.data.caption.includes('[Verband]') || document.lss_helper.getSetting('mission_verband'))
-            .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] > m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] ? -1 : 1)
-            .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
-            .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
+        document.lss_helper.missions = document.lss_helper.getMissionsList();
     };
 
     document.lss_helper.getHelperContainer = () => {
@@ -646,6 +492,11 @@
             return null;
         }
         scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
+
+        return document.lss_helper.addAAOtoScene(scene, debug);
+    };
+
+    document.lss_helper.addAAOtoScene = (scene, debug) => {
         if (debug) {
             scene = { ...scene, "AAODEBUG": 2 };
         }
@@ -737,6 +588,7 @@
         if (document.lss_helper.getSetting('optimize_scene') && nonReplaceable.length) {
             vehicles = [...vehicles, ...[nonReplaceable]];
         }
+
         //if (nonReplaceable.length) {
         //document.lss_helper.warn('counts', vehicleCounts, 'replacements', nonReplaceable, 'ids', nonReplaceableIds, 'scene', scene, 'send', vehicles);
         //}
@@ -865,17 +717,4 @@
     document.lss_helper.autoPrisoner();
 
     document.lss_helper.fetchRemotes();
-
-    document.lss_helper.tst = () => {
-        const resends = document.lss_helper.missions.filter((m) => m.resend?.length && m.resendVehicles?.length && m.unattended);
-        console.warn(resends);
-        if (resends.length > 0 && document.lss_helper.getSetting('autoResend')) {
-            const m = resends[0];
-            document.lss_helper.debug('AutoResend', m.missionType, m);
-            const v = m.resendVehicles.reduce((acc, cur) => [...acc, ...cur], []);
-            document.lss_helper.sendVehicles(m.missionId, v);
-            document.lss_helper.updateLists(-1);
-            return;
-        }
-    }
 })();
