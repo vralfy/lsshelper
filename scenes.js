@@ -677,6 +677,8 @@ document.lss_helper.scenes = {
   "901" : { "LF": 4, "DLK": 1, "GWA": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Brand in Weihnachtsbäckerei
   "902" : { "ELW": 2, "ELW2": 1, "LF": 10, "RW": 5, "DLK": 2, "FWK": 1, "GWH": 1, "POL": 4, "THWMTW": 2, "GKW": 2, "THWGWN": 2, "AAOTHWR": 2, "THWDLE": 1, "RTW": 5, "NEF": 1, "DOG": 2}, // Brückeneinsturz (klein)
   "911" : { "LF": 5, "RW": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Abgestürzter Weihnachtsschlitten
+  "912" : { "RTW": 1 }, // Lebkuchenmann durch Biss verletzt
+  "913" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1 }, // Weihnachtsmann vermisst
   "914" : { "LF": 12, "DLK": 3, "ELW": 4, "ELW2": 1, "GWM": 2, "GWA": 2, "GWG": 1, "DEKONP": 1, "SW": 2, "RW": 3, "POL": 8, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "SLF": 1 }, // Brand in Düngemittellager
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
   "916" : { "LF": 6, "ELW": 2, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
