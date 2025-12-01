@@ -51,11 +51,11 @@ document.lss_helper.scenes = {
   "49" : { "RTW": 1 }, // Hohes Fieber
   "50" : { "RTW": 1 }, // Gestürzte Person
   "51" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "RTW": 1 }, // Brand in Werkstatt
-  "52" : null,
+  "52" : { "LF": 1, "RTW": 1 }, // Brand auf Weihnachtsmarkt
   "53" : null,
-  "54" : null,
-  "55" : null,
-  "56" : null,
+  "54" : { "RTW": 1 }, // Personenschaden durch Verbrennung
+  "55" : { "LF": 1 }, // Brennender Tannenbaum
+  "56" : { "RTW": 1 }, // Betrunkene Person auf Weihnachtsmarkt
   "57" : { "RTW": 1 }, // Gestürzter Fußgänger
   "58" : { "RTW": 1 }, // Gestürzter Radfahrer
   "59" : { "LF": 20, "GWM": 4, "GWG": 4, "ELW": 3, "ELW2": 1, "RW": 5, "DLK": 2, "GWA": 3, "RTW": 1 }, // Gefahrgutunfall
@@ -128,8 +128,8 @@ document.lss_helper.scenes = {
   "126" : { "LF": 2, "RW": 1, "RTW": 3 }, // Verkehrsunfall
   "127" : { "LF": 2, "RW": 1, "POL": 2, "RTW": 2, "NEF": 1 }, // Verkehrsunfall
   "128" : { "LF": 1, "RTW": 1, "POL": 1 }, // Auffahrunfall
-  "129" : null,
-  "130" : null,
+  "129" : { "LF": 1 }, // Brennender Adventskranz
+  "130" : { "POL": 2, "RTW": 1 }, // Rangelei auf Weihnachtsmarkt
   "131" : { "LF": 5, "ELW": 1, "SW": 1 }, // Mittlerer Feldbrand
   "132" : { "LF": 6, "ELW": 1, "SW": 1 }, // Großer Feldbrand
   "133" : { "LF": 6, "ELW": 1, "SW": 1, "POL": 1 }, // Großer Feldbrand
@@ -460,6 +460,9 @@ document.lss_helper.scenes = {
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
   "580" : { "POL": 6, "GRUKW": 6, "BEFKW": 2, "RTW": 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
+  "586" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "GWH": 1, "RTW": 1 }, // Weihnachtsschlitten in Baum
+  "587" : { "LF": 1, "RW": 1, "DLK": 1, "FWK": 1, "RTW": 1 }, // Weihnachtsmann in Kamin steckengeblieben
+  "590" : { "POL": 1 }, // Diebstahl aus Weihnachtsbäckerei
   "593" : { "GKW": 1, "AAOTHWR": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
   "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
@@ -605,6 +608,7 @@ document.lss_helper.scenes = {
   "778" : { "LF": 1, "POL": 1 }, // Brennende Chemietoilette
   "780" : { "RTW": 1 }, // Treppensturz
   "781" : { "LF": 2, "ELW": 1, "POL": 1 }, // Gartenschuppenbrand
+  "783" : { "LF": 2, "DLK": 1, "ELW": 1 }, // Brennende Weihnachtsdekoration
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "797" : { "LF": 12, "ELW": 3, "DLK": 3, "GWA": 1, "SW": 1, "POL": 6, "DGL": 1, "RTW": 4, "NEF": 1}, // Brand in Gebäudekomplex
   "798" : { "LF": 16, "ELW": 4, "ELW2": 1, "DLK": 4, "GWA": 2, "GWM": 1, "SW": 2, "RW":2, "POL": 8, "DGL": 1, "RTW": 8, "NEF": 1}, // Großbrand in Gebäudekomplex
