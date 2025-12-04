@@ -16,6 +16,7 @@ document.lss_helper.vehicleResend = {
   'GW-Öl': 'GWO',
   'Dekon-P': 'DEKONP',
 
+  'RTW': 'RTW',
   'RTW oder KTW oder KTW-B': 'RTW',
   'GW-San': 'GWSAN',
 
@@ -32,9 +33,11 @@ document.lss_helper.vehicleResend = {
   'DHuFüKW': '94',
   'Polizeihubschrauber': 'POLH',
   'Außenlastbehälter (allgemein)': '96',
+  'LauKw': '165',
 
   'Gerätekraftwagen (GKW)': 'GKW',
   'THW-Einsatzleitung (MTW TZ)': 'THWMTW',
+  'THW-Einsatzleitung (MTW-TZ)': 'THWMTW',
   'MzGW (FGr N)': 'THWGWN',
   'MzGW SB': 'THWGWSB',
   // 'Radlader (BRmG R)': 'THWBRG', // cant be send alone
@@ -48,9 +51,11 @@ document.lss_helper.vehicleResend = {
   'FüKomKW': '146', //'145',
   'Anh FüLa': '146',
 
+  'MTW-TeSi': '173',
+  'Anh TeSi': '174',
+
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
   'Betreuungs- und Verpflegungsausstattungen': 'AAOSEGBT',
   'Boot': 'BOAT',
   'Drohneneinheit': 'DROHNE',
-
 };
