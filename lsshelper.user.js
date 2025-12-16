@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202511-11-01',
+        version: '202512-16-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -117,6 +117,7 @@
         document.lss_helper.setDefaultSetting('autoAcceptInterval', '5000');
         document.lss_helper.setDefaultSetting('autoAcceptMaxAttended', '5');
         document.lss_helper.setDefaultSetting('autoAcceptMaxDistance', '9999');
+        document.lss_helper.setDefaultSetting('autoAcceptMaxUnits', '9999');
         document.lss_helper.setDefaultSetting('maxRTW', '99');
         document.lss_helper.setDefaultSetting('update_scenes', '100000');
 
