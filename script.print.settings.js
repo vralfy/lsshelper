@@ -160,6 +160,7 @@ document.lss_helper.printSettingsButton = (setting, caption, cls, container) => 
         const autoAccepInterval = document.lss_helper.printSettingsNumberInput('autoAcceptInterval');
         const autoAccepMaxAttend = document.lss_helper.printSettingsNumberInput('autoAcceptMaxAttended');
         const autoAccepMaxDistance = document.lss_helper.printSettingsNumberInput('autoAcceptMaxDistance');
+        const autoAccepMaxUnits = document.lss_helper.printSettingsNumberInput('autoAcceptMaxUnits');
         const loglevel = document.lss_helper.printSettingsNumberInput('loglevel');
         const updateInterval = document.lss_helper.printSettingsNumberInput('updateInterval');
         const updateScenes = document.lss_helper.printSettingsNumberInput('update_scenes');
