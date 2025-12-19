@@ -699,5 +699,6 @@ document.lss_helper.scenes = {
   "948" : { "POL": 2 }, // Schwerer Erntediebstahl
   "949" : { "RTW": 1, "CARRY": 1 }, // Pilzsucher im Wald verunglückt
   "951" : { "POL": 1 }, // Waffenfund
+  "957" : { "LF": 1 }, // Unterstützung Geschenkelieferung
 }
 // https://www.leitstellenspiel.de/einsaetze/0
