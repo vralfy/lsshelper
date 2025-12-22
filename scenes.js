@@ -701,8 +701,8 @@ document.lss_helper.scenes = {
   "951" : { "POL": 1 }, // Waffenfund
   "952" : { "LF": 2, "POL": 12, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 3, "GWSAN": 1 }, // Absicherung Besuch des Weihnachtsmannes
   "953" : { "MEK": 4 }, // Absicherung Geschenketransport
-  // "954": {"Flugfeldlöschfahrzeuge": 2, "ELW": 1}, // Notlandung Weihnachtsschlitten (klein)
-  // "955": {"Flugfeldlöschfahrzeuge": 2, "LF": 1, "ELW": 1}, // Notlandung Weihnachtsschlitten (groß)
+  "954" : { "ELW": 1 }, // Notlandung Weihnachtsschlitten (klein)
+  "955" : { "LF": 3, "ELW": 1 }, // Notlandung Weihnachtsschlitten (groß)
   "956" : { "POL": 2 }, // Streit bei Weihnachtsessen
   "957" : { "LF": 1 }, // Unterstützung Geschenkelieferung
   "958" : { "LF": 1 }, // Weihnachtsgans im Ofen vergessen
