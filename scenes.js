@@ -486,6 +486,8 @@ document.lss_helper.scenes = {
   "588" : { "RTW": 1 }, // "Betrunkener Weihnachtsmann"
   "589" : { "POL": 1 }, // "Verkehrsunsicherer Rentierschlitten"
   "590" : { "POL": 1 }, // Diebstahl aus Weihnachtsbäckerei
+  "591" : { "ELW": 1, "LF": 3, "DLK": 1, "POL": 1 }, // Fassadenbrand durch Feuerwerksbatterien
+  "592" : { "GRUKW": 9, "BEFKW": 4, "FUEKW": 1, "GEFKW": 1, "WAWE": 3, "POL": 10, "POLH": 1, "RTW": 1}, // Unangemeldete Demonstration (Groß)
   "593" : { "GKW": 1, "AAOTHWR": 1, "THWMTW": 1, "POL": 2 }, // Beseitigung kontaminierter Erde
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
   "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
