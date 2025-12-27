@@ -249,6 +249,11 @@ document.lss_helper.scenes = {
   "255" : { "LF": 5, "ELW": 1, "POL": 3, "BOAT": 3, "TAUCHER": 3, "RTW": 1 }, // Bus in Wasser
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
+  "260" : { "LF": 1 }, // Sperrmüllbrand durch Feuerwerkskörper
+  "261" : { "LF": 2 }, // Kleiner Feldbrand durch Feuerwerkskörper
+  "262" : { "ELW": 1, "LF": 3 }, // Kellerbrand durch Feuerwerkskörper
+  "263" : { "LF": 1 }, // Brennendes Bus-Häuschen durch Feuerwerkskörper
+  "264" : { "LF": 2 }, // Feuer auf Balkon durch Feuerwerkskörper
   "271" : { "LF": 10, "RW": 1, "DEKONP": 1, "GWG": 1, "GWM": 1, "DLK": 1, "ELW": 2, "ELW2": 1,  "POL": 3, "GKW": 1 }, // Beschädigter Kesselwagen
   "272" : { "LF": 2, "GWO": 1, "ELW": 1, "POL": 1, "DLRG": 1, "MZB": 1 }, // Gewässerverschmutzung durch Öl
   "273" : { "LF": 2, "ELW": 1, "GWO": 1, "POL": 1, "DLRG": 1, "MZB": 1 }, // Gewässerverschmutzung durch Öl
