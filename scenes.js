@@ -249,6 +249,7 @@ document.lss_helper.scenes = {
   "255" : { "LF": 5, "ELW": 1, "POL": 3, "BOAT": 3, "TAUCHER": 3, "RTW": 1 }, // Bus in Wasser
   "257" : { "POL": 2 }, // Verkehrsueberwachung
   "258" : { "LF": 4, "ELW": 1, "DLK": 1, "RW": 2, "POL": 3, "GWO": 1, "FWK": 1 }, // Baumaschine umgestürzt
+  "259" : { "LF": 1 }, // Brennender PKW durch Feuerwerkskörper
   "260" : { "LF": 1 }, // Sperrmüllbrand durch Feuerwerkskörper
   "261" : { "LF": 2 }, // Kleiner Feldbrand durch Feuerwerkskörper
   "262" : { "ELW": 1, "LF": 3 }, // Kellerbrand durch Feuerwerkskörper
