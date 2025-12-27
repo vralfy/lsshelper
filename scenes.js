@@ -306,6 +306,8 @@ document.lss_helper.scenes = {
   "322" : { "POL": 4 }, // Geplante Autobahnsperrung
   "323" : { "LF": 2, "DLK": 1, "ELW": 1, "RW": 1, "POL": 1 }, // Dehnfugenbrand
   "324" : { "LF": 15, "DLK": 3, "GWA": 2, "GWM": 2, "GWG": 1, "SW": 1, "FWK": 1, "ELW": 5, "ELW2": 1, "RW": 1, "SLF": 2, "AAOTHWR": 2, "THWGWN": 2, "GKW": 2, "THWMTW": 2, "POL": 5, "RTW": 1, "NEF": 1 }, // Brand in Baumarkt
+  "325" : { "GRUKW": 18, "BEFKW": 6, "FUEKW": 2, "POL": 10, "RTW": 2, "POLH": 1, "WAWE": 2}, // Absicherung Castor-Transport
+  "326" : { "RTW": 1, "NEF": 1 }, // Handverletzung durch Feuerwerkskörper
   "327" : { "LF": 6, "ELW": 1, "DLK": 2, "GWA": 2, "GWM": 1, "GWO": 1, "POL": 1, "RTW": 1 }, // Tiefgaragenbrand
   "329" : { "LF": 2 }, // Rauch in Kabine
   "334" : { "LF": 8, "ELW": 2, "ELW2": 1, "RW": 1, "DLK": 1, "SW": 1, "RTW": 1, "NEF": 1 }, //  Brennendes Kleinflugzeug

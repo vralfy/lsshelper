@@ -38,6 +38,7 @@ document.lss_helper.vehicleGroups = {
   "LAUKW": [165],
   "SEK": [79, 80],
   "MEK": [81, 82],
+  "WAWE": [72],
 
   "GKW": [39],
   "THWMTW": [40],
