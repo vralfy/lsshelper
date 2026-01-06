@@ -641,6 +641,7 @@ document.lss_helper.scenes = {
   "786" : { "POL": 2 }, // Weihnachtsmann-Schlitten blockiert Straße
   "787" : { "LF": 2 }, // Lagerfeuer setzt Holzschuppen in Brand
   "788" : { "POL": 2 }, // Schlägerei auf zugefrorenem See
+  "789" : { "POL": 1 }, // Kinder werfen Schneebälle auf Menschen und Häuser
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "797" : { "LF": 12, "ELW": 3, "DLK": 3, "GWA": 1, "SW": 1, "POL": 6, "DGL": 1, "RTW": 4, "NEF": 1}, // Brand in Gebäudekomplex
   "798" : { "LF": 16, "ELW": 4, "ELW2": 1, "DLK": 4, "GWA": 2, "GWM": 1, "SW": 2, "RW":2, "POL": 8, "DGL": 1, "RTW": 8, "NEF": 1}, // Großbrand in Gebäudekomplex
@@ -670,6 +671,7 @@ document.lss_helper.scenes = {
   "827" : { "POL": 1 }, // Holzdiebstahl
   "829" : { "LF": 5, "ELW": 2, "DLK": 1, "RW": 1, "POL": 4, "RTW": 1 }, // Brennender Regionalbahnhof
   "830" : { "LF": 20, "RW": 2, "SLF": 2, "ELW": 5, "ELW2": 1, "DLK": 5, "GWM": 3, "GWG": 2, "GWA": 3, "SW": 5, "POL": 6, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "AAOTHWR": 1, "DROHNE": 1, 'RTW': 8 }, // Brennender Güterbahnhof
+  "831" : { "LF": 1, "ELW": 1, "RW": 1, "BOAT": 1, "RTW": 1 }, // Person in Eis eingebrochen
   "832" : { "POL": 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
   "835" : { "POL": 1 }, // Fußstreife
   "836" : { "POLBIKE": 2 }, // Motorradstreife
