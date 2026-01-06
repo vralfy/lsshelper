@@ -52,7 +52,7 @@ document.lss_helper.scenes = {
   "50" : { "RTW": 1 }, // Gestürzte Person
   "51" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "RTW": 1 }, // Brand in Werkstatt
   "52" : { "LF": 1, "RTW": 1 }, // Brand auf Weihnachtsmarkt
-  "53" : null,
+  "53" : { "LF": 1, "RW": 1, "RTW": 1 }, // Verkehrsunfall durch Glatteis
   "54" : { "RTW": 1 }, // Personenschaden durch Verbrennung
   "55" : { "LF": 1 }, // Brennender Tannenbaum
   "56" : { "RTW": 1 }, // Betrunkene Person auf Weihnachtsmarkt
@@ -366,6 +366,7 @@ document.lss_helper.scenes = {
   "425" : { "RTW": 1 }, // Verstauchter Knöchel
   "426" : { "RTW": 1 }, // Gebrochenes Bein
   "427" : { "RTW": 1 }, // Gebrochener Arm
+  "428" : { "LF": 1, "DLK": 1, "RW": 1, "ELW": 1, "POL": 1 }, // Schneelast auf Dach
   "429" : { "LF": 5, "ELW": 1, "DLK": 1, "GWA": 1, "SW": 1, "RW": 1, "GKW": 1, "THWMTW": 1, "AAOTHWR": 1, "POL": 2, "RTW": 1 }, // Staubexplosion
   "430" : { "LF": 15, "ELW": 3, "ELW2": 1, "DEKONP": 2, "GWM": 2, "GWG": 2, "GWA": 1, "DLK": 1, "SW": 2, "RW": 4, "POL": 8, "RTW": 1 }, // Ammoniakaustritt in Eishalle
   "431" : { "RTW": 1 }, // Kreislaufkollaps
@@ -477,8 +478,8 @@ document.lss_helper.scenes = {
   "576" : { "LF": 6, "ELW": 1, "GWO": 1, "GWM": 1, "SW": 1, "DLK": 1, "POL": 2, "RTW": 2 }, // Brand in Parkhaus
   "578" : { "LF": 3, "ELW": 2, "GWM": 2, "RW": 1, "GWA": 1, "GWG": 1, "DEKONP": 1, "POL": 4, "RTW": 5, "NEF": 1}, // Blausäureaustritt
   "580" : { "POL": 6, "GRUKW": 6, "BEFKW": 2, "RTW": 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
-  "582" : { "RTW": 1 }, // "Sturzverletzung beim Schlittschuhlaufen"
-  "583" : { "LF": 2, "ELW": 1, "POL": 2, "RTW": 10 }, // "Massenanfall durch Lebkuchenverzehr (klein)"
+  "581" : { "RTW": 1 }, // Sturzverletzung beim Schlittschuhlaufen
+  "583" : { "LF": 2, "ELW": 1, "POL": 2, "RTW": 10 }, // Massenanfall durch Lebkuchenverzehr (klein)
   "584" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 6, "RTW": 35}, // Massenanfall durch Lebkuchenverzehr (groß)
   "585" : { "LF": 16, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "DEKONP": 1, "POL": 14, "RTW": 120}, // Massenanfall durch Lebkuchenverzehr (riesig)
   "586" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "GWH": 1, "RTW": 1 }, // Weihnachtsschlitten in Baum
@@ -540,6 +541,7 @@ document.lss_helper.scenes = {
   "662" : { "LF": 2, "SW": 2, "ELW": 2, "ELW2": 1, "GWM": 1, "SWP": 2, "GKW": 2, "THWMTW": 1, "THWDLE": 3}, // Gewässer gekippt (Groß)
   "663" : { "LF": 4, "DLK": 1, "ELW": 1, "GWO": 1, "SW": 1, "GWH": 1, "SWP": 1, "GKW": 2, "THWMTW": 1, "THWGWN": 1, "THWDLE": 1, "AAOTHWR": 1, "POL": 2 }, // Wassereinbruch Großbaustelle
   "664" : { "LF": 28, "DLK": 1, "RW": 5, "FWK": 2, "SW": 4, "GKW": 4, "THWGWN": 3, "THWMTW": 3, "SWP": 3, "BOAT": 3, "TAUCHER": 2, "POL": 8, "ELW": 4, "ELW2": 1, "RTW": 1, "NEF": 1}, // Hochwasserschadenslage
+  "665" : { "RTW": 1 }, // Unterkühlung
   "666" : { "LF": 8, "ELW": 1, "DLK": 1, "SW": 2, "GWA": 1, "POL": 3, "RTW": 5, "NEF": 2 }, // Brand auf Campingplatz
   "667" : { "LF": 9, "SW": 2, "DLK": 1, "ELW": 1, "GWA": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "THWMTW": 1 }, // Strohballenstapelbrand
   "668" : { "POL": 2 }, // Ampelausfall
@@ -637,6 +639,8 @@ document.lss_helper.scenes = {
   "784" : { "POL": 1 }, // Gestohlener Weihnachtsbaum
   "785" : { "POL": 3 }, // Diebstahl von Weihnachtsgeschenken in Einkaufszentrum
   "786" : { "POL": 2 }, // Weihnachtsmann-Schlitten blockiert Straße
+  "787" : { "LF": 2 }, // Lagerfeuer setzt Holzschuppen in Brand
+  "788" : { "POL": 2 }, // Schlägerei auf zugefrorenem See
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "797" : { "LF": 12, "ELW": 3, "DLK": 3, "GWA": 1, "SW": 1, "POL": 6, "DGL": 1, "RTW": 4, "NEF": 1}, // Brand in Gebäudekomplex
   "798" : { "LF": 16, "ELW": 4, "ELW2": 1, "DLK": 4, "GWA": 2, "GWM": 1, "SW": 2, "RW":2, "POL": 8, "DGL": 1, "RTW": 8, "NEF": 1}, // Großbrand in Gebäudekomplex
