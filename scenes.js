@@ -643,6 +643,7 @@ document.lss_helper.scenes = {
   "788" : { "POL": 2 }, // Schlägerei auf zugefrorenem See
   "789" : { "POL": 1 }, // Kinder werfen Schneebälle auf Menschen und Häuser
   "793" : { "LF": 1 }, // Tier auf Eisfläche gefangen
+  "794" : { "POL": 1 }, // Unbefugtes Betreten einer Eisfläche
   "796" : { "LF": 6, "ELW": 2, "DLK": 1, "RW": 1, "POL": 2, "RTW": 1 }, // Brand in Garagenkomplex
   "797" : { "LF": 12, "ELW": 3, "DLK": 3, "GWA": 1, "SW": 1, "POL": 6, "DGL": 1, "RTW": 4, "NEF": 1}, // Brand in Gebäudekomplex
   "798" : { "LF": 16, "ELW": 4, "ELW2": 1, "DLK": 4, "GWA": 2, "GWM": 1, "SW": 2, "RW":2, "POL": 8, "DGL": 1, "RTW": 8, "NEF": 1}, // Großbrand in Gebäudekomplex
