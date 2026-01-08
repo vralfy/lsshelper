@@ -13,6 +13,7 @@ document.lss_helper.fetchRemoteFile('script.autoPrisoner.js');
 document.lss_helper.fetchRemoteFile('script.container.js');
 document.lss_helper.fetchRemoteFile('script.lists.js');
 document.lss_helper.fetchRemoteFile('script.log.js');
+document.lss_helper.fetchRemoteFile('script.styles.js');
 
 document.lss_helper.fetchRemoteFile('script.print.missingVehicle.js');
 document.lss_helper.fetchRemoteFile('script.print.missions.js');
