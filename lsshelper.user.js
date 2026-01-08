@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202511-11-01
+// @version      202601-08-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202512-16-01',
+        version: '202601-08-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -72,31 +72,6 @@
 
     document.lss_helper.init = () => {
         document.lss_helper.log('initiating');
-        $([
-            "<style type='text/css' id='lss_helper_css'>",
-            //"#buildings_outer .panel-body {max-height: initial;height:initial;overflow:visible}",
-            ".leaflet-marker-icon[src*='red'], .leaflet-marker-icon[src*='rot']{ filter: drop-shadow(0px 0px 8px red);}",
-            ".leaflet-marker-icon[src*='yellow'], .leaflet-marker-icon[src*='gelb']{ filter: drop-shadow(0px 0px 8px yellow);}",
-            ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
-            ".hidden { display: none }",
-            "#lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }",
-            "#lss_helper_container #lss_helper_missions .sendVehicles {}",
-            "#lss_helper_container.sendVehicles #lss_helper_missions .sendVehicles { display: none }",
-            ".lss_available, .lss_in_motion, .lss_unavailable {background: #505050;font-size:18px;padding:0 2px}",
-            ".lss_available { color: #0a0; }",
-            ".lss_in_motion { color: #aa0; }",
-            ".lss_unavailable { color: #a00; }",
-            ".lss_call { color: '#f00'; }",
-            ".state_finishing { color: #000; background: #0f0 }",
-            ".state_unattended { color: #000; background: #f00 }",
-            ".state_attended { color: #000; background: #ff0 }",
-            ".state_verband { border: 1px solid #6a6; border-radius: 20px }",
-            "#mission_general_info, #back_to_mission { text-align:right }",
-            ".mission_detail { display: block; padding: 2px 4px; margin: 0; border-left: 1px solid #0007; border-right: 1px solid #3337; }",
-            "#missions .panel-success .panel-heading {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
-            "#missions .panel-success .panel-body {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
-            "</style>"
-        ].join("\n")).appendTo("head");
 
         document.lss_helper.getSetting('ui_map', 'true');
         document.lss_helper.getSetting('ui_missions', 'true');
