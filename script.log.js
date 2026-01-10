@@ -55,7 +55,12 @@ document.lss_helper.info = (...args) => {
   let msg = document.createElement("div");
   msg.className = "lss_helper_notify";
   msg.id = id;
-  msg.innerHTML = args.map(arg => JSON.stringify(arg)).join(" ");
+  msg.innerHTML = args.map(arg => {
+    if (typeof arg === 'string' || typeof arg === 'number') {
+      return arg;
+    }
+    return JSON.stringify(arg)
+  }).join(" ");
   notifyContainer.appendChild(msg);
   setTimeout(() => {
     document.getElementById(id)?.remove();
