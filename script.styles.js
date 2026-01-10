@@ -8,11 +8,6 @@ document.lss_helper.updateStyle = () => {
       document.getElementsByTagName('head')[0].appendChild(style);
   }
 
-  let style_inline = document.getElementById('lss_helper_style_inline');
-  if (style_inline) {
-      style_inline.remove();
-  }
-
   const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
   const channel = document.lss_helper.getSetting('channel', '"master"');
   style.href = repo + '/' + channel + '/lsshelper.css';
@@ -20,7 +15,13 @@ document.lss_helper.updateStyle = () => {
   fetch(style.href)
     .then((response) => response.text())
     .then((response) => {
-      $('head').append('<style id="lss_helper_style_inline">' + response + '</style>');
+      let style_inline = document.getElementById('lss_helper_style_inline');
+      if (!style_inline) {
+        $('head').append('<style id="lss_helper_style_inline">' + response + '</style>');
+      } else {
+        style_inline.innerHTML = response;
+      }
+
       return response;
     })
     .catch((err) => {
