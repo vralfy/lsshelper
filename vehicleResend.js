@@ -42,7 +42,7 @@ document.lss_helper.vehicleResend = {
   'MzGW SB': 'THWGWSB',
   // 'Radlader (BRmG R)': 'THWBRG', // cant be send alone
   'LKW Kipper (LKW K 9)': 'THWBRG', // used to be 'THWLKWK9',
-  'Rettungshundestaffel': 'DOG',
+  'Rettungshundestaffel': 'DOGRESCUE',
   'NEA50': 'AAOFFNEA',
   'Anhänger Drucklufterzeugung': 'THWDLE',
   'Schmutzwasserpumpen': 'THWSWP',

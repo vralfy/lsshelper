@@ -63,6 +63,8 @@ document.lss_helper.vehicleGroups = {
   "SLF": [11, 121, 166, 167],
   "BOAT": [67, 68, 70, 71],
   "DOG": [91, 92, 94, 153],
+  "DOGRESCUE": [91, 92, 153],
+  "DOGPOL": [94],
   "DROHNE": [125, 127],
   "SWP": [101, 102], // Schmutzwasserpumpen
   "RESENDWATER": [0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 121, 166, 167],
