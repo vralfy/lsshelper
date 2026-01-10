@@ -700,6 +700,7 @@ document.lss_helper.scenes = {
   "900" : { "POL": 1 }, // Verdaechtiges Fahrzeug
   "901" : { "LF": 4, "DLK": 1, "GWA": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Brand in Weihnachtsbäckerei
   "902" : { "ELW": 2, "ELW2": 1, "LF": 10, "RW": 5, "DLK": 2, "FWK": 1, "GWH": 1, "POL": 4, "THWMTW": 2, "GKW": 2, "THWGWN": 2, "AAOTHWR": 2, "THWDLE": 1, "RTW": 5, "NEF": 1, "DOG": 2}, // Brückeneinsturz (klein)
+  "903" : { "LF": 18, "RW": 5, "DLK": 4, "ELW": 5, "ELW2": 1, "FWK": 2, "GWH": 2, "POL": 8, "DOG": 4, "THWMTW": 4, "GKW": 4, "THWGWN": 4, "AAOTHWR": 3, "THWDLE": 2, "RTW": 1, "NEF": 1 }, // Brückeneinsturz (Groß)
   "911" : { "LF": 5, "RW": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Abgestürzter Weihnachtsschlitten
   "912" : { "RTW": 1 }, // Lebkuchenmann durch Biss verletzt
   "913" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1 }, // Weihnachtsmann vermisst
