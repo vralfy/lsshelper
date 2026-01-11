@@ -9,9 +9,9 @@
   filter: drop-shadow(0px 0px 8px green);
 }
 
-.hidden { display: none }
-.block { display: block }
 .missionSideBarEntry { display: none }
+.hidden { display: none !important }
+.block { display: block !important }
 
 #lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }
 #lss_helper_container #lss_helper_missions .sendVehicles {}
