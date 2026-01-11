@@ -1,6 +1,13 @@
 document.lss_helper.language = document.lss_helper.language || 'de';
 document.lss_helper.translationTable = {
   'de': {
+    'Vehicles': 'Fahrzeuge',
+    'Missions': 'Einsätze',
+    'AutoAccept': 'Automatisierung',
+    'General': 'Allgemein',
+    'UI Elements': 'UI Elemente',
+    'Other': 'Sonstiges',
+
     'show_vehicle_available': 'Verfügbare Fahrzeuge',
     'show_vehicle_unavailable': 'Nicht verfügbare Fahrzeuge',
     'show_vehicle_call': 'Fahrzeug-Alarmierung',

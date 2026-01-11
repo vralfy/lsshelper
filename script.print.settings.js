@@ -231,6 +231,8 @@ document.lss_helper.printSettings = () => {
   document.lss_helper.printSettingsButton('ui_chat');
   document.lss_helper.printSettingsButton('ui_radio');
 
+  document.lss_helper.printSettingsDivider('Other');
+
   let hash = document.getElementById('lss_helper_settings_hash');
   if (!hash) {
     hash = document.createElement("div");
