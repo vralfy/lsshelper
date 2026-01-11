@@ -83,6 +83,7 @@ document.lss_helper.getVehiclesList = () => {
 };
 
 document.lss_helper.getMissionsList = () => {
+  Array.from(document.getElementsByClassName('mission_deleted')).forEach(e => e.remove());
   return Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
     .map((m) => {
       const id = m.attributes['id'].value.trim();
