@@ -22,7 +22,7 @@ document.lss_helper.printSettingsDivider = (caption, cls, container) => {
     settingsContainer.appendChild(divider);
   }
   divider.classList = cls;
-  divider.innerHTML = '<hr><h4>' + document.lss_helper.translate(caption) + '</h4>';
+  divider.innerHTML = '<div class="separator">' + document.lss_helper.translate(caption) + '</div>';
   return divider;
 };
 
