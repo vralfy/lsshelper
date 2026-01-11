@@ -732,5 +732,6 @@ document.lss_helper.scenes = {
   "956" : { "POL": 2 }, // Streit bei Weihnachtsessen
   "957" : { "LF": 1 }, // Unterstützung Geschenkelieferung
   "958" : { "LF": 1 }, // Weihnachtsgans im Ofen vergessen
+  "959" : { "LF": 1, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 1, "RTW": 1 }, // Verletzte Person auf Kühlturm
 }
 // https://www.leitstellenspiel.de/einsaetze/0
