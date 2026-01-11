@@ -1,3 +1,6 @@
+document.lss_helper.lastMissionSend = document.lss_helper.lastMissionSend || {};
+document.lss_helper.lastMissionResend = document.lss_helper.lastMissionResend || {};
+
 document.lss_helper.getResendMissions = () => {
     return document.lss_helper.missions
         .filter((m) => m.unattended && m.hasAlert)
@@ -77,6 +80,9 @@ document.lss_helper.getResendMissions = () => {
 };
 
 document.lss_helper.autoAccept = (force) => {
+    const now = new Date().getTime();
+    const interval = document.lss_helper.getSetting('autoAcceptInterval', '300000');
+
     if (!force) {
         setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
     }
@@ -99,13 +105,13 @@ document.lss_helper.autoAccept = (force) => {
             .filter((m) => !!m.maxDistance)
             .filter((m) => m.proposedVehiclesCount && m.proposedVehiclesCount <= maxUnits)
             .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= m.maxDistance)
-            .filter((m) => document.lss_helper.lastMissionSend !== m.data.id);
+            .filter((m) => (now - (document.lss_helper.lastMissionSend[m.data.id] ?? 0)) > interval);
         if (missions.length < 1) {
             return;
         }
         const inProgress = document.lss_helper.missions.filter((m) => m.hasAlert || m.attended).length;
         const maxInProgress = document.lss_helper.getSetting('autoAcceptMaxAttended', '5');
-        
+
         if (!force && maxInProgress > 0 && maxInProgress <= inProgress) {
             return;
         }
@@ -113,16 +119,18 @@ document.lss_helper.autoAccept = (force) => {
         document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
         document.lss_helper.info('sending vehicles to', m.data.caption);
         document.lss_helper.sendByScene(m, m.missionType);
-        document.lss_helper.lastMissionSend = m.data.id;
+        document.lss_helper.lastMissionSend[m.data.id] = new Date().getTime();
         document.lss_helper.updateLists(-1);
     }
 };
 
 document.lss_helper.autoResend = (force) => {
+    const now = new Date().getTime();
+    const interval = document.lss_helper.getSetting('autoResendInterval', '300000');
     const missions = document.lss_helper
         .getResendMissions()
         .filter((m) => (m.resendGroupsVehicles ?? []).length || (m.resendVehicles ?? []).length)
-        .filter((m) => document.lss_helper.lastMissionResend !== m.data.id);
+        .filter((m) => (now - (document.lss_helper.lastMissionResend[m.data.id] ?? 0)) > interval);
 
     if (missions.length < 1) {
         return false;
@@ -144,7 +152,7 @@ document.lss_helper.autoResend = (force) => {
         const vehiclesReduced = (m.resendVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []);
         document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, m.resendScene);
         document.lss_helper.sendVehicles(m.missionId, vehiclesReduced);
-        document.lss_helper.lastMissionResend = m.data.id;
+        document.lss_helper.lastMissionResend[m.data.id] = new Date().getTime();
     }
 
     document.lss_helper.updateLists(-1);
