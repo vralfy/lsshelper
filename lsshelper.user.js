@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202601-08-01
+// @version      202601-11-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202601-08-01',
+        version: '202601-11-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -70,6 +70,10 @@
         document.lss_helper.setSetting(key, v ? v : def);
     };
 
+    document.lss_helper.translate = (key, lang) => {
+        return key;
+    };
+
     document.lss_helper.init = () => {
         document.lss_helper.log('initiating');
 
@@ -111,6 +115,9 @@
         document.lss_helper.getSetting('show_mission_lf1', 'true');
         document.lss_helper.getSetting('show_mission_lf2', 'true');
         document.lss_helper.getSetting('show_mission_type', 'true');
+        document.lss_helper.getSetting('show_mission_unattended', 'true');
+        document.lss_helper.getSetting('show_mission_attended', 'false');
+        document.lss_helper.getSetting('show_mission_finishing', 'false');
 
         document.lss_helper.getSetting('mission_verband', 'false');
         document.lss_helper.getSetting('optimize_scene', 'false');
@@ -137,6 +144,17 @@
                 const display = document.lss_helper.getSetting('ui_' + s, 'true') ? 'block' : 'none';
                 if (document.getElementById(s + '_outer')?.style) {
                     document.getElementById(s + '_outer').style.display = display;
+                }
+            });
+
+        ['unattended', 'attended', 'finishing']
+            .forEach((s) => {
+                const btn = document.getElementById('mission_select_' + s);
+                if (!btn) {
+                    return;
+                }
+                if (Array.from(btn.classList).indexOf('btn-success') < 0) {
+                    btn.click();
                 }
             });
 

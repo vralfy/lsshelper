@@ -22,6 +22,13 @@ document.lss_helper.printMissions = () => {
     show_mission_max_distance: document.lss_helper.getSetting('show_mission_max_distance'),
     show_mission_credits_rate: document.lss_helper.getSetting('show_mission_credits_rate'),
 
+    show_mission_unattended: document.lss_helper.getSetting('show_mission_unattended', 'false'),
+    show_mission_attended: document.lss_helper.getSetting('show_mission_attended', 'false'),
+    show_mission_finishing: document.lss_helper.getSetting('show_mission_finishing', 'false'),
+    show_mission_unattended_alert: document.lss_helper.getSetting('show_mission_unattended_alert', 'true'),
+    show_mission_attended_alert: document.lss_helper.getSetting('show_mission_attended_alert', 'false'),
+    show_mission_finishing_alert: document.lss_helper.getSetting('show_mission_finishing_alert', 'false'),
+
     show_mission_type: document.lss_helper.getSetting('show_mission_type'),
   };
 
@@ -149,6 +156,19 @@ document.lss_helper.printMissions = () => {
           document.lss_helper.printScene();
         };
         rightContainer.appendChild(checkmark);
+      }
+
+      const listElement = document.getElementById('mission_' + m.data.id);
+      if (listElement) {
+        ['unattended', 'attended', 'finishing'].forEach((state) => {
+          if (m[state]) {
+            if (settings['show_mission_' + state] || (m.hasAlert && settings['show_mission_' + state + '_alert'])) {
+              listElement.classList.remove('hidden');
+            } else {
+              listElement.classList.add('hidden');
+            }
+          }
+        });
       }
     });
 };
