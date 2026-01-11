@@ -163,8 +163,10 @@ document.lss_helper.printMissions = () => {
         ['unattended', 'attended', 'finishing'].forEach((state) => {
           if (m[state]) {
             if (settings['show_mission_' + state] || (m.hasAlert && settings['show_mission_' + state + '_alert'])) {
+              listElement.classList.add('block');
               listElement.classList.remove('hidden');
             } else {
+              listElement.classList.remove('block');
               listElement.classList.add('hidden');
             }
           }

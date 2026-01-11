@@ -10,6 +10,8 @@
 }
 
 .hidden { display: none }
+.block { display: block }
+.missionSideBarEntry { display: none }
 
 #lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }
 #lss_helper_container #lss_helper_missions .sendVehicles {}

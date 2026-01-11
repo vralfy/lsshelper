@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202601-11-01
+// @version      202601-11-02
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202601-11-01',
+        version: '202601-11-02',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -153,7 +153,10 @@
                 if (!btn) {
                     return;
                 }
-                if (Array.from(btn.classList).indexOf('btn-success') < 0) {
+                const show = document.lss_helper.getSetting('show_mission_' + s, 'false') || document.lss_helper.getSetting('show_mission_' + s + '_alert', 'false');
+                if (show && Array.from(btn.classList).indexOf('btn-success') < 0) {
+                    btn.click();
+                } else if (!show && Array.from(btn.classList).indexOf('btn-success') >= 0) {
                     btn.click();
                 }
             });

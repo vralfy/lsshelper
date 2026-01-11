@@ -72,7 +72,7 @@ document.lss_helper.info = (...args) => {
   return msg;
 };
 
-if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != '202601-11-01')) {
+if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != '202601-11-02')) {
   document.lss_helper.notifiedUpdate = true;
   const el = document.lss_helper.info('A new version of LSS-Helper is available! Please update.');
   el.id = 'lss_helper_notify_update' + Date.now();
