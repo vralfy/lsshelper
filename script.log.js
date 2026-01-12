@@ -93,7 +93,7 @@ if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || docu
   el.appendChild(btn);
 }
 
-if (document.lss_helper_distribution && !document.lss_helper_distribution.notifiedUpdate && (!document.lss_helper_distribution.version || document.lss_helper_distribution.version != '202601-12-01')) {
+if (document.lss_helper_distribution && !document.lss_helper_distribution.notifiedUpdate && (!document.lss_helper_distribution.version || document.lss_helper_distribution.version != '202601-12-02')) {
   document.lss_helper.notifiedUpdate = true;
   const el = document.lss_helper.info('A new version of LSS-Helper Distributionis available! Please update.');
   el.id = 'lss_helper_distributionnotify_update' + Date.now();

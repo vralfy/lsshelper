@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202601-12-01
+// @version      202601-12-02
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -18,7 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
-    version: '202601-12-01',
+    version: '202601-12-02',
     graph: {
       width: 1000,
       height: 800,
@@ -304,16 +304,21 @@
 
     if (document.lss_helper.getSetting('distribution_vehicle_position')) {
       const filter = document.lss_helper.getSetting('distribution_vehicle_position_filter');
-      p5.stroke(255, 0, 0);
       p5.fill(255, 0, 0, 25);
+      p5.strokeWeight(3);
       document.lss_helper.vehicles
         .filter((v) => types.indexOf(v.type) >= 0 || !filter)
         .forEach((v) => {
           const cV = document.lss_helper_distribution.coord(v);
           const cB = document.lss_helper_distribution.coord(v.building);
+          p5.stroke(255, 0, 0);
           p5.line(cV.x, cV.y, cB.x, cB.y);
+          p5.stroke(255, 0, 0);
           p5.circle(cV.x, cV.y, 5);
+          p5.stroke(0, 0, 255);
+          p5.circle(cB.x, cB.y, 10);
         });
+      p5.strokeWeight(1);
     }
 
     if (document.lss_helper.getSetting('distribution_mission') && document.lss_helper.missionDetails) {
