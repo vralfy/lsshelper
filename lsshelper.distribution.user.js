@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202506-22-01
+// @version      202601-12-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -18,6 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
+    version: '202601-12-01',
     graph: {
       width: 1000,
       height: 800,
@@ -94,7 +95,11 @@
     const container = document.getElementById('lss_helper_addon_distribution');
     const settingsContainer = 'lss_helper_addon_distribution_settings';
     container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
+
     document.lss_helper.printSettingsButton('distribution', 'Verteilungsgraph', 'col-sm-12');
+    document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
+
+    document.lss_helper.printSettingsDivider('Gebäude', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_all_names', 'Alle Gebaeudenamen', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_building', 'Alle Gebaeude', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_leitstelle', 'Verteilung Leitstelle', null, settingsContainer);
@@ -107,9 +112,11 @@
     document.lss_helper.printSettingsButton('distribution_bepo', 'Verteilung Bereitschaftspolizei', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_school', 'Verteilung Schulen', null, settingsContainer);
 
-    document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
-    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12', settingsContainer);
-    document.lss_helper.printSettingsButton('distribution_mission', 'Einsatz', null, settingsContainer);
+    document.lss_helper.printSettingsDivider('Fahrzeuge', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-4', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_vehicle_position', 'aktuelle Fahrzeugposition', 'col-sm-3', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_vehicle_position_filter', 'nach Typ filtern', 'col-sm-3', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_mission', 'Einsatz', 'col-sm-2', settingsContainer);
 
     if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
       setTimeout(() => { document.lss_helper_distribution.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
@@ -285,11 +292,29 @@
 
     p5.stroke(0, 0, 0);
     p5.fill(255, 0, 0, 25);
+    const availableOnly = !document.lss_helper.getSetting('distribution_available_only');
     document.lss_helper_distribution.delaunay(
       document.lss_helper.vehicles
         .filter((v) => types.indexOf(v.type) >= 0)
-        .filter((v) => v.available || !document.lss_helper.getSetting('distribution_available_only'))
+        .filter((v) => v.available || availableOnly)
+        .map((v) => {
+            return {...v, lat: v.building.lat, lng: v.building.lng}
+        })
     );
+
+    if (document.lss_helper.getSetting('distribution_vehicle_position')) {
+      const filter = document.lss_helper.getSetting('distribution_vehicle_position_filter');
+      p5.stroke(255, 0, 0);
+      p5.fill(255, 0, 0, 25);
+      document.lss_helper.vehicles
+        .filter((v) => types.indexOf(v.type) >= 0 || !filter)
+        .forEach((v) => {
+          const cV = document.lss_helper_distribution.coord(v);
+          const cB = document.lss_helper_distribution.coord(v.building);
+          p5.line(cV.x, cV.y, cB.x, cB.y);
+          p5.circle(cV.x, cV.y, 5);
+        });
+    }
 
     if (document.lss_helper.getSetting('distribution_mission') && document.lss_helper.missionDetails) {
       p5.stroke(0, 0, 0);

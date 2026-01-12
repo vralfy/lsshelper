@@ -92,3 +92,24 @@ if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || docu
   };
   el.appendChild(btn);
 }
+
+if (document.lss_helper_distribution && !document.lss_helper_distribution.notifiedUpdate && (!document.lss_helper_distribution.version || document.lss_helper_distribution.version != '202601-12-01')) {
+  document.lss_helper.notifiedUpdate = true;
+  const el = document.lss_helper.info('A new version of LSS-Helper Distributionis available! Please update.');
+  el.id = 'lss_helper_distributionnotify_update' + Date.now();
+  el.style.color = 'rgba(0, 0, 0, 0.8)';
+  el.style.background = 'rgba(50, 255, 50, 0.8)';
+  el.style.border = '1px solid rgba(50, 255, 50, 1)';
+  el.style.padding = '10px';
+  el.style.pointerEvents = 'auto';
+  const btn = document.createElement('a');
+  btn.innerHTML = 'Update now';
+  btn.style.marginLeft = '10px';
+  btn.classList = 'btn btn-default btn-xs';
+  btn.href = 'https://github.com/vralfy/lsshelper/raw/refs/heads/' + document.lss_helper.getSetting('channel', '"master"') + '/lsshelper.distribution.user.js';
+  btn.target = '_blank';
+  btn.onclick = () => {
+    document.getElementById(el.id)?.remove();
+  };
+  el.appendChild(btn);
+}
