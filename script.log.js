@@ -14,6 +14,11 @@ document.lss_helper_versions = {
       version: '2025-08-25',
       file: 'lsshelper.easteregg.user.js',
     },
+    'lss_helper_directsend': {
+      name: 'LSS-Helper Direct Send Fix',
+      version: '202508-29-01',
+      file: 'lsshelper.directsend.user.js',
+    },
 };
 
 document.lss_helper.debug = (...args) => {

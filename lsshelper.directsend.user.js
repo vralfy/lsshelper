@@ -12,14 +12,16 @@
 (function () {
     'use strict';
 
-    document.lss_helper = document.lss_helper || {};
+    document.lss_helper_directsend = {
+        version: '202508-29-01',
+    };
 
-    document.lss_helper.getLinks = () => {
+    document.lss_helper_directsend.getLinks = () => {
         return Array.from(document.getElementsByClassName('btn-xs')).filter((btn) => btn.href && btn.href.indexOf('vehicles') > 0 && btn.href.indexOf('next_mission=1&return=mission_new&sd=a&sk=cr') > 0);
     };
 
-    document.lss_helper.directSend = () => {
-        const btns = document.lss_helper.getLinks();
+    document.lss_helper_directsend.directSend = () => {
+        const btns = document.lss_helper_directsend.getLinks();
         btns.forEach((btn, idx) => setTimeout(() => {
             console.log(idx, btn);
             const header = { method: 'GET', cache: "no-cache" };
@@ -31,7 +33,7 @@
         }, idx * 200));
     }
 
-    document.lss_helper.createContainer = () => {
+    document.lss_helper_directsend.createContainer = () => {
         var container = document.getElementById('lss_helper_direct_send');
         if (!container) {
             container = document.createElement("div");
@@ -42,15 +44,15 @@
         }
 
         var btn = document.getElementById('lss_helper_direct_send_btn');
-        if (!btn && document.lss_helper.getLinks().length) {
+        if (!btn && document.lss_helper_directsend.getLinks().length) {
             btn = document.createElement("button");
             btn.id = 'lss_helper_direct_send_btn';
             btn.innerText = 'Send Direct';
             btn.classList = 'btn btn-primary';
-            btn.addEventListener('click', document.lss_helper.directSend);
+            btn.addEventListener('click', document.lss_helper_directsend.directSend);
             container.appendChild(btn);
         }
     };
 
-    document.lss_helper.createContainer();
+    document.lss_helper_directsend.createContainer();
 })();
