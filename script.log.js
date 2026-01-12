@@ -11,7 +11,7 @@ document.lss_helper_versions = {
     },
     'lss_helper_easteregg': {
       name: 'LSS-Helper Easter Egg',
-      version: '2025-08-25',
+      version: '202601-12-01',
       file: 'lsshelper.easteregg.user.js',
     },
     'lss_helper_directsend': {

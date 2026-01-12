@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leitstellenspiel - EasterEgg
 // @namespace    http://tampermonkey.net/
-// @version      2025-08-25
+// @version      202601-12-01
 // @description  This script tries to find easter eggs and collect them
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
   'use strict';
   document.lss_helper_easteregg = {
-    version: '2025-08-25',
+    version: '202601-12-01',
   };
 
   document.lss_helper_easteregg.init = () => {
@@ -24,6 +24,9 @@
     }
 
     document.lss_helper.setDefaultSetting('easteregg_interval', '60000');
+
+    document.lss_helper.printSettingsDivider('EasterEgg Settings');
+    document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
     document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
 
     let btn = document.createElement("div");
@@ -35,7 +38,7 @@
       document.lss_helper_easteregg.search(true);
     };
 
-    setTimeout(() => {document.lss_helper_easteregg.search()}, 10000);
+    setTimeout(() => { document.lss_helper_easteregg.search() }, 1000);
   };
 
   document.lss_helper_easteregg.claim = (mission, html) => {
@@ -55,9 +58,17 @@
   };
 
   document.lss_helper_easteregg.search = (force) => {
+    if (!force && !document.lss_helper.getSetting('easteregg_enable')) {
+      setTimeout(() => { document.lss_helper_easteregg.search(); }, 1000);
+      return;
+    }
+
     const msg = document.lss_helper.info('Looking for EasterEggs');
     document.lss_helper.missions.forEach((m, idx) => {
       setTimeout(() => {
+        if (!document.lss_helper.getSetting('easteregg_enable')) {
+          return;
+        }
         //document.lss_helper.log(idx, 'EasterEgg search for', m);
         if (msg) {
           msg.id = 'lss_helper_easteregg_' + idx;
@@ -84,11 +95,14 @@
     }
 
     if (!force) {
-      setTimeout(() => { document.lss_helper_easteregg.search(); }, document.lss_helper.getSetting('easteregg_interval', '60000') || 60000);
+      setTimeout(
+        () => { document.lss_helper_easteregg.search(); },
+        (document.lss_helper.missions.length + 2) * 500 + (document.lss_helper.getSetting('easteregg_interval', '60000') || 60000)
+      );
     }
   };
 
-    setTimeout(() => {
-        document.lss_helper_easteregg.init();
-    }, 2000);
+  setTimeout(() => {
+    document.lss_helper_easteregg.init();
+  }, 2000);
 })();
