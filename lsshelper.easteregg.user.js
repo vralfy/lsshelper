@@ -28,16 +28,19 @@
       document.lss_helper.printSettingsDivider('EasterEgg Settings');
       document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
       document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
+      let btn = document.getElementById('lss_helper_easteregg_btn');
+      if (!btn) {
+        document.lss_helper_easteregg.init();
+        btn = document.createElement("div");
+        btn.id = "lss_helper_easteregg_btn";
+        btn.classList = "col-sm-6 btn btn-xs btn-default";
+        btn.innerHTML = "Search for EasterEgg now";
+        settingsContainer.appendChild(btn);
+        btn.onclick = () => {
+          document.lss_helper_easteregg.search(true);
+        };
+      }
     }, document.lss_helper.getSetting('updateInterval', '1000'));
-
-    let btn = document.createElement("div");
-    btn.id = "lss_helper_easteregg_btn";
-    btn.classList = "col-sm-12 btn btn-xs btn-default";
-    btn.innerHTML = "EasterEgg";
-    settingsContainer.appendChild(btn);
-    btn.onclick = () => {
-      document.lss_helper_easteregg.search(true);
-    };
 
     setTimeout(() => { document.lss_helper_easteregg.search() }, 1000);
   };
