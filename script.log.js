@@ -1,47 +1,47 @@
 document.lss_helper_versions = {
-    'lss_helper': {
-      name: 'LSS-Helper',
-      version: '202601-12-01',
-      file: 'lsshelper.user.js',
-    },
-    'lss_helper_distribution': {
-      name: 'LSS-Helper Distribution',
-      version: '202601-12-04',
-      file: 'lsshelper.distribution.user.js',
-    },
-    'lss_helper_easteregg': {
-      name: 'LSS-Helper Easter Egg',
-      version: '202601-12-02',
-      file: 'lsshelper.easteregg.user.js',
-    },
-    'lss_helper_directsend': {
-      name: 'LSS-Helper Direct Send Fix',
-      version: '202508-29-01',
-      file: 'lsshelper.directsend.user.js',
-    },
+  'lss_helper': {
+    name: 'LSS-Helper',
+    version: '202601-12-01',
+    file: 'lsshelper.user.js',
+  },
+  'lss_helper_distribution': {
+    name: 'LSS-Helper Distribution',
+    version: '202601-12-04',
+    file: 'lsshelper.distribution.user.js',
+  },
+  'lss_helper_easteregg': {
+    name: 'LSS-Helper Easter Egg',
+    version: '202601-12-02',
+    file: 'lsshelper.easteregg.user.js',
+  },
+  'lss_helper_directsend': {
+    name: 'LSS-Helper Direct Send Fix',
+    version: '202508-29-01',
+    file: 'lsshelper.directsend.user.js',
+  },
 };
 
 document.lss_helper.debug = (...args) => {
   if (document.lss_helper.getSetting('loglevel', '550') >= 700) {
-      console.debug('[🐛 LSS Helper]', ...args);
+    console.debug('[🐛 LSS Helper]', ...args);
   }
 };
 
 document.lss_helper.log = (...args) => {
   if (document.lss_helper.getSetting('loglevel', '550') >= 600) {
-      console.log('[ℹ️ LSS Helper]', ...args);
+    console.log('[ℹ️ LSS Helper]', ...args);
   }
 };
 
 document.lss_helper.warn = (...args) => {
   if (document.lss_helper.getSetting('loglevel', '550') >= 500) {
-      console.warn('[⚠️ LSS Helper]', ...args);
+    console.warn('[⚠️ LSS Helper]', ...args);
   }
 };
 
 document.lss_helper.error = (...args) => {
   if (document.lss_helper.getSetting('loglevel', '550') >= 400) {
-      console.error('[❌ LSS Helper]', ...args);
+    console.error('[❌ LSS Helper]', ...args);
   }
 };
 
@@ -49,7 +49,6 @@ document.lss_helper.info = (...args) => {
   let notifyContainer = document.getElementById("lss_helper_notify_container");
   if (!notifyContainer) {
     document.lss_helper.setDefaultSetting('notificationtimeout', '5000');
-    document.lss_helper.printSettingsNumberInput('notificationtimeout', 'Notification Timeout');
 
     notifyContainer = document.createElement("div");
     notifyContainer.id = "lss_helper_notify_container";
@@ -94,6 +93,12 @@ document.lss_helper.info = (...args) => {
   }, document.lss_helper.getSetting('notificationtimeout', '5000') || 5000);
   return msg;
 };
+
+document.lss_helper.notifactionSettingsInterval = document.lss_helper.notifactionSettingsInterval ??
+  setInterval(() => {
+    document.lss_helper.printSettingsDivider('Notifications');
+    document.lss_helper.printSettingsNumberInput('notificationtimeout', 'Notification Timeout');
+  }, document.lss_helper.getSetting('updateInterval', '1000'));
 
 Object.keys(document.lss_helper_versions).forEach((key) => {
   const script = document[key];
