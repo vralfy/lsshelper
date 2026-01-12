@@ -18,7 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
-    version: '202601-12-02',
+    version: '202601-12-03',
     graph: {
       width: 1000,
       height: 800,
@@ -41,6 +41,7 @@
     document.lss_helper.getSetting('distribution_firehouse', 'true');
     document.lss_helper.getSetting('distribution_police', 'false');
     document.lss_helper.getSetting('distribution_rescue', 'false');
+    document.lss_helper.getSetting('distribution_seg', 'false');
     document.lss_helper.getSetting('distribution_thw', 'false');
     document.lss_helper.getSetting('distribution_dlrg', 'false');
     document.lss_helper.getSetting('distribution_bepo', 'false');
@@ -245,6 +246,11 @@
       p5.stroke(255, 100, 100);
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "2")); // Rettungswache
+    }
+    if (document.lss_helper.getSetting('distribution_seg')) {
+      p5.stroke(255, 100, 100);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "12")); // Rettungswache
     }
     if (document.lss_helper.getSetting('distribution_hospital')) {
       p5.stroke(200, 100, 100);
