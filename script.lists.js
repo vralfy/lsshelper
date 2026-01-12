@@ -73,6 +73,15 @@ document.lss_helper.getVehiclesList = () => {
           lng: b.lng,
           marker,
         };
+      })
+      .map((vehicle) => {
+        if (!vehicle.marker) return vehicle;
+        if (vehicle.marker.latitude && vehicle.marker.longitude) {
+          vehicle.lat = vehicle.marker.latitude;
+          vehicle.lng = vehicle.marker.longitude;
+        }
+
+        return vehicle;
       });
   })
     .reduce((acc, cur) => [...acc, ...cur], [])
