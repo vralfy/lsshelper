@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202601-11-02
+// @version      202601-12-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202601-11-02',
+        version: '202601-12-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -168,10 +168,10 @@
     };
 
     document.lss_helper.loadVehiclesMap = () => {
-        if (document.lss_helper.vehiclesFetched) {
+        if (document.lss_helper.vehiclesFetched || document.lss_helper.vehiclesFetchRunning) {
             return;
         }
-
+        document.lss_helper.vehiclesFetchRunning = true;
         if (document.lss_helper.getSetting('scrollVehicles', 'true')) {
             const vehicleListElement = document.getElementById('building_panel_body');
             vehicleListElement.scrollTo(0, 0);
@@ -201,10 +201,10 @@
             fetch('/buildings/vehiclesMap', params)
                 .then((response) => response.text())
                 .then((json) => {
+                    document.lss_helper.vehiclesFetched = true;
                     eval(json);
                 });
         }
-        document.lss_helper.vehiclesFetched = true;
     };
 
     document.lss_helper.getBuildingsList = () => {

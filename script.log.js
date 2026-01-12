@@ -1,3 +1,8 @@
+document.lss_helper_versions = {
+    'lss_helper': '202601-12-01',
+    'lss_helper_distribution': '202601-12-02',
+};
+
 document.lss_helper.debug = (...args) => {
   if (document.lss_helper.getSetting('loglevel', '550') >= 700) {
       console.debug('[🐛 LSS Helper]', ...args);
@@ -72,7 +77,7 @@ document.lss_helper.info = (...args) => {
   return msg;
 };
 
-if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != '202601-11-02')) {
+if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || document.lss_helper.version != document.lss_helper_versions.lss_helper)) {
   document.lss_helper.notifiedUpdate = true;
   const el = document.lss_helper.info('A new version of LSS-Helper is available! Please update.');
   el.id = 'lss_helper_notify_update' + Date.now();
@@ -93,7 +98,7 @@ if (!document.lss_helper.notifiedUpdate && (!document.lss_helper.version || docu
   el.appendChild(btn);
 }
 
-if (document.lss_helper_distribution && !document.lss_helper_distribution.notifiedUpdate && (!document.lss_helper_distribution.version || document.lss_helper_distribution.version != '202601-12-02')) {
+if (document.lss_helper_distribution && !document.lss_helper_distribution.notifiedUpdate && (!document.lss_helper_distribution.version || document.lss_helper_distribution.version != document.lss_helper_versions.lss_helper_distribution)) {
   document.lss_helper.notifiedUpdate = true;
   const el = document.lss_helper.info('A new version of LSS-Helper Distributionis available! Please update.');
   el.id = 'lss_helper_distributionnotify_update' + Date.now();
