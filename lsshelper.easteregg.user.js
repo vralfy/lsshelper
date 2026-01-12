@@ -11,7 +11,9 @@
 
 (function () {
   'use strict';
-  document.lss_helper_easteregg = {};
+  document.lss_helper_easteregg = {
+    version: '2025-08-25',
+  };
 
   document.lss_helper_easteregg.init = () => {
     let settingsContainer = document.getElementById('lss_helper_settings');
