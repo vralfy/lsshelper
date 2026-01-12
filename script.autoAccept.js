@@ -86,6 +86,11 @@ document.lss_helper.autoAccept = (force) => {
     if (!force) {
         setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
     }
+
+    if (!force && !document.lss_helper.vehiclesFetched) {
+        return;
+    }
+
     const missionFrameOpen = Array.from(document.getElementById('lightbox_box').getElementsByTagName('iframe')).length > 0;
 
     if (!force && missionFrameOpen) {
