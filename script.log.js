@@ -6,7 +6,7 @@ document.lss_helper_versions = {
     },
     'lss_helper_distribution': {
       name: 'LSS-Helper Distribution',
-      version: '202601-12-03',
+      version: '202601-12-04',
       file: 'lsshelper.distribution.user.js',
     },
     'lss_helper_easteregg': {
