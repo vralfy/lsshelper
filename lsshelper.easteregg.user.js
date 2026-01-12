@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leitstellenspiel - EasterEgg
 // @namespace    http://tampermonkey.net/
-// @version      202601-12-01
+// @version      202601-12-02
 // @description  This script tries to find easter eggs and collect them
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
   'use strict';
   document.lss_helper_easteregg = {
-    version: '202601-12-01',
+    version: '202601-12-02',
   };
 
   document.lss_helper_easteregg.init = () => {
@@ -24,10 +24,11 @@
     }
 
     document.lss_helper.setDefaultSetting('easteregg_interval', '60000');
-
-    document.lss_helper.printSettingsDivider('EasterEgg Settings');
-    document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
-    document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
+    setInterval(() => {
+      document.lss_helper.printSettingsDivider('EasterEgg Settings');
+      document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
+      document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
+    }, document.lss_helper.getSetting('updateInterval', '1000'));
 
     let btn = document.createElement("div");
     btn.id = "lss_helper_easteregg_btn";
@@ -66,13 +67,13 @@
     const msg = document.lss_helper.info('Looking for EasterEggs');
     document.lss_helper.missions.forEach((m, idx) => {
       setTimeout(() => {
-        if (!document.lss_helper.getSetting('easteregg_enable')) {
-          return;
-        }
         //document.lss_helper.log(idx, 'EasterEgg search for', m);
         if (msg) {
           msg.id = 'lss_helper_easteregg_' + idx;
           msg.innerHTML = 'Looking for EasterEggs: ' + (idx + 1) + '/' + document.lss_helper.missions.length;
+        }
+        if (!document.lss_helper.getSetting('easteregg_enable')) {
+          return;
         }
         const header = { method: 'GET', cache: "no-cache" };
         const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
