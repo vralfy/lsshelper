@@ -39,9 +39,9 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
       Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distanceKm = radius * c; // Distance in km
-    const distanceDeg = Math.sqrt(diffLat * diffLat + diffLng * diffLng);
-    document.lss_helper.kmperdegree = distanceKm / distanceDeg;
-    return distanceKm;
+    const distanceDeg = diffLat * diffLat + diffLng * diffLng;
+    document.lss_helper.kmperdegree = distanceKm / Math.sqrt(distanceDeg);
+    return distanceDeg;
   }
 
   // We do not take the square root here for performance reasons
