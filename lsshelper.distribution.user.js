@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202601-13-01
+// @version      202601-13-02
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -18,7 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
-    version: '202601-13-01',
+    version: '202601-13-02',
     graph: {
       width: 1000,
       height: 800,
@@ -186,6 +186,9 @@
     if (!document.lss_helper_distribution.p5) {
       return;
     }
+    const p5 = document.lss_helper_distribution.p5;
+    p5.frameRate(1);
+
     if (!document.lss_helper.buildings || !document.lss_helper.buildings.length) {
       return;
     }
@@ -193,7 +196,7 @@
       return;
     }
 
-    const p5 = document.lss_helper_distribution.p5;
+    p5.frameRate(Math.ceil(1000.0/document.lss_helper.getSetting('updateInterval', '1000')));
     const graph = document.lss_helper_distribution.graph;
     p5.background(255);
 
@@ -314,19 +317,23 @@
 
     if (document.lss_helper.getSetting('distribution_vehicle_position')) {
       const filter = document.lss_helper.getSetting('distribution_vehicle_position_filter');
-      p5.fill(255, 0, 0, 25);
       p5.strokeWeight(3);
       document.lss_helper.vehicles
         .filter((v) => types.indexOf(v.type) >= 0 || !filter)
         .forEach((v) => {
           const cV = document.lss_helper_distribution.coord(v);
           const cB = document.lss_helper_distribution.coord(v.building);
-          p5.stroke(255, 0, 0);
+          const colorV = parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
+          const colorB = parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
+
+          p5.stroke(colorB >> 16 & 0xFF, colorB >> 8 & 0xFF, colorB && 0xFF);
+          p5.fill(colorB & 0xFF, colorB >> 8 & 0xFF, colorB >> 16 && 0xFF);
           p5.line(cV.x, cV.y, cB.x, cB.y);
-          p5.stroke(255, 0, 0);
-          p5.circle(cV.x, cV.y, 5);
-          p5.stroke(0, 0, 255);
           p5.circle(cB.x, cB.y, 10);
+
+          p5.stroke(colorV & 0xFF, colorV >> 8 & 0xFF, colorV >> 16 && 0xFF);
+          p5.fill(colorV >> 16 & 0xFF, colorV >> 8 & 0xFF, colorV && 0xFF);
+          p5.circle(cV.x, cV.y, 5);
         });
       p5.strokeWeight(1);
     }
