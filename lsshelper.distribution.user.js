@@ -35,6 +35,7 @@
     }
 
     document.lss_helper.getSetting('distribution_size', '1000');
+    document.lss_helper.getSetting('distribution_size_ratio', '1');
     document.lss_helper.getSetting('distribution_all_names', 'false');
     document.lss_helper.getSetting('distribution_building', 'false');
     document.lss_helper.getSetting('distribution_leitstelle', 'true');
@@ -99,6 +100,7 @@
 
     document.lss_helper.printSettingsButton('distribution', 'Verteilungsgraph', 'col-sm-12');
     document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
+    document.lss_helper.printSettingsNumberInput('distribution_size_ratio', 'Breitenratio', null, settingsContainer);
 
     document.lss_helper.printSettingsDivider('Gebäude', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_all_names', 'Alle Gebaeudenamen', null, settingsContainer);
@@ -149,6 +151,7 @@
     document.lss_helper_distribution.graph.width = document.getElementById('lss_helper_addon_distribution') ? document.getElementById('lss_helper_addon_distribution').clientWidth - 100 : document.lss_helper_distribution.graph.width;
     document.lss_helper_distribution.graph.width = Math.min(document.lss_helper_distribution.graph.width, document.lss_helper.getSetting('distribution_size', '1000'));
     document.lss_helper_distribution.graph.height = document.lss_helper_distribution.graph.width;
+    document.lss_helper_distribution.graph.width *= document.lss_helper.getSetting('distribution_size_ratio', '1');
     document.lss_helper_distribution.canvas = document.lss_helper_distribution.p5.createCanvas(document.lss_helper_distribution.graph.width, document.lss_helper_distribution.graph.height);
     document.lss_helper_distribution.canvas.parent('lss_helper_addon_distribution_container');
 
@@ -196,7 +199,7 @@
       return;
     }
 
-    p5.frameRate(Math.ceil(1000.0/document.lss_helper.getSetting('updateInterval', '1000')));
+    p5.frameRate(Math.ceil(1000.0 / document.lss_helper.getSetting('updateInterval', '1000')));
     const graph = document.lss_helper_distribution.graph;
     p5.background(255);
 
@@ -311,7 +314,7 @@
         .filter((v) => types.indexOf(v.type) >= 0)
         .filter((v) => v.available || availableOnly)
         .map((v) => {
-            return {...v, lat: v.building.lat, lng: v.building.lng}
+          return { ...v, lat: v.building.lat, lng: v.building.lng }
         })
     );
 
