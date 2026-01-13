@@ -88,7 +88,7 @@ document.lss_helper.printMissions = () => {
       const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? []) : [];
 
       if (needsVehicles) {
-        if (settings.show_mission_type && m.scene && vehiclesToSend) {
+        if (settings.show_mission_type && m.scene && vehiclesToSend && vehiclesToSend.length) {
           const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
           const btn2 = document.createElement('a');
           btn2.classList = 'btn btn-xs btn-default sendVehicles';
