@@ -132,7 +132,7 @@ document.lss_helper.printMissions = () => {
         if (settings.show_mission_max_distance && m.maxDistance) {
           const distanceSpan = document.createElement('span');
           distanceSpan.classList = 'mission_detail';
-          distanceSpan.innerHTML = (Math.round(m.maxDistance * 100) / 100) + 'km';
+          distanceSpan.innerHTML = (Math.round(document.lss_helper.helper.getDistanceInKm(m.maxDistance) * 100) / 100) + 'km';
           centerContainer.appendChild(distanceSpan);
         }
 

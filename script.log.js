@@ -1,7 +1,7 @@
 document.lss_helper_versions = {
   'lss_helper': {
     name: 'LSS-Helper',
-    version: '202601-12-01',
+    version: '202601-13-01',
     file: 'lsshelper.user.js',
   },
   'lss_helper_distribution': {

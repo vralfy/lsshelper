@@ -10,13 +10,13 @@ document.lss_helper.helper.hash = (str) => {
   str = str || JSON.stringify({ mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles });
   let hash = 0;
   if (!str.length) {
-      return 0;
+    return 0;
   }
 
   for (let i = 0; i < str.length; i++) {
-      let char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
+    let char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
   }
 
   return hash;
@@ -36,7 +36,7 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
     const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
     const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distanceKm = radius * c; // Distance in km
     const distanceDeg = Math.sqrt(diffLat * diffLat + diffLng * diffLng);
@@ -44,5 +44,14 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
     return distanceKm;
   }
 
-  return Math.sqrt(diffLat * diffLat + diffLng * diffLng) * (document.lss_helper.kmperdegree || 1);
+  // We do not take the square root here for performance reasons
+  return diffLat * diffLat + diffLng * diffLng;
 }
+
+document.lss_helper.helper.getDistanceInKm = (distance) => {
+  return Math.sqrt(distance) * (document.lss_helper.kmperdegree || 1);;
+}
+
+document.lss_helper.helper.getPrintableDistance = (obj1, obj2) => {
+  return document.lss_helper.helper.getDistanceInKm(document.lss_helper.helper.getDistance(obj1, obj2));
+};

@@ -109,7 +109,7 @@ document.lss_helper.autoAccept = (force) => {
             .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType))
             .filter((m) => !!m.maxDistance)
             .filter((m) => m.proposedVehiclesCount && m.proposedVehiclesCount <= maxUnits)
-            .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= m.maxDistance)
+            .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= document.lss_helper.helper.getDistanceInKm(m.maxDistance))
             .filter((m) => (now - (document.lss_helper.lastMissionSend[m.data.id] ?? 0)) > interval);
         if (missions.length < 1) {
             return;
