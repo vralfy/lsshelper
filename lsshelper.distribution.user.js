@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202601-12-04
+// @version      202601-13-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -18,7 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
-    version: '202601-12-04',
+    version: '202601-13-01',
     graph: {
       width: 1000,
       height: 800,
@@ -187,6 +187,9 @@
       return;
     }
     if (!document.lss_helper.buildings || !document.lss_helper.buildings.length) {
+      return;
+    }
+    if (!document.lss_helper.getSetting('distribution', 'false')) {
       return;
     }
 
