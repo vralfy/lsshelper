@@ -83,7 +83,9 @@ document.lss_helper.printMissions = () => {
       }
 
       const needsVehicles = !m.hasAlert && m.unattended;
-      const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? document.lss_helper.getVehiclesByMission(m, m.missionType)) : [];
+      // const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? document.lss_helper.getVehiclesByMission(m, m.missionType)) : [];
+      // This way is much more performant than the one above, as it avoids unnecessary distance calculations
+      const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? []) : [];
 
       if (needsVehicles) {
         if (settings.show_mission_type && m.scene && vehiclesToSend) {
