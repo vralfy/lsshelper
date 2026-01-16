@@ -267,6 +267,7 @@ document.lss_helper.getMissionsList = () => {
 
 document.lss_helper.getMissionStuck = () => {
   if (!document.lss_helper.getSetting('mission_stuck', 'false')) {
+    document.lss_helper.mission_stuck = [];
     return;
   }
 
