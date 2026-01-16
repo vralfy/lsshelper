@@ -15,8 +15,8 @@
 
 #lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }
 #lss_helper_container #lss_helper_missions .sendVehicles {}
-#lss_helper_container #lss_helper_missions { border: 1px solid #0000; }
-#lss_helper_container.sendVehicles #lss_helper_missions { border: 1px solid #f007; }
+#lss_helper_container #lss_helper_missions { border: 2px solid #0000; }
+#lss_helper_container.sendVehicles #lss_helper_missions { border: 2px solid #f00; }
 #lss_helper_container.sendVehicles #lss_helper_missions .sendVehicles { display: none }
 
 .lss_available, .lss_in_motion, .lss_unavailable {background: #505050;font-size:18px;padding:0 2px}

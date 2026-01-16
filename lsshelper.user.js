@@ -34,6 +34,7 @@
             { t: 636, s: 14.42 },
             { t: 370, s: 5.15 }
         ].map((o) => o.s / o.t).reduce((acc, cur) => acc + cur, 0) / 3,
+        sending_vehicles: false,
         scenes: {
             "X": { "LF": 2 },
             "lf1": { "LF": 1 },
