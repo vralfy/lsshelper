@@ -1,4 +1,11 @@
 document.lss_helper.printMissions = () => {
+  const main = document.lss_helper.getHelperContainer();
+  if (document.lss_helper.sending_vehicles || !document.lss_helper.lists_updated) {
+    main.classList = [...Array.from(main.classList), 'sendVehicles'].join(' ');
+  } else {
+    main.classList = Array.from(main.classList).filter((c) => c !== 'sendVehicles').join(' ');
+  }
+
   let missionsContainer = document.getElementById('lss_helper_missions');
   if (!missionsContainer) {
     missionsContainer = document.createElement("ul");

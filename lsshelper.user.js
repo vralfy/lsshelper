@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202601-13-01
+// @version      202601-16-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202601-13-01',
+        version: '202601-16-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -164,6 +164,7 @@
             });
 
         document.lss_helper.printSettings();
+        document.lss_helper.lists_updated = !document.lss_helper.sending_vehicles;
         if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
             setTimeout(() => { document.lss_helper.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
         }
@@ -640,9 +641,10 @@
     };
 
     document.lss_helper.sendVehicles = (missionid, vehicles) => {
-        const main = document.lss_helper.getHelperContainer();
-        main.classList = [...Array.from(main.classList), 'sendVehicles'].join(' ');
-
+        if (document.lss_helper.sending_vehicles || !document.lss_helper.lists_updated) {
+            document.lss_helper.debug('Sending vehicles is already in progress or lists not updated yet');
+            return;
+        }
         const url = "/missions/" + missionid + "/alarm";
         const body = {
             //utf8: "",
@@ -656,12 +658,14 @@
             ifs: "fi",
         };
 
+        document.lss_helper.sending_vehicles = true;
+        document.lss_helper.lists_updated = false;
         const vehicleids = vehicles.map((v) => new URLSearchParams('vehicle_ids[]') + v.id).join('&');
         fetch(url, { method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
             .then((response) => response.text())
             .then((json) => {
                 document.lss_helper.debug(json);
-                main.classList = Array.from(main.classList).filter((c) => c !== 'sendVehicles').join(' ');
+                document.lss_helper.sending_vehicles = false;
                 document.lss_helper.update(-1);
             })
     };
