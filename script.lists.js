@@ -302,3 +302,25 @@ document.lss_helper.getMissionStuck = () => {
 };
 
 document.lss_helper.getMissionStuckInterval = document.lss_helper.getMissionStuckInterval ?? setInterval(() => document.lss_helper.getMissionStuck(), document.lss_helper.getSetting('mission_stuck_interval', '180000'));
+
+document.lss_helper.neaWithoutTowingVehicle = () => {
+  document.lss_helper.vehicles
+    .filter((v) => ['110', '111', '112', '175'].includes(v.type))
+    .forEach((v, idx) => {
+      setTimeout(() => {
+        const header = { method: 'GET', cache: "no-cache" };
+        const url = 'https://www.leitstellenspiel.de/vehicles/' + v.id + '/edit';
+        fetch(url, header)
+          .then((r) => r.text())
+          .then((r) => {
+            const checkbox = new DOMParser().parseFromString(r, 'text/html').getElementById('vehicle_tractive_random');
+            if (checkbox.checked) {
+              console.error('NEA without towing vehicle', v, v.building.name);
+            }
+          })
+          .catch((err) => {
+            document.lss_helper.error(err);
+          });
+      }, idx * 500);
+    });
+};
