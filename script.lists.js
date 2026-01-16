@@ -104,7 +104,7 @@ document.lss_helper.getMissionsList = () => {
         ...document.lss_helper.markerTrim,
         ...document.lss_helper.marker.missions[parseInt(missionId)],
       };
-      const stuck = document.lss_helper.mission_stuck.includes(parseInt(missionId));
+      const stuck = (document.lss_helper.mission_stuck ?? []).includes(parseInt(missionId));
       const isVerband = Array.from(m.getElementsByClassName('panel-success')).length > 0;
       return {
         id,
