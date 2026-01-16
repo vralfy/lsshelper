@@ -184,6 +184,7 @@ document.lss_helper.printSettings = () => {
   document.lss_helper.printSettingsButton('show_mission_lf1');
   document.lss_helper.printSettingsButton('show_mission_lf2');
   document.lss_helper.printSettingsButton('mission_verband');
+  document.lss_helper.printSettingsButton('mission_stuck');
   document.lss_helper.printSettingsSelect('mission_sort', 'Sortierung', null, [
     { value: 'none', label: 'Standard' },
     { value: 'age', label: 'Alter' },

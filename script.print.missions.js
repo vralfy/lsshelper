@@ -60,6 +60,7 @@ document.lss_helper.printMissions = () => {
         m.unattended ? 'state_unattended' : '',
         m.hasAlert ? 'state_alert' : '',
         m.isVerband ? 'state_verband' : '',
+        m.stuck ? 'state_stuck' : '',
       ].join(' ');
       li.style = 'display:flex; flex-direction:row;justify-content:space-between;align-items:center;gap:10px';
       missionsContainer.appendChild(li);

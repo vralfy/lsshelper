@@ -104,6 +104,7 @@ document.lss_helper.getMissionsList = () => {
         ...document.lss_helper.markerTrim,
         ...document.lss_helper.marker.missions[parseInt(missionId)],
       };
+      const stuck = document.lss_helper.mission_stuck.includes(parseInt(missionId));
       const isVerband = Array.from(m.getElementsByClassName('panel-success')).length > 0;
       return {
         id,
@@ -124,6 +125,7 @@ document.lss_helper.getMissionsList = () => {
         origin: m,
         position,
         marker,
+        stuck,
       }
     })
     .map((m) => {
@@ -262,3 +264,40 @@ document.lss_helper.getMissionsList = () => {
     .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
     .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
 };
+
+document.lss_helper.getMissionStuck = () => {
+  if (!document.lss_helper.getSetting('mission_stuck', 'false')) {
+    return;
+  }
+
+  document.lss_helper.mission_stuck = document.lss_helper.mission_stuck || [];
+  document.lss_helper.mission_stuck = document.lss_helper.mission_stuck.filter((id) => {
+    return document.lss_helper.missions.filter((m) => m.attended && m.data.id === id).length < 0;
+  });
+
+  document.lss_helper.missions
+    .filter((m) => m.attended && !document.lss_helper.mission_stuck.includes(m.data.id))
+    .forEach((m, idx) => {
+      setTimeout(() => {
+        console.warn('Checking if mission is stuck', m.data.id);
+        const header = { method: 'GET', cache: "no-cache" };
+        const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+        fetch(url, header)
+          .then((r) => r.text())
+          .then((r) => {
+            if (r.indexOf('Diesen Einsatz direkt anfahren') > 0) {
+              console.warn('Mission is stuck', m);
+              document.lss_helper.mission_stuck.push(m.data.id);
+              console.warn(document.lss_helper.missions.filter((m) => document.lss_helper.mission_stuck.includes(m.data.id)));
+            } else {
+              document.lss_helper.mission_stuck = document.lss_helper.mission_stuck.filter((id) => id !== m.data.id);
+            }
+          })
+          .catch((err) => {
+            document.lss_helper.error(err);
+          });
+      }, idx * 500);
+    });
+};
+
+document.lss_helper.getMissionStuckInterval = document.lss_helper.getMissionStuckInterval ?? setInterval(() => document.lss_helper.getMissionStuck(), document.lss_helper.getSetting('mission_stuck_interval', '180000'));

@@ -27,6 +27,7 @@
 .state_unattended { color: #000; background: #f00 }
 .state_attended { color: #000; background: #ff0 }
 .state_verband { border: 1px solid #6a6; border-radius: 20px }
+.state_stuck { border: 5px solid #f00; background: #00f }
 
 #mission_general_info, #back_to_mission { text-align:right }
 .mission_detail {
