@@ -61,3 +61,27 @@ document.lss_helper.makeVerband = (mission) => {
         document.lss_helper.update(-1);
     })
 };
+
+// setInterval(() => document.lss_helper.makeGreenVerband(), 10 * 1000);
+
+document.lss_helper.neaWithoutTowingVehicle = () => {
+  document.lss_helper.vehicles
+    .filter((v) => ['110', '111', '112', '175'].includes(v.type))
+    .forEach((v, idx) => {
+      setTimeout(() => {
+        const header = { method: 'GET', cache: "no-cache" };
+        const url = 'https://www.leitstellenspiel.de/vehicles/' + v.id + '/edit';
+        fetch(url, header)
+          .then((r) => r.text())
+          .then((r) => {
+            const checkbox = new DOMParser().parseFromString(r, 'text/html').getElementById('vehicle_tractive_random');
+            if (checkbox.checked) {
+              console.error('NEA without towing vehicle', v, v.building.name);
+            }
+          })
+          .catch((err) => {
+            document.lss_helper.error(err);
+          });
+      }, idx * 500);
+    });
+};
