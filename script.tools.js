@@ -71,7 +71,12 @@ document.lss_helper.buyPoliceExtension = (extensionId, start, end) => document.l
 document.lss_helper.buyTHWExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '9', start, end);
 document.lss_helper.buySEGExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '12', start, end);
 
-document.lss_helper.makeFirebrigadeNeaExtensionsReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(14, '0', start, end);
+document.lss_helper.makeFirebrigadeExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '0', start, end);
+document.lss_helper.makePoliceExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '6', start, end);
+document.lss_helper.makeTHWExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '9', start, end);
+document.lss_helper.makeSEGExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '12', start, end);
+
+document.lss_helper.makeFirebrigadeNeaExtensionsReady = (extensionId, start, end) => document.lss_helper.makeFirebrigadeExtensionReady(14, start, end);
 
 document.lss_helper.makeGreenVerband = () => {
   document.lss_helper.missions.filter(m => m.finishing && !m.isVerband && m.missionType !== '147').forEach((m, idx) => {
@@ -108,9 +113,10 @@ document.lss_helper.makeVerband = (mission) => {
 
 // setInterval(() => document.lss_helper.makeGreenVerband(), 10 * 1000);
 
-document.lss_helper.neaWithoutTowingVehicle = () => {
+document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
+  vehicleIds = vehicleIds || ['110', '111', '112', '175'];
   document.lss_helper.vehicles
-    .filter((v) => ['110', '111', '112', '175'].includes(v.type))
+    .filter((v) => vehicleIds.includes(v.type))
     .forEach((v, idx) => {
       setTimeout(() => {
         const header = { method: 'GET', cache: "no-cache" };
@@ -129,3 +135,5 @@ document.lss_helper.neaWithoutTowingVehicle = () => {
       }, idx * 500);
     });
 };
+
+document.lss_helper.NEAWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['110', '111', '112', '175']);
