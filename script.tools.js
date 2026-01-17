@@ -24,10 +24,54 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
   });
 };
 
+document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end) => {
+  const header = {
+    method: 'POST',
+    cache: "no-cache",
+    headers: {
+      "Content-Type": "application/x-www-form-urlencoded",
+    },
+    body: encodeURI('_method=post&authenticity_token=' + document.lss_helper.authToken)
+  };
+  buildingType = buildingType || '0';
+  start = start || 0;
+  end = end || undefined;
+  document.lss_helper.buildings.filter(b => b.type === '0').slice(start, end).forEach((b, idx) => {
+    const buildingLink = 'https://www.leitstellenspiel.de/buildings/' + b.id;
+
+    //https://www.leitstellenspiel.de/buildings/23878175/extension_ready/14/23878175
+
+    setTimeout(() => {
+      fetch(buildingLink)
+        .then((response) => response.text())
+        .then((response) => {
+          const extensionReadyLink = '/buildings/' + b.id + '/extension_ready/' + extensionId + '/' + b.id;
+          const a = Array.from(new DOMParser().parseFromString(response, 'text/html').getElementsByTagName('a'))
+            .find(link => link.href.includes(extensionReadyLink));
+          console.log(b.name, a.innerHTML.includes('Einsatzbereit') && !a.innerHTML.includes('Nicht Einsatzbereit'));
+          if (response.includes(extensionReadyLink) && a.innerHTML.includes('Einsatzbereit') && !a.innerHTML.includes('Nicht Einsatzbereit')) {
+            const link = 'https://www.leitstellenspiel.de' + extensionReadyLink;
+            fetch(link, header)
+              .then((response) => response.text())
+              .then((response) => console.warn(b, extensionId))
+              .catch((err) => {
+                document.lss_helper.error(err);
+              });
+          }
+        })
+        .catch((err) => {
+          document.lss_helper.error(err);
+        });
+    }, idx * 1000);
+  });
+};
+
 document.lss_helper.buyFirebrigadeExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '0', start, end);
 document.lss_helper.buyPoliceExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '6', start, end);
 document.lss_helper.buyTHWExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '9', start, end);
 document.lss_helper.buySEGExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '12', start, end);
+
+document.lss_helper.makeFirebrigadeNeaExtensionsReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(14, '0', start, end);
 
 document.lss_helper.makeGreenVerband = () => {
   document.lss_helper.missions.filter(m => m.finishing && !m.isVerband && m.missionType !== '147').forEach((m, idx) => {
