@@ -500,6 +500,7 @@ document.lss_helper.scenes = {
   "608" : { "POL": 1 }, // Abgebrochener Notruf
   "609" : { "LF": 1, "GWH": 1, "RTW": 1 }, // Fensterputzer haengt in Gondel fest
   "610" : { "LF": 8, "GWA": 1, "GWG": 1, "GWM": 1, "POL": 6, "ELW": 3, "RTW": 2 }, // Gefahrgut-LKW in Brand
+  "611" : { "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "GEFKW": 1, "POL": 10, "RTW": 1 }, // Ausschreitungen verfeindeter Gruppen (Klein)
   "614" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
