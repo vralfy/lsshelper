@@ -432,6 +432,7 @@ document.lss_helper.scenes = {
   "511" : { "POL": 1 }, // herrenloses Gepaeckstück
   "512" : { "POL": 1 }, // herrenloses Gepaeckstück
   "513" : { "LF": 4, "RW": 2, "DLK": 2, "ELW": 1, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "POL": 2, "RTW": 1 }, // Hausdach eingestürzt
+  "514" : { "FUEKW": 1, "BEFKW": 3, "GRUKW": 9, "DOGPOL": 1 }, // Durchsuchung - Gebäudekomplex
   "517" : { "LF": 1 }, // Brennender Baum
   "518" : { "LF": 1 }, // Brennender Baum
   "519" : { "LF": 3, "POL": 1, "RW": 1, "ELW": 1, "RTW": 3, "NEF": 1 }, // Hüpfburgunfall
@@ -468,6 +469,7 @@ document.lss_helper.scenes = {
   "565" : { "FUEKW": 1, "MEK": 4, "POL": 4 }, // Zugriff bei Geldübergabe
   "566" : { "POL": 1 }, // Drogenhandel aufgeflogen
   "567" : { "POL": 1}, // Diebstahl auf Baustelle
+  "568" : { "POL": 10, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "POLH": 1, "GEFKW": 1, "DOGPOL": 1, "DOG": 1 }, // Ausbruch gefährlicher Personen aus geschlossenem Vollzug
   "569" : { "POL": 6, "SEK": 4, "FUEKW": 1, "RTW": 1 }, // Tankstellenüberfall - Eskaliert
   "570" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Wohnhaus
   "571" : { "LF": 4, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 2 }, // Dachstuhlbrand
