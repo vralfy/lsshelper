@@ -538,6 +538,7 @@ document.lss_helper.scenes = {
   "656" : { "SWP": 1, "GKW": 2 }, // Mehrere Keller unter Wasser
   "657" : { "SWP": 1, "GKW": 2, "POL": 2, "GWO": 1 }, // Tunnel unter Wasser (Klein)
   "658" : { "SWP": 2, "RW": 4, "LF": 4, "GKW": 2, "THWGWN": 1, "THWMTW": 1, "POL": 3, "ELW": 1, "SW": 1, "GWO": 1 }, // Tunnel unter Wasser (Groß)
+  "659" : { "LF": 25, "ELW": 4, "ELW2": 1, "DLK": 3, "SWP": 4, "RW": 4, "GKW": 5, "THWGWN": 5, "THWMTW": 5, "BEFKW": 3, "GRUKW": 9, "FUEKW": 1, "POLH": 1, "SW": 6, "POL": 8 }, // Dammbruch
   "660" : { "SWP": 1, "GKW": 1, "THWMTW": 1 }, // Bach droht über Ufer zu treten
   "661" : { "SWP": 1, "LF": 2, "SW": 1, "GKW": 1, "THWDLE": 1 }, // Gewässer gekippt (Klein)
   "662" : { "LF": 2, "SW": 2, "ELW": 2, "ELW2": 1, "GWM": 1, "SWP": 2, "GKW": 2, "THWMTW": 1, "THWDLE": 3}, // Gewässer gekippt (Groß)
