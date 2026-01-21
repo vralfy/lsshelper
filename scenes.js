@@ -726,6 +726,7 @@ document.lss_helper.scenes = {
   "935" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1}, // Herabstürzende Brückenteile
   "936" : { "LF": 5, "RW": 1, "ELW": 1, "SW": 1, "GWM": 1, "GWA": 1, "POL": 2, "RTW": 1 }, // Brand einer Gasstation
   "937" : { "LF": 3, "RW": 1, "SW": 1, "GWG": 1, "DROHNE": 1 }, // Bauernhof steht unter Wasser
+  "938" : { "LF": 1, "RTW": 1 }, // Person in Großgehege
   "942" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Tragwerkssicherung
   "943" : { "LF": 15, "RW": 2, "DLK": 3, "ELW": 2, "ELW2": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4, "RTW": 10 }, // Brennendes Spukschloss
   "944" : { "LF": 2, "GWM": 1, "GWG": 1, "DEKONP": 1, "ELW": 1, "RTW": 1}, // Chemieunfall beim Zaubertrank-Brauen
