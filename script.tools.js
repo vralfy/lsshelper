@@ -115,8 +115,11 @@ document.lss_helper.makeVerband = (mission) => {
 
 document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
   vehicleIds = vehicleIds || ['110', '111', '112', '175'];
-  document.lss_helper.vehicles
-    .filter((v) => vehicleIds.includes(v.type))
+  const vehiclesToCheck = document.lss_helper.vehicles
+    .filter((v) => v.status === '2' || v.status === '6')
+    .filter((v) => vehicleIds.includes(v.type));
+  console.error('Checking', vehiclesToCheck.length, 'vehicles of types', vehicleIds, 'for towing vehicle');
+  vehiclesToCheck
     .forEach((v, idx) => {
       setTimeout(() => {
         const header = { method: 'GET', cache: "no-cache" };
@@ -125,8 +128,10 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
           .then((r) => r.text())
           .then((r) => {
             const checkbox = new DOMParser().parseFromString(r, 'text/html').getElementById('vehicle_tractive_random');
-            if (checkbox.checked) {
-              console.error('NEA without towing vehicle', v, v.building.name);
+            if (!checkbox) {
+              console.error('no checkbox found for vehicle', v, v.building.name);
+            } else if (checkbox.checked) {
+              console.error('vehicle without towing vehicle', v, v.building.name);
             }
           })
           .catch((err) => {
@@ -136,4 +141,5 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
     });
 };
 
+document.lss_helper.THWWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178']);
 document.lss_helper.NEAWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['110', '111', '112', '175']);
