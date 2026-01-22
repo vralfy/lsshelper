@@ -245,7 +245,7 @@
         if (!container) {
             container = document.createElement("div");
             container.id = 'lss_helper';
-            container.classList = 'col-sm-8 overview_outer bigMapWindow';
+            container.classList = 'col-sm-12 col-md-8 overview_outer bigMapWindow';
             const buildings = document.getElementById('buildings_outer');
             buildings.insertAdjacentElement('afterend', container);
         }

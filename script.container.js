@@ -6,7 +6,7 @@ document.lss_helper.getHelperContainer = () => {
         buildings.insertAdjacentElement('afterend', container);
     }
     container.id = 'lss_helper';
-    container.classList = 'col-sm-8 overview_outer bigMapWindow';
+    container.classList = 'col-sm-12 col-md-8 overview_outer bigMapWindow';
     var innerContainer = document.getElementById('lss_helper_container');
     if (!innerContainer) {
         const panel = document.createElement('div');
