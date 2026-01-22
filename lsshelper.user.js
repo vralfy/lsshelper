@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202601-16-01',
+        version: '202601-22-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
