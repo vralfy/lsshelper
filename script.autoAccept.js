@@ -19,26 +19,20 @@ document.lss_helper.getResendMissions = () => {
         }
       });
 
-      resendGroupsScene['rescue'] = m.info?.patients?.innerText
-        .split("\n")
-        .filter(t => t.indexOf('Wir benötigen') >= 0)
-        .map(t => t.startsWith('Wir') ? '1x ' + t : t)
-        .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
-        .map(t => t.match(/([0-9]+)x (.*)/))
-        .filter(t => !!t)
-        .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }))
-        .map(mg => ({ ...mg, vehicles: mg.vehicles.filter(v => ['NEF', 'RTW', 'RTH'].indexOf(v) >= 0) }))
-        .filter(mg => mg.vehicles.length > 0)
-        .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
-      // ['NEF', 'RTW', 'RTH'].forEach((vt) => {
-      // const vtk = vt.toUpperCase();
-      // const rsg = 'rescue';
-      // if (m.info?.patients?.innerText.indexOf(' ' + vt) >= 0) {
-      //     resendGroups[rsg] = (resendGroups[rsg] || []);
-      //     resendGroups[rsg].push({ scene: vtk, count: 1 });
-      //     delete m.resendScene[vtk];
-      // }
-      // });
+      const patientsInfo = m.info?.patients?.innerText
+          .split("\n")
+          .filter(t => t.indexOf('Wir benötigen') >= 0)
+          .map(t => t.startsWith('Wir') ? '1x ' + t : t)
+          .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
+          .map(t => t.match(/([0-9]+)x (.*)/))
+          .filter(t => !!t)
+          .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }));
+      [['NEF'], ['RTW'], ['RTH']].forEach((vt) => {
+        resendGroupsScene['rescue' + vt.join('-')] = patientsInfo
+          .map(mg => ({ ...mg, vehicles: mg.vehicles.filter(v => vt.indexOf(v) >= 0) }))
+          .filter(mg => mg.vehicles.length > 0)
+          .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
+      });
 
       if (missing.indexOf('l. Wasser') > 0) {
         resendGroups['water'] = [{ scene: 'RESENDWATER', count: 1 }];
