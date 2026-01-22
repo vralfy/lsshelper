@@ -93,21 +93,21 @@ document.lss_helper.makeVerband = (mission) => {
 
   const url = "/missions/" + mission.missionId + "/alarm";
   const body = {
-      //utf8: "",
-      authenticity_token: document.lss_helper.authToken,
-      next_mission: 0,
-      next_mission_id: 0,
-      alliance_mission_publish: 1,
-      sk: "cr",
-      sd: "a",
-      ifs: "at_fi",
+    //utf8: "",
+    authenticity_token: document.lss_helper.authToken,
+    next_mission: 0,
+    next_mission_id: 0,
+    alliance_mission_publish: 1,
+    sk: "cr",
+    sd: "a",
+    ifs: "at_fi",
   };
   console.warn("Making mission " + mission.missionId + " a verband mission.", body);
   fetch(url, { method: 'POST', body: new URLSearchParams(body), headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
     .then((response) => response.text())
     .then((json) => {
-        document.lss_helper.debug(json);
-        document.lss_helper.update(-1);
+      document.lss_helper.debug(json);
+      document.lss_helper.update(-1);
     })
 };
 

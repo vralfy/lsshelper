@@ -1,11 +1,11 @@
 document.lss_helper.updateStyle = () => {
   let style = document.getElementById('lss_helper_style');
   if (!style) {
-      style = document.createElement('link');
-      style.id = 'lss_helper_style';
-      style.rel = 'stylesheet';
-      style.type = 'text/css';
-      document.getElementsByTagName('head')[0].appendChild(style);
+    style = document.createElement('link');
+    style.id = 'lss_helper_style';
+    style.rel = 'stylesheet';
+    style.type = 'text/css';
+    document.getElementsByTagName('head')[0].appendChild(style);
   }
 
   const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
@@ -25,7 +25,8 @@ document.lss_helper.updateStyle = () => {
       return response;
     })
     .catch((err) => {
-        document.lss_helper.error(err);
+      document.lss_helper.error(err);
     });
 };
+
 document.lss_helper.updateStyle();

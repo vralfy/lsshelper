@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202601-16-01
+// @version      202601-22-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -602,9 +602,9 @@
             return null;
         }
 
-        const countLNA = document.lss_helper.vehicles.filter(v => v.type === '55').filter(v => v.available).length;
-        const countORGL = document.lss_helper.vehicles.filter(v => v.type === '56').filter(v => v.available).length;
-        const countELW = document.lss_helper.vehicles.filter(v => v.type === '59').filter(v => v.available).length;
+        const countLNA = ((document.lss_helper.vehiclesByType ?? {})[55] ?? []).filter(v => v.available).length;
+        const countORGL = ((document.lss_helper.vehiclesByType ?? {})[56] ?? []).filter(v => v.available).length;
+        const countELW = ((document.lss_helper.vehiclesByType ?? {})[59] ?? []).filter(v => v.available).length;
 
         if (scene['RTW'] && mission.patients) {
             if (mission.patients > document.lss_helper.getSetting('maxRTW', 10) && countELW) {

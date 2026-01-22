@@ -4,10 +4,10 @@ if (!document.lss_helper.helper) {
 
 document.lss_helper.helper.formatNumber = (arg) => {
   return arg.toString().padStart(2, '0');
-}
+};
 
 document.lss_helper.helper.hash = (str) => {
-  str = str || JSON.stringify({ mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles });
+  str = str || JSON.stringify({ mission: document.lss_helper.missionsSimple, vehicles: document.lss_helper.vehiclesSimple });
   let hash = 0;
   if (!str.length) {
     return 0;
@@ -23,10 +23,14 @@ document.lss_helper.helper.hash = (str) => {
 };
 
 document.lss_helper.helper.getDistance = (obj1, obj2) => {
-  const diffLat = Math.abs((obj1.lat ?? 0) - (obj2.lat ?? 0));
-  const diffLng = Math.abs((obj1.lng ?? 0) - (obj2.lng ?? 0));
+  const diffLat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
+  const diffLng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
   const distanceDeg = diffLat * diffLat + diffLng * diffLng;
-  document.lss_helper.useExactDistance = document.lss_helper.useExactDistance === undefined ? document.lss_helper.getSetting('exactDistance') : document.lss_helper.useExactDistance;
+
+  if (document.lss_helper.useExactDistance === undefined) {
+    document.lss_helper.useExactDistance = document.lss_helper.getSetting('exactDistance');
+  }
+
   if (document.lss_helper.useExactDistance || !document.lss_helper.kmperdegree) {
     // const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
     // const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
@@ -46,11 +50,11 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
 
   // We do not take the square root here for performance reasons
   return distanceDeg;
-}
+};
 
 document.lss_helper.helper.getDistanceInKm = (distance) => {
   return Math.sqrt(distance) * (document.lss_helper.kmperdegree || 1);;
-}
+};
 
 document.lss_helper.helper.getPrintableDistance = (obj1, obj2) => {
   return document.lss_helper.helper.getDistanceInKm(document.lss_helper.helper.getDistance(obj1, obj2));

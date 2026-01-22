@@ -26,10 +26,10 @@ document.lss_helper.functions = document.lss_helper.functions || {
   // 'radioMessage',
   // 'vehicleDrive',
 ]
-.filter(f => !document.lss_helper.functions.original[f])
-.forEach((f) => {
-  document.lss_helper.functions.create(f);
-});
+  .filter(f => !document.lss_helper.functions.original[f])
+  .forEach((f) => {
+    document.lss_helper.functions.create(f);
+  });
 
 document.lss_helper.marker = document.lss_helper.marker || {
   buildings: {},
