@@ -116,7 +116,6 @@ document.lss_helper.makeVerband = (mission) => {
 document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
   vehicleIds = vehicleIds || ['110', '111', '112', '175'];
   const vehiclesToCheck = document.lss_helper.vehicles
-    .filter((v) => v.status === '2' || v.status === '6')
     .filter((v) => vehicleIds.includes(v.type));
   console.error('Checking', vehiclesToCheck.length, 'vehicles of types', vehicleIds, 'for towing vehicle');
   vehiclesToCheck
@@ -131,7 +130,11 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
             if (!checkbox) {
               console.error('no checkbox found for vehicle', v, v.building.name);
             } else if (checkbox.checked) {
-              console.error('vehicle without towing vehicle', v, v.building.name);
+              if (v.status === '2' || v.status === '6') {
+                console.warn('vehicle without towing vehicle', v, v.building.name);
+              } else {
+                console.error('vehicle without towing vehicle', v, v.building.name);
+              }
             }
           })
           .catch((err) => {
@@ -141,5 +144,6 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
     });
 };
 
+document.lss_helper.SEGWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['70', '132', '174', '175']);
 document.lss_helper.THWWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178']);
 document.lss_helper.NEAWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['110', '111', '112', '175']);
