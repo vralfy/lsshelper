@@ -133,13 +133,15 @@
             return;
         }
         document.lss_helper.debug('LSS Helper Update', timeout);
-        document.lss_helper.updateLists(-1);
-        if (document.lss_helper.helper.hash() !== document.lss_helper.renderHash) {
-            document.lss_helper.printVehicleList();
-            document.lss_helper.printMissions();
-            document.lss_helper.printMissingVehicles();
-            document.lss_helper.printScene();
-            document.lss_helper.renderHash = document.lss_helper.helper.hash();
+        if (!document.lss_helper.sending_vehicles) {
+            document.lss_helper.updateLists(-1);
+            if (document.lss_helper.helper.hash() !== document.lss_helper.renderHash) {
+                document.lss_helper.printVehicleList();
+                document.lss_helper.printMissions();
+                document.lss_helper.printMissingVehicles();
+                document.lss_helper.printScene();
+                document.lss_helper.renderHash = document.lss_helper.helper.hash();
+            }
         }
 
         ['map', 'missions', 'buildings', 'chat', 'radio']
