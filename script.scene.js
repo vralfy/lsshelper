@@ -36,6 +36,7 @@ document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, debug) =
   const sortKey = 'time';
 
   document.lss_helper.vehicleIgnoreDistance = document.lss_helper.vehicleIgnoreDistance ?? [];
+  document.lss_helper.vehicleMultiplyDistance = document.lss_helper.vehicleMultiplyDistance ?? {};
 
   if (document.lss_helper.getSetting('optimize_scene')) {
     let available = document.lss_helper.vehicles
@@ -48,9 +49,10 @@ document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, debug) =
             ...v,
           };
         }
+        const mult = document.lss_helper.vehicleMultiplyDistance[v.type] ?? 1;
         return {
-          distance: document.lss_helper.helper.getDistance(mission, v),
-          time: vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
+          distance: mult * document.lss_helper.helper.getDistance(mission, v),
+          time: mult * vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
           ...v,
         };
       })
@@ -92,9 +94,10 @@ document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, debug) =
           ...v,
         };
       }
+      const mult = document.lss_helper.vehicleMultiplyDistance[v.type] ?? 1;
       return {
-        distance: document.lss_helper.helper.getDistance(mission, v),
-        time: vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
+        distance: mult * document.lss_helper.helper.getDistance(mission, v),
+        time: mult * vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
         ...v,
       };
     })
