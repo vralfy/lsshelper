@@ -2,9 +2,12 @@ document.lss_helper.lastMissionSend = document.lss_helper.lastMissionSend || {};
 document.lss_helper.lastMissionResend = document.lss_helper.lastMissionResend || {};
 
 document.lss_helper.getResendMissions = () => {
+  const interval = document.lss_helper.getSetting('autoResendIntervalTimeout', '300000');
+
   return document.lss_helper.missions
     .filter((m) => m.unattended && m.hasAlert)
     .filter((m) => m.type !== 'sicherheitswache')
+    .filter((m) => (now - (document.lss_helper.lastMissionResend[m.data.id] ?? 0)) > interval)
     .map((m) => {
       const resendGroups = {};
       const resendGroupsScene = {};
@@ -93,7 +96,11 @@ document.lss_helper.enrichResendMission = (m, resendGroups, resendGroupsScene) =
 
 document.lss_helper.autoAccept = (force) => {
   const now = new Date().getTime();
-  const interval = document.lss_helper.getSetting('autoAcceptInterval', '300000');
+  const interval = document.lss_helper.getSetting('autoAcceptIntervalTimeout', '300000');
+  document.lss_helper.lastMissionSend = document.lss_helper.lastMissionSend || {};
+  Object.keys(document.lss_helper.lastMissionSend || {})
+    .filter((k) => (now - document.lss_helper.lastMissionSend[k]) > interval)
+    .forEach((k) => { delete document.lss_helper.lastMissionSend[k]; });
 
   if (!force) {
     setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
@@ -143,7 +150,12 @@ document.lss_helper.autoAccept = (force) => {
 
 document.lss_helper.autoResend = (force) => {
   const now = new Date().getTime();
-  const interval = document.lss_helper.getSetting('autoResendInterval', '300000');
+  const interval = document.lss_helper.getSetting('autoResendIntervalTimeout', '300000');
+  document.lss_helper.lastMissionResend = document.lss_helper.lastMissionResend || {};
+  Object.keys(document.lss_helper.lastMissionResend || {})
+    .filter((k) => (now - document.lss_helper.lastMissionResend[k]) > interval)
+    .forEach((k) => { delete document.lss_helper.lastMissionResend[k]; });
+
   const missions = document.lss_helper
     .getResendMissions()
     .filter((m) => (m.resendGroupsVehicles ?? []).length || (m.resendVehicles ?? []).length)
