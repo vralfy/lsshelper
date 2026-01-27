@@ -150,6 +150,7 @@ document.lss_helper.getMissionsList = () => {
     })
     .map((m) => {
       return {
+        paused: (document.lss_helper.lastMissionResend || {})[m.data.id] > 0 || (document.lss_helper.lastMissionSend || {})[m.data.id] > 0,
         stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
         scene: document.lss_helper.getScene(m.missionType),
         info: {
