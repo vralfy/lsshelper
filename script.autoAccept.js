@@ -3,7 +3,7 @@ document.lss_helper.lastMissionResend = document.lss_helper.lastMissionResend ||
 
 document.lss_helper.getResendMissions = () => {
   const interval = document.lss_helper.getSetting('autoResendIntervalTimeout', '300000');
-
+  const now = new Date().getTime();
   return document.lss_helper.missions
     .filter((m) => m.unattended && m.hasAlert)
     .filter((m) => m.type !== 'sicherheitswache')
@@ -95,8 +95,8 @@ document.lss_helper.enrichResendMission = (m, resendGroups, resendGroupsScene) =
 };
 
 document.lss_helper.autoAccept = (force) => {
-  const now = new Date().getTime();
   const interval = document.lss_helper.getSetting('autoAcceptIntervalTimeout', '300000');
+  const now = new Date().getTime();
   document.lss_helper.lastMissionSend = document.lss_helper.lastMissionSend || {};
   Object.keys(document.lss_helper.lastMissionSend || {})
     .filter((k) => (now - document.lss_helper.lastMissionSend[k]) > interval)
@@ -149,8 +149,8 @@ document.lss_helper.autoAccept = (force) => {
 };
 
 document.lss_helper.autoResend = (force) => {
-  const now = new Date().getTime();
   const interval = document.lss_helper.getSetting('autoResendIntervalTimeout', '300000');
+  const now = new Date().getTime();
   document.lss_helper.lastMissionResend = document.lss_helper.lastMissionResend || {};
   Object.keys(document.lss_helper.lastMissionResend || {})
     .filter((k) => (now - document.lss_helper.lastMissionResend[k]) > interval)
