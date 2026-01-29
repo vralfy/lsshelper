@@ -304,7 +304,7 @@ document.lss_helper.getMissionStuck = () => {
     .filter((m) => m.attended && !document.lss_helper.mission_stuck.includes(m.data.id))
     .forEach((m, idx) => {
       setTimeout(() => {
-        console.warn('Checking if mission is stuck', m.data.id);
+        document.lss_helper.debug('Checking if mission is stuck', m.data.id);
         const header = { method: 'GET', cache: "no-cache" };
         const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
         fetch(url, header)
