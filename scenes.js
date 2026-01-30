@@ -730,6 +730,7 @@ document.lss_helper.scenes = {
   "914" : { "LF": 12, "DLK": 3, "ELW": 4, "ELW2": 1, "GWM": 2, "GWA": 2, "GWG": 1, "DEKONP": 1, "SW": 2, "RW": 3, "POL": 8, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "AAOTHWR": 1, "SLF": 1 }, // Brand in Düngemittellager
   "915" : { "LF": 2, "RW": 1, "ELW": 1, "POL": 1, "RTW": 1 }, // Verletzte Person in verlassenem Gebäude
   "916" : { "LF": 6, "ELW": 2, "DLK": 2, "RW": 1, "SW": 1, "GWH": 1, "POL": 4, "RTW": 1 }, // Brand auf alten Frabrikgelände
+  "917" : { "POL": 1, "DOG": 1, "WAWE": 1, "LAUKW": 1 }, // Jahrestag vergessen
   "918" : { "LF": 2, "DLK": 1 }, // Unterstützung bei Feuerwehr-Heiratsantrag
   "919" : { "LF": 10, "ELW": 3, "ELW2": 1, "DLK": 3, "RW": 2, "POL": 5, "RTW": 5, "NEF": 1 }, // Großfeuer durch umgefallene Kerzen
   "920" : { "POL": 1, "RTW": 1, "NEF": 1 }, // Vergiftete Pralinen
