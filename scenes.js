@@ -660,6 +660,7 @@ document.lss_helper.scenes = {
   "789" : { "POL": 1 }, // Kinder werfen Schneebälle auf Menschen und Häuser
   "790" : { "LF": 2 }, // Unfall bei der Zubereitung des Valentinsmenüs
   "791" : { "LF": 2 }, // Brennender Valentins-Strauß
+  "792" : { "LF": 1 }, // Feuer beim Candlelight-Dinner
   "793" : { "LF": 1 }, // Tier auf Eisfläche gefangen
   "794" : { "POL": 1 }, // Unbefugtes Betreten einer Eisfläche
   "795" : { "RTW": 1, "BOAT": 1 }, // Absicherung Eisbaden
