@@ -129,7 +129,7 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
             countInProgress = (countInProgress && countInProgress.length > 1) ? parseInt(countInProgress[1], 10) : 0;
             countDone = (countDone && countDone.length > 1) ? parseInt(countDone[1], 10) : 0;
             count = countInProgress + countDone;
-            const lg = ((options[educationId].required ?? 0) <= count) ? console.log : console.warn;
+            const lg = ((options[educationId].required ?? 0) <= count) ? console.debug : console.warn;
             lg(
               'Checked education', school.name, building.name, options[educationId].name,
               'in progress:', countInProgress, 'done:', countDone, 'total:', count,
