@@ -497,10 +497,15 @@ document.lss_helper.scenes = {
   "594" : { "LF": 15, "ELW": 2, "ELW2": 1, "DLK": 2, "POL": 6, "GWA": 1, "RW": 1, "THWMTW": 1, "GKW": 1, "THWGWN": 1, "RTW": 1, "NEF": 1 }, //Brand in Schule
   "595" : { "RTW": 1, "NEF": 1 }, // Person von Blitz getroffen
   "596" : { "LF": 3, "RW": 2, "ELW": 1, "POL": 4, "RTW": 2, "NEF": 1 }, // Verkehrsunfall (Personen eingeklemmt)
+  "597" : { "RTW": 2 }, // Paar hat zu viel Schokolade gegessen
   "598" : { "RTW": 1 }, // Schmetterlinge im Bauch
   "599" : { "RTW": 1 }, // Schock durch Heiratsantrag
+  "600" : { "RTW": 2 }, // Gebrochenes Herz
   "601" : { "LF": 5, "DLK": 1, "ELW": 1 }, // Valentinsdekoration in Restaurant brennt
   "602" : { "LF": 1, "RTW": 2 }, // Feuer durch Abendessen bei Kerzenlicht
+  "603" : { "POL": 2 }, // Suche nach nicht vorhandenem Partner
+  "604" : { "POL": 1 }, // Lärmbeschwerde wegen streitendem Paar
+  "605" : { "POL": 2 }, // Herz gestohlen
   "606" : { "LF": 25, "RW": 2, "ELW": 5, "ELW2": 1, "DLK": 5, "GWM": 3, "GWA": 3, "SW": 1, "POL": 8, "GKW": 3, "THWMTW": 3, "AAOTHWR": 2, "THWGWN": 3, "RTW": 10 }, // Brennender Bahnhof
   "607" : { "POL": 1}, // Verkehrserziehung an Schule
   "608" : { "POL": 1 }, // Abgebrochener Notruf
