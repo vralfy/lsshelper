@@ -651,6 +651,7 @@ document.lss_helper.scenes = {
   "787" : { "LF": 2 }, // Lagerfeuer setzt Holzschuppen in Brand
   "788" : { "POL": 2 }, // Schlägerei auf zugefrorenem See
   "789" : { "POL": 1 }, // Kinder werfen Schneebälle auf Menschen und Häuser
+  "791" : { "LF": 2 }, // Brennender Valentins-Strauß
   "793" : { "LF": 1 }, // Tier auf Eisfläche gefangen
   "794" : { "POL": 1 }, // Unbefugtes Betreten einer Eisfläche
   "795" : { "RTW": 1, "BOAT": 1 }, // Absicherung Eisbaden
