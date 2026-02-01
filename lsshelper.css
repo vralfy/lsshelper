@@ -26,10 +26,14 @@
 .lss_call { color: '#f00'; }
 
 .state_finishing { color: #000; background: #0f0 }
+.state_finishing:hover { color: #000; background: #5f5 }
 .state_unattended { color: #000; background: #f00 }
+.state_unattended:hover { color: #000; background: #f55 }
 .state_attended { color: #000; background: #ff0 }
+.state_attended:hover { color: #000; background: #ff5 }
 .state_verband { border: 1px solid #6a6; border-radius: 20px }
 .state_stuck { border: 5px solid #f00; background: #00f }
+.state_stuck:hover { border: 5px solid #f00; background: #55f }
 
 #mission_general_info, #back_to_mission { text-align:right }
 .mission_detail {
