@@ -85,7 +85,7 @@ document.lss_helper.vehicleTypes = {
   "83": "🚒🏭 Werkfeuerwehr GW",
   "84": "🚒🏭 Werkfeuerwehr ULF",
   "85": "🚒🏭 Werkfeuerwehr TM50",
-  "86": "🚒🏭 Werkfeuerwehr Turboloescher",
+  "86": "🚒🏭 Werkfeuerwehr Turbolöscher",
   "87": "🚒💧 TLF 4000",
   "88": "🚒 KLF",
   "89": "🚒 MLF",

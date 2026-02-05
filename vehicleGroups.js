@@ -17,6 +17,11 @@ document.lss_helper.vehicleGroups = {
   "FWK": [57],
   "DEKONP": [53],
 
+  "GWW": [83],
+  "ULF": [84],
+  "TELE": [85],
+  "TURBO": [86],
+
   "RTH": [31, 157],
   "RTW": [28],
   "NEF": [29, 74],
