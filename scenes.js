@@ -463,6 +463,7 @@ document.lss_helper.scenes = {
   "552" : { "LF": 8, "ELW": 2, "RW": 2, "DLK": 2, "GWA": 1, "GWM": 1, "SW": 2, "POL": 2, "RTW": 2, "NEF": 1 }, // Brand in Reifenlager
   "553" : { "RTW": 1, "NEF": 1 }, // Veraetzung
   "554" : { "POL": 2 }, // Einbruch in Wohnhaus
+  "555" : { "LF": 10, "GWA": 2, "RW": 2, "GWG": 1, "GWM": 2, "DEKONP": 1, "GWW": 1, "ULF": 1, "ELW": 2, "POL": 4, "RTW": 6 }, // Phosphorsäureaustritt
   "557" : { "LF": 4, "ELW": 1, "RW": 2, "GWO": 1, "POL": 5, "RTW": 4, "NEF": 1 }, // Schwerer Verkehrsunfall
   "558" : { "LF": 8, "RW": 1, "DLK": 1, "ELW": 2, "POL": 4, "RTW": 10, "NEF": 1}, // Brennende Bühne
   "561" : { "RTW": 1 }, // Fremdkörper in Wunde
@@ -517,7 +518,8 @@ document.lss_helper.scenes = {
   "615" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "616" : { "POL": 2 }, // Unbefugtes Betreten einer Gleisanlage
   "617" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "ELW": 1, "LF": 4, "FWK": 1, "POL": 2, "RTW": 1 }, // Güterzug entgleist
-  "619" : {"LF": 10, "ELW": 2, "ELW2": 1, "DLK": 1, "RW": 2, "GWO": 1, "BOAT": 4, "TAUCHER": 2, "POL": 7, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 10 }, // Havariertes Flussfahrtschiff
+  "619" : { "LF": 10, "ELW": 2, "ELW2": 1, "DLK": 1, "RW": 2, "GWO": 1, "BOAT": 4, "TAUCHER": 2, "POL": 7, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 10 }, // Havariertes Flussfahrtschiff
+  "620" : { "LF": 12, "GWA": 1, "RW": 1, "GWG": 1, "GWM": 1, "DEKONP": 1, "GWW": 1, "ULF": 1, "ELW": 1, "POL": 2, "RTW": 4, "NEF": 1 }, // Säurebehälter beschädigt
   "622" : { "RTW": 1 }, // Allergischer Schock
   "623" : { "LF": 3, "ELW": 1, "RW": 2, "DLK": 1, "GWH": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 2 }, // Baugerüst eingestürzt
   "624" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "GWO": 1,  "POL": 8, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "RTW": 5, "NEF": 5 }, // Zusammenstoß zweier Busse
