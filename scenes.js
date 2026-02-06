@@ -763,5 +763,7 @@ document.lss_helper.scenes = {
   "957" : { "LF": 1 }, // Unterstützung Geschenkelieferung
   "958" : { "LF": 1 }, // Weihnachtsgans im Ofen vergessen
   "959" : { "LF": 1, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 1, "RTW": 1 }, // Verletzte Person auf Kühlturm
+  "962" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Brennender Blumenladen
+  "963" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
 }
 // https://www.leitstellenspiel.de/einsaetze/0
