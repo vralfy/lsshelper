@@ -355,6 +355,7 @@ document.lss_helper.scenes = {
   "394" : { "LF": 5, "ELW": 1, "RW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // LKW auf Stauende
   "397" : { "RTW": 1 }, //Schnittwunde
   "400" : { "LF": 7, "ELW": 2, "ELW2": 1, "RW": 1, "GWW": 1, "TELE": 1, "ULF": 1, "GWA": 1 }, // Brand in Lackiererei
+  "409" : { "LF": 2 }, // Brennender LKW
   "411" : { "LF": 6, "DLK": 1, "RW": 2, "ELW": 2, "ELW2": 1, "GWH": 1, "POL": 2, "POLH": 1, "GKW": 2, "RTW": 1, "NEF": 1 }, // Heißluftballon in Hochspannungsmast
   "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
   "416" : { "RTW": 1 }, // Jäger stuerzt von Hochsitz
