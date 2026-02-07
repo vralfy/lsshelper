@@ -348,6 +348,7 @@ document.lss_helper.scenes = {
   "382" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "383" : { "POL": 1, "RTW": 1 }, // Kind in PKW eingeschlossen
   "384" : { "LF": 2 }, // Brennende Ballenpresse
+  "388" : { "LF": 5, "DLK": 1, "RW": 1, "ELW": 1 }, // Feuer in Verwaltungsgebäude
   "391" : { "RTW": 1 }, // Vergiftung
   "392" : { "LF": 2, "ELW": 1, "RW": 1, "RTW": 1 }, // Person durch Hubmaschine eingeklemmt
   "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "GKW": 1 }, // Einsturzgefährdeter Balkon
