@@ -348,6 +348,7 @@ document.lss_helper.scenes = {
   "382" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "383" : { "POL": 1, "RTW": 1 }, // Kind in PKW eingeschlossen
   "384" : { "LF": 2 }, // Brennende Ballenpresse
+  "387" : { "LF": 8, "GWM": 1, "GWG": 1, "ELW": 1, "GWA": 1, "GWW": 1, "TELE": 1, "TURBO": 1, "ULF": 1, "RTW": 1 }, // Brennende Pipeline-Isolierung
   "388" : { "LF": 5, "DLK": 1, "RW": 1, "ELW": 1 }, // Feuer in Verwaltungsgebäude
   "391" : { "RTW": 1 }, // Vergiftung
   "392" : { "LF": 2, "ELW": 1, "RW": 1, "RTW": 1 }, // Person durch Hubmaschine eingeklemmt
@@ -357,6 +358,7 @@ document.lss_helper.scenes = {
   "400" : { "LF": 7, "ELW": 2, "ELW2": 1, "RW": 1, "GWW": 1, "TELE": 1, "ULF": 1, "GWA": 1 }, // Brand in Lackiererei
   "409" : { "LF": 2 }, // Brennender LKW
   "411" : { "LF": 6, "DLK": 1, "RW": 2, "ELW": 2, "ELW2": 1, "GWH": 1, "POL": 2, "POLH": 1, "GKW": 2, "RTW": 1, "NEF": 1 }, // Heißluftballon in Hochspannungsmast
+  "412" : { "LF": 6, "RW": 1, "ELW": 1, "GWW": 1, "ULF": 1, "TELE": 1 }, // Verpuffung
   "415" : { "POL": 1, "RTW": 1 }, // Jäger verletzt durch Schuss
   "416" : { "RTW": 1 }, // Jäger stuerzt von Hochsitz
   "417" : { "RTW": 1 }, // Jäger durch Wildtier verletzt
