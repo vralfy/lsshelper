@@ -16,6 +16,8 @@ document.lss_helper.vehicleResend = {
   'GW-Öl': 'GWO',
   'Dekon-P': 'DEKONP',
 
+  'ULF mit Löscharm': 'ULF',
+
   'RTW': 'RTW',
   'RTW oder KTW oder KTW-B': 'RTW',
   'GW-San': 'GWSAN',
@@ -52,6 +54,7 @@ document.lss_helper.vehicleResend = {
   'Anh FüLa': '146',
 
   'MTW-TeSi': '173',
+  'GW-TeSi': '174',
   'Anh TeSi': '174',
 
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
