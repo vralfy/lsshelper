@@ -16,6 +16,8 @@ document.lss_helper.vehicleResend = {
   'GW-Öl': 'GWO',
   'Dekon-P': 'DEKONP',
 
+  'Teleskopmast': 'TELE',
+  'Turbolöscher': 'TURBO',
   'ULF mit Löscharm': 'ULF',
 
   'RTW': 'RTW',
