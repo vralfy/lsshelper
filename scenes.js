@@ -660,6 +660,7 @@ document.lss_helper.scenes = {
   "779" : { "LF": 8, "ULF": 1, "GWA": 1, "ELW": 3, "GWG": 1, "GWM": 1, "POL": 6, "RTW": 1 }, // Gefahrgut-LKW in Brand
   "780" : { "RTW": 1 }, // Treppensturz
   "781" : { "LF": 2, "ELW": 1, "POL": 1 }, // Gartenschuppenbrand
+  "782" : { "LF": 4, "RW": 2, "ELW": 2, "DLK": 1, "GWM": 1, "GWG": 1, "GWO": 1, "GWW": 1, "ULF": 1, "POL": 2, "RTW": 2 }, // Tankstellenbrand
   "783" : { "LF": 2, "DLK": 1, "ELW": 1 }, // Brennende Weihnachtsdekoration
   "784" : { "POL": 1 }, // Gestohlener Weihnachtsbaum
   "785" : { "POL": 3 }, // Diebstahl von Weihnachtsgeschenken in Einkaufszentrum
