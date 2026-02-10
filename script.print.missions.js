@@ -103,7 +103,8 @@ document.lss_helper.printMissions = () => {
           btn2.innerHTML = '🚨' + document.lss_helper.helper.formatNumber(vehiclesCount);
           btn2.onclick = () => { document.lss_helper.sendByScene(m) };
           leftContainer.appendChild(btn2);
-        } else {
+        }
+        if (true) {
           if (settings.show_mission_lf1 && document.lss_helper.getVehiclesByMission(m, 'lf1')) {
             const btn = document.createElement('a');
             btn.classList = 'btn btn-xs btn-default sendLf1';
@@ -111,11 +112,11 @@ document.lss_helper.printMissions = () => {
             btn.onclick = () => { document.lss_helper.sendByScene(m, 'lf1') };
             leftContainer.appendChild(btn);
           }
-          if (settings.show_mission_lf2 && document.lss_helper.getVehiclesByMission(m)) {
+          if (settings.show_mission_lf2 && document.lss_helper.getVehiclesByMission(m, 'lf2')) {
             const btn2 = document.createElement('a');
             btn2.classList = 'btn btn-xs btn-default sendLf2';
             btn2.innerHTML = '🚒🚒';
-            btn2.onclick = () => { document.lss_helper.sendByScene(m) };
+            btn2.onclick = () => { document.lss_helper.sendByScene(m, 'lf2') };
             leftContainer.appendChild(btn2);
           }
         }

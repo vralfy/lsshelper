@@ -1,4 +1,6 @@
 document.lss_helper.scenes = {
+  "lf1" : { "LF": 1 },
+  "lf2" : { "LF": 2 },
   "0" : { "LF": 1 }, // Mülleimerbrand
   "1" : { "LF": 1, "POL": 1 }, // Brennender Abfallcontainer
   "2" : { "LF": 1 }, // Brennender PKW
