@@ -1,3 +1,8 @@
+document.lss_helper.scenesDefault = document.lss_helper.scenesDefault || {
+  'lf1': '🚒',
+  'lf2': '🚒🚒',
+};
+
 document.lss_helper.printMissions = () => {
   const main = document.lss_helper.getHelperContainer();
   if (document.lss_helper.sending_vehicles || !document.lss_helper.lists_updated) {
@@ -104,22 +109,16 @@ document.lss_helper.printMissions = () => {
           btn2.onclick = () => { document.lss_helper.sendByScene(m) };
           leftContainer.appendChild(btn2);
         }
-        if (true) {
-          if (settings.show_mission_lf1 && document.lss_helper.getVehiclesByMission(m, 'lf1')) {
+
+        Object.keys(document.lss_helper.scenesDefault)
+          .filter((sceneKey) => settings['show_mission_' + sceneKey] && document.lss_helper.getVehiclesByMission(m, sceneKey))
+          .forEach((sceneKey) => {
             const btn = document.createElement('a');
-            btn.classList = 'btn btn-xs btn-default sendLf1';
-            btn.innerHTML = '🚒';
-            btn.onclick = () => { document.lss_helper.sendByScene(m, 'lf1') };
+            btn.classList = 'btn btn-xs btn-default sendVehicles send' + sceneKey;
+            btn.innerHTML = document.lss_helper.scenesDefault[sceneKey];
+            btn.onclick = () => { document.lss_helper.sendByScene(m, sceneKey) };
             leftContainer.appendChild(btn);
-          }
-          if (settings.show_mission_lf2 && document.lss_helper.getVehiclesByMission(m, 'lf2')) {
-            const btn2 = document.createElement('a');
-            btn2.classList = 'btn btn-xs btn-default sendLf2';
-            btn2.innerHTML = '🚒🚒';
-            btn2.onclick = () => { document.lss_helper.sendByScene(m, 'lf2') };
-            leftContainer.appendChild(btn2);
-          }
-        }
+          });
       }
 
       if (settings.show_mission_credits) {

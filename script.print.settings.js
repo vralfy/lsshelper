@@ -181,8 +181,9 @@ document.lss_helper.printSettings = () => {
   document.lss_helper.printSettingsButton('show_mission_credits_rate');
   document.lss_helper.printSettingsButton('show_mission_max_distance');
   document.lss_helper.printSettingsButton('show_mission_type');
-  document.lss_helper.printSettingsButton('show_mission_lf1');
-  document.lss_helper.printSettingsButton('show_mission_lf2');
+  Object.keys(document.lss_helper.scenesDefault || {}).forEach((sceneKey) => {
+    document.lss_helper.printSettingsButton('show_mission_' + sceneKey, 'Szene ' + document.lss_helper.scenesDefault[sceneKey]);
+  });
   document.lss_helper.printSettingsButton('mission_verband');
   document.lss_helper.printSettingsButton('mission_stuck');
   document.lss_helper.printSettingsSelect('mission_sort', 'Sortierung', null, [
