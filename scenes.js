@@ -349,7 +349,7 @@ document.lss_helper.scenes = {
   "381" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "382" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "383" : { "POL": 1, "RTW": 1 }, // Kind in PKW eingeschlossen
-  "384" : { "LF": 2 }, // Brennende Ballenpresse<<<<<<< HEAD
+  "384" : { "LF": 2 }, // Brennende Ballenpresse
   "387" : { "LF": 8, "GWM": 1, "GWG": 1, "ELW": 1, "GWA": 1, "GWW": 1, "TELE": 1, "TURBO": 1, "ULF": 1, "RTW": 1 }, // Brennende Pipeline-Isolierung
   "388" : { "LF": 5, "DLK": 1, "RW": 1, "ELW": 1 }, // Feuer in Verwaltungsgebäude
   "389" : { "GWM": 1, "GWG": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "DEKONP": 1, "GWW": 1, "TELE": 1, "TURBO": 1, "ULF": 1, "LF": 16, "DLK": 4, "RW": 1, "POL": 3, "RTW": 3 }, // Brand in Chemiepark - Produktion
