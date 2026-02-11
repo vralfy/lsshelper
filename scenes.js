@@ -357,6 +357,7 @@ document.lss_helper.scenes = {
   "392" : { "LF": 2, "ELW": 1, "RW": 1, "RTW": 1 }, // Person durch Hubmaschine eingeklemmt
   "393" : { "LF": 2, "RW": 1, "ELW": 1, "DLK": 1, "POL": 1, "GKW": 1 }, // Einsturzgefährdeter Balkon
   "394" : { "LF": 5, "ELW": 1, "RW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // LKW auf Stauende
+  "396" : { "LF": 3, "RW": 1, "ELW": 1, "GWW": 1 }, // Maschinenbrand in Produktionshalle
   "397" : { "RTW": 1 }, //Schnittwunde
   "398" : { "LF": 4, "ELW": 1, "RW": 1, "GWW": 1, "TELE": 1 }, // Brennende Absauganlage
   "400" : { "LF": 7, "ELW": 2, "ELW2": 1, "RW": 1, "GWW": 1, "TELE": 1, "ULF": 1, "GWA": 1 }, // Brand in Lackiererei
