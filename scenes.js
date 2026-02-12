@@ -363,6 +363,7 @@ document.lss_helper.scenes = {
   "398" : { "LF": 4, "ELW": 1, "RW": 1, "GWW": 1, "TELE": 1 }, // Brennende Absauganlage
   "400" : { "LF": 7, "ELW": 2, "ELW2": 1, "RW": 1, "GWW": 1, "TELE": 1, "ULF": 1, "GWA": 1 }, // Brand in Lackiererei
   "409" : { "LF": 2 }, // Brennender LKW
+  "402" : { "LF": 1, "ULF": 1, "ELW": 1 }, // Brennender PKW
   "411" : { "LF": 6, "DLK": 1, "RW": 2, "ELW": 2, "ELW2": 1, "GWH": 1, "POL": 2, "POLH": 1, "GKW": 2, "RTW": 1, "NEF": 1 }, // Heißluftballon in Hochspannungsmast
   "412" : { "LF": 6, "RW": 1, "ELW": 1, "GWW": 1, "ULF": 1, "TELE": 1 }, // Verpuffung
   "414" : { "LF": 6, "RW": 1, "ELW": 1, "GWW": 1, "ULF": 1, "TELE": 1 }, // Verpuffung
@@ -422,6 +423,7 @@ document.lss_helper.scenes = {
   "480" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "481" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Flugzeugreifenplatzer
   "484" : { "LF": 3, "RW": 1, "ELW": 1, "POL": 2, "GWM": 2, "GWA": 1, "RTW": 1, "NEF": 1 }, // Transportunfall mit Strahler
+  "485" : { "LF": 4, "GWW": 1, "TELE": 1, "ULF": 2, "RW": 1, "ELW": 1, "POL": 2, "SW": 1 }, // Brand mehrerer E-Autos in Auslieferungshalle
   "486" : { "POLH": 1, "GRUKW": 3, "BEFKW": 1, "POL": 4 }, // Cannabisplantage entdeckt
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
   "491" : { "POL": 6, "LF": 3, "RW": 1, "ELW": 1, "RTW": 35 }, // Massenanfall an Erkrankten - Bahnhof (Regionalverkehr)
