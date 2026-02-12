@@ -23,6 +23,7 @@ document.lss_helper.vehicleResend = {
   'RTW': 'RTW',
   'RTW oder KTW oder KTW-B': 'RTW',
   'GW-San': 'GWSAN',
+  'ITW': 'ITW',
 
   'FuStW': 'POL',
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',

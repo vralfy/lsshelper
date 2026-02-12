@@ -30,6 +30,7 @@ document.lss_helper.vehicleGroups = {
   "ORGL": [56],
   "SEGELW": [59],
   "GWSAN": [60],
+  "ITW": [97],
 
   "POL": [32],
   "ZIV": [98],
