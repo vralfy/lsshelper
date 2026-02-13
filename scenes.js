@@ -618,6 +618,11 @@ document.lss_helper.scenes = {
   "707" : { "ELW": 1, "RW": 1, "LF": 2, "DLK": 1, "RTW": 2, "POL": 3 }, // Feier zum Tag des Notrufs 112
   "708" : { "ELW": 3, "RW": 1, "LF": 4, "DLK": 2, "RTW": 2, "GWG": 1, "SW": 1, "GWA": 1, "POL": 6 }, // Verleihung von Auszeichnungen am Tag des Notrufs 112
   "709" : { "LF": 4, "ELW": 1, "RW": 2, "POL": 4, "RTW": 6, "NEF": 1 }, // Bus in Haltestelle
+  "715" : { "RTW": 1 }, // Unfall beim Faschingsball
+  "716" : { "LF": 4, "ELW": 1, "POL": 2 }, // Sicherheitswache bei Prunksitzung
+  "717" : { "POL": 2 }, // Verbrecher versteckt sich bei Maskenball
+  "718" : { "LF": 1 }, // Brennendes Faschingskostüm
+  "719" : { "POL": 1 }, // Diebstahl von Kostümen
   "720" : { "LF": 1, "ELW": 4, "RW": 2, "ELW2": 2, "SW": 6, "GWA": 2, "GWM": 2, "POL": 6, "GKW": 2, "THWMTW": 1, "AAOTHWR": 3, "THWGWN": 1, "POLH": 1 }, // Großfeuer im Moor
   "721" : { "RTW": 1, "POL": 2 }, // randalierender Fluggast
   "722" : { "RTW": 1 }, // Allergische Reaktion auf Bienenstich
