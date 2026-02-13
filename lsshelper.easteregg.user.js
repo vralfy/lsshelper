@@ -24,7 +24,7 @@
     }
 
     document.lss_helper.setDefaultSetting('easteregg_interval', '60000');
-    setInterval(() => {
+    document.lss_helper_easteregg.intervalId = document.lss_helper_easteregg.intervalId || setInterval(() => {
       document.lss_helper.printSettingsDivider('EasterEgg Settings');
       document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
       document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
