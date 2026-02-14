@@ -350,6 +350,7 @@ document.lss_helper.scenes = {
   "382" : { "LF": 3, "ELW": 1, "RW": 1, "POL": 1 }, // PKW in Gleisbett
   "383" : { "POL": 1, "RTW": 1 }, // Kind in PKW eingeschlossen
   "384" : { "LF": 2 }, // Brennende Ballenpresse
+  "385" : { "LF": 4, "GWM": 1, "GWG": 1, "ELW2": 1, "ELW": 1, "GWA": 1, "GWO": 1, "GWW": 1, "TELE": 1 }, // Unfall beim Umpumpen von Flüssigkeiten
   "386" : { "GWM": 1, "GWG": 1, "ELW2": 1, "ELW": 2, "GWA": 1, "GWW": 1, "TELE": 1, "TURBO": 1, "ULF": 1, "LF": 5, "RTW": 4, "NEF": 1 }, // Ammoniakaustritt
   "387" : { "LF": 8, "GWM": 1, "GWG": 1, "ELW": 1, "GWA": 1, "GWW": 1, "TELE": 1, "TURBO": 1, "ULF": 1, "RTW": 1 }, // Brennende Pipeline-Isolierung
   "388" : { "LF": 5, "DLK": 1, "RW": 1, "ELW": 1 }, // Feuer in Verwaltungsgebäude
