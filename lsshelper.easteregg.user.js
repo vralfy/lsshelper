@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leitstellenspiel - EasterEgg
 // @namespace    http://tampermonkey.net/
-// @version      202601-12-02
+// @version      202602-14-01
 // @description  This script tries to find easter eggs and collect them
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -12,7 +12,8 @@
 (function () {
   'use strict';
   document.lss_helper_easteregg = {
-    version: '202601-12-02',
+    version: '202602-14-01',
+    initialized: false,
   };
 
   document.lss_helper_easteregg.init = () => {
@@ -24,25 +25,30 @@
     }
 
     document.lss_helper.setDefaultSetting('easteregg_interval', '60000');
-    document.lss_helper_easteregg.intervalId = document.lss_helper_easteregg.intervalId || setInterval(() => {
-      document.lss_helper.printSettingsDivider('EasterEgg Settings');
-      document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
-      document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
-      let btn = document.getElementById('lss_helper_easteregg_btn');
-      if (!btn) {
-        document.lss_helper_easteregg.init();
-        btn = document.createElement("div");
-        btn.id = "lss_helper_easteregg_btn";
-        btn.classList = "col-sm-6 btn btn-xs btn-default";
-        btn.innerHTML = "Search for EasterEgg now";
-        settingsContainer.appendChild(btn);
-        btn.onclick = () => {
-          document.lss_helper_easteregg.search(true);
-        };
-      }
-    }, document.lss_helper.getSetting('updateInterval', '1000'));
+    document.lss_helper_easteregg.intervalId = document.lss_helper_easteregg.intervalId || setInterval(() => document.lss_helper_easteregg.updateSettings(), document.lss_helper.getSetting('updateInterval', '1000'));
+    if (!document.lss_helper_easteregg.initialized) {
+      setTimeout(() => { document.lss_helper_easteregg.search() }, 1000);
+    }
+    document.lss_helper_easteregg.initialized = true;
+  };
 
-    setTimeout(() => { document.lss_helper_easteregg.search() }, 1000);
+  document.lss_helper_easteregg.updateSettings = () => {
+    let settingsContainer = document.getElementById('lss_helper_settings');
+    document.lss_helper.printSettingsDivider('EasterEgg Settings');
+    document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
+    document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
+    let btn = document.getElementById('lss_helper_easteregg_btn');
+    if (!btn) {
+      document.lss_helper_easteregg.init();
+      btn = document.createElement("div");
+      btn.id = "lss_helper_easteregg_btn";
+      btn.classList = "col-sm-6 btn btn-xs btn-default";
+      btn.innerHTML = "Search for EasterEgg now";
+      settingsContainer.appendChild(btn);
+    }
+    btn.onclick = () => {
+      document.lss_helper_easteregg.search(true);
+    };
   };
 
   document.lss_helper_easteregg.claim = (mission, html) => {
