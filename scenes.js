@@ -386,6 +386,7 @@ document.lss_helper.scenes = {
   "431" : { "RTW": 1 }, // Kreislaufkollaps
   "432" : { "LF": 2, "ELW": 1, "DLK": 1, "RW": 1, "POL": 2}, //Fassadenbrand
   "433" : { "LF": 10, "ELW": 3, "ELW2": 1, "DLK": 3, "RW": 2, "SLF": 1, "POL": 5, "RTW": 5, "NEF": 2 }, // Großfeuer in Bank
+  "435" : { "LF": 12, "GWW": 1, "RW": 4, "ELW": 3, "ELW2": 1, "GWA": 2, "GWM": 1, "GWG": 1, "DEKONP": 1, "ULF": 1, "TELE": 1, "POL": 3 }, // Brand in Eloxalanlage
   "436" : { "LF": 1, "RW": 1, "POL": 1 }, // Verschmutzte Fahrbahn
   "437" : { "POL": 2 }, // Taxi - Stiller Alarm
   "438" : { "LF": 2, "RW": 1, "ELW": 1, "GWO": 1, "POL": 2, "RTW": 1 }, // PKW in Zapfsäule
