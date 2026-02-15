@@ -7,7 +7,7 @@ document.lss_helper.autoPatient = (force) => {
     }
     document.lss_helper.debug('auto patient running');
 
-    const types = ["28", "31", "38", "73", "74"];
+    const types = ["28", "31", "38", "73", "74", "97"];
     const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
     if (!call) {
         return;
