@@ -363,8 +363,9 @@ document.lss_helper.scenes = {
   "397" : { "RTW": 1 }, //Schnittwunde
   "398" : { "LF": 4, "ELW": 1, "RW": 1, "GWW": 1, "TELE": 1 }, // Brennende Absauganlage
   "400" : { "LF": 7, "ELW": 2, "ELW2": 1, "RW": 1, "GWW": 1, "TELE": 1, "ULF": 1, "GWA": 1 }, // Brand in Lackiererei
-  "409" : { "LF": 2 }, // Brennender LKW
   "402" : { "LF": 1, "ULF": 1, "ELW": 1 }, // Brennender PKW
+  "408" : { "LF": 1 }, // Rauchentwicklung an Förderband
+  "409" : { "LF": 2 }, // Brennender LKW
   "411" : { "LF": 6, "DLK": 1, "RW": 2, "ELW": 2, "ELW2": 1, "GWH": 1, "POL": 2, "POLH": 1, "GKW": 2, "RTW": 1, "NEF": 1 }, // Heißluftballon in Hochspannungsmast
   "412" : { "LF": 6, "RW": 1, "ELW": 1, "GWW": 1, "ULF": 1, "TELE": 1 }, // Verpuffung
   "414" : { "LF": 6, "RW": 1, "ELW": 1, "GWW": 1, "ULF": 1, "TELE": 1 }, // Verpuffung
