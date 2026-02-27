@@ -73,41 +73,47 @@
       return;
     }
 
-    const msg = document.lss_helper.info('Looking for EasterEggs');
-    document.lss_helper.missions.forEach((m, idx) => {
-      setTimeout(() => {
-        //document.lss_helper.log(idx, 'EasterEgg search for', m);
-        if (msg) {
-          msg.id = 'lss_helper_easteregg_' + idx;
-          msg.innerHTML = 'Looking for EasterEggs: ' + (idx + 1) + '/' + document.lss_helper.missions.length;
-        }
-        if (!document.lss_helper.getSetting('easteregg_enable')) {
-          return;
-        }
-        const header = { method: 'GET', cache: "no-cache" };
-        const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
-        fetch(url, header)
-          .then((r) => r.text())
-          .then((r) => {
-            document.lss_helper_easteregg.claim(m, r);
-          })
-          .catch((err) => {
-            document.lss_helper.error(err);
-          });
-      }, idx * 500);
-    });
+    document.lss_helper_easteregg.searchedMissions = document.lss_helper_easteregg.searchedMissions || [];
+    const missions = document.lss_helper.missions
+      .filter(m => m.data.id && !document.lss_helper_easteregg.searchedMissions.includes(m.data.id));
+
+    const msg = document.lss_helper.info('Looking for EasterEggs', '0/' + missions.length);
+    missions.forEach((m, idx) => {
+        setTimeout(() => {
+          //document.lss_helper.log(idx, 'EasterEgg search for', m);
+          if (msg) {
+            msg.id = 'lss_helper_easteregg_' + idx;
+            msg.innerHTML = 'Looking for EasterEggs: ' + (idx + 1) + '/' + missions.length;
+          }
+          if (!document.lss_helper.getSetting('easteregg_enable')) {
+            return;
+          }
+          const header = { method: 'GET', cache: "no-cache" };
+          const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+          fetch(url, header)
+            .then((r) => r.text())
+            .then((r) => {
+              document.lss_helper_easteregg.claim(m, r);
+            })
+            .catch((err) => {
+              document.lss_helper.error(err);
+            });
+        }, idx * 500);
+      });
+
+    document.lss_helper_easteregg.searchedMissions.push(...missions.map(m => m.data.id));
 
     if (msg) {
       setTimeout(() => {
         msg?.remove();
         document.lss_helper.info('Looking for EasterEggs ... done');
-      }, (document.lss_helper.missions.length + 2) * 500);
+      }, (missions.length + 2) * 500);
     }
 
     if (!force) {
       setTimeout(
         () => { document.lss_helper_easteregg.search(); },
-        (document.lss_helper.missions.length + 2) * 500 + (document.lss_helper.getSetting('easteregg_interval', '60000') || 60000)
+        (missions.length + 2) * 500 + (document.lss_helper.getSetting('easteregg_interval', '60000') || 60000)
       );
     }
   };
