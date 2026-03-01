@@ -291,6 +291,7 @@ document.lss_helper.scenes = {
   "301" : { "POL": 2 }, // Tiere auf der Fahrbahn
   "302" : { "LF": 8, "ELW": 2, "ELW2": 1, "RW": 1, "DLK": 1, "SW": 1, "POL": 3, "RTW": 1, "NEF": 1 }, // Brennendes Kleinflugzeug
   "303" : { "LF": 2 }, // Carportbrand
+  "306" : { "LF": 2, "POL": 16, "DGL": 2, "POLBIKE": 4, "WAWE": 3, "BEFKW": 4, "GRUKW": 9, "FUEKW": 1, "LAUKW": 1, "RTW": 4, "NEA50": 1, "AAOTESI": 1 }, // Absicherung Rockkonzert - Gefahrenpotenzial
   "308" : { "LF": 2 }, // Brennender Müllwagen
   "309" : { "TAUCHER": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Tauchunfall
   "310" : { "TAUCHER": 1, "DLRG": 1, "MZB": 1, "RTW": 1, "NEF": 1 }, // Tauchunfall
