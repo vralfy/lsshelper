@@ -806,5 +806,6 @@ document.lss_helper.scenes = {
   "959" : { "LF": 1, "ELW": 1, "DLK": 1, "GWH": 1, "POL": 1, "RTW": 1 }, // Verletzte Person auf Kühlturm
   "962" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Brennender Blumenladen
   "963" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
+  "964" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWGWSB": 1 }, // Tragwerkssicherung (Brücke)
 }
 // https://www.leitstellenspiel.de/einsaetze/0
