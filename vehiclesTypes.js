@@ -177,5 +177,10 @@ document.lss_helper.vehicleTypes = {
   "175": "🚑 SEG NEA50",
   "176": "🛠️ THW LKW 7 Lbw (FGr Log-V)",
   "177": "🛠️ THW MTW-FGr Log-V",
-  "178": "🛠️ THW Anh 12 Lbw (FGr Log-V)"
+  "178": "🛠️ THW Anh 12 Lbw (FGr Log-V)",
+  "179": "???",
+  "180": "???",
+  "181": "🛠️ THW MzGW (FGr BrB)",
+  "182": "🛠️ THW Mobilkran",
+  "183": "🛠️ THW Anh Plattform (FGr BrB)"
 };
