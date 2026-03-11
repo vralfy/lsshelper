@@ -79,7 +79,8 @@ document.lss_helper.makeSEGExtensionReady = (extensionId, start, end) => documen
 document.lss_helper.makeFirebrigadeNeaExtensionsReady = (extensionId, start, end) => document.lss_helper.makeFirebrigadeExtensionReady(14, start, end);
 
 document.lss_helper.makeGreenVerband = () => {
-  document.lss_helper.missions.filter(m => m.finishing && !m.isVerband && m.missionType !== '147').forEach((m, idx) => {
+  const ignore = ['147', '613'];
+  document.lss_helper.missions.filter(m => m.finishing && !m.isVerband && !ignore.includes(m.missionType)).forEach((m, idx) => {
     setTimeout(() => {
       document.lss_helper.makeVerband(m);
     }, idx * 500);
@@ -87,7 +88,8 @@ document.lss_helper.makeGreenVerband = () => {
 };
 
 document.lss_helper.makeVerband = (mission) => {
-  if (!mission || mission.isVerband || mission.missionType === '147') {
+  const ignore = ['147', '613'];
+  if (!mission || mission.isVerband || ignore.includes(mission.missionType)) {
     return;
   }
 
