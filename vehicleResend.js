@@ -55,6 +55,8 @@ document.lss_helper.vehicleResend = {
   'GW-Taucher': '63',
   'FüKomKW': '146', //'145',
   'Anh FüLa': '146',
+  'Mobilkran': '182',
+  'Anh Plattform': '183',
 
   'MTW-TeSi': '173',
   'GW-TeSi': '174',
