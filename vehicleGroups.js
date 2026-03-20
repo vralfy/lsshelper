@@ -47,6 +47,7 @@ document.lss_helper.vehicleGroups = {
   "WAWE": [72],
 
   "GKW": [39],
+  "THWGKW": [39],
   "THWMTW": [40],
   "THWGWN": [41],
   "THWGWSB": [109],
