@@ -650,6 +650,7 @@ document.lss_helper.scenes = {
   "732" : { "POL": 2, "LF": 3, "ELW": 1, "RTW": 1 }, // Illegales Osterfeuer
   "733" : { "LF": 2 }, // Absicherung Osterfeuer
   "734" : { "LF": 1 }, // Geschmolzener Osterhase
+  "735" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 2, "RTW": 1 }, // Blitzeinschlag in Hasenbau
   "736" : { "LF": 1, "POL": 1 }, // Schokohase in PKW eingeschlossen
   "738" : { "RTW": 1 }, // Starke Blutung
   "739" : { "LF": 2 }, // Absicherung Osterfeuer
@@ -783,6 +784,7 @@ document.lss_helper.scenes = {
   "925" : { "LF": 14, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "GWA": 2, "DLK": 3, "SW": 1, "POL": 8, "RTW": 20 }, // Hochhausbrand mit Evakuierung
   "926" : { "LF": 4, "ELW": 1 }, // Brandsicherheitswache Rockfestival
   "927" : { "DLK": 4, "ELW": 4, "ELW2": 1, "GWA": 2, "SW": 4, "LF": 16, "POL": 8, "AAOTHWR": 2, "GKW": 2, "THWMTW": 1, "THWGWN": 2, "RTW": 10 }, // Brand in Schokoeierfabrik
+  "929" : { "GRUKW": 9, "LEBEFKW": 4, "FUEKW": 1, "GEFKW": 1, "WAWE": 3, "POL": 10, "POLH": 1, "RTW": 5 }, // Unangemeldeter Osterhasenstreik
   "930" : { "LF": 6, "RW": 1, "DLK": 1, "ELW": 2, "GWA": 1, "SW": 1, "POL": 4, "RTW": 1 }, // Feuer im Zoo
   "931" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "SWP": 1 }, // Ausgefallene Pumpen in Kläranlage
   "933" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "GWG": 1, "GWM": 1, "DEKONP": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Gefahrgut-Austritt in Paketzentrum
