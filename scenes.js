@@ -399,6 +399,7 @@ document.lss_helper.scenes = {
   "441" : { "LF": 3, "ELW": 1, "RW": 1 }, // Brennende Waldhütte
   "442" : { "BOAT": 1 }, // Osterei in Wasser
   "443" : { "LF": 2, "RW": 1, "ELW": 1, "RTW": 2, "FWK": 1 }, // Osterei-LKW gestürzt
+  "444" : { "GRUKW": 3, "BEFKW": 1 }, // Schwerpunkteinsatz Ostereiersuche
   "445" : { "POL": 1 }, // Ei rollt in Schlangenlinien
   "446" : { "LF": 1, "ELW": 1, "POL": 1, "GWH": 1 }, // Osterhase auf Kran
   "447" : { "LF": 3, "RW": 1, "ELW": 1, "DLK": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "RTW": 1 }, // Eingestürzter Balkon
