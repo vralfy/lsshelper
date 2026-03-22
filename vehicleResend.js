@@ -56,6 +56,7 @@ document.lss_helper.vehicleResend = {
   'FüKomKW': '146', //'145',
   'Anh FüLa': '146',
   'Mobilkran': '182',
+  'Mobilkräne': '182',
   'Anh Plattform (FGr BrB)': '183',
 
   'MTW-TeSi': '173',
