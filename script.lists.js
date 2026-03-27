@@ -14,6 +14,12 @@ document.lss_helper.marker = document.lss_helper.marker || {
 };
 
 document.lss_helper.getBuildingsList = () => {
+  const loading = Array.from(document.getElementById('building_panel_body').getElementsByTagName('li')).filter(e => e.innerHTML==='Lade...')
+  if (loading.length > 0 && !document.lss_helper.getSetting('scrollVehicles', 'true')) {
+    console.log(loading.length, 'buildings are still loading');
+    loading[Math.floor(Math.random() * loading.length)].scrollIntoView();
+  }
+
   return Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
     .map((building) => {
       const markerImage = Array.from(building.getElementsByClassName('building_marker_image'))[0];

@@ -234,6 +234,7 @@ document.lss_helper.printSettings = () => {
   document.lss_helper.printSettingsButton('ui_radio');
 
   document.lss_helper.printSettingsDivider('Other');
+  document.lss_helper.printSettingsButton('scrollVehicles');
 
   let hash = document.getElementById('lss_helper_settings_hash');
   if (!hash) {
