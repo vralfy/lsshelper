@@ -113,6 +113,7 @@ document.lss_helper.getVehiclesList = () => {
 document.lss_helper.getMissionsList = () => {
   Array.from(document.getElementsByClassName('mission_deleted')).forEach(e => e.remove());
   document.lss_helper.missionsSimple = Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
+    .filter((m) => m.attributes['id'] && m.attributes['id'].value.trim().length > 0)
     .map((m) => {
       const id = m.attributes['id'].value.trim();
       const missionId = m.attributes['mission_id'].value.trim();
@@ -124,11 +125,11 @@ document.lss_helper.getMissionsList = () => {
       return {
         id,
         missionId,
-        type: m.attributes['data-mission-type-filter'].value.trim(),
+        type: m.attributes['data-mission-type-filter']?.value.trim() ?? '',
         state: m.attributes['data-mission-state-filter'].value.trim(),
         participation: m.attributes['data-mission-participation-filter'].value.trim(),
         data: JSON.parse(m.attributes['data-sortable-by'].value.trim()),
-        missionType: m.attributes['mission_type_id'].value.trim(),
+        missionType: m.attributes['mission_type_id']?.value.trim() ?? '',
         lat: parseFloat(position.attributes['data-latitude']?.value.trim() ?? '0'),
         lng: parseFloat(position.attributes['data-longitude']?.value.trim() ?? '0'),
         links,
