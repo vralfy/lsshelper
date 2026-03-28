@@ -51,6 +51,7 @@ document.lss_helper.getBuildingsList = () => {
 document.lss_helper.getVehiclesList = () => {
   document.lss_helper.vehiclesSimple = (document.lss_helper.buildings ?? []).map((b) => {
     return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
+      .filter((v) => v.attributes.vehicle_id && v.attributes.vehicle_id.value.trim().length > 0)
       .map((vehicle) => {
         const id = parseInt(vehicle.attributes.vehicle_id.value.trim());
         const img = vehicle.getElementsByTagName('img')[0];
