@@ -818,5 +818,6 @@ document.lss_helper.scenes = {
   "963" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
   "964" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWGWSB": 1 }, // Tragwerkssicherung (Brücke)
   "965": { "LF": 1 }, // Brennendes Blumenfeld
+  "967": { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
 }
 // https://www.leitstellenspiel.de/einsaetze/0
