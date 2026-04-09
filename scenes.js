@@ -791,6 +791,7 @@ document.lss_helper.scenes = {
   "929" : { "GRUKW": 9, "BEFKW": 4, "FUEKW": 1, "GEFKW": 1, "WAWE": 3, "POL": 10, "POLH": 1, "RTW": 5 }, // Unangemeldeter Osterhasenstreik
   "930" : { "LF": 6, "RW": 1, "DLK": 1, "ELW": 2, "GWA": 1, "SW": 1, "POL": 4, "RTW": 1 }, // Feuer im Zoo
   "931" : { "GKW": 2, "THWMTW": 1, "THWGWN": 2, "SWP": 1 }, // Ausgefallene Pumpen in Kläranlage
+  "932" : { "LF": 28, "DLK": 4, "ELW": 6, "ELW2": 1, "SW": 3, "RW": 6, "POL": 10, "GWA": 3, "GWM": 2, "GKW": 2, "THWMTW": 2, "THWGWN": 2, "RTW": 5 }, // Großbrand in Kohlebunker
   "933" : { "LF": 4, "RW": 1, "ELW": 1, "DLK": 1, "GWG": 1, "GWM": 1, "DEKONP": 1, "POL": 4, "RTW": 2, "NEF": 2 }, // Gefahrgut-Austritt in Paketzentrum
   "934" : { "LF": 5, "ELW": 2, "RW": 1, "DLK": 2, "GWA": 1, "GWM": 1, "GWG": 1, "SW": 1, "DEKONP": 1, "GKW": 1, "AAOTHWR": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Brand auf Recyclinghof
   "935" : { "LF": 2, "RW": 1, "DLK": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1}, // Herabstürzende Brückenteile
