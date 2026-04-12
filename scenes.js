@@ -818,7 +818,8 @@ document.lss_helper.scenes = {
   "962" : { "LF": 3, "DLK": 1, "ELW": 1 }, // Brennender Blumenladen
   "963" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
   "964" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "THWGWSB": 1 }, // Tragwerkssicherung (Brücke)
-  "965": { "LF": 1 }, // Brennendes Blumenfeld
-  "967": { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
+  "965" : { "LF": 1 }, // Brennendes Blumenfeld
+  "967" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
+  "968" : { "LF": 1, "RW": 2, "ELW": 1, "ELW2": 1, "DLK": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4 }, // Brand im Fahrsilo
 }
 // https://www.leitstellenspiel.de/einsaetze/0
