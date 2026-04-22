@@ -1,7 +1,9 @@
+// document.lss_helper.vehicleResend['Tragehilfe (z.B. durch ein LF)'] = 'LF';
 document.lss_helper.vehicleResend = {
   'Löschfahrzeug (LF)': 'LF',
   'Löschfahrzeuge (LF)': 'LF',
   'Löschfahrzeug oder Rüstwagen': 'LF',
+  'Tragehilfe (z.B. durch ein LF)': 'LF',
   'Rüstwagen oder HLF': 'RW',
   'Drehleiter (DLK 23)': 'DLK',
   'Drehleitern (DLK 23)': 'DLK',

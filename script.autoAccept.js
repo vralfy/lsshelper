@@ -59,6 +59,11 @@ document.lss_helper.getResendMissions = () => {
         resendGroups['radlader'] = [{ scene: '43', count: 1 }];
       }
 
+      const carry = patientsInfo.filter(p => p.vehicles.indexOf('Tragehilfe (z.B. durch ein LF)') >= 0).length > 0;
+      if (carry) {
+        resendGroups['carry'] = [{ scene: 'LF', count: 1 }];
+      }
+
       return document.lss_helper.enrichResendMission(m, resendGroups, resendGroupsScene);
     });
 };
