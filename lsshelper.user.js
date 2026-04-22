@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202601-25-01',
+        version: '202604-22-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -557,12 +557,18 @@
             setTimeout(() => { document.lss_helper.autoPrisoner(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
     };
+    document.lss_helper.autoPrisonerMission = (force) => {
+        if (!force) {
+            setTimeout(() => { document.lss_helper.autoPrisonerMission(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        }
+    };
 
     document.lss_helper.init();
     document.lss_helper.update();
     document.lss_helper.autoAccept();
     document.lss_helper.autoPatient();
     document.lss_helper.autoPrisoner();
+    document.lss_helper.autoPrisonerMission();
 
     document.lss_helper.fetchRemotes();
 })();
