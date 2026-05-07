@@ -44,7 +44,7 @@ document.lss_helper.autoPrisonerMission = (force) => {
     if (!force) {
         setTimeout(() => { document.lss_helper.autoPrisonerMission(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
     }
-    if (!force && !document.lss_helper.getSetting('autoPrisoner')) {
+    if (!force && !document.lss_helper.getSetting('autoPrisonerMission')) {
         return;
     }
 

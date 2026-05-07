@@ -34,6 +34,7 @@ document.lss_helper.translationTable = {
     'autoAccept': 'Automatisch annehmen',
     'autoPatient': 'Automatisch Patienten zuweisen',
     'autoPrisoner': 'Automatisch Gefangene zuweisen',
+    'autoPrisonerMission': 'Missions Gefangene',
     'autoResend': 'Automatisch nachsenden',
     'autoResendAll': 'Nachsenden wenn alle verfügbar',
     'optimize_scene': 'Einsätze optimieren',

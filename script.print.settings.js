@@ -209,6 +209,7 @@ document.lss_helper.printSettings = () => {
   document.lss_helper.printSettingsButton('autoResend', null, 'col-sm-3 col-md-3');
   document.lss_helper.printSettingsButton('autoPatient', null, 'col-sm-3 col-md-3');
   document.lss_helper.printSettingsButton('autoPrisoner', null, 'col-sm-3 col-md-3');
+  document.lss_helper.printSettingsButton('autoPrisonerMission', null, 'col-sm-3 col-md-3');
 
   document.lss_helper.printSettingsNumberInput('autoAcceptInterval');
   document.lss_helper.printSettingsNumberInput('autoAcceptMaxAttended');
