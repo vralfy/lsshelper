@@ -552,6 +552,7 @@ document.lss_helper.scenes = {
   "626" : { "RTW": 1 }, // Person tritt auf Glasscherben
   "627" : { "LF": 1, "RTW": 1 }, // Grill in Flammen
   "628" : { "LF": 1, "RTW": 1 }, // Brennendes Campingzelt
+  "629" : { "POL": 3, "POLH": 1 }, // Vater vermisst
   "630" : { "POL": 1 }, // Gestohlener Picknick-Korb
   "631" : { "ZIV": 2 }, // Vollstreckung Durchsuchungsbeschluss
   "632" : { "POL": 5, "ZIV": 1 }, // Einbruch in Museum
