@@ -822,5 +822,6 @@ document.lss_helper.scenes = {
   "965" : { "LF": 1 }, // Brennendes Blumenfeld
   "967" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
   "968" : { "LF": 1, "RW": 2, "ELW": 1, "ELW2": 1, "DLK": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4 }, // Brand im Fahrsilo
+  "976" : { "POLAP": 1 }, // Wildunfall auf Autobahn
 }
 // https://www.leitstellenspiel.de/einsaetze/0

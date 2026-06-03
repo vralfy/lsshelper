@@ -37,6 +37,7 @@ document.lss_helper.vehicleGroups = {
   "DGL": [103],
   "POLH": [61, 156],
   "POLBIKE": [95],
+  "POLAP": [184],
   "BEFKW": [35],
   "GRUKW": [50],
   "FUEKW": [51],
