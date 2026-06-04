@@ -822,6 +822,11 @@ document.lss_helper.scenes = {
   "965" : { "LF": 1 }, // Brennendes Blumenfeld
   "967" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
   "968" : { "LF": 1, "RW": 2, "ELW": 1, "ELW2": 1, "DLK": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4 }, // Brand im Fahrsilo
+  "973" : { "POLAP": 1, "RTW": 1, "NEF": 1 }, // Motorradunfall auf Autobahn
   "976" : { "POLAP": 1 }, // Wildunfall auf Autobahn
+  "978" : { "POLAP": 1 }, // Absicherung Pannen-LKW auf Autobahn
+  "990" : { "POLAP": 2, "ELW": 1, "LF": 2 }, // Versorgung von Personen im Stau
+  "993" : { "POLAP": 1 }, // Gegenstand auf Fahrbahn
+  "995" : { "POLAP": 1 }, // Übermüdeter PKW-Fahrer
 }
 // https://www.leitstellenspiel.de/einsaetze/0
