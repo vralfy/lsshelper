@@ -822,11 +822,37 @@ document.lss_helper.scenes = {
   "965" : { "LF": 1 }, // Brennendes Blumenfeld
   "967" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
   "968" : { "LF": 1, "RW": 2, "ELW": 1, "ELW2": 1, "DLK": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4 }, // Brand im Fahrsilo
+  "971" : { "POLAP": 1, "RTW": 1 }, // Angefahrene Person auf Autobahn
+  "972" : { "POLAP": 1 }, // Trunkenheitsfahrt auf Autobahn
   "973" : { "POLAP": 1, "RTW": 1, "NEF": 1 }, // Motorradunfall auf Autobahn
+  "974" : { "POLAP": 1 }, // Pannenfahrzeug auf Autobahn
+  "975" : { "POLAP": 1 }, // Verkehrsbehinderung auf Autobahn
   "976" : { "POLAP": 1 }, // Wildunfall auf Autobahn
+  "977" : { "POLAP": 4 }, // Geisterfahrer auf Autobahn
   "978" : { "POLAP": 1 }, // Absicherung Pannen-LKW auf Autobahn
+  "979" : { "POLAP": 4, "POLH": 1 }, // Fahndung auf Autobahn nach KFZ-Diebstahl
+  "980" : { "POLAP": 1 }, // Fahndung auf Autobahn nach Kraftstoffdiebstahl
+  "981" : { "POLAP": 1 }, // Ausgelöste Höhenkontrolle auf Autobahn
+  "982" : { "POLAP": 1 }, // Verdächtiges Fahrzeug auf Autobahn
+  "983" : { "THWMTW": 1 }, // Autobahnbereitschaft
+  "984" : { "POLAP": 10, "ZIV": 2, "POLBIKE": 4, "DOGPOL": 1 }, // Großangelegte LKW-Kontrolle
+  "985" : { "POLAP": 10, "ZIV": 2, "POLBIKE": 4, "DOGPOL": 1 }, // Großangelegte PKW-Kontrolle
+  "986" : { "POLAP": 4 }, // Absicherung Schwertransport
+  "987" : { "POLAP": 2 }, // Verkehrsunfall auf Autobahn
+  "988" : { "LF": 3, "RW": 2, "ELW": 1, "POLAP": 4, "RTW": 1 }, // Verkehrsunfall auf Autobahn (Person eingeklemmt)
+  "989" : { "POLAP": 2, "RTW": 2 }, // Verkehrsunfall auf Autobahn (mit Verletzten)
   "990" : { "POLAP": 2, "ELW": 1, "LF": 2 }, // Versorgung von Personen im Stau
+  "991" : { "POLAP": 1 }, // LKW verliert Ladung
+  "992" : { "POLAP": 1 }, // Pannenfahrzeug auf Standstreifen
   "993" : { "POLAP": 1 }, // Gegenstand auf Fahrbahn
+  "994" : { "POLAP": 1 }, // Person auf Autobahn
   "995" : { "POLAP": 1 }, // Übermüdeter PKW-Fahrer
+  "996" : { "POLAP": 1 }, // Übermüdeter LKW-Fahrer
+  "997" : { "POLAP": 1 }, // Gefahr auf Autobahn durch Baustelle
+  "998" : { "POLAP": 5 }, // Hochzeits-Korso auf Autobahn
+  "999" : { "POLAP": 6 }, // Fan-Korso auf Autobahn
+  "1000" : { "POLAP": 1 }, // Rettungsgasse kontrollieren
+  "1001" : { "FuStW (AP)": 2, "LF": 2, "GWO": 1 }, // Ölspur auf Autobahn
+  "1002" : { "FuStW (AP)": 1, "GKW": 1, "TKWMTW": 1, "THWGWN": 1, "LF": 1, "RW": 1, "THWBRG": 1 }, // Ladungsbergung eines LKW auf Autobahn
 }
 // https://www.leitstellenspiel.de/einsaetze/0
