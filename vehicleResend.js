@@ -28,6 +28,7 @@ document.lss_helper.vehicleResend = {
   'ITW': 'ITW',
 
   'FuStW': 'POL',
+  'FuStW (AP)': 'POLAP',
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',
   'Funkstreifenwagen oder Polizeimotorräder': 'POL',
   'Funkstreifenwagen (Dienstgruppenleitung)': '103',
