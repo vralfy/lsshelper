@@ -822,6 +822,7 @@ document.lss_helper.scenes = {
   "965" : { "LF": 1 }, // Brennendes Blumenfeld
   "967" : { "RTW": 1 }, // Person auf Rosenblättern ausgerutscht
   "968" : { "LF": 1, "RW": 2, "ELW": 1, "ELW2": 1, "DLK": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4 }, // Brand im Fahrsilo
+  "969" : { "LF": 20, "RW": 4, "DLK": 3, "SW": 2, "GWA": 2, "ELW": 5, "ELW2": 1, "GWM": 2, "GWG": 1, "GWH": 1, "FWK": 1, "GWW": 1, "ULF": 1, "TELE": 1, "TURBO": 1, "POL": 8, "GKW": 2, "THWGWN": 1, "THWMTW": 1, "DOG": 1, "AAOTHWR": 1, "THWDLE": 1, "RTW": 15 }, // Brand in Schiffswerft
   "970" : { "LF": 20, "RW": 4, "DLK": 3, "SW": 2, "GWA": 2, "ELW": 5, "ELW2": 1, "GWM": 2, "GWG": 1, "GWH": 1, "FWK": 1, "POL": 8, "GKW": 2, "THWGWN": 1, "THWMTW": 1, "AAOTHWR": 1, "THWDLE": 1, "RTW": 15 }, // Brand in Schiffswerft
   "971" : { "POLAP": 1, "RTW": 1 }, // Angefahrene Person auf Autobahn
   "972" : { "POLAP": 1 }, // Trunkenheitsfahrt auf Autobahn
