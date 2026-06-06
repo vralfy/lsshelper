@@ -62,7 +62,7 @@ document.lss_helper.vehicleGroups = {
   "NEA50": [110, 111, 175],
   "NEA200": [112],
 
-  "DLRG": [64],
+  "DLRG": [67, 68, 70, 71 ], // 64
   "TAUCHER": [63],
   "MZB": [70],
 
