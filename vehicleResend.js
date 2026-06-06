@@ -69,5 +69,6 @@ document.lss_helper.vehicleResend = {
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
   'Betreuungs- und Verpflegungsausstattungen': 'AAOSEGBT',
   'Boot': 'BOAT',
+  'Boote': 'BOAT',
   'Drohneneinheit': 'DROHNE',
 };
