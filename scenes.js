@@ -854,8 +854,11 @@ document.lss_helper.scenes = {
   "998" : { "POLAP": 5 }, // Hochzeits-Korso auf Autobahn
   "999" : { "POLAP": 6 }, // Fan-Korso auf Autobahn
   "1000" : { "POLAP": 1 }, // Rettungsgasse kontrollieren
-  "1001" : { "FuStW (AP)": 2, "LF": 2, "GWO": 1 }, // Ölspur auf Autobahn
-  "1002" : { "FuStW (AP)": 1, "GKW": 1, "TKWMTW": 1, "THWGWN": 1, "LF": 1, "RW": 1, "AAOTHWR": 1 }, // Ladungsbergung eines LKW auf Autobahn
+  "1001" : { "POLAP": 2, "LF": 2, "GWO": 1 }, // Ölspur auf Autobahn
+  "1002" : { "POLAP": 1, "GKW": 1, "TKWMTW": 1, "THWGWN": 1, "LF": 1, "RW": 1, "AAOTHWR": 1 }, // Ladungsbergung eines LKW auf Autobahn
   "1003" : { "POLAP": 1 }, // Platzverweis missachtet
+  "1004" : { "POL": 2, "MEK": 4, "FUEKW": 1, "RTW": 1, "NEF": 1 }, // Ausrastenden Trainer unter Kontrolle bringen
+  "1005" : { "RTW": 1 }, // Zusammenbruch durch Niederlage
+  "1006" : { "POL": 5, "DOGPOL": 1 }, // Randalierende Fußballfans
 }
 // https://www.leitstellenspiel.de/einsaetze/0
