@@ -51,10 +51,11 @@ document.lss_helper.vehicleResend = {
   // 'Radlader (BRmG R)': 'THWBRG', // cant be send alone
   'LKW Kipper (LKW K 9)': 'THWBRG', // used to be 'THWLKWK9',
   'Rettungshundestaffel': 'DOGRESCUE',
+  'Rettungshundestaffeln': 'DOGRESCUE',
   'NEA50': 'AAOFFNEA',
   'Anhänger Drucklufterzeugung': 'THWDLE',
-  'Schmutzwasserpumpen': 'THWSWP',
   'Schmutzwasserpumpe': 'THWSWP',
+  'Schmutzwasserpumpen': 'THWSWP',
   'GW-Taucher': '63',
   'FüKomKW': '146', //'145',
   'Anh FüLa': '146',
