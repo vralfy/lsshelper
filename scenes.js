@@ -860,5 +860,8 @@ document.lss_helper.scenes = {
   "1004" : { "POL": 2, "MEK": 4, "FUEKW": 1, "RTW": 1, "NEF": 1 }, // Ausrastenden Trainer unter Kontrolle bringen
   "1005" : { "RTW": 1 }, // Zusammenbruch durch Niederlage
   "1006" : { "POL": 5, "DOGPOL": 1 }, // Randalierende Fußballfans
+  "1007" : { "GRUKW": 3, "BEFKW": 1, "GEFKW": 1 }, // Platzsturm
+  "1008" : { "POL": 2, "LF": 1, "RTW": 1 }, // Fußballfan auf Fanmeile vermisst
+  "1009" : { "LF": 5, "RW": 1, "ELW": 1, "DLK": 1, "GKW": 2, "THWGWN": 2, "THWMTW": 1, "POL": 6, "RTW": 10, "NEF": 1 }, // Eingestürzte VIP-Lounge
 }
 // https://www.leitstellenspiel.de/einsaetze/0
