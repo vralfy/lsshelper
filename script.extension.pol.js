@@ -4,6 +4,8 @@ document.lss_helper.extensions.pol = {
   'ZIV': 11,
   'DGL': 12,
   'BIKE': 13,
+  //'BIG': 14,
+  //'GEFKW': 15,
   'AP': 16,
 };
 
@@ -13,8 +15,8 @@ Object.entries(document.lss_helper.extensions.pol).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllPOLExtensions = (start, end) => {
-  Object.values(document.lss_helper.extensions.pol).forEach((value) => {
-    document.lss_helper.buyPoliceExtension(value, start, end);
+  Object.values(document.lss_helper.extensions.pol).forEach((value, idx) => {
+    setTimeout(() => document.lss_helper.buyPoliceExtension(value, start, end), document.lss_helper.extensions_delay * idx);
     document.lss_helper.makePoliceExtensionReady(value, start, end);
   });
 };

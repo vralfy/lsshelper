@@ -14,8 +14,8 @@ Object.entries(document.lss_helper.extensions.seg).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllSEGExtensions = (start, end) => {
-  Object.values(document.lss_helper.extensions.seg).forEach((value) => {
-    document.lss_helper.buySEGExtension(value, start, end);
+  Object.values(document.lss_helper.extensions.seg).forEach((value, idx) => {
+    setTimeout(() => document.lss_helper.buySEGExtension(value, start, end), document.lss_helper.extensions_delay * idx);
     document.lss_helper.makeSEGExtensionReady(value, start, end);
   });
 };

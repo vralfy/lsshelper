@@ -23,8 +23,8 @@ Object.entries(document.lss_helper.extensions.thw).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllTHWExtensions = (start, end) => {
-  Object.values(document.lss_helper.extensions.thw).forEach((value) => {
-    document.lss_helper.buyTHWExtension(value, start, end);
+  Object.values(document.lss_helper.extensions.thw).forEach((value, idx) => {
+    setTimeout(() => document.lss_helper.buyTHWExtension(value, start, end), document.lss_helper.extensions_delay * idx);
     document.lss_helper.makeTHWExtensionReady(value, start, end);
   });
 };
