@@ -18,6 +18,9 @@ document.lss_helper.fetchRemoteFile('script.scene.js');
 document.lss_helper.fetchRemoteFile('script.styles.js');
 document.lss_helper.fetchRemoteFile('script.translate.js');
 
+document.lss_helper.fetchRemoteFile('script.extension.js');
+document.lss_helper.fetchRemoteFile('script.extension.ff.js');
+
 document.lss_helper.fetchRemoteFile('script.print.missingVehicle.js');
 document.lss_helper.fetchRemoteFile('script.print.missions.js');
 document.lss_helper.fetchRemoteFile('script.print.scene.js');
