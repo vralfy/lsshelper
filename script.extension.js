@@ -1,3 +1,4 @@
+document.lss_helper.extensions_delay = document.lss_helper.extensions_delay || 2000;
 document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
   const header = {
     method: 'POST',
@@ -20,7 +21,7 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
         .catch((err) => {
           document.lss_helper.error(err);
         });
-    }, idx * 1000);
+    }, idx * document.lss_helper.extensions_delay);
   });
 };
 
@@ -65,7 +66,7 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
         .catch((err) => {
           document.lss_helper.error(err);
         });
-    }, idx * 1000);
+    }, idx * document.lss_helper.extensions_delay);
   });
 };
 
