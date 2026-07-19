@@ -16,6 +16,7 @@ document.lss_helper.vehicleGroups = {
   "SW": [11],
   "FWK": [57],
   "DEKONP": [53],
+  "LUEFTER": [114, 115, 116],
 
   "GWW": [83],
   "ULF": [84],
