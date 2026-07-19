@@ -20,6 +20,9 @@ document.lss_helper.fetchRemoteFile('script.translate.js');
 
 document.lss_helper.fetchRemoteFile('script.extension.js');
 document.lss_helper.fetchRemoteFile('script.extension.ff.js');
+document.lss_helper.fetchRemoteFile('script.extension.pol.js');
+document.lss_helper.fetchRemoteFile('script.extension.seg.js');
+document.lss_helper.fetchRemoteFile('script.extension.thw.js');
 
 document.lss_helper.fetchRemoteFile('script.print.missingVehicle.js');
 document.lss_helper.fetchRemoteFile('script.print.missions.js');
