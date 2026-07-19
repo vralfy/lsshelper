@@ -1,5 +1,15 @@
 document.lss_helper.extensions = document.lss_helper.extensions || {};
 document.lss_helper.extensions.pol = {
+  'CELL01': 0,
+  'CELL02': 1,
+  'CELL03': 2,
+  'CELL04': 3,
+  'CELL05': 4,
+  'CELL06': 5,
+  'CELL07': 6,
+  'CELL08': 7,
+  'CELL09': 8,
+  'CELL10': 9,
   'DOG': 10,
   'ZIV': 11,
   'DGL': 12,
