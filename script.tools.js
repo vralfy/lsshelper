@@ -69,3 +69,52 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
 document.lss_helper.SEGWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['70', '132', '174', '175']);
 document.lss_helper.THWWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178']);
 document.lss_helper.NEAWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['110', '111', '112', '175']);
+
+document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0, start, end) => {
+  buildingIds = buildingIds || [];
+  vehicleTypes = vehicleTypes || [];
+  label = label || '';
+  ignore_aa0 = !!ignore_aa0 ? 1 : 0;
+  start = start || 0;
+  end = end || undefined;
+  const vehiclesToLabel = document.lss_helper.vehicles
+    .filter((v) => buildingIds.includes(v.building.type) && vehicleTypes.includes(v.type))
+    .slice(start, end);
+
+  console.error('Labeling', vehiclesToLabel.length, vehiclesToLabel, 'vehicles of types', vehicleTypes, 'in buildings', buildingIds, 'with label', label);
+  vehiclesToLabel
+    .forEach((v, idx) => {
+      setTimeout(() => {
+        const header = { method: 'GET', cache: "no-cache" };
+        const url = 'https://www.leitstellenspiel.de/vehicles/' + v.id;
+        const postData = {
+          _method: 'patch',
+          authenticity_token: document.lss_helper.authToken,
+          'vehicle[vehicle_type_caption]': label,
+          'vehicle[vehicle_type_ignore_default_aao]': ignore_aa0,
+        };
+        console.error('Labeling vehicle', v, v.building.name, 'with label', label, new URLSearchParams(postData).toString());
+
+        fetch(url, { method: 'POST', body: new URLSearchParams(postData), headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
+          .then((response) => response.text())
+          .then((json) => {
+            document.lss_helper.debug(json);
+            document.lss_helper.update(-1);
+          })
+          .catch((err) => {
+            document.lss_helper.error(err);
+          });
+      }, idx * 500);
+    });
+};
+
+document.lss_helper.labelBOOT = (label, start, end) => document.lss_helper.labelVehicle(['15', '12', '9'], ['70', '66', '67', '68'], label ?? 'BOOT', false, start, end);
+document.lss_helper.labelDOGPOL = (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['94'], label ?? 'DOG', false, start, end);
+document.lss_helper.labelDOGRESCUE = (label, start, end) => document.lss_helper.labelVehicle(['2', '12', '9'], ['91', '92'], label ?? 'DOG', false, start, end);
+document.lss_helper.labelDROHNE = (label, start, end) => document.lss_helper.labelVehicle(['0', '12', '9'], ['126', '128', '129', '127', '125'], label ?? 'DROHNE', false, start, end);
+document.lss_helper.labelMEK = (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['81', '82'], label ?? 'MEK', false, start, end);
+document.lss_helper.labelSEK = (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['79', '80'], label ?? 'SEK', false, start, end);
+document.lss_helper.labelNEA50 = (label, start, end) => document.lss_helper.labelVehicle(['0', '9'], ['111', '179', '110'], label ?? 'NEA50', false, start, end);
+document.lss_helper.labelNEA200 = (label, start, end) => document.lss_helper.labelVehicle(['0', '9'], ['113', '180', '112'], label ?? 'NEA200', false, start, end);
+document.lss_helper.labelWasserrettung = (label, start, end) => document.lss_helper.labelVehicle(['0', '15', '12'], ['64'], label ?? 'WASSERRETTUNG', false, start, end);
+document.lss_helper.labelSLF = (label, start, end) => document.lss_helper.labelVehicle(['0'], ['167', '168', '169'], label ?? 'SLF', true, start, end);
