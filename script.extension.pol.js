@@ -25,8 +25,9 @@ Object.entries(document.lss_helper.extensions.pol).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllPOLExtensions = (start, end) => {
+  let buildings = 0;
   Object.values(document.lss_helper.extensions.pol).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.buyPoliceExtension(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => buildings += document.lss_helper.buyPoliceExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
     document.lss_helper.makePoliceExtensionReady(value, start, end);
   });
 };

@@ -23,8 +23,9 @@ Object.entries(document.lss_helper.extensions.thw).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllTHWExtensions = (start, end) => {
+  let buildings = 0;
   Object.values(document.lss_helper.extensions.thw).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.buyTHWExtension(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => buildings += document.lss_helper.buyTHWExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
     document.lss_helper.makeTHWExtensionReady(value, start, end);
   });
 };

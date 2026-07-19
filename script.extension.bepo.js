@@ -31,12 +31,14 @@ Object.entries(document.lss_helper.extensions.bepose).forEach(([key, value]) => 
 });
 
 document.lss_helper.doAllBEPOExtensions = (start, end) => {
+  let buildings = 0;
   Object.values(document.lss_helper.extensions.bepo).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.buyBepoExtension(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => buildings += document.lss_helper.buyBepoExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
     document.lss_helper.makeBepoExtensionReady(value, start, end);
   });
+  let buildingsSE = 0;
   Object.values(document.lss_helper.extensions.bepose).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.buyBepoSEExtension(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => buildingsSE += document.lss_helper.buyBepoSEExtension(value, start, end), document.lss_helper.extensions_delay * buildingsSE);
     document.lss_helper.makeBepoSEExtensionReady(value, start, end);
   });
 };

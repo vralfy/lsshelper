@@ -11,7 +11,8 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
   buildingType = buildingType || '0';
   start = start || 0;
   end = end || undefined;
-  document.lss_helper.buildings.filter(b => b.type === buildingType).slice(start, end).forEach((b, idx) => {
+  const buildings = document.lss_helper.buildings.filter(b => b.type === buildingType).slice(start, end);
+  buildings.forEach((b, idx) => {
     const link = 'https://www.leitstellenspiel.de/buildings/' + b.id + '/extension/credits/' + extensionId + '?redirect_building_id=' + b.id;
     //console.error(b, link);
     setTimeout(() => {
@@ -23,6 +24,7 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
         });
     }, idx * document.lss_helper.extensions_delay);
   });
+  return buildings.length;
 };
 
 document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end) => {
@@ -37,7 +39,8 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
   buildingType = buildingType || '0';
   start = start || 0;
   end = end || undefined;
-  document.lss_helper.buildings.filter(b => b.type === buildingType).slice(start, end).forEach((b, idx) => {
+  const buildings = document.lss_helper.buildings.filter(b => b.type === buildingType).slice(start, end)
+  buildings.forEach((b, idx) => {
     const buildingLink = 'https://www.leitstellenspiel.de/buildings/' + b.id;
 
     //https://www.leitstellenspiel.de/buildings/23878175/extension_ready/14/23878175
@@ -68,6 +71,7 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
         });
     }, idx * document.lss_helper.extensions_delay);
   });
+  return buildings.length;
 };
 
 document.lss_helper.buyFirebrigadeExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '0', start, end);
