@@ -71,10 +71,14 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
 
 document.lss_helper.buyFirebrigadeExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '0', start, end);
 document.lss_helper.buyPoliceExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '6', start, end);
+document.lss_helper.buyBepoExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '11', start, end);
+document.lss_helper.buyBepoSEExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '17', start, end);
 document.lss_helper.buyTHWExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '9', start, end);
 document.lss_helper.buySEGExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '12', start, end);
 
 document.lss_helper.makeFirebrigadeExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '0', start, end);
 document.lss_helper.makePoliceExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '6', start, end);
+document.lss_helper.makeBepoExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '11', start, end);
+document.lss_helper.makeBepoSEExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '17', start, end);
 document.lss_helper.makeTHWExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '9', start, end);
 document.lss_helper.makeSEGExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '12', start, end);

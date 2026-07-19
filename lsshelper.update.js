@@ -19,6 +19,7 @@ document.lss_helper.fetchRemoteFile('script.styles.js');
 document.lss_helper.fetchRemoteFile('script.translate.js');
 
 document.lss_helper.fetchRemoteFile('script.extension.js');
+document.lss_helper.fetchRemoteFile('script.extension.bepo.js');
 document.lss_helper.fetchRemoteFile('script.extension.ff.js');
 document.lss_helper.fetchRemoteFile('script.extension.pol.js');
 document.lss_helper.fetchRemoteFile('script.extension.seg.js');
