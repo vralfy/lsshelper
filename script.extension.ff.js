@@ -40,9 +40,10 @@ Object.entries(document.lss_helper.extensions.ff).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllFFExtensions = (start, end) => {
+  let buildings = 0;
   Object.values(document.lss_helper.extensions.ff).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.buyFirebrigadeExtension(value, start, end), document.lss_helper.extensions_delay * idx);
-    document.lss_helper.makeFirebrigadeExtensionReady(value, start, end);
+    setTimeout(() => buildings += document.lss_helper.buyFirebrigadeExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
+    setTimeout(() => document.lss_helper.makeFirebrigadeExtensionReady(value, start, end), document.lss_helper.extensions_delay * idx);
   });
 };
 
@@ -50,6 +51,6 @@ document.lss_helper.doStandardFFExtensions = (start, end) => {
   let buildings = 0;
   Object.values(document.lss_helper.extensions.ffstandard).forEach((value, idx) => {
     setTimeout(() => buildings += document.lss_helper.buyFirebrigadeExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
-    document.lss_helper.makeFirebrigadeExtensionReady(value, start, end);
+    setTimeout(() => document.lss_helper.makeFirebrigadeExtensionReady(value, start, end), document.lss_helper.extensions_delay * idx);
   });
 };

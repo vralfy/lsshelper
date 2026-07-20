@@ -17,6 +17,6 @@ document.lss_helper.doAllSEGExtensions = (start, end) => {
   let buildings = 0;
   Object.values(document.lss_helper.extensions.seg).forEach((value, idx) => {
     setTimeout(() => buildings += document.lss_helper.buySEGExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
-    document.lss_helper.makeSEGExtensionReady(value, start, end);
+    setTimeout(() => document.lss_helper.makeSEGExtensionReady(value, start, end), document.lss_helper.extensions_delay * idx);
   });
 };
