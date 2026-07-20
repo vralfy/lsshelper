@@ -6,7 +6,7 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: encodeURI('_method=post&authenticity_token=' + document.lss_helper.authToken)
+    body: new URLSearchParams({_method: 'post', authenticity_token: document.lss_helper.authToken})
   };
   buildingType = buildingType || '0';
   start = start || 0;
@@ -34,7 +34,7 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
     headers: {
       "Content-Type": "application/x-www-form-urlencoded",
     },
-    body: encodeURI('_method=post&authenticity_token=' + document.lss_helper.authToken)
+    body: new URLSearchParams({_method: 'post', authenticity_token: document.lss_helper.authToken})
   };
   buildingType = buildingType || '0';
   start = start || 0;
@@ -51,6 +51,10 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
           const extensionReadyLink = '/buildings/' + b.id + '/extension_ready/' + extensionId + '/' + b.id;
           const a = Array.from(new DOMParser().parseFromString(response, 'text/html').getElementsByTagName('a'))
             .find(link => link.href.includes(extensionReadyLink));
+          if (!a) {
+            document.lss_helper.error('unable to activate extension', extensionId, 'for building', b, '=>', 'no link present');
+            return;
+          }
           const activate = a.innerHTML.includes('Einsatzbereit') && !a.innerHTML.includes('Nicht Einsatzbereit');
           //document.lss_helper.log(b.name, activate);
           if (response.includes(extensionReadyLink) && activate) {
