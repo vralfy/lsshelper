@@ -1,4 +1,4 @@
-document.lss_helper.extensions_delay = document.lss_helper.extensions_delay || 2000;
+document.lss_helper.extensions_delay = document.lss_helper.extensions_delay || 1000;
 document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
   const header = {
     method: 'POST',
@@ -90,3 +90,12 @@ document.lss_helper.makeBepoExtensionReady = (extensionId, start, end) => docume
 document.lss_helper.makeBepoSEExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '17', start, end);
 document.lss_helper.makeTHWExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '9', start, end);
 document.lss_helper.makeSEGExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '12', start, end);
+
+
+document.lss_helper.doAllBuildings = (start, end) => {
+  document.lss_helper.doAllBEPOExtensions(start, end);
+  document.lss_helper.doAllStandardFFExtensions(start, end);
+  document.lss_helper.doAllPOLExtensions(start, end);
+  document.lss_helper.doAllSEGExtensions(start, end);
+  document.lss_helper.doAllTHWExtensions(start, end);
+};
