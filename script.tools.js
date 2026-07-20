@@ -24,7 +24,7 @@ document.lss_helper.makeVerband = (mission) => {
     sd: "a",
     ifs: "at_fi",
   };
-  console.warn("Making mission " + mission.missionId + " a verband mission.", body);
+  document.lss_helper.warn("Making mission " + mission.missionId + " a verband mission.", body);
   fetch(url, { method: 'POST', body: new URLSearchParams(body), headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
     .then((response) => response.text())
     .then((json) => {
@@ -39,7 +39,7 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
   vehicleIds = vehicleIds || ['110', '111', '112', '175'];
   const vehiclesToCheck = document.lss_helper.vehicles
     .filter((v) => vehicleIds.includes(v.type));
-  console.error('Checking', vehiclesToCheck.length, 'vehicles of types', vehicleIds, 'for towing vehicle');
+  document.lss_helper.log('Checking', vehiclesToCheck.length, 'vehicles of types', vehicleIds, 'for towing vehicle');
   vehiclesToCheck
     .forEach((v, idx) => {
       setTimeout(() => {
@@ -50,12 +50,12 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
           .then((r) => {
             const checkbox = new DOMParser().parseFromString(r, 'text/html').getElementById('vehicle_tractive_random');
             if (!checkbox) {
-              console.error('no checkbox found for vehicle', v, v.building.name);
+              document.lss_helper.error('no checkbox found for vehicle', v, v.building.name);
             } else if (checkbox.checked) {
               if (v.status === '2' || v.status === '6') {
-                console.warn('vehicle without towing vehicle', v, v.building.name);
+                document.lss_helper.warn('vehicle without towing vehicle', v, v.building.name);
               } else {
-                console.error('vehicle without towing vehicle', v, v.building.name);
+                document.lss_helper.error('vehicle without towing vehicle', v, v.building.name);
               }
             }
           })
@@ -81,7 +81,7 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
     .filter((v) => buildingIds.includes(v.building.type) && vehicleTypes.includes(v.type))
     .slice(start, end);
 
-  console.error('Labeling', vehiclesToLabel.length, vehiclesToLabel, 'vehicles of types', vehicleTypes, 'in buildings', buildingIds, 'with label', label);
+  document.lss_helper.log('Labeling', vehiclesToLabel.length, vehiclesToLabel, 'vehicles of types', vehicleTypes, 'in buildings', buildingIds, 'with label', label);
   vehiclesToLabel
     .forEach((v, idx) => {
       setTimeout(() => {
@@ -93,7 +93,7 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
           'vehicle[vehicle_type_caption]': label,
           'vehicle[vehicle_type_ignore_default_aao]': ignore_aa0,
         };
-        console.error('Labeling vehicle', v, v.building.name, 'with label', label, new URLSearchParams(postData).toString());
+        document.lss_helper.log('Labeling vehicle', v, v.building.name, 'with label', label, new URLSearchParams(postData).toString());
 
         fetch(url, { method: 'POST', body: new URLSearchParams(postData), headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
           .then((response) => response.text())

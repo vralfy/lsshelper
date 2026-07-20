@@ -131,7 +131,7 @@ document.lss_helper.autoPrisonerMission = (force) => {
                 // pop first link from prisonLinks and call its url
                 if (prisonLinks.length > 0) {
                     const firstLink = prisonLinks.shift();
-                    console.log('Sending to prison', m, firstLink);
+                    document.lss_helper.log('Sending to prison', m, firstLink);
                     fetch(firstLink.href, { method: 'GET', cache: 'no-cache' });
                 }
                 // refresh lists / state
@@ -147,9 +147,9 @@ document.lss_helper.autoPrisonerMission = (force) => {
                         const parser = new DOMParser();
                         const doc = parser.parseFromString(r, 'text/html');
                         const prisonLinks = Array.from(doc.querySelectorAll('a.btn-success[data-prison-id]'));
-                        console.log(m, prisonLinks);
+                        document.lss_helper.log(m, prisonLinks);
                         prisonLinks.forEach((link) => {
-                            console.error(link, link.innerText);
+                            document.lss_helper.error(link, link.innerText);
                         });
                     })
                     .catch((err2) => {
@@ -170,9 +170,9 @@ document.lss_helper.autoPrisonerMission = (force) => {
     //                 const parser = new DOMParser();
     //                 const doc = parser.parseFromString(r, 'text/html');
     //                 const prisonLinks = Array.from(doc.querySelectorAll('a.btn.btn-success'));
-    //                 console.log(v, prisonLinks);
+    //                 document.lss_helper.log(v, prisonLinks);
     //                 prisonLinks.forEach((link) => {
-    //                     console.error(link, link.innerText);
+    //                     document.lss_helper.error(link, link.innerText);
     //                 });
     //             })
     //     }, idx * 1000);

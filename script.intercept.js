@@ -3,10 +3,10 @@ document.lss_helper.functions = document.lss_helper.functions || {
   addition: {},
   replacement: {},
   create: (f) => {
-    console.log('intersecting', f);
+    document.lss_helper.log('intersecting', f);
     document.lss_helper.functions.original[f] = eval(f);
     document.lss_helper.functions.addition[f] = document.lss_helper.functions.addition[f] || function (...args) {
-      console.error(f, 'called with', ...args);
+      document.lss_helper.error(f, 'called with', ...args);
     };
     document.lss_helper.functions.replacement[f] = (...args) => {
       document.lss_helper.functions.original[f](...args);

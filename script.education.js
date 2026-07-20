@@ -120,7 +120,7 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
 
     return Object.keys(options).map((educationId, eidx) => {
       const url = 'https://www.leitstellenspiel.de/buildings/' + school.id + '/schoolingEducationCheck?education=' + educationId + '&only_building_id=' + building.id;
-      console.log('Checking education', url);
+      document.lss_helper.log('Checking education', url);
       return () => {
         setTimeout(() => {
           fetch(url, header).then((r) => r.text()).then((text) => {
@@ -129,7 +129,7 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
             countInProgress = (countInProgress && countInProgress.length > 1) ? parseInt(countInProgress[1], 10) : 0;
             countDone = (countDone && countDone.length > 1) ? parseInt(countDone[1], 10) : 0;
             count = countInProgress + countDone;
-            const lg = ((options[educationId].required ?? 0) <= count) ? console.debug : console.warn;
+            const lg = ((options[educationId].required ?? 0) <= count) ? document.lss_helper.debug : document.lss_helper.warn;
             lg(
               'Checked education', school.name, building.name, options[educationId].name,
               'in progress:', countInProgress, 'done:', countDone, 'total:', count,

@@ -14,13 +14,13 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
   const buildings = document.lss_helper.buildings.filter(b => b.type === buildingType).slice(start, end);
   buildings.forEach((b, idx) => {
     const link = 'https://www.leitstellenspiel.de/buildings/' + b.id + '/extension/credits/' + extensionId + '?redirect_building_id=' + b.id;
-    //console.error(b, link);
     setTimeout(() => {
+      document.lss_helper.log('try to buy extension', extensionId, 'for building', b, '=>', link);
       fetch(link, header)
         .then((response) => response.text())
-        .then((response) => console.warn(b, extensionId))
+        .then((response) => document.lss_helper.warn('buyed extension', extensionId, 'for building', b))
         .catch((err) => {
-          document.lss_helper.error(err);
+          document.lss_helper.error('unable to buy extension', extensionId, 'for building', b, '=>', err);
         });
     }, idx * document.lss_helper.extensions_delay);
   });
@@ -41,11 +41,10 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
   end = end || undefined;
   const buildings = document.lss_helper.buildings.filter(b => b.type === buildingType).slice(start, end)
   buildings.forEach((b, idx) => {
-    const buildingLink = 'https://www.leitstellenspiel.de/buildings/' + b.id;
-
     //https://www.leitstellenspiel.de/buildings/23878175/extension_ready/14/23878175
-
     setTimeout(() => {
+      const buildingLink = 'https://www.leitstellenspiel.de/buildings/' + b.id;
+      document.lss_helper.log('try to activate extension', extensionId, 'for building', b, '=>', buildingLink);
       fetch(buildingLink)
         .then((response) => response.text())
         .then((response) => {
@@ -53,21 +52,21 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
           const a = Array.from(new DOMParser().parseFromString(response, 'text/html').getElementsByTagName('a'))
             .find(link => link.href.includes(extensionReadyLink));
           const activate = a.innerHTML.includes('Einsatzbereit') && !a.innerHTML.includes('Nicht Einsatzbereit');
-          //console.log(b.name, activate);
+          //document.lss_helper.log(b.name, activate);
           if (response.includes(extensionReadyLink) && activate) {
             const link = 'https://www.leitstellenspiel.de' + extensionReadyLink;
             fetch(link, header)
               .then((response) => response.text())
-              .then((response) => console.warn(b, extensionId, 'ready'))
+              .then((response) => document.lss_helper.warn('extension ready', extensionId, 'for building', b))
               .catch((err) => {
-                document.lss_helper.error(err);
+                document.lss_helper.error('unable to activate extension', extensionId, 'for building', b, '=>', err);
               });
           } else {
-            console.warn(b, extensionId, 'ready');
+            document.lss_helper.warn('extension already activated', extensionId, 'for building', b);
           }
         })
         .catch((err) => {
-          document.lss_helper.error(err);
+          document.lss_helper.error('unable to activate extension', extensionId, 'for building', b, '=>', err);
         });
     }, idx * document.lss_helper.extensions_delay);
   });

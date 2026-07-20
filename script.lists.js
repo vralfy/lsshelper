@@ -16,7 +16,7 @@ document.lss_helper.marker = document.lss_helper.marker || {
 document.lss_helper.getBuildingsList = () => {
   const loading = Array.from(document.getElementById('building_panel_body').getElementsByTagName('li')).filter(e => e.innerHTML==='Lade...')
   if (loading.length > 0 && !document.lss_helper.getSetting('scrollVehicles', 'true')) {
-    console.log(loading.length, 'buildings are still loading');
+    document.lss_helper.log(loading.length, 'buildings are still loading');
     loading[Math.floor(Math.random() * loading.length)].scrollIntoView();
   }
 
@@ -319,9 +319,9 @@ document.lss_helper.getMissionStuck = () => {
           .then((r) => r.text())
           .then((r) => {
             if (r.indexOf('Diesen Einsatz direkt anfahren') > 0) {
-              console.warn('Mission is stuck', m);
+              document.lss_helper.warn('Mission is stuck', m);
               document.lss_helper.mission_stuck.push(m.data.id);
-              console.warn(document.lss_helper.missions.filter((m) => document.lss_helper.mission_stuck.includes(m.data.id)));
+              document.lss_helper.warn(document.lss_helper.missions.filter((m) => document.lss_helper.mission_stuck.includes(m.data.id)));
             } else {
               document.lss_helper.mission_stuck = document.lss_helper.mission_stuck.filter((id) => id !== m.data.id);
             }
