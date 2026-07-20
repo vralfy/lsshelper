@@ -23,9 +23,11 @@ Object.entries(document.lss_helper.extensions.thw).forEach(([key, value]) => {
 });
 
 document.lss_helper.doAllTHWExtensions = (start, end) => {
-  let buildings = 0;
+  start = start || 0;
+  end = end || undefined;
+  let buildings = document.lss_helper.buildings.filter(b => ['9'].indexOf(b.type) >= 0).slice(start, end).length;
   Object.values(document.lss_helper.extensions.thw).forEach((value, idx) => {
-    setTimeout(() => buildings += document.lss_helper.buyTHWExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
-    setTimeout(() => document.lss_helper.makeTHWExtensionReady(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => document.lss_helper.buyTHWExtension(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
+    setTimeout(() => document.lss_helper.makeTHWExtensionReady(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
   });
 };

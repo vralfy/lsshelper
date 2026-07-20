@@ -31,14 +31,16 @@ Object.entries(document.lss_helper.extensions.bepose).forEach(([key, value]) => 
 });
 
 document.lss_helper.doAllBEPOExtensions = (start, end) => {
-  let buildings = 0;
+  start = start || 0;
+  end = end || undefined;
+  let buildings = document.lss_helper.buildings.filter(b => ['11'].indexOf(b.type) >= 0).slice(start, end).length;
   Object.values(document.lss_helper.extensions.bepo).forEach((value, idx) => {
-    setTimeout(() => buildings += document.lss_helper.buyBepoExtension(value, start, end), document.lss_helper.extensions_delay * buildings);
-    setTimeout(() => document.lss_helper.makeBepoExtensionReady(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => document.lss_helper.buyBepoExtension(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
+    setTimeout(() => document.lss_helper.makeBepoExtensionReady(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
   });
-  let buildingsSE = 0;
+  let buildingsSE = document.lss_helper.buildings.filter(b => ['17'].indexOf(b.type) >= 0).slice(start, end).length;
   Object.values(document.lss_helper.extensions.bepose).forEach((value, idx) => {
-    setTimeout(() => buildingsSE += document.lss_helper.buyBepoSEExtension(value, start, end), document.lss_helper.extensions_delay * buildingsSE);
-    setTimeout(() => document.lss_helper.makeBepoSEExtensionReady(value, start, end), document.lss_helper.extensions_delay * idx);
+    setTimeout(() => document.lss_helper.buyBepoSEExtension(value, start, end), document.lss_helper.extensions_delay * buildingsSE * idx);
+    setTimeout(() => document.lss_helper.makeBepoSEExtensionReady(value, start, end), document.lss_helper.extensions_delay * buildingsSE * idx);
   });
 };
