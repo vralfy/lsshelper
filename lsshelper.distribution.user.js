@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202601-13-02
+// @version      202607-22-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -18,7 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
-    version: '202601-13-02',
+    version: '202607-22-01',
     graph: {
       width: 1000,
       height: 800,
@@ -179,6 +179,8 @@
       p5.fill(0);
       buildings.forEach((b) => {
         const c = document.lss_helper_distribution.coord(b);
+        let color = parseInt(Math.abs(document.lss_helper.helper.hash(b.leitstelleId === 'null' ? b.id : b.leitstelleId)).toString(16).padStart(6, '0'), 16);
+        p5.stroke((color >> 16) & 0xFF, (color >> 8) & 0xFF, (color >> 1) & 0xFF);
         p5.circle(c.x, c.y, 3);
         p5.text(b.name, c.x, c.y);
       });
@@ -329,13 +331,13 @@
           const colorV = parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
           const colorB = parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
 
-          p5.stroke(colorB >> 16 & 0xFF, colorB >> 8 & 0xFF, colorB && 0xFF);
-          p5.fill(colorB & 0xFF, colorB >> 8 & 0xFF, colorB >> 16 && 0xFF);
+          p5.stroke(colorB >> 16 & 0xFF, colorB >> 8 & 0xFF, colorB & 0xFF);
+          p5.fill(colorB & 0xFF, colorB >> 8 & 0xFF, colorB >> 16 & 0xFF);
           p5.line(cV.x, cV.y, cB.x, cB.y);
           p5.circle(cB.x, cB.y, 10);
 
-          p5.stroke(colorV & 0xFF, colorV >> 8 & 0xFF, colorV >> 16 && 0xFF);
-          p5.fill(colorV >> 16 & 0xFF, colorV >> 8 & 0xFF, colorV && 0xFF);
+          p5.stroke(colorV & 0xFF, colorV >> 8 & 0xFF, colorV >> 16 & 0xFF);
+          p5.fill(colorV >> 16 & 0xFF, colorV >> 8 & 0xFF, colorV & 0xFF);
           p5.circle(cV.x, cV.y, 5);
         });
       p5.strokeWeight(1);
