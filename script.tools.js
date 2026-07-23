@@ -100,6 +100,7 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
           .then((json) => {
             document.lss_helper.debug(json);
             document.lss_helper.update(-1);
+            document.lss_helper.warn('Labeled vehicle', v, v.building.name, 'with label', label);
           })
           .catch((err) => {
             document.lss_helper.error(err);
@@ -109,6 +110,7 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
 };
 
 document.lss_helper.labelBOOT = (label, start, end) => document.lss_helper.labelVehicle(['15', '12', '9'], ['70', '66', '67', '68'], label ?? 'BOOT', false, start, end);
+document.lss_helper.labelBOOTDIVER = (label, start, end) => document.lss_helper.labelVehicle(['9'], ['70', '66', '67', '68'], label ?? 'BOOTDIVER', false, start, end);
 document.lss_helper.labelDOGPOL = (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['94'], label ?? 'DOG', false, start, end);
 document.lss_helper.labelDOGRESCUE = (label, start, end) => document.lss_helper.labelVehicle(['2', '12', '9'], ['91', '92'], label ?? 'DOG', false, start, end);
 document.lss_helper.labelDROHNE = (label, start, end) => document.lss_helper.labelVehicle(['0', '12', '9'], ['126', '128', '129', '127', '125'], label ?? 'DROHNE', false, start, end);
