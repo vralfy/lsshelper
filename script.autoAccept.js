@@ -103,6 +103,7 @@ document.lss_helper.enrichResendMission = (m, resendGroups, resendGroupsScene) =
 document.lss_helper.autoAccept = (force) => {
   if (document.lss_helper.sending_vehicles || !document.lss_helper.lists_updated) {
     document.lss_helper.debug('Sending vehicles is already in progress or lists not updated yet');
+    setTimeout(() => { document.lss_helper.autoAccept(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
     return false;
   }
   const interval = document.lss_helper.getSetting('autoAcceptIntervalTimeout', '300000');
