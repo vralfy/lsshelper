@@ -26,15 +26,17 @@ document.lss_helper.getBuildingsList = () => {
       const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
       const links = Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true));
       const id = links[0].id.replace(/.*_/, '');
+      const leitstelleId = building.attributes.leitstelle_building_id.value.trim();
       const marker = {
         ...building_markers.filter(b => b.building_id === parseInt(id)).pop(),
         ...document.lss_helper.markerTrim,
         ...document.lss_helper.marker.buildings[id],
       };
+      const color = parseInt(Math.abs(document.lss_helper.helper.hash(leitstelleId === 'null' ? id : leitstelleId)).toString(16).padStart(6, '0'), 16);
       return {
         id,
         name: position.innerHTML.trim(),
-        leitstelleId: building.attributes.leitstelle_building_id.value.trim(),
+        leitstelleId: leitstelleId,
         type: building.attributes.building_type_id.value.trim(),
         lat: parseFloat(position.attributes['data-latitude'].value.trim()),
         lng: parseFloat(position.attributes['data-longitude'].value.trim()),
@@ -44,6 +46,7 @@ document.lss_helper.getBuildingsList = () => {
         markerImage,
         position,
         marker,
+        color,
       };
     });
 };
