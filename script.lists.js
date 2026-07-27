@@ -88,8 +88,8 @@ document.lss_helper.getVehiclesList = () => {
 
   let vehicles = document.lss_helper.vehiclesSimple
     .map((v) => {
-      color = v.color || parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
-      color_building = v.color_building || parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
+      const color = v.color || parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
+      const color_building = v.color_building || parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
       const marker = {
         ...(vehicle_markers ?? []).filter(m => m.vehicle_id === v.id).pop(),
         ...document.lss_helper.markerTrim,
