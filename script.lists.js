@@ -86,24 +86,30 @@ document.lss_helper.getVehiclesList = () => {
     .sort((a, b) => document.lss_helper.stateOrder.indexOf(a.status) - document.lss_helper.stateOrder.indexOf(b.status))
     ;
 
-  let vehicles = document.lss_helper.vehiclesSimple.map((v) => {
-    const marker = {
-      ...(vehicle_markers ?? []).filter(m => m.vehicle_id === v.id).pop(),
-      ...document.lss_helper.markerTrim,
-      ...document.lss_helper.marker.vehicles[v.id],
-    };
-    return {
-      ...v,
-      marker,
-    };
-  }).map((vehicle) => {
-    if (!vehicle.marker) return vehicle;
-    if (vehicle.marker.latitude && vehicle.marker.longitude) {
-      vehicle.lat = vehicle.marker.latitude;
-      vehicle.lng = vehicle.marker.longitude;
-    }
-    return vehicle;
-  });
+  let vehicles = document.lss_helper.vehiclesSimple
+    .map((v) => {
+      color = v.color || parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
+      color_building = v.color_building || parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
+      const marker = {
+        ...(vehicle_markers ?? []).filter(m => m.vehicle_id === v.id).pop(),
+        ...document.lss_helper.markerTrim,
+        ...document.lss_helper.marker.vehicles[v.id],
+      };
+      return {
+        ...v,
+        color,
+        color_building,
+        marker,
+      };
+    })
+    .map((vehicle) => {
+      if (!vehicle.marker) return vehicle;
+      if (vehicle.marker.latitude && vehicle.marker.longitude) {
+        vehicle.lat = vehicle.marker.latitude;
+        vehicle.lng = vehicle.marker.longitude;
+      }
+      return vehicle;
+    });
 
   document.lss_helper.vehiclesByType = vehicles.reduce((acc, cur) => {
     acc[cur.type] = [...acc[cur.type] || [], cur];
