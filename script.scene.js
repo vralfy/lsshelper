@@ -164,7 +164,6 @@ document.lss_helper.sendByScene = (mission, scene, noFillOrKill) => {
     document.lss_helper.warn('Sending:', mission.missionType, vehicles, mission);
     const v = vehicles.reduce((acc, cur) => [...acc, ...cur], []);
     document.lss_helper.sendVehicles(mission.missionId, v);
-    document.lss_helper.updateLists(-1);
   } else {
     document.lss_helper.warn('Not enough vehicles');
   }
@@ -196,6 +195,6 @@ document.lss_helper.sendVehicles = (missionid, vehicles) => {
     .then((json) => {
       document.lss_helper.debug(json);
       document.lss_helper.sending_vehicles = false;
-      document.lss_helper.update(-1);
+      setTimeout(() => document.lss_helper.update(-1), Math.min(Math.max(1000, 200 * vehicles.length), document.lss_helper.getSetting('updateInterval', '1000')));
     })
 };
