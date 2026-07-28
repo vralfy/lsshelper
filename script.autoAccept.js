@@ -51,10 +51,12 @@ document.lss_helper.getResendMissions = () => {
         resendGroups['catering'] = [{ scene: '131', count: 1 }];
       }
 
-      if (missing.indexOf('GW-TeSi') > 0 && missing.indexOf('Anh TeSi') < 0) {
+      // if trailer is missing; add towing vehicle to vehicleResend.js
+      if (missing.indexOf('Anh TeSi') > 0 && missing.indexOf('GW-TeSi') < 0) {
         resendGroups['tesi'] = [{ scene: '174', count: 1 }];
       }
 
+      // if trailer is missing; add towing vehicle to vehicleResend.js
       if (missing.indexOf('Radlader (BRmG R)') > 0 && missing.indexOf('LKW Kipper (LKW K 9)') < 0) {
         resendGroups['radlader'] = [{ scene: '43', count: 1 }];
       }
