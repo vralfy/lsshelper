@@ -58,7 +58,7 @@ document.lss_helper.getResendMissions = () => {
 
       // if trailer is missing; add towing vehicle to vehicleResend.js
       if (missing.indexOf('Anh FüLa') > 0 && missing.indexOf('FüKomKW') < 0) {
-        resendGroups['radlader'] = [{ scene: '146', count: 1 }];
+        resendGroups['fuela'] = [{ scene: '146', count: 1 }];
       }
 
       // if trailer is missing; add towing vehicle to vehicleResend.js
