@@ -52,13 +52,18 @@ document.lss_helper.getResendMissions = () => {
       }
 
       // if trailer is missing; add towing vehicle to vehicleResend.js
-      if (missing.indexOf('Anh TeSi') > 0 && missing.indexOf('GW-TeSi') < 0) {
-        resendGroups['tesi'] = [{ scene: '174', count: 1 }];
+      if (missing.indexOf('Radlader (BRmG R)') > 0 && missing.indexOf('LKW Kipper (LKW K 9)') < 0) {
+        resendGroups['radlader'] = [{ scene: '43', count: 1 }];
       }
 
       // if trailer is missing; add towing vehicle to vehicleResend.js
-      if (missing.indexOf('Radlader (BRmG R)') > 0 && missing.indexOf('LKW Kipper (LKW K 9)') < 0) {
-        resendGroups['radlader'] = [{ scene: '43', count: 1 }];
+      if (missing.indexOf('Anh FüLa') > 0 && missing.indexOf('FüKomKW') < 0) {
+        resendGroups['radlader'] = [{ scene: '146', count: 1 }];
+      }
+
+      // if trailer is missing; add towing vehicle to vehicleResend.js
+      if (missing.indexOf('Anh TeSi') > 0 && missing.indexOf('GW-TeSi') < 0) {
+        resendGroups['tesi'] = [{ scene: '174', count: 1 }];
       }
 
       const carry = patientsInfo.filter(p => p.vehicles.indexOf('Tragehilfe (z.B. durch ein LF)') >= 0).length > 0;

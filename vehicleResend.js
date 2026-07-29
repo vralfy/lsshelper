@@ -49,8 +49,8 @@ document.lss_helper.vehicleResend = {
   'THW-Einsatzleitung (MTW-TZ)': 'THWMTW',
   'MzGW (FGr N)': 'THWGWN',
   'MzGW SB': 'THWGWSB',
-  // 'Radlader (BRmG R)': 'THWBRG', // cant be send alone
   'LKW Kipper (LKW K 9)': 'THWBRG', // used to be 'THWLKWK9',
+  // 'Radlader (BRmG R)': 'THWBRG', // cant be send alone
   'Rettungshundestaffel': 'DOGRESCUE',
   'Rettungshundestaffeln': 'DOGRESCUE',
   'NEA50': 'AAOFFNEA',
@@ -59,7 +59,7 @@ document.lss_helper.vehicleResend = {
   'Schmutzwasserpumpen': 'THWSWP',
   'GW-Taucher': '63',
   'FüKomKW': '146', //'145',
-  'Anh FüLa': '146',
+  // 'Anh FüLa': '146',
   'Mobilkran': '182',
   'Mobilkräne': '182',
   'Anh Plattform (FGr BrB)': '183',
