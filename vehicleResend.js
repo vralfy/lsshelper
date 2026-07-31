@@ -33,6 +33,7 @@ document.lss_helper.vehicleResend = {
   'Funkstreifenwagen oder Polizeimotorrad': 'POL',
   'Funkstreifenwagen oder Polizeimotorräder': 'POL',
   'Funkstreifenwagen (Dienstgruppenleitung)': '103',
+  'Polizeimotorräder': '95',
   'FüKW (Polizei)': 'FUEKW',
   'Zivilstreifenwagen': 'ZIV',
   'leBefKw': 'BEFKW',
