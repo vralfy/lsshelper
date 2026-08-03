@@ -67,6 +67,19 @@ document.lss_helper.getResendMissions = () => {
         resendGroups['tesi'] = [{ scene: '174', count: 1 }];
       }
 
+      // Fehlendes Personal: 2 GW-Wasserrettung
+      if (missing.indexOf('Fehlendes Personal:') > 0) {
+        const missingPersonel = missing.replace(/.*Fehlendes Personal:/, '').split(',').map(v => v.trim());
+        missingPersonel.map(v => v.match(/([0-9]+) (.*)/))
+          .filter(v => !!v)
+          .map(v => ({ count: parseInt(v[1]), personal: v[2].trim() }))
+          .forEach(mg => {
+            if (mg.personal.indexOf('GW-Wasserrettung') >= 0) {
+              resendGroups['wasserrettung'] = {scene: 'WASSERRETTUNG', count: Math.ceil(mg.count / 6)};
+            }
+          });
+      }
+
       const carry = patientsInfo.filter(p => p.vehicles.indexOf('Tragehilfe (z.B. durch ein LF)') >= 0).length > 0;
       if (carry) {
         resendGroups['carry'] = [{ scene: 'LF', count: 1 }];
