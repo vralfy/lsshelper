@@ -868,5 +868,6 @@ document.lss_helper.scenes = {
   "1009" : { "LF": 5, "RW": 1, "ELW": 1, "DLK": 1, "GKW": 2, "THWGWN": 2, "THWMTW": 1, "POL": 6, "RTW": 10, "NEF": 1 }, // Eingestürzte VIP-Lounge
   "1010" : { "SEGELW": 1, "RTW": 4, "GWSAN": 1, "LF": 2, "POL": 1 }, // Absicherung Volksfest (klein)
   "1011" : { "POL": 10, "GRUKW": 6, "BEFKW": 2, "DOGPOL": 1, "RTW": 2 }, // Geburtstagsfeier außer Kontrolle
+  "1012" : { "POL": 3 }, // Einbruch auf Flughafengelände
 }
 // https://www.leitstellenspiel.de/einsaetze/0
