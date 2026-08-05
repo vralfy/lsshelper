@@ -15,6 +15,7 @@ document.lss_helper.extensions.ff = {
   'DRONE': 18,
   'Bt': 19,
   'Train': 25,
+  'Animal': 29,
   //'Big': 9,
   'AB2': 2,
   'AB3': 3,
