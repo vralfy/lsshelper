@@ -869,5 +869,6 @@ document.lss_helper.scenes = {
   "1010" : { "SEGELW": 1, "RTW": 4, "GWSAN": 1, "LF": 2, "POL": 1 }, // Absicherung Volksfest (klein)
   "1011" : { "POL": 10, "GRUKW": 6, "BEFKW": 2, "DOGPOL": 1, "RTW": 2 }, // Geburtstagsfeier außer Kontrolle
   "1012" : { "POL": 3 }, // Einbruch auf Flughafengelände
+  "1028" : { "LF": 15, "DLK": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "GWG": 1, "GWM": 2, "SW": 1, "DEKONP": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "DROHNE": 1, "NEA50": 1, "RTW": 1 }, // Brand eines Großbatteriespeichers
 }
 // https://www.leitstellenspiel.de/einsaetze/0
