@@ -5,4 +5,5 @@ document.lss_helper.vehicleReplacements = {
   "43": ["42"], // Radlader (BRmG R)
   "146": ["145"], // Anh FüLa
   "174": ["171"], // Anh TeSi
+  "186": ["185"], // Anh Tier
 }

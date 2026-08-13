@@ -183,5 +183,7 @@ document.lss_helper.vehicleTypes = {
   "181": "🛠️ THW MzGW (FGr BrB)",
   "182": "🛠️ THW Mobilkran",
   "183": "🛠️ THW Anh Plattform (FGr BrB)",
-  "184": "🚓 POL FuStW (AP)"
+  "184": "🚓 POL FuStW (AP)",
+  "185": "⚙️🐾 GW-Tier",
+  "186": "🚒 Anh Tier",
 };
