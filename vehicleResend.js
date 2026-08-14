@@ -24,7 +24,8 @@ document.lss_helper.vehicleResend = {
   'ULF mit Löscharm': 'ULF',
 
   'RTW': 'RTW',
-  'RTW oder KTW oder KTW-B': 'RTW',
+  'RTW oder KTW oder KTW-B': 'RTWKTWKTWB',
+  'RTW oder KTW-B': 'RTWKTWB',
   'GW-San': 'GWSAN',
   'ITW': 'ITW',
 
