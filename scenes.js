@@ -801,6 +801,7 @@ document.lss_helper.scenes = {
   "936" : { "LF": 5, "RW": 1, "ELW": 1, "SW": 1, "GWM": 1, "GWA": 1, "POL": 2, "RTW": 1 }, // Brand einer Gasstation
   "937" : { "LF": 3, "RW": 1, "SW": 1, "GWG": 1, "DROHNE": 1 }, // Bauernhof steht unter Wasser
   "938" : { "LF": 1, "RTW": 1 }, // Person in Großgehege
+  "940" : { "LF": 1, "DLK": 2, "ELW": 1, "GWM": 2, "SW": 3, "POL": 2 }, // Brand in Solarpark
   "941" : { "LF": 1, "POL": 1 }, // Illegales Lagerfeuer in Park
   "942" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Tragwerkssicherung
   "943" : { "LF": 15, "RW": 2, "DLK": 3, "ELW": 2, "ELW2": 1, "GWA": 1, "GWM": 1, "SW": 1, "POL": 4, "RTW": 10 }, // Brennendes Spukschloss
@@ -872,5 +873,6 @@ document.lss_helper.scenes = {
   "1026" : { "LF": 6, "DLK": 2, "SW": 1, "GWA": 1, "ELW": 2, "POL": 2, "GWT": 1 }, // Brennender Stall - Tierrettung
   "1027" : { "LF": 15, "DLK": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "GWG": 1, "GWM": 2, "SW": 1, "DEKONP": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "DROHNE": 1, "NEA50": 1, "RTW": 1, "GWW": 1, "ULF": 1, "TELE": 1, "TURBO": 1 }, // Brand eines Großbatteriespeichers
   "1028" : { "LF": 15, "DLK": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "GWG": 1, "GWM": 2, "SW": 1, "DEKONP": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "DROHNE": 1, "NEA50": 1, "RTW": 1 }, // Brand eines Großbatteriespeichers
+  "1030" : { "BEFKW": 2, "GRUKW": 6, "POL": 8 }, // Evakuierung Gefahrengebiet
 }
 // https://www.leitstellenspiel.de/einsaetze/0
