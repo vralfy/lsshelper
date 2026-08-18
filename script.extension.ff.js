@@ -2,8 +2,13 @@ document.lss_helper.extensions = document.lss_helper.extensions || {};
 document.lss_helper.extensions.ffstandard = {
   'NEA': 14,
   'Luefter': 16,
-  'AB1': 1,
+  'Animal': 29,
   'Anh1': 20,
+  'Anh2': 21,
+  'AB1': 1,
+  'DRONE': 18,
+  'Bt': 19,
+  'Train': 25,
 };
 document.lss_helper.extensions.ff = {
   ...document.lss_helper.extensions.ffstandard,
@@ -12,10 +17,6 @@ document.lss_helper.extensions.ff = {
   'AIRPORT': 8,
   'WERK': 13,
   'NEA200': 15,
-  'DRONE': 18,
-  'Bt': 19,
-  'Train': 25,
-  'Animal': 29,
   //'Big': 9,
   'AB2': 2,
   'AB3': 3,
@@ -29,7 +30,6 @@ document.lss_helper.extensions.ff = {
   'AB11': 26,
   'AB12': 27,
   'AB13': 28,
-  'Anh2': 21,
   'Anh3': 22,
   'Anh4': 23,
   'Anh5': 24,
