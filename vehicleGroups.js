@@ -40,7 +40,8 @@ document.lss_helper.vehicleGroups = {
   "POL": [32],
   "ZIV": [98],
   "DGL": [103],
-  "POLH": [61, 156],
+  "POLH": [96, 61, 156],
+  "POLAB": [96], // Außenlastbehälter (allgemein)
   "POLBIKE": [95],
   "POLAP": [184],
   "BEFKW": [35],
