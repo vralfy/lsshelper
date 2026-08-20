@@ -1,14 +1,14 @@
 document.lss_helper.extensions = document.lss_helper.extensions || {};
 document.lss_helper.extensions.ffstandard = {
   'NEA': 14,
-  'Luefter': 16,
-  'Animal': 29,
   'Anh1': 20,
+  'Animal': 29,
   'Anh2': 21,
-  'AB1': 1,
+  'Luefter': 16,
   'DRONE': 18,
   'Bt': 19,
   'Train': 25,
+  'AB1': 1,
 };
 document.lss_helper.extensions.ff = {
   ...document.lss_helper.extensions.ffstandard,
