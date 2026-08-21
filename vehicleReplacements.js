@@ -6,4 +6,6 @@ document.lss_helper.vehicleReplacements = {
   "146": ["145"], // Anh FüLa
   "174": ["171"], // Anh TeSi
   "186": ["185"], // Anh Tier
+  "128": ["3", "125", "126", "127"], // ELW Drohne
+  "129": ["34", "125", "126", "127"], // ELW Drohne 2
 }
