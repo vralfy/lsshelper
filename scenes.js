@@ -876,5 +876,6 @@ document.lss_helper.scenes = {
   "1028" : { "LF": 15, "DLK": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "GWG": 1, "GWM": 2, "SW": 1, "DEKONP": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "DROHNE": 1, "NEA50": 1, "RTW": 1 }, // Brand eines Großbatteriespeichers
   "1029" : { "LF": 8, "SW": 5, "ELW": 3, "ELW2": 1, "GWA": 6, "DLK": 1, "GWM": 1, "POL": 10, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 5 }, // Großflächiger Waldbrand
   "1030" : { "BEFKW": 2, "GRUKW": 6, "POL": 8 }, // Evakuierung Gefahrengebiet
+  "1031" : { "ELW": 1, "LF": 2, "RW": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // Person in Müllwagen eingeklemmt
 }
 // https://www.leitstellenspiel.de/einsaetze/0
