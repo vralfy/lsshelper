@@ -873,7 +873,9 @@ document.lss_helper.scenes = {
   "1017" : { "POL": 2, "GWT": 1, "RTW": 1 }, // Hundeangriff
   "1019" : { "POL": 1, "GWT": 1, "RTW": 1, "NEF": 1 }, // Reitunfall mit Pkw
   "1021" : { "BOAT": 1, "LF": 2, "GWO": 1, "ELW": 1, "POL": 1, "GWT": 1 }, // Gewässerverschmutzung durch Öl
+  "1022" : { "POL": 2, "GWT": 1 }, // Tiere auf der Fahrbahn
   "1024" : { "LF": 3, "ELW": 1, "POL": 2, "GWT": 1 }, // Wildtier einfangen
+  "1025" : { "LF": 1, "GWT": 1 }, // Wespennest umsiedeln
   "1026" : { "LF": 6, "DLK": 2, "SW": 1, "GWA": 1, "ELW": 2, "POL": 2, "GWT": 1 }, // Brennender Stall - Tierrettung
   "1027" : { "LF": 15, "DLK": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "GWG": 1, "GWM": 2, "SW": 1, "DEKONP": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "DROHNE": 1, "NEA50": 1, "RTW": 1, "GWW": 1, "ULF": 1, "TELE": 1, "TURBO": 1 }, // Brand eines Großbatteriespeichers
   "1028" : { "LF": 15, "DLK": 1, "ELW": 3, "ELW2": 1, "GWA": 1, "GWG": 1, "GWM": 2, "SW": 1, "DEKONP": 1, "POL": 2, "GKW": 1, "THWGWN": 1, "THWMTW": 1, "DROHNE": 1, "NEA50": 1, "RTW": 1 }, // Brand eines Großbatteriespeichers
