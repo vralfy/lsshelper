@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202607-27-01
+// @version      202608-25-01
 // @description  try to take over the world!
 // @author       You
 // @match        https://www.leitstellenspiel.de/
@@ -18,7 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
-    version: '202607-27-01',
+    version: '202608-25-01',
     graph: {
       width: 1000,
       height: 800,
@@ -74,8 +74,9 @@
       panel.append(body);
 
       body.innerHTML = '<div class="container-fluid"><div class="row">' +
-        '<div class="col-sm-12" id="lss_helper_addon_distribution_settings" style="text-align: center"></div>' +
-        '<div class="col-sm-12" id="lss_helper_addon_distribution_container" style="text-align: center"></div>' +
+      '<div class="col-sm-12" id="lss_helper_addon_distribution_settings" style="text-align: center"></div>' +
+      '<div class="col-sm-12" id="lss_helper_addon_distribution_container" style="text-align: center"></div>' +
+      '<div class="col-sm-12" id="lss_helper_addon_distribution_vehicles" style="text-align: center"></div>' +
         '</div></div>';
     }
 
@@ -121,6 +122,28 @@
     document.lss_helper.printSettingsButton('distribution_vehicle_position', 'aktuelle Fahrzeugposition', 'col-sm-3', settingsContainer);
     document.lss_helper.printSettingsButton('distribution_vehicle_position_filter', 'nach Typ filtern', 'col-sm-3', settingsContainer);
     document.lss_helper.printSettingsButton('distribution_mission', 'Einsatz', 'col-sm-2', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_all_types', 'Alle Fahrzeugtypen', 'col-sm-4', settingsContainer);
+
+    let cat = '';
+    Object.keys(document.lss_helper.vehicleTypes)
+      .sort((s1, s2) => document.lss_helper.vehicleTypes[s1] < document.lss_helper.vehicleTypes[s2] ? -1 : 1)
+      .forEach((gkey) => {
+        const name = document.lss_helper.vehicleTypes[gkey];
+        const id = 'distribution_vehicle_' + gkey;
+        const catName = Array.from(String(name || '').trimStart())[0] || '';
+        if (cat !== catName) {
+          cat = catName;
+          document.lss_helper.printSettingsDivider('Fahrzeugtyp ' + catName, null, 'lss_helper_addon_distribution_vehicles');
+        }
+        document.lss_helper.printSettingsButton(id, name, null, 'lss_helper_addon_distribution_vehicles');
+      });
+
+    const allTypes = document.lss_helper.getSetting('distribution_all_types');
+    Object.keys(document.lss_helper.vehicleTypes).forEach((gkey) => {
+      const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
+      const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
+      document.getElementById(id).style = 'display:' + ((amount || allTypes) ? 'block' : 'none');
+    });
 
     if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
       setTimeout(() => { document.lss_helper_distribution.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
@@ -299,17 +322,9 @@
         .filter((gkey) => {
           const name = document.lss_helper.vehicleTypes[gkey];
           const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
-          document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
           return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
         }),
-
     ];
-
-    Object.keys(document.lss_helper.vehicleTypes).forEach((gkey) => {
-      const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
-      const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
-      document.getElementById(id).style = 'display:' + (amount ? 'block' : 'none');
-    });
 
     p5.stroke(0, 0, 0);
     p5.fill(255, 0, 0, 25);
