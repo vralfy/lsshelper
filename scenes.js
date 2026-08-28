@@ -414,6 +414,7 @@ document.lss_helper.scenes = {
   "462" : { "LF": 18, "RW": 4, "SLF": 2, "DLK": 6, "SW": 2, "ELW": 5, "ELW2": 1, "FWK": 1, "GWA": 2, "GWM": 3, "GWG": 2, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "DROHNE": 1, "RTW": 1 }, // Großfeuer in Lagerhalle (Brandmeldeanlage)
   "463" : { "LF": 1, "RW": 1, "POL": 2 }, // Gesprengter Geldautomat
   "464" : { "LF": 1, "ELW": 1, "FWK": 1, "RW": 2, "POL": 3, "GKW": 1, "THWMTW": 1, "THWGWN": 1 }, // Eingestürzter Funkmast
+  "465" : { "LF": 20, "TELE": 1, "TURBO": 1, "ULF": 1, "GWG": 2, "GWM": 4, "DEKONP": 2, "GWO": 1, "SW": 1, "GWA": 3, "DLK": 3, "FWK": 2, "RW": 3, "ELW": 5, "ELW2": 1, "GWW": 1, "THWMTW": 2, "GKW": 2, "THWGWN": 2, "AAOTHWR": 1, "DOG": 1, "THWDLE": 1, "POL": 10 }, // Großbrand im Gefahrstofflager
   "466" : { "RTW": 1 }, // Badeunfall
   "467" : { "RTW": 1 }, // Badeunfall
   "468" : { "RTW": 1 }, // Badeunfall
@@ -872,6 +873,7 @@ document.lss_helper.scenes = {
   "1012" : { "POL": 3 }, // Einbruch auf Flughafengelände
   "1013" : { "GWT": 1 }, // Kleintier in Not
   "1017" : { "POL": 2, "GWT": 1, "RTW": 1 }, // Hundeangriff
+  "1018" : { "POL": 1, "GWT": 1 }, // Wildunfall
   "1019" : { "POL": 1, "GWT": 1, "RTW": 1, "NEF": 1 }, // Reitunfall mit Pkw
   "1021" : { "BOAT": 1, "LF": 2, "GWO": 1, "ELW": 1, "POL": 1, "GWT": 1 }, // Gewässerverschmutzung durch Öl
   "1022" : { "POL": 2, "GWT": 1 }, // Tiere auf der Fahrbahn
