@@ -872,6 +872,7 @@ document.lss_helper.scenes = {
   "1011" : { "POL": 10, "GRUKW": 6, "BEFKW": 2, "DOGPOL": 1, "RTW": 2 }, // Geburtstagsfeier außer Kontrolle
   "1012" : { "POL": 3 }, // Einbruch auf Flughafengelände
   "1013" : { "GWT": 1 }, // Kleintier in Not
+  "1016" : { "LF": 1, "RW": 1, "DLK": 1, "GWT": 1 }, // Pferd in Jauchegrube
   "1017" : { "POL": 2, "GWT": 1, "RTW": 1 }, // Hundeangriff
   "1018" : { "POL": 1, "GWT": 1 }, // Wildunfall
   "1019" : { "POL": 1, "GWT": 1, "RTW": 1, "NEF": 1 }, // Reitunfall mit Pkw
