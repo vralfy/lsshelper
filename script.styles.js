@@ -1,4 +1,4 @@
-document.lss_helper.updateStyle = () => {
+document.lss_helper.updateStyle = (repoUrl) => {
   let style = document.getElementById('lss_helper_style');
   if (!style) {
     style = document.createElement('link');
@@ -8,7 +8,8 @@ document.lss_helper.updateStyle = () => {
     document.getElementsByTagName('head')[0].appendChild(style);
   }
 
-  const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
+  const settingsRepo = document.lss_helper.getSetting('repository_url');
+  const repo = settingsRepo ? settingsRepo : (repoUrl ?? "https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads");
   const channel = document.lss_helper.getSetting('channel', '"master"');
   style.href = repo + '/' + channel + '/lsshelper.css';
 
@@ -26,6 +27,9 @@ document.lss_helper.updateStyle = () => {
     })
     .catch((err) => {
       document.lss_helper.error(err);
+      if (!repoUrl) {
+        setTimeout(() => { document.lss_helper.updateStyle('https://raw.githubusercontent.com/vralfy/lsshelper'); }, 10000);
+      }
     });
 };
 
