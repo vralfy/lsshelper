@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202604-22-01',
+        version: '202608-31-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -58,7 +58,7 @@
     document.lss_helper.info = console.info;
 
     document.lss_helper.getSetting = (key, def) => {
-        if (!localStorage.getItem('lss_helper_' + key)) {
+        if (!localStorage.getItem('lss_helper_' + key) && def !== undefined) {
             localStorage.setItem('lss_helper_' + key, def ?? 'false');
         }
         return JSON.parse(localStorage.getItem('lss_helper_' + key) ?? (def ?? 'false'));
@@ -515,19 +515,25 @@
         document.lss_helper.debug('Needs to be updated');
     };
 
-    document.lss_helper.fetchRemoteFile = (filename) => {
+    document.lss_helper.fetchRemoteFile = (filename, repoUrl) => {
         document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
         const header = { method: 'GET', cache: "no-cache" };
         // https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/lsshelper.user.js
         // https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js
         // https://raw.githubusercontent.com/vralfy/lsshelper/dev/lsshelper.user.js
-        const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
+
+        const settingsRepo = document.lss_helper.getSetting('repository_url');
+        const repo = settingsRepo ? settingsRepo : (repoUrl ?? "https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads");
         const channel = document.lss_helper.getSetting('channel', '"master"');
+        // document.lss_helper.error(repo + '/' + channel + '/' + filename);
         return fetch(repo + '/' + channel + '/' + filename, header)
             .then((response) => response.text())
             .then((response) => { eval(response); return response; })
             .catch((err) => {
                 document.lss_helper.error(err);
+                if (!repoUrl) {
+                    setTimeout(() => { document.lss_helper.fetchRemoteFile(filename, 'https://raw.githubusercontent.com/vralfy/lsshelper'); }, 10000);
+                }
             });
     };
 
