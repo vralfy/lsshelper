@@ -4,7 +4,7 @@
 // @version      2025-08-24
 // @description  try to take over the world!
 // @author       You
-// @match        https://www.leitstellenspiel.de/
+// @match        *://*.leitstellenspiel.de/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
 // ==/UserScript==

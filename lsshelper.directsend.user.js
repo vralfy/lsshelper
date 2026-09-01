@@ -4,7 +4,7 @@
 // @version      202508-29-01
 // @description  Sometime incidents get stuck when vehicles are send twice. This fix resends all vehicles directly to the incident
 // @author       You
-// @match        https://www.leitstellenspiel.de/missions/*
+// @match        *://*.leitstellenspiel.de/missions/*
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
 // ==/UserScript==
