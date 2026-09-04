@@ -135,3 +135,14 @@ document.lss_helper.getFarMostVehicles = (minDistance = 0) => {
 document.lss_helper.printFarMostVehicles = (minDistance = 0) => document.lss_helper.getFarMostVehicles(minDistance).forEach(v => {
   document.lss_helper.warn('Vehicle', v.name, 'is', v.distanceToBase.toFixed(2), 'km away from base', v.building.name);
 });
+
+document.lss_helper.getMissingVehicles = (vehicletype, buildingtype, amount) => {
+  buildingtype = buildingtype || '0';
+  amount = amount || 1;
+  return document.lss_helper.buildings.filter(b =>
+    b.type === buildingtype && document.lss_helper.vehicles.filter(v => v.building.id === b.id && v.type === vehicletype).length < amount
+  )
+};
+
+document.lss_helper.getMissingELWDrohne = () => document.lss_helper.missingVehicles('128', '0', 1);
+document.lss_helper.getMissingHLF20 = () => document.lss_helper.missingVehicles('30', '0', 3);
