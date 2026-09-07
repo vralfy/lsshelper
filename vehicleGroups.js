@@ -73,8 +73,10 @@ document.lss_helper.vehicleGroups = {
   "TAUCHER": [63],
   "MZB": [70],
 
-  "BERG": [150, 152], // Any
+  "BERG": [150, 151, 152, 154, 155], // Any
   "GWB": [150],
+  "GWBH": [155],
+  "SNOW": [154],
   "ELWB": [151],
 
   "WATER": [121, 166],

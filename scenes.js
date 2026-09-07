@@ -766,6 +766,7 @@ document.lss_helper.scenes = {
   "850" : { "LF": 15, "DLK": 2, "ELW": 4, "ELW2": 1, "SW": 4, "GWA": 2, "POL": 12, "RTW": 10, "NEF": 5 }, // Großbrand im Stadion
   "851" : { "POL": 1, "ZIV": 1 }, // Sommermärchen geplatzt
   "852" : { "RTW": 1 }, // Schwalbe fliegt gegen Mauer
+  "853" : { "GWBH": 1 }, // Höhenrettung aus Gondel
   "854" : { "BERG": 1, "RTW": 1 }, // Abgestürzter Wanderer
   "856" : { "BERG": 1, "RTW": 1 }, // Blockierte Bergsteiger
   "857" : { "BERG": 1, "RTW": 1, "NEF": 1 }, // Gestürzter Mountainbiker
