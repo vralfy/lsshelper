@@ -25,6 +25,7 @@ document.lss_helper.vehicleGroups = {
   "TURBO": [86],
 
   "RTH": [31, 157],
+  "RTHW": [157],
   "RTW": [28],
   "NEF": [29, 74],
   "KTW": [38],
@@ -71,6 +72,10 @@ document.lss_helper.vehicleGroups = {
   "DLRG": [66, 67, 68, 70, 71 ], // 64
   "TAUCHER": [63],
   "MZB": [70],
+
+  "BERG": [150], // Any
+  "GWB": [150],
+  "ELWB": [151],
 
   "WATER": [121, 166],
   "smallOil": [10, 0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 4],
