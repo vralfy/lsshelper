@@ -144,5 +144,5 @@ document.lss_helper.getMissingVehicles = (vehicletype, buildingtype, amount) => 
   )
 };
 
-document.lss_helper.getMissingELWDrohne = () => document.lss_helper.missingVehicles('128', '0', 1);
-document.lss_helper.getMissingHLF20 = () => document.lss_helper.missingVehicles('30', '0', 3);
+document.lss_helper.getMissingELWDrohne = () => document.lss_helper.getMissingVehicles('128', '0', 1);
+document.lss_helper.getMissingHLF20 = () => document.lss_helper.getMissingVehicles('30', '0', 3);
