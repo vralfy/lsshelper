@@ -17,6 +17,7 @@ document.lss_helper.vehicleResend = {
   'GW-Messtechnik': 'GWM',
   'GW-Öl': 'GWO',
   'GW-Tierrettung': 'GWT',
+  'GW-Bergrettung': 'GWB',
   'Dekon-P': 'DEKONP',
   'Lüfter': 'LUEFTER',
 
