@@ -16,7 +16,7 @@ document.lss_helper.autoPrisoner = (force) => {
 
     document.lss_helper.info('sending to prison', call.name);
     const header = { method: 'GET', cache: "no-cache" };
-    return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
+    return fetch((document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id, header)
         .then((response) => response.text())
         .then((html) => html.split("\n").filter((l) => l.includes('_prisons.push(')).join(''))
         .then((html) => {
@@ -27,7 +27,7 @@ document.lss_helper.autoPrisoner = (force) => {
             const prisons = [...erb_prisons, ...erb_alliance_prisons].filter((p) => p.free_cells !== '0');
             if (prisons.length) {
                 const prison = prisons[0];
-                const url = 'https://www.leitstellenspiel.de/vehicles/' + call.id + '/gefangener/' + prison.id + '?load_all_prisons=true&show_only_available=false';
+                const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id + '/gefangener/' + prison.id + '?load_all_prisons=true&show_only_available=false';
                 fetch(url)
                     .then((resp) => resp.text())
                     .then((resp) => {
@@ -53,7 +53,7 @@ document.lss_helper.autoPrisonerMission = (force) => {
     [missions[0]].forEach((m) => {
         if (!m) return;
 
-        const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+        const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
 
         // Create hidden iframe to let page JS execute (same-origin) and then query for dynamically inserted buttons
         const createAndLoadIframe = (src, opts = {}) => new Promise((resolve, reject) => {
@@ -163,7 +163,7 @@ document.lss_helper.autoPrisonerMission = (force) => {
     // calls.forEach((v, idx) => {
     //     setTimeout(() => {
     //         const header = { method: 'GET', cache: "no-cache" };
-    //         const url = 'https://www.leitstellenspiel.de/vehicles/' + v.id;
+    //         const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + v.id;
     //         fetch(url, header)
     //             .then((r) => r.text())
     //             .then((r) => {

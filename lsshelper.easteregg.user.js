@@ -54,7 +54,7 @@
   document.lss_helper_easteregg.claim = (mission, html) => {
     if (html.indexOf('id="easter-egg-link"') > 0) {
       const header = { method: 'GET', cache: "no-cache" };
-      const url = 'https://www.leitstellenspiel.de/missions/' + mission.data.id + '/claim_found_object_sync';
+      const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + mission.data.id + '/claim_found_object_sync';
       fetch(url, header)
         .then((r) => r.text())
         .then((r) => {
@@ -89,7 +89,7 @@
             return;
           }
           const header = { method: 'GET', cache: "no-cache" };
-          const url = 'https://www.leitstellenspiel.de/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+          const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
           fetch(url, header)
             .then((r) => r.text())
             .then((r) => {

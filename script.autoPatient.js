@@ -14,7 +14,7 @@ document.lss_helper.autoPatient = (force) => {
     }
     document.lss_helper.info('sending to hospital', call.name);
     const header = { method: 'GET', cache: "no-cache" };
-    return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
+    return fetch((document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id, header)
         .then((response) => response.text())
         .then((html) => {
             const doc = new DOMParser().parseFromString(html, 'text/html');

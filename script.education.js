@@ -119,7 +119,7 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
     }
 
     return Object.keys(options).map((educationId, eidx) => {
-      const url = 'https://www.leitstellenspiel.de/buildings/' + school.id + '/schoolingEducationCheck?education=' + educationId + '&only_building_id=' + building.id;
+      const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/buildings/' + school.id + '/schoolingEducationCheck?education=' + educationId + '&only_building_id=' + building.id;
       document.lss_helper.log('Checking education', url);
       return () => {
         setTimeout(() => {

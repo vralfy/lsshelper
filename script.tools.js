@@ -44,7 +44,7 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
     .forEach((v, idx) => {
       setTimeout(() => {
         const header = { method: 'GET', cache: "no-cache" };
-        const url = 'https://www.leitstellenspiel.de/vehicles/' + v.id + '/edit';
+        const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + v.id + '/edit';
         fetch(url, header)
           .then((r) => r.text())
           .then((r) => {
@@ -86,7 +86,7 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
     .forEach((v, idx) => {
       setTimeout(() => {
         const header = { method: 'GET', cache: "no-cache" };
-        const url = 'https://www.leitstellenspiel.de/vehicles/' + v.id;
+        const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + v.id;
         const postData = {
           _method: 'patch',
           authenticity_token: document.lss_helper.authToken,
