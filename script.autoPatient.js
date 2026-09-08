@@ -59,6 +59,9 @@ document.lss_helper.autoPatientHospital = (_types) => {
 
 document.lss_helper.autoPatientIntermediate = (_types) => {
     const alltypes = ['150', '151', '152', '154', '155']; // Bergwacht
+    ['31', '157'].forEach(t => alltypes.push(t)); // Rettungs Helikopter
+    ['61', '156'].forEach(t => alltypes.push(t)); // Polizei Helikopter
+
     const types = _types ?? alltypes;
 
     const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).shuffle().pop();
