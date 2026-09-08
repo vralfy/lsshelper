@@ -13,8 +13,8 @@ document.lss_helper.autoPatient = (force) => {
 
 document.lss_helper.autoPatientHospital = (_types) => {
     const alltypes = ["28", "38", "73", "74", "97"];
-    ['31', '157'].forEach(t => types.push(t)); // Helikopter
-    ['150', '151', '152', '154', '155'].forEach(t => types.push(t)); // Bergwacht
+    ['31', '157'].forEach(t => alltypes.push(t)); // Helikopter
+    ['150', '151', '152', '154', '155'].forEach(t => alltypes.push(t)); // Bergwacht
     const types = _types ?? alltypes;
 
     const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
