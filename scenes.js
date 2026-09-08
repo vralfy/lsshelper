@@ -773,8 +773,10 @@ document.lss_helper.scenes = {
   "858" : { "BERG": 1 }, // Erschöpfte Wanderer
   "864" : { "GWB": 1, "ELWB": 1, "DOGRESCUE": 1, "DROHNE": 1, "RTHW": 1, "RTW": 1, "NEF": 1 }, // Vermisstensuche im Gelände
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
+  "866" : { "ELWB": 1, "GWB": 3, "ATV": 2, "SW": 2, "GWA": 2, "LF": 1, "POLAB": 1, "RTW": 1, "NEF": 1 }, // Großfeuer im Bergwald
   "879" : { "LF": 8, "ELW": 1, "GWSAN": 1, "RTW": 5, "POL": 2 }, // Absicherung Flugshow
   "880" : { "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
+  "881" : { "GWB": 1, "ATV": 1, "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
   "884" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 2, "POL": 4, "RTW": 3 }, // Verkehrsunfall mit Stadtbahn
@@ -878,6 +880,7 @@ document.lss_helper.scenes = {
   "1011" : { "POL": 10, "GRUKW": 6, "BEFKW": 2, "DOGPOL": 1, "RTW": 2 }, // Geburtstagsfeier außer Kontrolle
   "1012" : { "POL": 3 }, // Einbruch auf Flughafengelände
   "1013" : { "GWT": 1 }, // Kleintier in Not
+  "1015" : { "LF": 1, "POL": 1, "GWT": 1, "NEF": 1 }, // Giftiges Kleintier entflohen
   "1016" : { "LF": 1, "RW": 1, "DLK": 1, "GWT": 1 }, // Pferd in Jauchegrube
   "1017" : { "POL": 2, "GWT": 1, "RTW": 1 }, // Hundeangriff
   "1018" : { "POL": 1, "GWT": 1 }, // Wildunfall
