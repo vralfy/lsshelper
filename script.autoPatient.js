@@ -21,7 +21,6 @@ document.lss_helper.autoPatientHospital = (_types) => {
     if (!call) {
         return;
     }
-    document.lss_helper.info('sending to hospital', call.name);
     const header = { method: 'GET', cache: "no-cache" };
     return fetch((document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id, header)
         .then((response) => response.text())
@@ -33,6 +32,7 @@ document.lss_helper.autoPatientHospital = (_types) => {
             }
             const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
             if (button) {
+                document.lss_helper.info('sending to hospital', call.name);
                 fetch(button.href, header)
                     .then((response) => response.text())
                     .then((json) => document.lss_helper.debug(json));
@@ -45,6 +45,7 @@ document.lss_helper.autoPatientHospital = (_types) => {
             }
             const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
             if (button2) {
+                document.lss_helper.info('sending to alliance hospital', call.name);
                 fetch(button2.href, header)
                     .then((response) => response.text())
                     .then((json) => {
@@ -64,7 +65,7 @@ document.lss_helper.autoPatientIntermediate = (_types) => {
     if (!call) {
         return;
     }
-    document.lss_helper.info('sending to intermediate station', call.name);
+
     const header = { method: 'GET', cache: "no-cache" };
     return fetch((document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id, header)
         .then((response) => response.text())
@@ -76,6 +77,7 @@ document.lss_helper.autoPatientIntermediate = (_types) => {
             }
             const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
             if (button) {
+                document.lss_helper.info('sending to intermediate station', call.name);
                 fetch(button.href, header)
                     .then((response) => response.text())
                     .then((json) => document.lss_helper.debug(json));
@@ -88,6 +90,7 @@ document.lss_helper.autoPatientIntermediate = (_types) => {
             }
             const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
             if (button2) {
+                document.lss_helper.info('sending to allianceintermediate station', call.name);
                 fetch(button2.href, header)
                     .then((response) => response.text())
                     .then((json) => {

@@ -19,7 +19,6 @@ document.lss_helper.autoPrisonerPrison = (_types) => {
         return;
     }
 
-    document.lss_helper.info('sending to prison', call.name);
     const header = { method: 'GET', cache: "no-cache" };
     return fetch((document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id, header)
         .then((response) => response.text())
@@ -33,6 +32,7 @@ document.lss_helper.autoPrisonerPrison = (_types) => {
             if (prisons.length) {
                 const prison = prisons[0];
                 const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id + '/gefangener/' + prison.id + '?load_all_prisons=true&show_only_available=false';
+                document.lss_helper.info('sending to prison', call.name);
                 fetch(url)
                     .then((resp) => resp.text())
                     .then((resp) => {
