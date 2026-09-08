@@ -7,7 +7,10 @@ document.lss_helper.autoPatient = (force) => {
     }
     document.lss_helper.debug('auto patient running');
 
-    const types = ["28", "31", "38", "73", "74", "97"];
+    const types = ["28", "38", "73", "74", "97"];
+    ['31', '157'].forEach(t => types.push(t)); // Helikopter
+    ['150', '151', '152', '154', '155'].forEach(t => types.push(t)); // Bergwacht
+
     const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
     if (!call) {
         return;
