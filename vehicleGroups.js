@@ -24,6 +24,9 @@ document.lss_helper.vehicleGroups = {
   "TELE": [85],
   "TURBO": [86],
 
+  "HUB": [31, 157, 61, 156],
+  "HUBW": [156, 157],
+
   "RTH": [31, 157],
   "RTHW": [157],
   "RTW": [28],

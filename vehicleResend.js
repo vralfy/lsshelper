@@ -31,7 +31,7 @@ document.lss_helper.vehicleResend = {
   'RTW oder KTW-B': 'RTWKTWB',
   'GW-San': 'GWSAN',
   'ITW': 'ITW',
-  'Hubschrauber mit Winde': 'RTHW',
+  'Hubschrauber mit Winde': 'HUBW',
 
   'FuStW': 'POL',
   'FuStW (AP)': 'POLAP',
