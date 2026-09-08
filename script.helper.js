@@ -59,3 +59,21 @@ document.lss_helper.helper.getDistanceInKm = (distance) => {
 document.lss_helper.helper.getPrintableDistance = (obj1, obj2) => {
   return document.lss_helper.helper.getDistanceInKm(document.lss_helper.helper.getDistance(obj1, obj2));
 };
+
+document.lss_helper.helper.shuffleArray = (array) => {
+  const arrayCopy = [...array];
+  for (let i = arrayCopy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+  }
+  return arrayCopy;
+};
+
+Array.prototype.shuffle = function () {
+  const arrayCopy = [...this];
+  for (let i = arrayCopy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+  }
+  return arrayCopy;
+};

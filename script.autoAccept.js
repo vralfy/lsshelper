@@ -171,7 +171,7 @@ document.lss_helper.autoAccept = (force) => {
     if (!force && maxInProgress > 0 && maxInProgress <= inProgress) {
       return;
     }
-    const m = missions[0];
+    const m = missions.shuffle().pop();
     document.lss_helper.debug('AutoAccept', inProgress, '/', maxInProgress, m.missionType, m, 'from', missions);
     document.lss_helper.info('sending vehicles to', m.data.caption);
     document.lss_helper.sendByScene(m, m.missionType);
@@ -201,7 +201,7 @@ document.lss_helper.autoResend = (force) => {
   if (missions.length < 1) {
     return false;
   }
-  const m = missions[Math.floor(Math.random() * missions.length)];
+  const m = missions.shuffle().pop();
   document.lss_helper.debug('AutoResend', m.missionType, m);
 
   (m.resendGroupsVehicles ?? []).forEach((vehicles) => {

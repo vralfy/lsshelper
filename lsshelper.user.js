@@ -563,10 +563,15 @@
             setTimeout(() => { document.lss_helper.autoPrisoner(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
     };
+
     document.lss_helper.autoPrisonerMission = (force) => {
         if (!force) {
             setTimeout(() => { document.lss_helper.autoPrisonerMission(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
         }
+    };
+
+    Array.prototype.shuffle = function () {
+        return [...this];
     };
 
     document.lss_helper.init();

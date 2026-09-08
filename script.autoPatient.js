@@ -17,7 +17,7 @@ document.lss_helper.autoPatientHospital = (_types) => {
     ['150', '151', '152', '154', '155'].forEach(t => alltypes.push(t)); // Bergwacht
     const types = _types ?? alltypes;
 
-    const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
+    const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).shuffle().pop();
     if (!call) {
         return;
     }
@@ -61,7 +61,7 @@ document.lss_helper.autoPatientIntermediate = (_types) => {
     const alltypes = ['150', '151', '152', '154', '155']; // Bergwacht
     const types = _types ?? alltypes;
 
-    const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
+    const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).shuffle().pop();
     if (!call) {
         return;
     }
