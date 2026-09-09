@@ -28,55 +28,51 @@ document.lss_helper.autoPatientFiltered = (_types) => {
     .then((html) => {
       const doc = new DOMParser().parseFromString(html, 'text/html');
       const table = doc.querySelector('table#own-hospitals');
-      if (!table) {
-        return;
-      }
-      const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-      if (button) {
-        document.lss_helper.info('sending to hospital', call.name);
-        fetch(button.href, header)
-          .then((response) => response.text())
-          .then((json) => document.lss_helper.debug(json));
-        return;
+      if (table) {
+        const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button) {
+          document.lss_helper.info('sending to hospital', call.name);
+          fetch(button.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
       }
 
       const table2 = doc.querySelector('table#alliance-hospitals');
-      if (!table2) {
-        return;
-      }
-      const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-      if (button2) {
-        document.lss_helper.info('sending to alliance hospital', call.name);
-        fetch(button2.href, header)
-          .then((response) => response.text())
-          .then((json) => document.lss_helper.debug(json));
-        return;
+      if (table2) {
+        const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button2) {
+          document.lss_helper.info('sending to alliance hospital', call.name);
+          fetch(button2.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
       }
 
       const table3 = doc.querySelector('table#own-intermediate-stations');
-      if (!table3) {
-        return;
-      }
-      const button3 = Array.from(table3.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-      if (button3) {
-        document.lss_helper.info('sending to intermediate station', call.name);
-        fetch(button3.href, header)
-          .then((response) => response.text())
-          .then((json) => document.lss_helper.debug(json));
-        return;
+      if (table3) {
+        const button3 = Array.from(table3.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button3) {
+          document.lss_helper.info('sending to intermediate station', call.name);
+          fetch(button3.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
       }
 
       const table4 = doc.querySelector('table#alliance-intermediate-stations');
-      if (!table4) {
-        return;
-      }
-      const button4 = Array.from(table4.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-      if (button4) {
-        document.lss_helper.info('sending to alliance intermediate station', call.name);
-        fetch(button4.href, header)
-          .then((response) => response.text())
-          .then((json) => document.lss_helper.debug(json));
-        return;
+      if (table4) {
+        const button4 = Array.from(table4.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button4) {
+          document.lss_helper.info('sending to alliance intermediate station', call.name);
+          fetch(button4.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
       }
     });
 }
