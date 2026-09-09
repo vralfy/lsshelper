@@ -14,21 +14,29 @@ document.lss_helper.marker = document.lss_helper.marker || {
 };
 
 document.lss_helper.getBuildingsList = () => {
+  const loading = Array.from(document.getElementById('building_panel_body').getElementsByTagName('li')).filter(e => e.innerHTML==='Lade...')
+  if (loading.length > 0 && !document.lss_helper.getSetting('scrollVehicles', 'true')) {
+    document.lss_helper.log(loading.length, 'buildings are still loading');
+    loading[Math.floor(Math.random() * loading.length)].scrollIntoView();
+  }
+
   return Array.from(document.getElementById('building_list').getElementsByClassName('building_list_li'))
     .map((building) => {
       const markerImage = Array.from(building.getElementsByClassName('building_marker_image'))[0];
       const position = Array.from(building.getElementsByClassName('map_position_mover'))[0];
       const links = Array.from(building.getElementsByTagName('a')).map(l => l.cloneNode(true));
       const id = links[0].id.replace(/.*_/, '');
+      const leitstelleId = building.attributes.leitstelle_building_id.value.trim();
       const marker = {
         ...building_markers.filter(b => b.building_id === parseInt(id)).pop(),
         ...document.lss_helper.markerTrim,
         ...document.lss_helper.marker.buildings[id],
       };
+      const color = parseInt(Math.abs(document.lss_helper.helper.hash(leitstelleId === 'null' ? id : leitstelleId)).toString(16).padStart(6, '0'), 16);
       return {
         id,
         name: position.innerHTML.trim(),
-        leitstelleId: building.attributes.leitstelle_building_id.value.trim(),
+        leitstelleId: leitstelleId,
         type: building.attributes.building_type_id.value.trim(),
         lat: parseFloat(position.attributes['data-latitude'].value.trim()),
         lng: parseFloat(position.attributes['data-longitude'].value.trim()),
@@ -38,13 +46,15 @@ document.lss_helper.getBuildingsList = () => {
         markerImage,
         position,
         marker,
+        color,
       };
     });
 };
 
 document.lss_helper.getVehiclesList = () => {
-  return (document.lss_helper.buildings ?? []).map((b) => {
+  document.lss_helper.vehiclesSimple = (document.lss_helper.buildings ?? []).map((b) => {
     return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
+      .filter((v) => v.attributes.vehicle_id && v.attributes.vehicle_id.value.trim().length > 0)
       .map((vehicle) => {
         const id = parseInt(vehicle.attributes.vehicle_id.value.trim());
         const img = vehicle.getElementsByTagName('img')[0];
@@ -53,11 +63,7 @@ document.lss_helper.getVehiclesList = () => {
         const state = status.innerHTML.trim();
         const type = link.attributes.vehicle_type_id.value.trim();
         const availableStates = document.lss_helper.vehicleStatesAvailable[type] ?? document.lss_helper.statesAvailable;
-        const marker = {
-          ...vehicle_markers.filter(m => m.vehicle_id === id).pop(),
-          ...document.lss_helper.markerTrim,
-          ...document.lss_helper.marker.vehicles[id],
-        };
+
         return {
           id,
           status: state,
@@ -71,7 +77,6 @@ document.lss_helper.getVehiclesList = () => {
           building: b,
           lat: b.lat,
           lng: b.lng,
-          marker,
         };
       });
   })
@@ -80,29 +85,60 @@ document.lss_helper.getVehiclesList = () => {
     .sort((a, b) => parseInt(a.type) - parseInt(b.type))
     .sort((a, b) => document.lss_helper.stateOrder.indexOf(a.status) - document.lss_helper.stateOrder.indexOf(b.status))
     ;
+
+  let vehicles = document.lss_helper.vehiclesSimple
+    .map((v) => {
+      const color = v.color || parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
+      const color_building = v.color_building || parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
+      const marker = {
+        ...(vehicle_markers ?? []).filter(m => m.vehicle_id === v.id).pop(),
+        ...document.lss_helper.markerTrim,
+        ...document.lss_helper.marker.vehicles[v.id],
+      };
+      return {
+        ...v,
+        color,
+        color_building,
+        marker,
+      };
+    })
+    .map((vehicle) => {
+      if (!vehicle.marker) return vehicle;
+      if (vehicle.marker.latitude && vehicle.marker.longitude) {
+        vehicle.lat = vehicle.marker.latitude;
+        vehicle.lng = vehicle.marker.longitude;
+      }
+      return vehicle;
+    });
+
+  document.lss_helper.vehiclesByType = vehicles.reduce((acc, cur) => {
+    acc[cur.type] = [...acc[cur.type] || [], cur];
+    return acc;
+  }, {});
+
+  return vehicles;
 };
 
 document.lss_helper.getMissionsList = () => {
-  return Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
+  Array.from(document.getElementsByClassName('mission_deleted')).forEach(e => e.remove());
+  document.lss_helper.missionsSimple = Array.from(document.querySelectorAll(".missionSideBarEntry:not(.mission_deleted)"))
+    .filter((m) => m.attributes['id'] && m.attributes['id'].value.trim().length > 0)
     .map((m) => {
       const id = m.attributes['id'].value.trim();
       const missionId = m.attributes['mission_id'].value.trim();
       const links = Array.from(m.getElementsByTagName('a')).map((l) => l.cloneNode(true));
       const position = Array.from(m.getElementsByClassName('map_position_mover'))[0];
-      const marker = {
-        ...mission_markers.filter(mk => mk.mission_id === parseInt(missionId)).pop(),
-        ...document.lss_helper.markerTrim,
-        ...document.lss_helper.marker.missions[parseInt(missionId)],
-      };
+
+      const stuck = (document.lss_helper.mission_stuck ?? []).includes(parseInt(missionId));
       const isVerband = Array.from(m.getElementsByClassName('panel-success')).length > 0;
       return {
         id,
         missionId,
-        type: m.attributes['data-mission-type-filter'].value.trim(),
+        type: m.attributes['data-mission-type-filter']?.value.trim() ?? '',
         state: m.attributes['data-mission-state-filter'].value.trim(),
         participation: m.attributes['data-mission-participation-filter'].value.trim(),
         data: JSON.parse(m.attributes['data-sortable-by'].value.trim()),
-        missionType: m.attributes['mission_type_id'].value.trim(),
+        missionType: m.attributes['mission_type_id']?.value.trim() ?? '',
         lat: parseFloat(position.attributes['data-latitude']?.value.trim() ?? '0'),
         lng: parseFloat(position.attributes['data-longitude']?.value.trim() ?? '0'),
         links,
@@ -113,11 +149,25 @@ document.lss_helper.getMissionsList = () => {
         isVerband,
         origin: m,
         position,
+        stuck,
+      };
+    });
+
+  let missions = document.lss_helper.missionsSimple
+    .map((m) => {
+      const marker = {
+        ...mission_markers.filter(mk => mk.mission_id === parseInt(m.missionId)).pop(),
+        ...document.lss_helper.markerTrim,
+        ...document.lss_helper.marker.missions[parseInt(m.missionId)],
+      };
+      return {
+        ...m,
         marker,
-      }
+      };
     })
     .map((m) => {
       return {
+        paused: (document.lss_helper.lastMissionResend || {})[m.data.id] > 0 || (document.lss_helper.lastMissionSend || {})[m.data.id] > 0,
         stateNum: m.finishing ? 1000 : (m.attended ? 100 : 10),
         scene: document.lss_helper.getScene(m.missionType),
         info: {
@@ -186,7 +236,8 @@ document.lss_helper.getMissionsList = () => {
         },
         ...m
       };
-    }).map((m) => {
+    })
+    .map((m) => {
       if (!m.unattended || !m.hasAlert) return m;
       const resend = (m.info?.missing?.querySelector('[data-requirement-type="vehicles"]')?.innerText ?? '')
         .replaceAll(/.*: /g, '')
@@ -251,4 +302,44 @@ document.lss_helper.getMissionsList = () => {
     .sort((m1, m2) => m2.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] > m1.sort[document.lss_helper.getSetting('mission_sort') ?? 'none'] ? -1 : 1)
     .sort((m1, m2) => m1.hasAlert ? (m2.hasAlert ? 0 : -1) : (m2.hasAlert ? 1 : 0))
     .sort((m1, m2) => m1.stateNum < m2.stateNum ? -1 : 0);
+
+  return missions;
 };
+
+document.lss_helper.getMissionStuck = () => {
+  if (!document.lss_helper.getSetting('mission_stuck', 'false')) {
+    document.lss_helper.mission_stuck = [];
+    return;
+  }
+
+  document.lss_helper.mission_stuck = document.lss_helper.mission_stuck || [];
+  document.lss_helper.mission_stuck = document.lss_helper.mission_stuck.filter((id) => {
+    return document.lss_helper.missions.filter((m) => m.attended && m.data.id === id).length < 0;
+  });
+
+  document.lss_helper.missions
+    .filter((m) => m.attended && !document.lss_helper.mission_stuck.includes(m.data.id))
+    .forEach((m, idx) => {
+      setTimeout(() => {
+        document.lss_helper.debug('Checking if mission is stuck', m.data.id);
+        const header = { method: 'GET', cache: "no-cache" };
+        const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+        fetch(url, header)
+          .then((r) => r.text())
+          .then((r) => {
+            if (r.indexOf('Diesen Einsatz direkt anfahren') > 0) {
+              document.lss_helper.warn('Mission is stuck', m);
+              document.lss_helper.mission_stuck.push(m.data.id);
+              document.lss_helper.warn(document.lss_helper.missions.filter((m) => document.lss_helper.mission_stuck.includes(m.data.id)));
+            } else {
+              document.lss_helper.mission_stuck = document.lss_helper.mission_stuck.filter((id) => id !== m.data.id);
+            }
+          })
+          .catch((err) => {
+            document.lss_helper.error(err);
+          });
+      }, idx * 500);
+    });
+};
+
+document.lss_helper.getMissionStuckInterval = document.lss_helper.getMissionStuckInterval ?? setInterval(() => document.lss_helper.getMissionStuck(), document.lss_helper.getSetting('mission_stuck_interval', '180000'));

@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper
 // @namespace    http://tampermonkey.net/
-// @version      202511-11-01
+// @version      202608-31-01
 // @description  try to take over the world!
 // @author       You
-// @match        https://www.leitstellenspiel.de/
+// @match        *://*.leitstellenspiel.de/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
 // ==/UserScript==
@@ -12,7 +12,7 @@
 (function () {
     'use strict';
     document.lss_helper = {
-        version: '202511-11-01',
+        version: '202608-31-01',
         storage: localStorage,
         vehicleTypes: {
             "0": "🚒 LF20"
@@ -34,6 +34,7 @@
             { t: 636, s: 14.42 },
             { t: 370, s: 5.15 }
         ].map((o) => o.s / o.t).reduce((acc, cur) => acc + cur, 0) / 3,
+        sending_vehicles: false,
         scenes: {
             "X": { "LF": 2 },
             "lf1": { "LF": 1 },
@@ -45,6 +46,8 @@
             formatNumber: (arg) => { return arg; },
             hash: () => { return '' + Math.floor(Math.random() * 1000000); },
             getDistance: (obj1, obj2) => 0,
+            getDistanceInKm: (distance) => 0,
+            getPrintableDistance: (obj1, obj2) => 0,
         }
     };
 
@@ -55,7 +58,7 @@
     document.lss_helper.info = console.info;
 
     document.lss_helper.getSetting = (key, def) => {
-        if (!localStorage.getItem('lss_helper_' + key)) {
+        if (!localStorage.getItem('lss_helper_' + key) && def !== undefined) {
             localStorage.setItem('lss_helper_' + key, def ?? 'false');
         }
         return JSON.parse(localStorage.getItem('lss_helper_' + key) ?? (def ?? 'false'));
@@ -70,33 +73,12 @@
         document.lss_helper.setSetting(key, v ? v : def);
     };
 
+    document.lss_helper.translate = (key, lang) => {
+        return key;
+    };
+
     document.lss_helper.init = () => {
         document.lss_helper.log('initiating');
-        $([
-            "<style type='text/css' id='lss_helper_css'>",
-            //"#buildings_outer .panel-body {max-height: initial;height:initial;overflow:visible}",
-            ".leaflet-marker-icon[src*='red'], .leaflet-marker-icon[src*='rot']{ filter: drop-shadow(0px 0px 8px red);}",
-            ".leaflet-marker-icon[src*='yellow'], .leaflet-marker-icon[src*='gelb']{ filter: drop-shadow(0px 0px 8px yellow);}",
-            ".leaflet-marker-icon[src*='green'], .leaflet-marker-icon[src*='gruen']{ filter: drop-shadow(0px 0px 8px green);}",
-            ".hidden { display: none }",
-            "#lss_helper_missions > li { border-top: 1px solid #0007; border-bottom: 1px solid fff7; }",
-            "#lss_helper_container #lss_helper_missions .sendVehicles {}",
-            "#lss_helper_container.sendVehicles #lss_helper_missions .sendVehicles { display: none }",
-            ".lss_available, .lss_in_motion, .lss_unavailable {background: #505050;font-size:18px;padding:0 2px}",
-            ".lss_available { color: #0a0; }",
-            ".lss_in_motion { color: #aa0; }",
-            ".lss_unavailable { color: #a00; }",
-            ".lss_call { color: '#f00'; }",
-            ".state_finishing { color: #000; background: #0f0 }",
-            ".state_unattended { color: #000; background: #f00 }",
-            ".state_attended { color: #000; background: #ff0 }",
-            ".state_verband { border: 1px solid #6a6; border-radius: 20px }",
-            "#mission_general_info, #back_to_mission { text-align:right }",
-            ".mission_detail { display: block; padding: 2px 4px; margin: 0; border-left: 1px solid #0007; border-right: 1px solid #3337; }",
-            "#missions .panel-success .panel-heading {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
-            "#missions .panel-success .panel-body {linear-gradient(to bottom, #01a901 0, #005900 100%) !important}",
-            "</style>"
-        ].join("\n")).appendTo("head");
 
         document.lss_helper.getSetting('ui_map', 'true');
         document.lss_helper.getSetting('ui_missions', 'true');
@@ -117,6 +99,7 @@
         document.lss_helper.setDefaultSetting('autoAcceptInterval', '5000');
         document.lss_helper.setDefaultSetting('autoAcceptMaxAttended', '5');
         document.lss_helper.setDefaultSetting('autoAcceptMaxDistance', '9999');
+        document.lss_helper.setDefaultSetting('autoAcceptMaxUnits', '9999');
         document.lss_helper.setDefaultSetting('maxRTW', '99');
         document.lss_helper.setDefaultSetting('update_scenes', '100000');
 
@@ -135,6 +118,9 @@
         document.lss_helper.getSetting('show_mission_lf1', 'true');
         document.lss_helper.getSetting('show_mission_lf2', 'true');
         document.lss_helper.getSetting('show_mission_type', 'true');
+        document.lss_helper.getSetting('show_mission_unattended', 'true');
+        document.lss_helper.getSetting('show_mission_attended', 'false');
+        document.lss_helper.getSetting('show_mission_finishing', 'false');
 
         document.lss_helper.getSetting('mission_verband', 'false');
         document.lss_helper.getSetting('optimize_scene', 'false');
@@ -147,13 +133,15 @@
             return;
         }
         document.lss_helper.debug('LSS Helper Update', timeout);
-        document.lss_helper.updateLists(-1);
-        if (document.lss_helper.helper.hash() !== document.lss_helper.renderHash) {
-            document.lss_helper.printVehicleList();
-            document.lss_helper.printMissions();
-            document.lss_helper.printMissingVehicles();
-            document.lss_helper.printScene();
-            document.lss_helper.renderHash = document.lss_helper.helper.hash();
+        if (!document.lss_helper.sending_vehicles) {
+            document.lss_helper.updateLists(-1);
+            if (document.lss_helper.helper.hash() !== document.lss_helper.renderHash) {
+                document.lss_helper.printVehicleList();
+                document.lss_helper.printMissions();
+                document.lss_helper.printMissingVehicles();
+                document.lss_helper.printScene();
+                document.lss_helper.renderHash = document.lss_helper.helper.hash();
+            }
         }
 
         ['map', 'missions', 'buildings', 'chat', 'radio']
@@ -164,17 +152,32 @@
                 }
             });
 
+        ['unattended', 'attended', 'finishing']
+            .forEach((s) => {
+                const btn = document.getElementById('mission_select_' + s);
+                if (!btn) {
+                    return;
+                }
+                const show = document.lss_helper.getSetting('show_mission_' + s, 'false') || document.lss_helper.getSetting('show_mission_' + s + '_alert', 'false');
+                if (show && Array.from(btn.classList).indexOf('btn-success') < 0) {
+                    btn.click();
+                } else if (!show && Array.from(btn.classList).indexOf('btn-success') >= 0) {
+                    btn.click();
+                }
+            });
+
         document.lss_helper.printSettings();
+        document.lss_helper.lists_updated = !document.lss_helper.sending_vehicles;
         if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
             setTimeout(() => { document.lss_helper.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
         }
     };
 
     document.lss_helper.loadVehiclesMap = () => {
-        if (document.lss_helper.vehiclesFetched) {
+        if (document.lss_helper.vehiclesFetched || document.lss_helper.vehiclesFetchRunning) {
             return;
         }
-
+        document.lss_helper.vehiclesFetchRunning = true;
         if (document.lss_helper.getSetting('scrollVehicles', 'true')) {
             const vehicleListElement = document.getElementById('building_panel_body');
             vehicleListElement.scrollTo(0, 0);
@@ -204,10 +207,10 @@
             fetch('/buildings/vehiclesMap', params)
                 .then((response) => response.text())
                 .then((json) => {
+                    document.lss_helper.vehiclesFetched = true;
                     eval(json);
                 });
         }
-        document.lss_helper.vehiclesFetched = true;
     };
 
     document.lss_helper.getBuildingsList = () => {
@@ -244,7 +247,7 @@
         if (!container) {
             container = document.createElement("div");
             container.id = 'lss_helper';
-            container.classList = 'col-sm-8 overview_outer bigMapWindow';
+            container.classList = 'col-sm-12 col-md-8 overview_outer bigMapWindow';
             const buildings = document.getElementById('buildings_outer');
             buildings.insertAdjacentElement('afterend', container);
         }
@@ -488,198 +491,49 @@
     };
 
     document.lss_helper.getScene = (scene, debug) => {
-        if (!document.lss_helper.scenes[scene]) {
-            return null;
-        }
-        scene = JSON.parse(JSON.stringify(document.lss_helper.scenes[scene]));
-
         return document.lss_helper.addAAOtoScene(scene, debug);
     };
 
     document.lss_helper.addAAOtoScene = (scene, debug) => {
-        if (debug) {
-            scene = { ...scene, "AAODEBUG": 2 };
-        }
-        const aao = Object.keys(scene)
-            .filter(k => document.lss_helper.vehicleAAO[k])
-            .map(k => ({ amount: scene[k], aao: document.lss_helper.vehicleAAO[k] }));
-        aao.forEach(aao => {
-            Object.keys(aao.aao).forEach((v) => { scene[v] = (scene[v] || 0) + aao.amount * aao.aao[v]; });
-        });
-        Object.keys(scene)
-            .filter(k => document.lss_helper.vehicleAAO[k])
-            .forEach(k => delete scene[k]);
-
-        if (debug) {
-            document.lss_helper.debug(scene, aao);
-        }
-
         return scene;
     };
 
     document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, debug) => {
-        mission = mission || {};
-        mission.missing = {};
-        let nonReplaceable = [];
-        const vehicleCounts = {};
-        const sortKey = 'time';
-
-        if (document.lss_helper.getSetting('optimize_scene')) {
-            let available = document.lss_helper.vehicles
-                .filter((v) => v.available)
-                .map((v) => {
-                    return {
-                        distance: document.lss_helper.helper.getDistance(mission, v),
-                        time: vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
-                        ...v,
-                    };
-                })
-                .sort((v1, v2) => {
-                    return v1[sortKey] - v2[sortKey];
-                });
-            const preVehicles = Object.keys(scene).map((vt) => {
-                const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
-                const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
-                const ids = r.map(v => v.id);
-                available = available.filter((v) => ids.indexOf(v.id) < 0);
-                if (r.length < scene[vt]) {
-                    mission.missing[vt] = scene[vt];
-                }
-                return r.length === scene[vt] ? r : null;
-            }).filter((v) => v !== null).reduce((acc, cur) => [...acc, ...cur], []);
-
-            preVehicles.forEach((v) => vehicleCounts[v.type] = (vehicleCounts[v.type] ?? 0) + 1);
-            Object.keys(document.lss_helper.vehicleReplacements ?? {}).forEach((type) => {
-                const vehicles = preVehicles.filter((v) => v.type === type);
-                let max = 0;
-                document.lss_helper.vehicleReplacements[type].forEach((r) => {
-                    max = Math.max(max, scene[r] ?? 0);
-                    scene[r] = (scene[r] ?? 0) - vehicles.length;
-                });
-                nonReplaceable = [...nonReplaceable, ...vehicles.slice(0, max)];
-            });
-        }
-
-        const nonReplaceableIds = nonReplaceable.map((v) => v.id);
-        let available = document.lss_helper.vehicles
-            .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
-            .filter((v) => v.available)
-            .map((v) => {
-                return {
-                    distance: document.lss_helper.helper.getDistance(mission, v),
-                    time: vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
-                    ...v,
-                };
-            })
-            .sort((v1, v2) => {
-                return v1[sortKey] - v2[sortKey];
-            });
-        let vehicles = Object.keys(scene).filter((vt) => scene[vt] > 0).map((vt) => {
-            const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
-            const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
-            const ids = r.map(v => v.id);
-            available = available.filter((v) => ids.indexOf(v.id) < 0);
-            if (r.length < scene[vt]) {
-                mission.missing[vt] = scene[vt];
-            }
-            return r.length === scene[vt] ? r : null;
-        });
-
-        if (document.lss_helper.getSetting('optimize_scene') && nonReplaceable.length) {
-            vehicles = [...vehicles, ...[nonReplaceable]];
-        }
-
-        //if (nonReplaceable.length) {
-        //document.lss_helper.warn('counts', vehicleCounts, 'replacements', nonReplaceable, 'ids', nonReplaceableIds, 'scene', scene, 'send', vehicles);
-        //}
-        return JSON.parse(JSON.stringify((vehicles.filter((v) => v === null).length && !noFillOrKill) ? null : vehicles.filter((v) => v !== null)));
+        document.lss_helper.debug('Needs to be updated');
+        return null;
     };
 
     document.lss_helper.getVehiclesByMission = (mission, scene, noFillOrKill) => {
-        scene = document.lss_helper.getScene(scene || (mission.missionType || 'X'));
-        if (!scene) {
-            return null;
-        }
-
-        const countLNA = document.lss_helper.vehicles.filter(v => v.type === '55').filter(v => v.available).length;
-        const countORGL = document.lss_helper.vehicles.filter(v => v.type === '56').filter(v => v.available).length;
-        const countELW = document.lss_helper.vehicles.filter(v => v.type === '59').filter(v => v.available).length;
-
-        if (scene['RTW'] && mission.patients) {
-            if (mission.patients > document.lss_helper.getSetting('maxRTW', 10) && countELW) {
-                scene['SEGELW'] = 1;
-            }
-            scene['RTW'] = Math.min(mission.patients, document.lss_helper.getSetting('maxRTW', 10));
-        } else if (scene['KTW'] && mission.patients) {
-            scene['KTW'] = mission.patients;
-        }
-
-        if (countLNA && mission.patients >= 5) {
-            scene['LNA'] = 1;
-        }
-        if (countORGL && mission.patients >= 10) {
-            scene['ORGL'] = 1;
-        }
-
-        if (mission.prisoners) {
-            scene['POL'] = mission.prisoners;
-        }
-
         return document.lss_helper.getVehiclesByScene(mission, scene, noFillOrKill);
     };
 
     document.lss_helper.sendByScene = (mission, scene, noFillOrKill) => {
-        const vehicles = document.lss_helper.getVehiclesByMission(mission, scene, noFillOrKill);
-        if (vehicles) {
-            document.lss_helper.warn('Sending:', mission.missionType, vehicles, mission);
-            const v = vehicles.reduce((acc, cur) => [...acc, ...cur], []);
-            document.lss_helper.sendVehicles(mission.missionId, v);
-            document.lss_helper.updateLists(-1);
-        } else {
-            document.lss_helper.warn('Not enough vehicles');
-        }
+        document.lss_helper.debug('Needs to be updated');
     };
 
     document.lss_helper.sendVehicles = (missionid, vehicles) => {
-        const main = document.lss_helper.getHelperContainer();
-        main.classList = [...Array.from(main.classList), 'sendVehicles'].join(' ');
-
-        const url = "/missions/" + missionid + "/alarm";
-        const body = {
-            //utf8: "",
-            authenticity_token: document.lss_helper.authToken,
-            commit: "Alarmieren",
-            next_mission: 0,
-            next_mission_id: 0,
-            alliance_mission_publish: 0,
-            sk: "ac",
-            sd: "d",
-            ifs: "fi",
-        };
-
-        const vehicleids = vehicles.map((v) => new URLSearchParams('vehicle_ids[]') + v.id).join('&');
-        fetch(url, { method: 'POST', body: new URLSearchParams(body) + '&' + vehicleids, headers: { "Content-type": "application/x-www-form-urlencoded; charset=UTF-8" } })
-            .then((response) => response.text())
-            .then((json) => {
-                document.lss_helper.debug(json);
-                main.classList = Array.from(main.classList).filter((c) => c !== 'sendVehicles').join(' ');
-                document.lss_helper.update(-1);
-            })
+        document.lss_helper.debug('Needs to be updated');
     };
 
-    document.lss_helper.fetchRemoteFile = (filename) => {
+    document.lss_helper.fetchRemoteFile = (filename, repoUrl) => {
         document.lss_helper.debug('LSS Helper fetch', filename, 'from github');
         const header = { method: 'GET', cache: "no-cache" };
         // https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads/master/lsshelper.user.js
         // https://github.com/vralfy/lsshelper/raw/master/lsshelper.user.js
         // https://raw.githubusercontent.com/vralfy/lsshelper/dev/lsshelper.user.js
-        const repo = document.lss_helper.getSetting('repository', '"https://raw.githubusercontent.com/vralfy/lsshelper"');
+
+        const settingsRepo = document.lss_helper.getSetting('repository_url');
+        const repo = settingsRepo ? settingsRepo : (repoUrl ?? "https://raw.githubusercontent.com/vralfy/lsshelper/refs/heads");
         const channel = document.lss_helper.getSetting('channel', '"master"');
+        // document.lss_helper.error(repo + '/' + channel + '/' + filename);
         return fetch(repo + '/' + channel + '/' + filename, header)
             .then((response) => response.text())
             .then((response) => { eval(response); return response; })
             .catch((err) => {
                 document.lss_helper.error(err);
+                if (!repoUrl) {
+                    setTimeout(() => { document.lss_helper.fetchRemoteFile(filename, 'https://raw.githubusercontent.com/vralfy/lsshelper'); }, 10000);
+                }
             });
     };
 
@@ -710,11 +564,22 @@
         }
     };
 
+    document.lss_helper.autoPrisonerMission = (force) => {
+        if (!force) {
+            setTimeout(() => { document.lss_helper.autoPrisonerMission(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+        }
+    };
+
+    Array.prototype.shuffle = function () {
+        return [...this];
+    };
+
     document.lss_helper.init();
     document.lss_helper.update();
     document.lss_helper.autoAccept();
     document.lss_helper.autoPatient();
     document.lss_helper.autoPrisoner();
+    document.lss_helper.autoPrisonerMission();
 
     document.lss_helper.fetchRemotes();
 })();

@@ -1,4 +1,16 @@
+document.lss_helper.scenesDefault = document.lss_helper.scenesDefault || {
+  'lf1': '🚒',
+  'lf2': '🚒🚒',
+};
+
 document.lss_helper.printMissions = () => {
+  const main = document.lss_helper.getHelperContainer();
+  if (document.lss_helper.sending_vehicles || !document.lss_helper.lists_updated) {
+    main.classList = [...Array.from(main.classList), 'sendVehicles'].join(' ');
+  } else {
+    main.classList = Array.from(main.classList).filter((c) => c !== 'sendVehicles').join(' ');
+  }
+
   let missionsContainer = document.getElementById('lss_helper_missions');
   if (!missionsContainer) {
     missionsContainer = document.createElement("ul");
@@ -21,6 +33,13 @@ document.lss_helper.printMissions = () => {
     show_mission_age: document.lss_helper.getSetting('show_mission_age'),
     show_mission_max_distance: document.lss_helper.getSetting('show_mission_max_distance'),
     show_mission_credits_rate: document.lss_helper.getSetting('show_mission_credits_rate'),
+
+    show_mission_unattended: document.lss_helper.getSetting('show_mission_unattended', 'false'),
+    show_mission_attended: document.lss_helper.getSetting('show_mission_attended', 'false'),
+    show_mission_finishing: document.lss_helper.getSetting('show_mission_finishing', 'false'),
+    show_mission_unattended_alert: document.lss_helper.getSetting('show_mission_unattended_alert', 'true'),
+    show_mission_attended_alert: document.lss_helper.getSetting('show_mission_attended_alert', 'false'),
+    show_mission_finishing_alert: document.lss_helper.getSetting('show_mission_finishing_alert', 'false'),
 
     show_mission_type: document.lss_helper.getSetting('show_mission_type'),
   };
@@ -53,6 +72,7 @@ document.lss_helper.printMissions = () => {
         m.unattended ? 'state_unattended' : '',
         m.hasAlert ? 'state_alert' : '',
         m.isVerband ? 'state_verband' : '',
+        m.stuck ? 'state_stuck' : '',
       ].join(' ');
       li.style = 'display:flex; flex-direction:row;justify-content:space-between;align-items:center;gap:10px';
       missionsContainer.appendChild(li);
@@ -76,32 +96,29 @@ document.lss_helper.printMissions = () => {
       }
 
       const needsVehicles = !m.hasAlert && m.unattended;
-      const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? document.lss_helper.getVehiclesByMission(m, m.missionType)) : [];
+      // const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? document.lss_helper.getVehiclesByMission(m, m.missionType)) : [];
+      // This way is much more performant than the one above, as it avoids unnecessary distance calculations
+      const vehiclesToSend = needsVehicles ? (m.proposedVehicles ?? []) : [];
 
       if (needsVehicles) {
-        if (settings.show_mission_type && m.scene && vehiclesToSend) {
+        if (settings.show_mission_type && m.scene && vehiclesToSend && vehiclesToSend.length) {
           const vehiclesCount = vehiclesToSend.reduce((acc, cur) => acc + cur.length, 0);
           const btn2 = document.createElement('a');
           btn2.classList = 'btn btn-xs btn-default sendVehicles';
           btn2.innerHTML = '🚨' + document.lss_helper.helper.formatNumber(vehiclesCount);
           btn2.onclick = () => { document.lss_helper.sendByScene(m) };
           leftContainer.appendChild(btn2);
-        } else {
-          if (settings.show_mission_lf1 && document.lss_helper.getVehiclesByMission(m, 'lf1')) {
-            const btn = document.createElement('a');
-            btn.classList = 'btn btn-xs btn-default sendLf1';
-            btn.innerHTML = '🚒';
-            btn.onclick = () => { document.lss_helper.sendByScene(m, 'lf1') };
-            leftContainer.appendChild(btn);
-          }
-          if (settings.show_mission_lf2 && document.lss_helper.getVehiclesByMission(m)) {
-            const btn2 = document.createElement('a');
-            btn2.classList = 'btn btn-xs btn-default sendLf2';
-            btn2.innerHTML = '🚒🚒';
-            btn2.onclick = () => { document.lss_helper.sendByScene(m) };
-            leftContainer.appendChild(btn2);
-          }
         }
+
+        Object.keys(document.lss_helper.scenesDefault)
+          .filter((sceneKey) => settings['show_mission_' + sceneKey] && document.lss_helper.getVehiclesByMission(m, sceneKey))
+          .forEach((sceneKey) => {
+            const btn = document.createElement('a');
+            btn.classList = 'btn btn-xs btn-default sendVehicles send' + sceneKey;
+            btn.innerHTML = document.lss_helper.scenesDefault[sceneKey];
+            btn.onclick = () => { document.lss_helper.sendByScene(m, sceneKey) };
+            leftContainer.appendChild(btn);
+          });
       }
 
       if (settings.show_mission_credits) {
@@ -123,7 +140,7 @@ document.lss_helper.printMissions = () => {
         if (settings.show_mission_max_distance && m.maxDistance) {
           const distanceSpan = document.createElement('span');
           distanceSpan.classList = 'mission_detail';
-          distanceSpan.innerHTML = (Math.round(m.maxDistance * 100) / 100) + 'km';
+          distanceSpan.innerHTML = (Math.round(document.lss_helper.helper.getDistanceInKm(m.maxDistance) * 100) / 100) + 'km';
           centerContainer.appendChild(distanceSpan);
         }
 
@@ -149,6 +166,21 @@ document.lss_helper.printMissions = () => {
           document.lss_helper.printScene();
         };
         rightContainer.appendChild(checkmark);
+      }
+
+      const listElement = document.getElementById('mission_' + m.data.id);
+      if (listElement) {
+        ['unattended', 'attended', 'finishing'].forEach((state) => {
+          if (m[state]) {
+            if (settings['show_mission_' + state] || (m.hasAlert && settings['show_mission_' + state + '_alert'])) {
+              listElement.classList.add('block');
+              listElement.classList.remove('hidden');
+            } else {
+              listElement.classList.remove('block');
+              listElement.classList.add('hidden');
+            }
+          }
+        });
       }
     });
 };

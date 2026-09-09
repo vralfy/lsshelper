@@ -1,10 +1,10 @@
 // ==UserScript==
 // @name         Leistellenspiel Helper - Distribution AddOn
 // @namespace    http://tampermonkey.net/
-// @version      202506-22-01
+// @version      202608-25-01
 // @description  try to take over the world!
 // @author       You
-// @match        https://www.leitstellenspiel.de/
+// @match        *://*.leitstellenspiel.de/
 // @icon         https://www.google.com/s2/favicons?sz=64&domain=leitstellenspiel.de
 // @grant        none
 // ==/UserScript==
@@ -18,6 +18,7 @@
   ].join('\n')).appendTo("head");
 
   document.lss_helper_distribution = {
+    version: '202608-25-01',
     graph: {
       width: 1000,
       height: 800,
@@ -34,12 +35,14 @@
     }
 
     document.lss_helper.getSetting('distribution_size', '1000');
+    document.lss_helper.getSetting('distribution_size_ratio', '1');
     document.lss_helper.getSetting('distribution_all_names', 'false');
     document.lss_helper.getSetting('distribution_building', 'false');
     document.lss_helper.getSetting('distribution_leitstelle', 'true');
     document.lss_helper.getSetting('distribution_firehouse', 'true');
     document.lss_helper.getSetting('distribution_police', 'false');
     document.lss_helper.getSetting('distribution_rescue', 'false');
+    document.lss_helper.getSetting('distribution_seg', 'false');
     document.lss_helper.getSetting('distribution_thw', 'false');
     document.lss_helper.getSetting('distribution_dlrg', 'false');
     document.lss_helper.getSetting('distribution_bepo', 'false');
@@ -71,8 +74,9 @@
       panel.append(body);
 
       body.innerHTML = '<div class="container-fluid"><div class="row">' +
-        '<div class="col-sm-12" id="lss_helper_addon_distribution_settings" style="text-align: center"></div>' +
-        '<div class="col-sm-12" id="lss_helper_addon_distribution_container" style="text-align: center"></div>' +
+      '<div class="col-sm-12" id="lss_helper_addon_distribution_settings" style="text-align: center"></div>' +
+      '<div class="col-sm-12" id="lss_helper_addon_distribution_container" style="text-align: center"></div>' +
+      '<div class="col-sm-12" id="lss_helper_addon_distribution_vehicles" style="text-align: center"></div>' +
         '</div></div>';
     }
 
@@ -94,22 +98,52 @@
     const container = document.getElementById('lss_helper_addon_distribution');
     const settingsContainer = 'lss_helper_addon_distribution_settings';
     container.style.display = document.lss_helper.getSetting('distribution') ? 'block' : 'none';
+
     document.lss_helper.printSettingsButton('distribution', 'Verteilungsgraph', 'col-sm-12');
+    document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
+    document.lss_helper.printSettingsNumberInput('distribution_size_ratio', 'Breitenratio', null, settingsContainer);
+
+    document.lss_helper.printSettingsDivider('Gebäude', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_all_names', 'Alle Gebaeudenamen', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_building', 'Alle Gebaeude', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_leitstelle', 'Verteilung Leitstelle', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_firehouse', 'Verteilung Feuerwehr', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_police', 'Verteilung Polizei', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_rescue', 'Verteilung Rettungswache', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_seg', 'Verteilung SEG', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_hospital', 'Verteilung Krankenhäuser', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_thw', 'Verteilung THW', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_dlrg', 'Verteilung Wasserrettung', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_bepo', 'Verteilung Bereitschaftspolizei', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_school', 'Verteilung Schulen', null, settingsContainer);
 
-    document.lss_helper.printSettingsNumberInput('distribution_size', 'Größe', null, settingsContainer);
-    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-12', settingsContainer);
-    document.lss_helper.printSettingsButton('distribution_mission', 'Einsatz', null, settingsContainer);
+    document.lss_helper.printSettingsDivider('Fahrzeuge', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_available_only', 'nur verfuegbare Fahrzeuge', 'col-sm-4', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_vehicle_position', 'aktuelle Fahrzeugposition', 'col-sm-3', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_vehicle_position_filter', 'nach Typ filtern', 'col-sm-3', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_mission', 'Einsatz', 'col-sm-2', settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_all_types', 'Alle Fahrzeugtypen', 'col-sm-4', settingsContainer);
+
+    let cat = '';
+    Object.keys(document.lss_helper.vehicleTypes)
+      .sort((s1, s2) => document.lss_helper.vehicleTypes[s1] < document.lss_helper.vehicleTypes[s2] ? -1 : 1)
+      .forEach((gkey) => {
+        const name = document.lss_helper.vehicleTypes[gkey];
+        const id = 'distribution_vehicle_' + gkey;
+        const catName = Array.from(String(name || '').trimStart())[0] || '';
+        if (cat !== catName) {
+          cat = catName;
+          document.lss_helper.printSettingsDivider('Fahrzeugtyp ' + catName, null, 'lss_helper_addon_distribution_vehicles');
+        }
+        document.lss_helper.printSettingsButton(id, name, null, 'lss_helper_addon_distribution_vehicles');
+      });
+
+    const allTypes = document.lss_helper.getSetting('distribution_all_types');
+    Object.keys(document.lss_helper.vehicleTypes).forEach((gkey) => {
+      const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
+      const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
+      document.getElementById(id).style = 'display:' + ((amount || allTypes) ? 'block' : 'none');
+    });
 
     if (!timeout && document.lss_helper.getSetting('updateInterval', '1000') > 0) {
       setTimeout(() => { document.lss_helper_distribution.update(); }, document.lss_helper.getSetting('updateInterval', '1000'));
@@ -140,6 +174,7 @@
     document.lss_helper_distribution.graph.width = document.getElementById('lss_helper_addon_distribution') ? document.getElementById('lss_helper_addon_distribution').clientWidth - 100 : document.lss_helper_distribution.graph.width;
     document.lss_helper_distribution.graph.width = Math.min(document.lss_helper_distribution.graph.width, document.lss_helper.getSetting('distribution_size', '1000'));
     document.lss_helper_distribution.graph.height = document.lss_helper_distribution.graph.width;
+    document.lss_helper_distribution.graph.width *= document.lss_helper.getSetting('distribution_size_ratio', '1');
     document.lss_helper_distribution.canvas = document.lss_helper_distribution.p5.createCanvas(document.lss_helper_distribution.graph.width, document.lss_helper_distribution.graph.height);
     document.lss_helper_distribution.canvas.parent('lss_helper_addon_distribution_container');
 
@@ -148,6 +183,10 @@
   document.lss_helper_distribution.delaunay = (buildings) => {
     const p5 = document.lss_helper_distribution.p5;
     const graph = document.lss_helper_distribution.graph;
+    buildings = buildings.map(b => ({
+      ...b,
+      color: b.color || parseInt(Math.abs(document.lss_helper.helper.hash(b.leitstelleId === 'null' ? b.id : b.leitstelleId)).toString(16).padStart(6, '0'), 16),
+    }))
 
     const points = buildings.reduce((acc, cur) => {
       const c = document.lss_helper_distribution.coord(cur);
@@ -167,6 +206,7 @@
       p5.fill(0);
       buildings.forEach((b) => {
         const c = document.lss_helper_distribution.coord(b);
+        p5.stroke((b.color >> 16) & 0xFF, (b.color >> 8) & 0xFF, (b.color >> 0) & 0xFF);
         p5.circle(c.x, c.y, 3);
         p5.text(b.name, c.x, c.y);
       });
@@ -177,11 +217,17 @@
     if (!document.lss_helper_distribution.p5) {
       return;
     }
+    const p5 = document.lss_helper_distribution.p5;
+    p5.frameRate(1);
+
     if (!document.lss_helper.buildings || !document.lss_helper.buildings.length) {
       return;
     }
+    if (!document.lss_helper.getSetting('distribution', 'false')) {
+      return;
+    }
 
-    const p5 = document.lss_helper_distribution.p5;
+    p5.frameRate(Math.ceil(1000.0 / document.lss_helper.getSetting('updateInterval', '1000')));
     const graph = document.lss_helper_distribution.graph;
     p5.background(255);
 
@@ -239,6 +285,11 @@
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "2")); // Rettungswache
     }
+    if (document.lss_helper.getSetting('distribution_seg')) {
+      p5.stroke(255, 100, 100);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "12")); // Rettungswache
+    }
     if (document.lss_helper.getSetting('distribution_hospital')) {
       p5.stroke(200, 100, 100);
       p5.noFill();
@@ -271,25 +322,44 @@
         .filter((gkey) => {
           const name = document.lss_helper.vehicleTypes[gkey];
           const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
-          document.lss_helper.printSettingsButton('distribution_vehicle_' + gkey, 'Distribution ' + name, null, 'lss_helper_addon_distribution_settings');
           return document.lss_helper.getSetting('distribution_vehicle_' + gkey);
         }),
-
     ];
-
-    Object.keys(document.lss_helper.vehicleTypes).forEach((gkey) => {
-      const id = 'lss_helper_settings_distribution_vehicle_' + gkey;
-      const amount = document.lss_helper.vehicles.filter((v) => v.type === gkey).length;
-      document.getElementById(id).style = 'display:' + (amount ? 'block' : 'none');
-    });
 
     p5.stroke(0, 0, 0);
     p5.fill(255, 0, 0, 25);
+    const availableOnly = !document.lss_helper.getSetting('distribution_available_only');
     document.lss_helper_distribution.delaunay(
       document.lss_helper.vehicles
         .filter((v) => types.indexOf(v.type) >= 0)
-        .filter((v) => v.available || !document.lss_helper.getSetting('distribution_available_only'))
+        .filter((v) => v.available || availableOnly)
+        .map((v) => {
+          return { ...v, lat: v.building.lat, lng: v.building.lng }
+        })
     );
+
+    if (document.lss_helper.getSetting('distribution_vehicle_position')) {
+      const filter = document.lss_helper.getSetting('distribution_vehicle_position_filter');
+      p5.strokeWeight(3);
+      document.lss_helper.vehicles
+        .filter((v) => types.indexOf(v.type) >= 0 || !filter)
+        .forEach((v) => {
+          const cV = document.lss_helper_distribution.coord(v);
+          const cB = document.lss_helper_distribution.coord(v.building);
+          v.color = v.color || parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
+          v.color_building = v.color_building || parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
+
+          p5.stroke(v.color_building >> 16 & 0xFF, v.color_building >> 8 & 0xFF, v.color_building & 0xFF);
+          p5.fill(v.color_building & 0xFF, v.color_building >> 8 & 0xFF, v.color_building >> 16 & 0xFF);
+          p5.line(cV.x, cV.y, cB.x, cB.y);
+          p5.circle(cB.x, cB.y, 10);
+
+          p5.stroke(v.color & 0xFF, v.color >> 8 & 0xFF, v.color >> 16 & 0xFF);
+          p5.fill(v.color >> 16 & 0xFF, v.color >> 8 & 0xFF, v.color & 0xFF);
+          p5.circle(cV.x, cV.y, 5);
+        });
+      p5.strokeWeight(1);
+    }
 
     if (document.lss_helper.getSetting('distribution_mission') && document.lss_helper.missionDetails) {
       p5.stroke(0, 0, 0);

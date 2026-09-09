@@ -1,48 +1,78 @@
 document.lss_helper.autoPatient = (force) => {
   if (!force) {
-      setTimeout(() => { document.lss_helper.autoPatient(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
+    setTimeout(() => { document.lss_helper.autoPatient(); }, document.lss_helper.getSetting('autoAcceptInterval', '5000'));
   }
   if (!force && !document.lss_helper.getSetting('autoPatient')) {
-      return;
+    return;
   }
   document.lss_helper.debug('auto patient running');
 
-  const types = ["28", "31", "38", "73", "74"];
-  const call = document.lss_helper.vehicles.filter((v) => types.indexOf(v.type) >= 0).filter((v) => v.call).pop();
-  if (!call) {
-      return;
-  }
-  document.lss_helper.info('sending to hospital', call.name);
-  const header = { method: 'GET', cache: "no-cache" };
-  return fetch('https://www.leitstellenspiel.de/vehicles/' + call.id, header)
-      .then((response) => response.text())
-      .then((html) => {
-          const doc = new DOMParser().parseFromString(html, 'text/html');
-          const table = doc.querySelector('table#own-hospitals');
-          if (!table) {
-              return;
-          }
-          const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-          if (button) {
-              fetch(button.href, header)
-                  .then((response) => response.text())
-                  .then((json) => document.lss_helper.debug(json));
-              return;
-          }
-
-          const table2 = doc.querySelector('table#alliance-hospitals');
-          if (!table2) {
-              return;
-          }
-          const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
-          if (button2) {
-              fetch(button2.href, header)
-                  .then((response) => response.text())
-                  .then((json) => {
-                      document.lss_helper.debug(json);
-                      document.lss_helper.updateLists(-1);
-                  });
-              return;
-          }
-      });
+  document.lss_helper.autoPatientFiltered();
 };
+
+document.lss_helper.autoPatientFiltered = (_types) => {
+  const alltypes = [];
+  ["28", "38", "73", "74", "97"].forEach(t => alltypes.push(t)); // Rettungsdienst
+  ['31', '157'].forEach(t => alltypes.push(t)); // Rettungs Helikopter
+  ['150', '151', '152', '154', '155'].forEach(t => alltypes.push(t)); // Bergwacht
+  ['61', '156'].forEach(t => alltypes.push(t)); // Polizei Helikopter
+  const types = _types ?? alltypes;
+
+  const call = document.lss_helper.vehicles.filter((v) => v.call).filter((v) => types.indexOf(v.type) >= 0).shuffle().pop();
+  if (!call) {
+    return;
+  }
+  const header = { method: 'GET', cache: "no-cache" };
+  return fetch((document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + call.id, header)
+    .then((response) => response.text())
+    .then((html) => {
+      const doc = new DOMParser().parseFromString(html, 'text/html');
+      const table = doc.querySelector('table#own-hospitals');
+      if (table) {
+        const button = Array.from(table.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button) {
+          document.lss_helper.info('sending to hospital', call.name);
+          fetch(button.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
+      }
+
+      const table2 = doc.querySelector('table#alliance-hospitals');
+      if (table2) {
+        const button2 = Array.from(table2.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button2) {
+          document.lss_helper.info('sending to alliance hospital', call.name);
+          fetch(button2.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
+      }
+
+      const table3 = doc.querySelector('table#own-intermediate-stations');
+      if (table3) {
+        const button3 = Array.from(table3.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button3) {
+          document.lss_helper.info('sending to intermediate station', call.name);
+          fetch(button3.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
+      }
+
+      const table4 = doc.querySelector('table#alliance-intermediate-stations');
+      if (table4) {
+        const button4 = Array.from(table4.querySelectorAll('a.btn:not(.btn-danger):not(.btn-default):not(.btn-xs)')).shift();
+        if (button4) {
+          document.lss_helper.info('sending to alliance intermediate station', call.name);
+          fetch(button4.href, header)
+            .then((response) => response.text())
+            .then((json) => document.lss_helper.debug(json));
+          return;
+        }
+      }
+    });
+}

@@ -4,28 +4,33 @@ if (!document.lss_helper.helper) {
 
 document.lss_helper.helper.formatNumber = (arg) => {
   return arg.toString().padStart(2, '0');
-}
+};
 
 document.lss_helper.helper.hash = (str) => {
-  str = str || JSON.stringify({ mission: document.lss_helper.missions, vehicles: document.lss_helper.vehicles });
+  str = str || JSON.stringify({ mission: document.lss_helper.missionsSimple, vehicles: document.lss_helper.vehiclesSimple });
   let hash = 0;
   if (!str.length) {
-      return 0;
+    return 0;
   }
 
   for (let i = 0; i < str.length; i++) {
-      let char = str.charCodeAt(i);
-      hash = ((hash << 5) - hash) + char;
-      hash = hash & hash;
+    let char = str.charCodeAt(i);
+    hash = ((hash << 5) - hash) + char;
+    hash = hash & hash;
   }
 
   return hash;
 };
 
 document.lss_helper.helper.getDistance = (obj1, obj2) => {
-  const diffLat = Math.abs((obj1.lat ?? 0) - (obj2.lat ?? 0));
-  const diffLng = Math.abs((obj1.lng ?? 0) - (obj2.lng ?? 0));
-  document.lss_helper.useExactDistance = document.lss_helper.useExactDistance === undefined ? document.lss_helper.getSetting('exactDistance') : document.lss_helper.useExactDistance;
+  const diffLat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
+  const diffLng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
+  const distanceDeg = diffLat * diffLat + diffLng * diffLng;
+
+  if (document.lss_helper.useExactDistance === undefined) {
+    document.lss_helper.useExactDistance = document.lss_helper.getSetting('exactDistance');
+  }
+
   if (document.lss_helper.useExactDistance || !document.lss_helper.kmperdegree) {
     // const lat = (obj1.lat ?? 0) - (obj2.lat ?? 0);
     // const lng = (obj1.lng ?? 0) - (obj2.lng ?? 0);
@@ -36,13 +41,39 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
     const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
     const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
     const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-        Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+      Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distanceKm = radius * c; // Distance in km
-    const distanceDeg = Math.sqrt(diffLat * diffLat + diffLng * diffLng);
-    document.lss_helper.kmperdegree = distanceKm / distanceDeg;
-    return distanceKm;
+    document.lss_helper.kmperdegree = distanceKm / Math.sqrt(distanceDeg);
+    return distanceDeg;
   }
 
-  return Math.sqrt(diffLat * diffLat + diffLng * diffLng) * (document.lss_helper.kmperdegree || 1);
-}
+  // We do not take the square root here for performance reasons
+  return distanceDeg;
+};
+
+document.lss_helper.helper.getDistanceInKm = (distance) => {
+  return Math.sqrt(distance) * (document.lss_helper.kmperdegree || 1);;
+};
+
+document.lss_helper.helper.getPrintableDistance = (obj1, obj2) => {
+  return document.lss_helper.helper.getDistanceInKm(document.lss_helper.helper.getDistance(obj1, obj2));
+};
+
+document.lss_helper.helper.shuffleArray = (array) => {
+  const arrayCopy = [...array];
+  for (let i = arrayCopy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+  }
+  return arrayCopy;
+};
+
+Array.prototype.shuffle = function () {
+  const arrayCopy = [...this];
+  for (let i = arrayCopy.length - 1; i > 0; i--) {
+    const j = Math.floor(Math.random() * (i + 1));
+    [arrayCopy[i], arrayCopy[j]] = [arrayCopy[j], arrayCopy[i]];
+  }
+  return arrayCopy;
+};
