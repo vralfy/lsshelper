@@ -83,7 +83,7 @@ document.lss_helper.vehicleGroups = {
   "ELWB": [151],
   "ATV": [152],
 
-  "WATER": [121, 166],
+  "WATER": [121, 166, 167],
   "smallOil": [10, 0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 4],
   "SLF": [11, 121, 166, 167],
   "BOAT": [67, 68, 70, 71],
