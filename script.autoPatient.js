@@ -7,10 +7,10 @@ document.lss_helper.autoPatient = (force) => {
   }
   document.lss_helper.debug('auto patient running');
 
-  document.lss_helper.autoPatientHospital();
+  document.lss_helper.autoPatientFiltered();
 };
 
-document.lss_helper.autoPatientHospital = (_types) => {
+document.lss_helper.autoPatientFiltered = (_types) => {
   const alltypes = [];
   ["28", "38", "73", "74", "97"].forEach(t => alltypes.push(t)); // Rettungsdienst
   ['31', '157'].forEach(t => alltypes.push(t)); // Rettungs Helikopter
