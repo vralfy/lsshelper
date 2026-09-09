@@ -19,6 +19,8 @@ document.lss_helper.vehicleGroups = {
   "DEKONP": [53],
   "LUEFTER": [114, 115, 116],
 
+  "BAHN": [162, 163, 164],
+
   "GWW": [83],
   "ULF": [84],
   "TELE": [85],
