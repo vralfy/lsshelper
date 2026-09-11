@@ -147,3 +147,4 @@ document.lss_helper.getMissingVehicles = (vehicletype, buildingtype, amount) => 
 document.lss_helper.getMissingELWDrohne = () => document.lss_helper.getMissingVehicles('128', '0', 1);
 document.lss_helper.getMissingHLF20 = () => document.lss_helper.getMissingVehicles('30', '0', 3);
 document.lss_helper.getMissingLuefter = () => document.lss_helper.getMissingVehicles('114', '0', 1);
+document.lss_helper.getMissingGWTierrrettung = () => document.lss_helper.getMissingVehicles('185', '0', 1);
