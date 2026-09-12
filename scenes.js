@@ -790,6 +790,10 @@ document.lss_helper.scenes = {
   "904" : { "BAHN": 1, "LF": 3, "RW": 2, "ELW": 1, "DLK": 1, "POL": 2, "RTW": 1, "NEF": 1, "RTH": 1 }, // Person unter Zug
   "905" : { "BAHN": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // Rangierunfall
   "906" : { "LF": 2, "BAHN": 1, "ELW": 1, "POL": 2 }, // Personensuche bei Schnellfahrstrecke
+  "907" : { "BAHN": 1 }, // Eingleisen einer U-Bahn
+  "908" : { "LF": 2, "BAHN": 1, "POL": 3 }, // Verkehrsunfall mit Straßenbahn
+  "909" : { "FWK": 1, "LF": 2, "BAHN": 1, "POL": 4 }, // Straßenbahn entgleist
+  "910" : { "FWK": 2, "LF": 4, "BAHN": 2, "POL": 3, "ELW": 1, "DLK": 1, "NEF": 1 }, // Personenzug entgleist
   "911" : { "LF": 5, "RW": 1, "ELW": 1, "POL": 4, "RTW": 1, "NEF": 1 }, // Abgestürzter Weihnachtsschlitten
   "912" : { "RTW": 1 }, // Lebkuchenmann durch Biss verletzt
   "913" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1 }, // Weihnachtsmann vermisst
