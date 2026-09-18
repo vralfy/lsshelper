@@ -22,6 +22,7 @@ document.lss_helper.vehicleResend = {
   'Dekon-P': 'DEKONP',
   'Lüfter': 'LUEFTER',
   'Bahnrettungsfahrzeug': 'BAHN',
+  'Bahnrettungsfahrzeuge': 'BAHN',
 
   'Teleskopmast': 'TELE',
   'Turbolöscher': 'TURBO',
