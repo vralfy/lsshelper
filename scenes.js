@@ -827,6 +827,7 @@ document.lss_helper.scenes = {
   "947" : { "LF": 1, "POL": 1, "RTW": 1, "NEF": 1 }, // Giftiges Kleintier entflohen
   "948" : { "POL": 2 }, // Schwerer Erntediebstahl
   "949" : { "RTW": 1, "CARRY": 1 }, // Pilzsucher im Wald verunglückt
+  "950" : { "BERG": 1, "RTW": 1 }, // Pilzsucher im Bergwald verunglückt
   "951" : { "POL": 1 }, // Waffenfund
   "952" : { "LF": 2, "POL": 12, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 3, "GWSAN": 1 }, // Absicherung Besuch des Weihnachtsmannes
   "953" : { "MEK": 4 }, // Absicherung Geschenketransport
