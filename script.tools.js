@@ -120,7 +120,12 @@ document.lss_helper.labelNEA200 = (label, start, end) => document.lss_helper.lab
 document.lss_helper.labelWasserrettung = (label, start, end) => document.lss_helper.labelVehicle(['0', '15', '12'], ['64'], label ?? 'WASSERRETTUNG', false, start, end);
 document.lss_helper.labelSLF = (label, start, end) => document.lss_helper.labelVehicle(['0'], ['167', '168', '169'], label ?? 'SLF', true, start, end);
 
+document.lss_helper.getFarMostVehicles = (minDistance = 0) => {
+  return document.lss_helper.vehicles.map(v => {
+    return {
+      ...v,
       distanceToBase: document.lss_helper.helper.getPrintableDistance(v.building, v),
+    };
   })
   .filter(v => v.distanceToBase >= minDistance)
   .sort((a, b) => b.distanceToBase - a.distanceToBase);
