@@ -55,7 +55,7 @@ document.lss_helper.educations = {
   '8': { // Polizei
     '6': { // Polizeiwache
       '6': { name: 'Hundeführer', required: 2 },
-      '7': { name: 'Polizeimotorad', required: 2 },
+      '7': { name: 'Polizeimotorrad', required: 2 },
       '9': { name: 'Kriminalpolizei', required: 2 },
       '10': { name: 'Dienstgruppenleitung', required: 2 },
       '11': { name: 'Reiterstaffel' },
