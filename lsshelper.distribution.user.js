@@ -313,12 +313,12 @@
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["11", "13", "17"].indexOf(b.type) >= 0)); // Bereitschaftspolizei
     }
     if (document.lss_helper.getSetting('distribution_brw')) {
-      p5.stroke(0, 200, 0);
+      p5.stroke(100, 100, 0);
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["25"].indexOf(b.type) >= 0)); // Bergrettung
     }
     if (document.lss_helper.getSetting('distribution_srw')) {
-      p5.stroke(0, 200, 0);
+      p5.stroke(0, 0, 200);
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["26"].indexOf(b.type) >= 0)); // Bereitschaftspolizei
     }
