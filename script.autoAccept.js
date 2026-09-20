@@ -23,7 +23,7 @@ document.lss_helper.getResendMissions = () => {
         }
       });
 
-      const patientsInfo = m.info?.patients?.innerText
+      const patientsInfo = (m.info?.patients?.innerText ?? '')
           .split("\n")
           .filter(t => t.indexOf('Wir benötigen') >= 0)
           .map(t => t.startsWith('Wir') ? '1x ' + t : t)
