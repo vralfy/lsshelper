@@ -115,6 +115,8 @@
     document.lss_helper.printSettingsButton('distribution_thw', 'Verteilung THW', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_dlrg', 'Verteilung Wasserrettung', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_bepo', 'Verteilung Bereitschaftspolizei', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_brw', 'Verteilung Bergrettung', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_srw', 'Verteilung Seenotrettung', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_school', 'Verteilung Schulen', null, settingsContainer);
 
     document.lss_helper.printSettingsDivider('Fahrzeuge', null, settingsContainer);
@@ -309,6 +311,16 @@
       p5.stroke(0, 200, 0);
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["11", "13", "17"].indexOf(b.type) >= 0)); // Bereitschaftspolizei
+    }
+    if (document.lss_helper.getSetting('distribution_brw')) {
+      p5.stroke(0, 200, 0);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["25"].indexOf(b.type) >= 0)); // Bergrettung
+    }
+    if (document.lss_helper.getSetting('distribution_srw')) {
+      p5.stroke(0, 200, 0);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["26"].indexOf(b.type) >= 0)); // Bereitschaftspolizei
     }
     if (document.lss_helper.getSetting('distribution_school')) {
       p5.stroke(100, 200, 0);
