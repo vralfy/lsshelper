@@ -124,11 +124,11 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
       return () => {
         setTimeout(() => {
           fetch(url, header).then((r) => r.text()).then((text) => {
-            countInProgress = text.match(regexInProgress);
-            countDone = text.match(regexDone);
+            let countInProgress = text.match(regexInProgress);
+            let countDone = text.match(regexDone);
             countInProgress = (countInProgress && countInProgress.length > 1) ? parseInt(countInProgress[1], 10) : 0;
             countDone = (countDone && countDone.length > 1) ? parseInt(countDone[1], 10) : 0;
-            count = countInProgress + countDone;
+            const count = countInProgress + countDone;
             const lg = ((options[educationId].required ?? 0) <= count) ? document.lss_helper.debug : document.lss_helper.warn;
             lg(
               'Checked education', school.name, building.name, options[educationId].name,

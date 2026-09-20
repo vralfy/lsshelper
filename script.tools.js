@@ -85,7 +85,6 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
   vehiclesToLabel
     .forEach((v, idx) => {
       setTimeout(() => {
-        const header = { method: 'GET', cache: "no-cache" };
         const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/vehicles/' + v.id;
         const postData = {
           _method: 'patch',

@@ -18,7 +18,7 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
       document.lss_helper.log('try to buy extension', extensionId, 'for building', b, '=>', link);
       fetch(link, header)
         .then((response) => response.text())
-        .then((response) => document.lss_helper.warn('buyed extension', extensionId, 'for building', b))
+        .then((_response) => document.lss_helper.warn('buyed extension', extensionId, 'for building', b))
         .catch((err) => {
           document.lss_helper.error('unable to buy extension', extensionId, 'for building', b, '=>', err);
         });
@@ -61,7 +61,7 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
             const link = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + extensionReadyLink;
             fetch(link, header)
               .then((response) => response.text())
-              .then((response) => document.lss_helper.warn('extension ready', extensionId, 'for building', b))
+              .then((_response) => document.lss_helper.warn('extension ready', extensionId, 'for building', b))
               .catch((err) => {
                 document.lss_helper.error('unable to activate extension', extensionId, 'for building', b, '=>', err);
               });
@@ -90,7 +90,6 @@ document.lss_helper.makeBepoExtensionReady = (extensionId, start, end) => docume
 document.lss_helper.makeBepoSEExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '17', start, end);
 document.lss_helper.makeTHWExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '9', start, end);
 document.lss_helper.makeSEGExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '12', start, end);
-
 
 document.lss_helper.doAllBuildings = (start, end) => {
   document.lss_helper.doAllBEPOExtensions(start, end);

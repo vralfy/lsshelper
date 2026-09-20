@@ -40,8 +40,6 @@ document.lss_helper.printMissions = () => {
     show_mission_unattended_alert: document.lss_helper.getSetting('show_mission_unattended_alert', 'true'),
     show_mission_attended_alert: document.lss_helper.getSetting('show_mission_attended_alert', 'false'),
     show_mission_finishing_alert: document.lss_helper.getSetting('show_mission_finishing_alert', 'false'),
-
-    show_mission_type: document.lss_helper.getSetting('show_mission_type'),
   };
 
   let colsSM = 0;

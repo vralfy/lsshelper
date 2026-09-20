@@ -45,9 +45,9 @@
         helper: {
             formatNumber: (arg) => { return arg; },
             hash: () => { return '' + Math.floor(Math.random() * 1000000); },
-            getDistance: (obj1, obj2) => 0,
-            getDistanceInKm: (distance) => 0,
-            getPrintableDistance: (obj1, obj2) => 0,
+            getDistance: (_obj1, _obj2) => 0,
+            getDistanceInKm: (_distance) => 0,
+            getPrintableDistance: (_obj1, _obj2) => 0,
         }
     };
 
@@ -73,7 +73,7 @@
         document.lss_helper.setSetting(key, v ? v : def);
     };
 
-    document.lss_helper.translate = (key, lang) => {
+    document.lss_helper.translate = (key, _lang) => {
         return key;
     };
 
@@ -478,7 +478,7 @@
         }
     };
 
-    document.lss_helper.printScene = (missionId) => {
+    document.lss_helper.printScene = (_missionId) => {
         let sceneContainer = document.getElementById('lss_helper_scene');
         if (!sceneContainer) {
             sceneContainer = document.createElement("div");
@@ -494,11 +494,11 @@
         return document.lss_helper.addAAOtoScene(scene, debug);
     };
 
-    document.lss_helper.addAAOtoScene = (scene, debug) => {
+    document.lss_helper.addAAOtoScene = (scene, _debug) => {
         return scene;
     };
 
-    document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, debug) => {
+    document.lss_helper.getVehiclesByScene = (_mission, _scene, _noFillOrKill, _debug) => {
         document.lss_helper.debug('Needs to be updated');
         return null;
     };
@@ -507,11 +507,11 @@
         return document.lss_helper.getVehiclesByScene(mission, scene, noFillOrKill);
     };
 
-    document.lss_helper.sendByScene = (mission, scene, noFillOrKill) => {
+    document.lss_helper.sendByScene = (_mission, _scene, _noFillOrKill) => {
         document.lss_helper.debug('Needs to be updated');
     };
 
-    document.lss_helper.sendVehicles = (missionid, vehicles) => {
+    document.lss_helper.sendVehicles = (_missionid, _vehicles) => {
         document.lss_helper.debug('Needs to be updated');
     };
 

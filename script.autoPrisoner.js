@@ -43,7 +43,6 @@ document.lss_helper.autoPrisonerFiltered = (_types) => {
         });
     });
 
-
 }
 
 document.lss_helper.autoPrisonerMission = (force) => {
@@ -76,7 +75,9 @@ document.lss_helper.autoPrisonerMission = (force) => {
 
       let settled = false;
       const cleanup = () => {
-        try { iframe.remove(); } catch (e) { }
+        try { iframe.remove(); } catch (e) {
+          document.lss_helper.debug(e);
+        }
       };
 
       const timer = setTimeout(() => {

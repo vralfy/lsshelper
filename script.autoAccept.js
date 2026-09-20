@@ -181,7 +181,7 @@ document.lss_helper.autoAccept = (force) => {
   }
 };
 
-document.lss_helper.autoResend = (force) => {
+document.lss_helper.autoResend = (_force) => {
   if (document.lss_helper.sending_vehicles || !document.lss_helper.lists_updated) {
     document.lss_helper.debug('Sending vehicles is already in progress or lists not updated yet');
     return false;

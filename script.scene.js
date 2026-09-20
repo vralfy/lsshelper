@@ -28,7 +28,7 @@ document.lss_helper.addAAOtoScene = (scene, debug) => {
   return scene;
 };
 
-document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, debug) => {
+document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, _debug) => {
   mission = mission || {};
   mission.missing = {};
   let nonReplaceable = [];
