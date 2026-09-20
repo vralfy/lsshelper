@@ -204,6 +204,8 @@ document.lss_helper.autoResend = (_force) => {
   const m = missions.shuffle().pop();
   document.lss_helper.debug('AutoResend', m.missionType, m);
 
+  const resendVehicleMap = {};
+
   (m.resendGroupsVehicles ?? []).forEach((vehicles) => {
     if ((vehicles.vehicles ?? []).length < 1) {
       return;
@@ -211,14 +213,23 @@ document.lss_helper.autoResend = (_force) => {
 
     const vehiclesReduced = (vehicles.vehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []);
     document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, vehicles.key, m.resendGroupsScene[vehicles.key]);
-    document.lss_helper.sendVehicles(m.missionId, vehiclesReduced);
+    vehiclesReduced.forEach((vehicle) => {
+      resendVehicleMap[vehicle.id] = vehicle;
+    });
   });
 
   const amountOfVehicles = (m.resendVehicles ?? []).length;
   if (amountOfVehicles) {
     const vehiclesReduced = (m.resendVehicles ?? []).reduce((acc, cur) => [...acc, ...cur], []);
     document.lss_helper.info('resending', vehiclesReduced.length, 'vehicles to', m.data.caption, m.resendScene);
-    document.lss_helper.sendVehicles(m.missionId, vehiclesReduced);
+    vehiclesReduced.forEach((vehicle) => {
+      resendVehicleMap[vehicle.id] = vehicle;
+    });
+  }
+
+  const resendVehicles = Object.values(resendVehicleMap);
+  if (resendVehicles.length) {
+    document.lss_helper.sendVehicles(m.missionId, resendVehicles);
     document.lss_helper.lastMissionResend[m.data.id] = new Date().getTime();
   }
 
