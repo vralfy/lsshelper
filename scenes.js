@@ -267,6 +267,7 @@ document.lss_helper.scenes = {
   "272" : { "LF": 2, "GWO": 1, "ELW": 1, "POL": 1, "DLRG": 1 }, // Gewässerverschmutzung durch Öl
   "273" : { "LF": 2, "ELW": 1, "GWO": 1, "POL": 1, "DLRG": 1 }, // Gewässerverschmutzung durch Öl
   "274" : { "RTW": 1, "NEF": 1}, // Bewusstlose Person
+  "275" : { "POL": 4, "BEFKW": 3, "GRUKW": 9, "FUEKW": 1, "RTW": 4, "LF": 2 }, // Absicherung Rockkonzert
   "276" : { "POL": 4 }, // Schwertransport
   "277" : { "RW": 1, "RTW": 1 }, // Person im Aufzug
   "278" : { "GKW": 1, "THWMTW": 1, "THWGWN": 1, "FWK": 1, "DLK": 1, "LF": 2, "ELW": 1, "POL": 2, "RTW": 1 }, // LKW in Supermarkt
