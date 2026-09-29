@@ -784,6 +784,7 @@ document.lss_helper.scenes = {
   "884" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 2, "POL": 4, "RTW": 3 }, // Verkehrsunfall mit Stadtbahn
   "887" : { "SEA": 1 }, // Abschleppen eines manövrierunfähigen Kutters
   "889" : { "SEA": 1 }, // Medizinische Erstversorgung eines erkrankten Fährpassagiers
+  "895" : { "SEA": 2 }, // Abschleppen eines defekten Wasserflugzeugs
   "897" : { "KTW": 1 }, // Patientenübernahme von Ambulanzflug
   "898" : { "LF": 2, "ULF": 1, "GWW": 1, "ELW": 1 }, // Rauchentwicklung in Produktionshallen
   "899" : { "LF": 10, "RW": 4, "ELW": 3, "ELW2": 1, "DLK": 3, "FWK": 1, "GKW": 2, "THWMTW": 2, "THWGWSB": 2, "AAOTHWR": 2, "AAOTHWDLE": 2, "POL": 3, "DOG": 1, "RTW": 10, "NEF": 5 }, // Sporthalle eingestürzt
