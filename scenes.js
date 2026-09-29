@@ -781,6 +781,7 @@ document.lss_helper.scenes = {
   "882" : { "POL": 1 }, // Schulschwänzer
   "883" : { "POL": 1 }, // Schulschwänzer
   "884" : { "LF": 5, "RW": 2, "GWO": 1, "ELW": 2, "POL": 4, "RTW": 3 }, // Verkehrsunfall mit Stadtbahn
+  "887" : { "SEA": 1 }, // Abschleppen eines manövrierunfähigen Kutters
   "889" : { "SEA": 1 }, // Medizinische Erstversorgung eines erkrankten Fährpassagiers
   "897" : { "KTW": 1 }, // Patientenübernahme von Ambulanzflug
   "898" : { "LF": 2, "ULF": 1, "GWW": 1, "ELW": 1 }, // Rauchentwicklung in Produktionshallen
