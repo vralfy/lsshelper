@@ -435,6 +435,7 @@ document.lss_helper.scenes = {
   "485" : { "LF": 4, "GWW": 1, "TELE": 1, "ULF": 2, "RW": 1, "ELW": 1, "POL": 2, "SW": 1 }, // Brand mehrerer E-Autos in Auslieferungshalle
   "486" : { "POLH": 1, "GRUKW": 3, "BEFKW": 1, "POL": 4 }, // Cannabisplantage entdeckt
   "487" : { "LF": 2, "DLK": 1, "ELW": 1, "POL": 1 ,"RTW": 3 }, // Kleinbrand Kirche
+  "488" : { "POL": 14, "LF": 16, "RW": 1, "ELW": 3, "ELW2": 1, "GWM": 1, "RTW": 10 }, // Massenanfall an Erkrankten - Stadion
   "491" : { "POL": 6, "LF": 3, "RW": 1, "ELW": 1, "RTW": 35 }, // Massenanfall an Erkrankten - Bahnhof (Regionalverkehr)
   "493" : { "LF": 2, "ELW": 1, "POL": 2, "RTW": 10 }, // Massenanfall an Erkrankten - Diskothek
   "494" : { "POL": 1 }, // beschädigte Radarfalle
