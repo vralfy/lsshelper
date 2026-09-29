@@ -77,6 +77,7 @@ document.lss_helper.vehicleGroups = {
   "DLRG": [66, 67, 68, 70, 71 ], // 64
   "TAUCHER": [63],
   "MZB": [70],
+  "SEA": [159, 160],
 
   "BERG": [150, 152, 154, 155], // Any
   "GWB": [150],
