@@ -776,6 +776,7 @@ document.lss_helper.scenes = {
   "864" : { "GWB": 1, "ELWB": 1, "DOGRESCUE": 1, "DROHNE": 1, "RTHW": 1, "RTW": 1, "NEF": 1 }, // Vermisstensuche im Gelände
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "866" : { "ELWB": 1, "GWB": 3, "ATV": 2, "SW": 2, "GWA": 2, "LF": 1, "POLAB": 1, "RTW": 1, "NEF": 1 }, // Großfeuer im Bergwald
+  "867" : { "ELWB": 1, "GWB": 3, "ATV": 2, "GWHB": 1, "RTHW": 2, "RTW": 13, "NEF": 1 }, // Personensuche nach Gerölllawine
   "879" : { "LF": 8, "ELW": 1, "GWSAN": 1, "RTW": 5, "POL": 2 }, // Absicherung Flugshow
   "880" : { "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
   "881" : { "GWB": 1, "ATV": 1, "RTW": 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze

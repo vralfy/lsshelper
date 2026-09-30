@@ -80,6 +80,7 @@ document.lss_helper.vehicleGroups = {
   "SEA": [159, 160],
 
   "BERG": [150, 152, 154, 155], // Any
+  "GWHB": [158],
   "GWB": [150],
   "GWBH": [155],
   "SNOW": [154],
