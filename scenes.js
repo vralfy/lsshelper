@@ -770,9 +770,12 @@ document.lss_helper.scenes = {
   "852" : { "RTW": 1 }, // Schwalbe fliegt gegen Mauer
   "853" : { "GWBH": 1 }, // Höhenrettung aus Gondel
   "854" : { "BERG": 1, "RTW": 1 }, // Abgestürzter Wanderer
+  "855": { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Rettung aus Felsspalte
   "856" : { "BERG": 1, "RTW": 1 }, // Blockierte Bergsteiger
   "857" : { "BERG": 1, "RTW": 1, "NEF": 1 }, // Gestürzter Mountainbiker
   "858" : { "BERG": 1 }, // Erschöpfte Wanderer
+  "859": { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Abgestürzter Kletterer
+  "860": { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Gleitschirmabsturz
   "864" : { "GWB": 1, "ELWB": 1, "DOGRESCUE": 1, "DROHNE": 1, "RTHW": 1, "RTW": 1, "NEF": 1 }, // Vermisstensuche im Gelände
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "866" : { "ELWB": 1, "GWB": 3, "ATV": 2, "SW": 2, "GWA": 2, "LF": 1, "POLAB": 1, "RTW": 1, "NEF": 1 }, // Großfeuer im Bergwald
