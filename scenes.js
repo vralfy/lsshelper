@@ -776,7 +776,7 @@ document.lss_helper.scenes = {
   "858" : { "BERG": 1, "GWB": 1, "HUBW": 1 }, // Erschöpfte Wanderer
   "859" : { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Abgestürzter Kletterer
   "860" : { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Gleitschirmabsturz
-  "864" : { "GWB": 1, "ELWB": 1, "DOGRESCUE": 1, "DROHNE": 1, "RTHW": 1, "RTW": 1, "NEF": 1 }, // Vermisstensuche im Gelände
+  "864" : { "GWB": 2, "ELWB": 1, "DOGRESCUE": 1, "DROHNE": 1, "RTHW": 2, "RTW": 1, "NEF": 1 }, // Vermisstensuche im Gelände
   "865" : { "POL": 1 }, // PKW blockiert Strassenbahn
   "866" : { "ELWB": 1, "GWB": 3, "ATV": 2, "SW": 2, "GWA": 2, "LF": 1, "POLAB": 1, "RTW": 1, "NEF": 1 }, // Großfeuer im Bergwald
   "867" : { "ELWB": 1, "GWB": 3, "ATV": 2, "GWHB": 1, "RTHW": 2, "RTW": 13, "NEF": 1 }, // Personensuche nach Gerölllawine
