@@ -64,7 +64,7 @@ document.lss_helper.printScene = (missionId) => {
       header.innerHTML = 'Verfügbar';
       vehicles.appendChild(header);
       Object.values(mission.proposedVehicles).forEach((p) => {
-        const distance = Math.round(p.reduce((a, c) => Math.max(a, c.distance), 0) * 100) / 100;
+        const distance = Math.round(document.lss_helper.helper.getDistanceInKm(p.reduce((a, c) => Math.max(a, c.distance), 0)) * 100) / 100;
         const li = document.createElement('li');
         li.innerHTML = document.lss_helper.helper.formatNumber(p.length) + ' x ' + (document.lss_helper.vehicleTypes[p[0]?.type] || p[0]?.name) + ' (' + distance + 'km)';
         vehicles.appendChild(li);
