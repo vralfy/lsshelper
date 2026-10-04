@@ -67,6 +67,11 @@ document.lss_helper.getResendMissions = () => {
         resendGroups['tesi'] = [{ scene: '174', count: 1 }];
       }
 
+      //1 FüKW (THW), 1 FmKW, 1 MTW FGr K
+      if (missing.indexOf('FüKW (THW)') > 0 || missing.indexOf('FmKW') > 0 || missing.indexOf('MTW FGr K') > 0) {
+        resendGroups['fuekwthw'] = [{ scene: 'AAOTHWF', count: 1 }];
+      }
+
       // Fehlendes Personal: 2 GW-Wasserrettung
       if (missing.indexOf('Fehlendes Personal:') >= 0) {
         const missingPersonel = missing.replace(/.*Fehlendes Personal:/, '').split(',').map(v => v.trim());
