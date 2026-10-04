@@ -82,6 +82,9 @@ document.lss_helper.getResendMissions = () => {
             if (mg.personal.indexOf('GW-Wasserrettung') >= 0) {
               resendGroups['wasserrettung'] = [{scene: 'WASSERRETTUNG', count: Math.ceil(mg.count / 6)}];
             }
+            if (mg.personal.indexOf('Rettungsdienstler') >= 0) {
+              resendGroups['rescueservice'] = [{scene: 'RESCUESERVICE', count: Math.ceil(mg.count / 9)}];
+            }
           });
       }
 
