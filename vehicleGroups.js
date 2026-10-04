@@ -99,5 +99,5 @@ document.lss_helper.vehicleGroups = {
   "RESENDWATER": [0, 1, 6, 7, 8, 9, 30, 88, 89, 90, 121, 166, 167],
   "RESENDFIREFIGHTER": [0, 1, 6, 7, 8, 9, 30, 36, 90],
   "WASSERRETTUNG": [70],
-  "RESCUESERVICE": [91, 92, 150], // 131
+  "RESCUESERVICE": [91, 92, 151, 150, 149], // 131
 };
