@@ -77,6 +77,8 @@ document.lss_helper.vehicleResend = {
   'GW-TeSi': '174',
   // 'Anh TeSi': '174',
 
+  'ATV': '152',
+
   'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
   'Betreuungs- und Verpflegungsausstattungen': 'AAOSEGBT',
   'Boot': 'BOAT',
