@@ -772,7 +772,7 @@ document.lss_helper.scenes = {
   "854" : { "BERG": 1, "RTW": 1 }, // Abgestürzter Wanderer
   "855" : { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Rettung aus Felsspalte
   "856" : { "BERG": 1, "RTW": 1, "GWB": 1, "HUBW": 1 }, // Blockierte Bergsteiger
-  "857" : { "BERG": 1, "RTW": 1, "NEF": 1 }, // Gestürzter Mountainbiker
+  "857" : { "BERG": 1, "RTW": 1, "NEF": 1, "GWB": 1, "HUBW": 1 }, // Gestürzter Mountainbiker
   "858" : { "BERG": 1, "GWB": 1, "HUBW": 1 }, // Erschöpfte Wanderer
   "859" : { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Abgestürzter Kletterer
   "860" : { "GWHB": 1, "RTW": 1, "NEF": 1 }, // Gleitschirmabsturz

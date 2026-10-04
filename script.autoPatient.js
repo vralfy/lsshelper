@@ -14,7 +14,7 @@ document.lss_helper.autoPatientFiltered = (_types) => {
   const alltypes = [];
   ["28", "38", "73", "74", "97"].forEach(t => alltypes.push(t)); // Rettungsdienst
   ['31', '157'].forEach(t => alltypes.push(t)); // Rettungs Helikopter
-  ['150', '151', '152', '154', '155'].forEach(t => alltypes.push(t)); // Bergwacht
+  ['150', '151', '152', '154', '155', '158'].forEach(t => alltypes.push(t)); // Bergwacht
   ['61', '156'].forEach(t => alltypes.push(t)); // Polizei Helikopter
   const types = _types ?? alltypes;
 
