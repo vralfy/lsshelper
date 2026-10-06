@@ -912,6 +912,7 @@ document.lss_helper.scenes = {
   "1029" : { "LF": 8, "SW": 5, "ELW": 3, "ELW2": 1, "GWA": 6, "DLK": 1, "GWM": 1, "POL": 10, "GKW": 1, "THWMTW": 1, "THWGWN": 1, "AAOTHWR": 1, "RTW": 5 }, // Großflächiger Waldbrand
   "1030" : { "BEFKW": 2, "GRUKW": 6, "POL": 8 }, // Evakuierung Gefahrengebiet
   "1031" : { "ELW": 1, "LF": 2, "RW": 1, "POL": 2, "RTW": 1, "NEF": 1 }, // Person in Müllwagen eingeklemmt
-  "1032" : { "POLAP": 8, "LF": 10, "RW": 5, "ELW": 2, "GWO": 2, "RTW": 6 } // Massenkarambolage auf Autobahn
+  "1032" : { "POLAP": 8, "LF": 10, "RW": 5, "ELW": 2, "GWO": 2, "RTW": 6 }, // Massenkarambolage auf Autobahn
+  "1033" : { "GKW": 2, "AAOTHWR": 2, "THWMTW": 2, "THWGWN": 2, "THWDLE": 2, "LF": 6, "ELW": 2, "ELW2": 1, "RW": 3, "GWH": 1, "FWK": 1, "POL": 5, "RTW": 1 }, // Einsturz Tunnelbaustelle
 }
 // https://www.leitstellenspiel.de/einsaetze/0
