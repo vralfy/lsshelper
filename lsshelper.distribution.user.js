@@ -110,6 +110,7 @@
     document.lss_helper.printSettingsButton('distribution_firehouse', 'Verteilung Feuerwehr', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_police', 'Verteilung Polizei', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_rescue', 'Verteilung Rettungswache', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_rescue_heli', 'Verteilung Rettungswache', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_seg', 'Verteilung SEG', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_hospital', 'Verteilung Krankenhäuser', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_thw', 'Verteilung THW', null, settingsContainer);
@@ -270,7 +271,7 @@
     if (document.lss_helper.getSetting('distribution_leitstelle')) {
       p5.stroke(0, 200, 200);
       p5.noFill();
-      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "7")); // Feuerwehr
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "7")); // Leitstelle
     }
     if (document.lss_helper.getSetting('distribution_firehouse')) {
       p5.stroke(255, 0, 0);
@@ -287,10 +288,15 @@
       p5.noFill();
       document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "2")); // Rettungswache
     }
+    if (document.lss_helper.getSetting('distribution_rescue_heli')) {
+      p5.stroke(255, 100, 100);
+      p5.noFill();
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "5")); // Rettungshubschrauber
+    }
     if (document.lss_helper.getSetting('distribution_seg')) {
       p5.stroke(255, 100, 100);
       p5.noFill();
-      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "12")); // Rettungswache
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "12")); // SEG
     }
     if (document.lss_helper.getSetting('distribution_hospital')) {
       p5.stroke(200, 100, 100);
@@ -320,12 +326,12 @@
     if (document.lss_helper.getSetting('distribution_srw')) {
       p5.stroke(0, 0, 200);
       p5.noFill();
-      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["26"].indexOf(b.type) >= 0)); // Bereitschaftspolizei
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["26"].indexOf(b.type) >= 0)); // Seenotrettung
     }
     if (document.lss_helper.getSetting('distribution_school')) {
       p5.stroke(100, 200, 0);
       p5.noFill();
-      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["1", "3", "8", "10"].indexOf(b.type) >= 0)); // Schulen
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => ["1", "3", "8", "10", "27"].indexOf(b.type) >= 0)); // Schulen
     }
 
     const types = [
