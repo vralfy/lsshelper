@@ -22,6 +22,7 @@ document.lss_helper.educations = {
       '16': { name: 'Feuerwehr-Verpflegungseinheit' },
       '17': { name: 'Verpflegungshelfer' },
       '18': { name: 'Bahnrettung' },
+      '19': { name: 'Waldbrandbekämpfung', required: 12 }
     },
   },
   '3': { // Rettungsdienst
@@ -48,9 +49,14 @@ document.lss_helper.educations = {
       '15': { name: 'Technik und Sicherheit', required: 25 }, // GW: 5, LKW: 0, MTW: 7
     },
     '15': { // DLRG
+      '0': { name: 'Notarzt', required: 3 },
       '6': { name: 'GW-Taucher', required: 4 },
       '5': { name: 'GW-Wasserrettung', required: 12 },
     },
+    '25': { // BRW
+      '12': { name: 'Höhenretter', required: 10 },
+      '14': { name: 'ELW Bergrettung', required: 9 },
+    }
   },
   '8': { // Polizei
     '6': { // Polizeiwache
@@ -59,6 +65,7 @@ document.lss_helper.educations = {
       '9': { name: 'Kriminalpolizei', required: 2 },
       '10': { name: 'Dienstgruppenleitung', required: 2 },
       '11': { name: 'Reiterstaffel' },
+      '14': { name: 'Autobahnpolizei', required: 4 },
     },
     '11': { // BePo
       '0': { name: 'Zugführer', required: 15 }, // 5*3

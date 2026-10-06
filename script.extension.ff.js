@@ -1,3 +1,5 @@
+// buildings/<buildingId>/extension/credits/<Id>?redirect_building_id=<buildingId>
+// buildings/<buildingId>/storage_upgrade/credits/additional_containers_8?redirect_building_id=<buildingId>
 document.lss_helper.extensions = document.lss_helper.extensions || {};
 document.lss_helper.extensions.ffstandard = {
   'NEA': 14,
@@ -9,6 +11,7 @@ document.lss_helper.extensions.ffstandard = {
   'Bt': 19,
   'Train': 25,
   'AB1': 1,
+  'Wald': 30,
 };
 document.lss_helper.extensions.ff = {
   ...document.lss_helper.extensions.ffstandard,

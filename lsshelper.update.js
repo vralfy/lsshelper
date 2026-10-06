@@ -1,5 +1,6 @@
 document.lss_helper.url = document.lss_helper.url ?? ( window.location.protocol + '//' + window.location.host );
 
+document.lss_helper.fetchRemoteFile('buildingTypes.js');
 document.lss_helper.fetchRemoteFile('vehiclesTypes.js');
 document.lss_helper.fetchRemoteFile('vehicleGroups.js');
 document.lss_helper.fetchRemoteFile('vehicleResend.js');

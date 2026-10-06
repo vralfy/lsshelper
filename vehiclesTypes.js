@@ -186,4 +186,10 @@ document.lss_helper.vehicleTypes = {
   "184": "🚓 POL FuStW (AP)",
   "185": "⚙️🐾 GW-Tier",
   "186": "📦🚒 Anh Tier",
+  "187": "🌳 TLF 3000 W",
+  "188": "🌳 TLF 5000 W",
+  "189": "🌳 GTLF 10000 W",
+  "190": "🌳 GW-Waldbrand",
+  "191": "🌳📦 Anh Waldbrand",
+  "192": "🌳📦 AB Waldbrand",
 };

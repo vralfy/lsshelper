@@ -295,7 +295,7 @@
     if (document.lss_helper.getSetting('distribution_hospital')) {
       p5.stroke(200, 100, 100);
       p5.noFill();
-      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "4")); // Rettungswache
+      document.lss_helper_distribution.delaunay(document.lss_helper.buildings.filter((b) => b.type === "4")); // Krankenhaus
     }
     if (document.lss_helper.getSetting('distribution_thw')) {
       p5.stroke(0, 0, 200);
