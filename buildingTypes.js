@@ -19,4 +19,13 @@ document.lss_helper.buildingTypes = {
   '26': 'Seenotrettung',
   '27': 'Schule Seenotrettung',
 };
-(document.lss_helper?.buildings ?? []).forEach((b) => document.lss_helper.buildingTypes[b.type] = document.lss_helper.buildingTypes[b.type] ?? b.name);
+//document.lss_helper.buildingTypes = document.lss_helper.buildingTypes ?? {};
+document.lss_helper.buildingMeta = {};
+(document.lss_helper?.buildings ?? []).forEach((b) => {
+  document.lss_helper.buildingTypes[b.type] = document.lss_helper.buildingTypes[b.type] ?? b.name;
+  document.lss_helper.buildingMeta[b.type] = {
+    type: b.type,
+    typeName: document.lss_helper.buildingTypes[b.type],
+    amount: (document.lss_helper.buildingMeta[b.type]?.amount ?? 0) + 1
+  }
+});
