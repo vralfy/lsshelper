@@ -19,11 +19,13 @@ document.lss_helper.vehicleResend = {
   'GW-Tierrettung': 'GWT',
   'GW-Bergrettung': 'GWB',
   'GW-Werkfeuerwehr': 'GWW',
+  'GW-Waldbrand': 'GWWV',
   'Bergrettungsfahrzeug': 'BERG',
   'Dekon-P': 'DEKONP',
   'Lüfter': 'LUEFTER',
   'Bahnrettungsfahrzeug': 'BAHN',
   'Bahnrettungsfahrzeuge': 'BAHN',
+  'TLF-W': 'TLFWV',
 
   'Teleskopmast': 'TELE',
   'Turbolöscher': 'TURBO',

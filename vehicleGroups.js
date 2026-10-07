@@ -14,6 +14,7 @@ document.lss_helper.vehicleGroups = {
   "GWM": [12],
   "GWO": [10],
   "GWT": [186],
+  "GWWV": [190],
   "SW": [11],
   "FWK": [57],
   "DEKONP": [53],
@@ -25,6 +26,8 @@ document.lss_helper.vehicleGroups = {
   "ULF": [84],
   "TELE": [85],
   "TURBO": [86],
+
+  "TLFWV": [187, 188, 189],
 
   "HUB": [31, 157, 61, 156],
   "HUBW": [156, 157],
