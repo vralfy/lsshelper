@@ -99,7 +99,7 @@ document.lss_helper.vehicleGroups = {
   "DOGPOL": [94],
   "DROHNE": [125, 126, 127], // 128, 129
   "SWP": [101, 102], // Schmutzwasserpumpen
-  "RESENDWATER": [0, 1, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 87, 88, 89, 90, 121, 166, 167, 187, 188, 189],
+  "RESENDWATER": [0, 1, 6, 7, 8, 9, 17, 18, 19, 20, 21, 22, 23, 24, 25, 26, 30, 87, 88, 89, 90, 121, 166, 167],
   "RESENDFIREFIGHTER": [0, 1, 6, 7, 8, 9, 30, 36, 90],
   "WASSERRETTUNG": [70],
   "RESCUESERVICE": [91, 92, 151, 150, 149], // 131
