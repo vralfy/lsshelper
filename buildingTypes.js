@@ -13,11 +13,19 @@ document.lss_helper.buildingTypes = {
   '11': 'Bereitschaftspolizei',
   '12': 'SEG',
   '13': 'Bereitschaftspolizei Helikopter',
+  '14': 'Bereitstellungsraum',
   '15': 'Wasserretung',
   '17': 'Bereitschaftspolizei Sondereinheiten',
+  '18': 'Feuerwehr (klein)',
+  '19': 'Polizei (klein)',
+  '20': 'Rettungsdienst (klein)',
+  '21': 'Rettungshundestaffel',
+  '24': 'Reiterstaffel',
   '25': 'Bergrettung',
   '26': 'Seenotrettung',
   '27': 'Schule Seenotrettung',
+  '28': 'Seenotrettung Helikopter',
+  '29': 'Autobahnpolizei',
 };
 //document.lss_helper.buildingTypes = document.lss_helper.buildingTypes ?? {};
 document.lss_helper.buildingMeta = {};
