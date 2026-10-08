@@ -110,7 +110,7 @@
     document.lss_helper.printSettingsButton('distribution_firehouse', 'Verteilung Feuerwehr', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_police', 'Verteilung Polizei', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_rescue', 'Verteilung Rettungswache', null, settingsContainer);
-    document.lss_helper.printSettingsButton('distribution_rescue_heli', 'Verteilung Rettungswache', null, settingsContainer);
+    document.lss_helper.printSettingsButton('distribution_rescue_heli', 'Verteilung Rettungshubschrauber', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_seg', 'Verteilung SEG', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_hospital', 'Verteilung Krankenhäuser', null, settingsContainer);
     document.lss_helper.printSettingsButton('distribution_thw', 'Verteilung THW', null, settingsContainer);
