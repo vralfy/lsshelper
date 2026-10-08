@@ -106,10 +106,21 @@ document.lss_helper.enrichResendMission = (m, resendGroups, resendGroupsScene) =
     });
   });
 
+  const maxRTW = parseInt('' + document.lss_helper.getSetting('maxRTW', '99'));
+  Object.keys(resendGroupsScene).forEach((k) => {
+    ['RTW', 'NEF', 'RTH'].forEach((t) => {
+      if (resendGroupsScene[k][t]) {
+        resendGroupsScene[k][t] = Math.min(resendGroupsScene[k][t], maxRTW);
+      }
+    });
+  });
+
   const resendGroupsVehicles = [
     ...Object.keys(resendGroupsScene).filter((k) => ['slf'].indexOf(k) < 0).map((k) => ({ key: k, fok: true })),
     { key: 'slf', fok: false },
     { key: 'rescueRTH', fok: false },
+    // { key: 'rescueRTW', fok: false },
+    // { key: 'rescueNEF', fok: false },
   ].map((i) => {
     if (!resendGroupsScene[i.key]) {
       return null;
