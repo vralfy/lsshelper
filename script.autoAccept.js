@@ -115,8 +115,9 @@ document.lss_helper.enrichResendMission = (m, resendGroups, resendGroupsScene) =
     });
   });
 
+  const fok = document.lss_helper.getSetting('autoResendAll', 'true');
   const resendGroupsVehicles = [
-    ...Object.keys(resendGroupsScene).filter((k) => ['slf'].indexOf(k) < 0).map((k) => ({ key: k, fok: true })),
+    ...Object.keys(resendGroupsScene).filter((k) => ['slf'].indexOf(k) < 0).map((k) => ({ key: k, fok })),
     { key: 'slf', fok: false },
     { key: 'rescueRTH', fok: false },
     // { key: 'rescueRTW', fok: false },
