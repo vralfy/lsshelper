@@ -38,7 +38,7 @@ document.lss_helper.getResendMissions = () => {
           .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
       });
 
-      if (missing.indexOf('l. Wasser') > 0) {
+      if (missing.indexOf('l. Wasser') > 0 && missing.indexOf('TLF-W') < 0) {
         resendGroups['water'] = [{ scene: 'RESENDWATER', count: 1 }];
       } else if (missing.indexOf('Feuerwehrleute') > 0 || missing.indexOf('Feuerwehrmann') > 0) {
         resendGroups['firefighter'] = [{ scene: 'RESENDFIREFIGHTER', count: 1 }];
