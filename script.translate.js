@@ -38,6 +38,8 @@ document.lss_helper.translationTable = {
     'autoResend': 'Automatisch nachsenden',
     'autoResendAll': 'Nachsenden wenn alle verfügbar',
     'optimize_scene': 'Einsätze optimieren',
+    'acceptSicherheitswache': 'Sicherheitswache',
+    'autoVerband': 'Verbandseinsätze erstellen',
 
     'ui_map': 'Karte',
     'ui_missions': 'Einsätze',

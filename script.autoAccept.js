@@ -256,3 +256,16 @@ document.lss_helper.autoResend = (_force) => {
   //setTimeout(() => document.lss_helper.updateLists(-1), 200 * Math.max(amountOfVehicles, 5));
   return true;
 };
+
+document.lss_helper.autoVerband = () => {
+  if (!document.lss_helper.makeGreenVerband || !document.lss_helper.makeVerband) {
+    return;
+  }
+  if (!document.lss_helper.getSetting('autoVerband')) {
+    return;
+  }
+  document.lss_helper.makeGreenVerband();
+};
+document.lss_helper.autoVerbandInterval = document.lss_helper.autoVerbandInterval || setInterval(() => {
+  document.lss_helper.autoVerband();
+}, 5000);
