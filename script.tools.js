@@ -66,8 +66,11 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
     });
 };
 
+document.lss_helper.FFWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['115', '143', '168', '186', '191']);
 document.lss_helper.SEGWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['70', '132', '174', '175']);
-document.lss_helper.THWWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178']);
+document.lss_helper.THWWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178', '183']);
+document.lss_helper.POLWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['136']);
+document.lss_helper.BRWWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['155']);
 document.lss_helper.NEAWithoutTowingVehicle = () => document.lss_helper.carsWithoutTowingVehicle(['110', '111', '112', '175']);
 
 document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0, start, end) => {
@@ -147,3 +150,4 @@ document.lss_helper.getMissingELWDrohne = () => document.lss_helper.getMissingVe
 document.lss_helper.getMissingHLF20 = () => document.lss_helper.getMissingVehicles('30', '0', 3);
 document.lss_helper.getMissingLuefter = () => document.lss_helper.getMissingVehicles('114', '0', 1);
 document.lss_helper.getMissingGWTierrrettung = () => document.lss_helper.getMissingVehicles('185', '0', 1);
+document.lss_helper.getMissingHLFSchiene = () => document.lss_helper.getMissingVehicles('163', '0', 1);
