@@ -34,12 +34,13 @@ document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, _debug) 
   let nonReplaceable = [];
   const vehicleCounts = {};
   const sortKey = 'time';
+  let optimizedAvailable = null;
 
   document.lss_helper.vehicleIgnoreDistance = document.lss_helper.vehicleIgnoreDistance ?? [];
   document.lss_helper.vehicleMultiplyDistance = document.lss_helper.vehicleMultiplyDistance ?? {};
 
   if (document.lss_helper.getSetting('optimize_scene')) {
-    let available = document.lss_helper.vehicles
+    optimizedAvailable = document.lss_helper.vehicles
       .filter((v) => v.available)
       .map((v) => {
         if (document.lss_helper.vehicleIgnoreDistance.indexOf(v.type) >= 0) {
@@ -59,6 +60,7 @@ document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, _debug) 
       .sort((v1, v2) => {
         return v1[sortKey] - v2[sortKey];
       });
+    let available = [...optimizedAvailable];
     const preVehicles = Object.keys(scene).map((vt) => {
       const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
       const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
@@ -83,27 +85,31 @@ document.lss_helper.getVehiclesByScene = (mission, scene, noFillOrKill, _debug) 
   }
 
   const nonReplaceableIds = nonReplaceable.map((v) => v.id);
-  let available = document.lss_helper.vehicles
-    .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
-    .filter((v) => v.available)
-    .map((v) => {
-      if (document.lss_helper.vehicleIgnoreDistance.indexOf(v.type) >= 0) {
-        return {
-          distance: 0,
-          time: 0,
-          ...v,
-        };
-      }
-      const mult = document.lss_helper.vehicleMultiplyDistance[v.type] ?? 1;
-      return {
-        distance: mult * document.lss_helper.helper.getDistance(mission, v),
-        time: mult * vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
-        ...v,
-      };
-    })
-    .sort((v1, v2) => {
-      return v1[sortKey] - v2[sortKey];
-    });
+  let available = optimizedAvailable
+    ? (optimizedAvailable.filter((v) => nonReplaceableIds.indexOf(v.id) < 0))
+    : (
+      document.lss_helper.vehicles
+        .filter((v) => nonReplaceableIds.indexOf(v.id) < 0)
+        .filter((v) => v.available)
+        .map((v) => {
+          if (document.lss_helper.vehicleIgnoreDistance.indexOf(v.type) >= 0) {
+            return {
+              distance: 0,
+              time: 0,
+              ...v,
+            };
+          }
+          const mult = document.lss_helper.vehicleMultiplyDistance[v.type] ?? 1;
+          return {
+            distance: mult * document.lss_helper.helper.getDistance(mission, v),
+            time: mult * vehicleDistanceDirectTimeToObject(20, mission.lat, mission.lng, v.lat, v.lng, true),
+            ...v,
+          };
+        })
+        .sort((v1, v2) => {
+          return v1[sortKey] - v2[sortKey];
+        })
+    );
   let vehicles = Object.keys(scene).filter((vt) => scene[vt] > 0).map((vt) => {
     const groups = (document.lss_helper.vehicleGroups[vt] ?? [vt]).map((v) => '' + v);
     const r = available.filter((v) => groups.indexOf(v.type) >= 0).slice(0, scene[vt]);
