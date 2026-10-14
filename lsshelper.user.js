@@ -135,12 +135,13 @@
         document.lss_helper.debug('LSS Helper Update', timeout);
         if (!document.lss_helper.sending_vehicles) {
             document.lss_helper.updateLists(-1);
-            if (document.lss_helper.helper.hash() !== document.lss_helper.renderHash) {
+            const currentHash = document.lss_helper.helper.hash();
+            if (currentHash !== document.lss_helper.renderHash) {
                 document.lss_helper.printVehicleList();
                 document.lss_helper.printMissions();
                 document.lss_helper.printMissingVehicles();
                 document.lss_helper.printScene();
-                document.lss_helper.renderHash = document.lss_helper.helper.hash();
+                document.lss_helper.renderHash = currentHash;
             }
         }
 

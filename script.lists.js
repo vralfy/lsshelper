@@ -52,7 +52,7 @@ document.lss_helper.getBuildingsList = () => {
 };
 
 document.lss_helper.getVehiclesList = () => {
-  document.lss_helper.vehiclesSimple = (document.lss_helper.buildings ?? []).map((b) => {
+  document.lss_helper.vehiclesSimple = (document.lss_helper.buildings ?? []).flatMap((b) => {
     return Array.from(b.origin.getElementsByClassName('building_list_vehicle_element'))
       .filter((v) => v.attributes.vehicle_id && v.attributes.vehicle_id.value.trim().length > 0)
       .map((vehicle) => {
@@ -80,18 +80,22 @@ document.lss_helper.getVehiclesList = () => {
         };
       });
   })
-    .reduce((acc, cur) => [...acc, ...cur], [])
     .sort((a, b) => a.name < b.name ? -1 : 1)
     .sort((a, b) => parseInt(a.type) - parseInt(b.type))
     .sort((a, b) => document.lss_helper.stateOrder.indexOf(a.status) - document.lss_helper.stateOrder.indexOf(b.status))
     ;
+
+  const markersByVehicleId = new Map();
+  (vehicle_markers ?? []).forEach((marker) => {
+    markersByVehicleId.set(marker.vehicle_id, marker);
+  });
 
   let vehicles = document.lss_helper.vehiclesSimple
     .map((v) => {
       const color = v.color || parseInt(document.lss_helper.helper.hash(v.type).toString(16).padStart(6, '0'), 16);
       const color_building = v.color_building || parseInt(document.lss_helper.helper.hash(v.building.name).toString(16).padStart(6, '0'), 16);
       const marker = {
-        ...(vehicle_markers ?? []).filter(m => m.vehicle_id === v.id).pop(),
+        ...markersByVehicleId.get(v.id),
         ...document.lss_helper.markerTrim,
         ...document.lss_helper.marker.vehicles[v.id],
       };
