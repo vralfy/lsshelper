@@ -28,7 +28,7 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
   const distanceDeg = diffLat * diffLat + diffLng * diffLng;
 
   if (document.lss_helper.useExactDistance === undefined) {
-    document.lss_helper.useExactDistance = document.lss_helper.getSetting('exactDistance');
+    document.lss_helper.useExactDistance = document.lss_helper.getSetting('exactDistance', 'false');
   }
 
   if (document.lss_helper.useExactDistance || !document.lss_helper.kmperdegree) {
@@ -40,8 +40,10 @@ document.lss_helper.helper.getDistance = (obj1, obj2) => {
     //const radLat2 = obj2.lat * Math.PI / 180;
     const dLat = (obj1.lat - obj2.lat) * Math.PI / 180;
     const dLon = (obj1.lng - obj2.lng) * Math.PI / 180;
-    const a = Math.sin(dLat / 2) * Math.sin(dLat / 2) +
-      Math.cos(radLat1) * Math.cos(radLat1) * Math.sin(dLon / 2) * Math.sin(dLon / 2);
+    const sinHalfLat = Math.sin(dLat / 2);
+    const sinHalfLon = Math.sin(dLon / 2);
+    const cosLat = Math.cos(radLat1);
+    const a = sinHalfLat * sinHalfLat + cosLat * cosLat * sinHalfLon * sinHalfLon;
     const c = 2 * Math.atan2(Math.sqrt(a), Math.sqrt(1 - a));
     const distanceKm = radius * c; // Distance in km
     document.lss_helper.kmperdegree = distanceKm / Math.sqrt(distanceDeg);
