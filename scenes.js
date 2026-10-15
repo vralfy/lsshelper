@@ -904,7 +904,7 @@ document.lss_helper.scenes = {
   "1019" : { "POL": 1, "GWT": 1, "RTW": 1, "NEF": 1 }, // Reitunfall mit Pkw
   "1021" : { "BOAT": 1, "LF": 2, "GWO": 1, "ELW": 1, "POL": 1, "GWT": 1 }, // Gewässerverschmutzung durch Öl
   "1022" : { "POL": 2, "GWT": 1 }, // Tiere auf der Fahrbahn
-  "1023" : { "LF": 1, "POL": 2, "HORSE": 2, "GWT": 1 }, // Entlaufenes Pferd
+  "1023" : { "LF": 1, "POL": 2, "HORSE": 1, "GWT": 1 }, // Entlaufenes Pferd
   "1024" : { "LF": 3, "ELW": 1, "POL": 2, "GWT": 1 }, // Wildtier einfangen
   "1025" : { "LF": 1, "GWT": 1 }, // Wespennest umsiedeln
   "1026" : { "LF": 6, "DLK": 2, "SW": 1, "GWA": 1, "ELW": 2, "POL": 2, "GWT": 1 }, // Brennender Stall - Tierrettung
