@@ -48,4 +48,4 @@ jobs:
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JAVASCRIPT_PRETTIER: true
           VALIDATE_ALL_CODEBASE: false
-          DEFAULT_BRANCH: dev
+          DEFAULT_BRANCH: ${{ github.base_ref || github.event.repository.default_branch }}
