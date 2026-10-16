@@ -45,5 +45,7 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Limit scope to JavaScript files only
           FILTER_REGEX_INCLUDE: ".*\\.js$"
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_JAVASCRIPT_PRETTIER: true
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: dev
