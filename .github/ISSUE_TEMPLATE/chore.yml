@@ -1,0 +1,17 @@
+name: Chore
+description: Maintenance, refactors, or tasks without user-visible changes
+title: "chore: <short description>"
+labels: ["type:chore", "status:triage"]
+body:
+  - type: textarea
+    id: work
+    attributes:
+      label: Work summary
+      placeholder: What needs to be done and why
+    validations:
+      required: true
+  - type: textarea
+    id: risks
+    attributes:
+      label: Risks / rollout
+      placeholder: Risks, flags, and rollout plan
