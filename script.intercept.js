@@ -3,10 +3,10 @@ document.lss_helper.functions = document.lss_helper.functions || {
   addition: {},
   replacement: {},
   create: (f) => {
-    console.log('intersecting', f);
+    document.lss_helper.log('intersecting', f);
     document.lss_helper.functions.original[f] = eval(f);
     document.lss_helper.functions.addition[f] = document.lss_helper.functions.addition[f] || function (...args) {
-      console.error(f, 'called with', ...args);
+      document.lss_helper.error(f, 'called with', ...args);
     };
     document.lss_helper.functions.replacement[f] = (...args) => {
       document.lss_helper.functions.original[f](...args);
@@ -26,10 +26,10 @@ document.lss_helper.functions = document.lss_helper.functions || {
   // 'radioMessage',
   // 'vehicleDrive',
 ]
-.filter(f => !document.lss_helper.functions.original[f])
-.forEach((f) => {
-  document.lss_helper.functions.create(f);
-});
+  .filter(f => !document.lss_helper.functions.original[f])
+  .forEach((f) => {
+    document.lss_helper.functions.create(f);
+  });
 
 document.lss_helper.marker = document.lss_helper.marker || {
   buildings: {},
@@ -46,3 +46,17 @@ document.lss_helper.functions.addition.vehicleMarkerAdd = (a1) => {
 document.lss_helper.functions.addition.missionMarkerAddSingle = (a1) => {
   document.lss_helper.marker.missions[a1.id] = a1;
 };
+
+document.lss_helper.faye = document.lss_helper.faye || {
+  incoming: function(message, callback) {
+    console.error('incoming message', message);
+    document.lss_helper.log('incoming message', message);
+    callback(message);
+  },
+  outgoing: function(message, callback) {
+    console.error('outgoing message', message);
+    document.lss_helper.log('outgoing message', message);
+    callback(message);
+  },
+};
+//faye.addExtension(document.lss_helper.faye);
