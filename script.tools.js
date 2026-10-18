@@ -8,7 +8,7 @@ document.lss_helper.makeGreenVerband = () => {
 };
 
 document.lss_helper.makeVerband = (mission) => {
-  const ignore = ['147', '613'];
+  const ignore = [null, undefined,'147', '613'];
   if (!mission || mission.isVerband || ignore.includes(mission.missionType)) {
     return;
   }
