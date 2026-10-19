@@ -269,3 +269,26 @@ document.lss_helper.autoVerband = () => {
 document.lss_helper.autoVerbandInterval = document.lss_helper.autoVerbandInterval || setInterval(() => {
   document.lss_helper.autoVerband();
 }, 5000);
+
+document.lss_helper.fixNullVerband = () => {
+  // Sometimes an "Übergabeort" mission gets stuck when its marked as Verbandseinsatz.
+  // This results in vehicles being stuck and not being sent back home.
+  // In order to fix this, we need to check for stuck "Übergabe" missions and call back all vehicles involved.
+  // An example get request looks like: https://leitstellenspiel.de/missions/4436501903/backalarmAll?ifs=at_fi&sd=a&sk=cr
+  document.lss_helper.missions
+    .filter((m) => m.missionType === '' && m.isVerband)
+    .forEach((m) => {
+      const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.missionId + '/backalarmAll?ifs=at_fi&sd=a&sk=cr';
+      fetch(url, { method: 'GET', cache: 'no-cache' })
+        .then((r) => r.text())
+        .then((r) => {
+          document.lss_helper.debug('Called back all vehicles for stuck mission', m.missionId, r);
+        })
+        .catch((err) => {
+          document.lss_helper.error('Error calling back vehicles for mission', m.missionId, err);
+        });
+    });
+};
+document.lss_helper.fixNullVerbandInterval = document.lss_helper.fixNullVerbandInterval || setInterval(() => {
+  document.lss_helper.fixNullVerband();
+}, 10*60*1000);

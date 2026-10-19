@@ -1,5 +1,5 @@
 document.lss_helper.makeGreenVerband = () => {
-  const ignore = ['147', '613'];
+  const ignore = [null, undefined, '', '147', '613'];
   document.lss_helper.missions.filter(m => m.finishing && !m.isVerband && !ignore.includes(m.missionType)).forEach((m, idx) => {
     setTimeout(() => {
       document.lss_helper.makeVerband(m);
@@ -8,7 +8,7 @@ document.lss_helper.makeGreenVerband = () => {
 };
 
 document.lss_helper.makeVerband = (mission) => {
-  const ignore = [null, undefined,'147', '613'];
+  const ignore = [null, undefined, '', '147', '613'];
   if (!mission || mission.isVerband || ignore.includes(mission.missionType)) {
     return;
   }
