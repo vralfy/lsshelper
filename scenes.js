@@ -755,6 +755,7 @@ document.lss_helper.scenes = {
   "834" : { "POL": 3, "LF": 1, "RW": 1, "RTW": 2 }, // Verkehrsunfall durch Verliebtheit
   "835" : { "POL": 1 }, // Fußstreife
   "836" : { "POLBIKE": 2 }, // Motorradstreife
+  "837" : { "HORSE": 1}, //  Berittene Streife
   "838" : { "AAOTHWNEA50": 1 }, // Stromausfall im Stellwerk (klein)
   "839" : { "AAOTHWNEA200": 1 }, // Stromausfall im Stellwerk (groß)
   "840" : { "POL": 2, "POLH": 1, "GRUKW": 9, "BEFKW": 3, "FUEKW": 1, "RTW": 1, "NEF": 1 }, // Personensuche im Wald
