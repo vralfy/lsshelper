@@ -15,10 +15,10 @@
 				"NODE_TLS_REJECT_UNAUTHORIZED": "0"
 			}
 		},
-		"server": {
-			"url": "http://localhost:3000/mcp",
-			"type": "http"
-		},
+		// "server": {
+		//  "url": "http://localhost:3000/mcp",
+		//	"type": "http"
+		// },
 		// "mcpcli-wsl": {
 		// 	"type": "stdio",
 		// 	"command": "wsl",

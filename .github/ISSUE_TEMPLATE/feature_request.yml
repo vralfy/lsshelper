@@ -1,0 +1,21 @@
+name: Feature request
+description: Suggest an idea for this project
+title: "feat: <short description>"
+labels: ["type:feature", "status:triage"]
+body:
+  - type: textarea
+    id: summary
+    attributes:
+      label: Summary
+      placeholder: A short description of the feature
+    validations:
+      required: true
+  - type: textarea
+    id: value
+    attributes:
+      label: Value / user benefit
+  - type: textarea
+    id: acceptance
+    attributes:
+      label: Acceptance criteria
+      placeholder: Bullet list of observable pass/fail checks

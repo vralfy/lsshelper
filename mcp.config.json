@@ -1,5 +1,6 @@
 {
   "mods": [
-    { "file": "mods/leitstellenspiel.ts", "className": "mcpLeitstellenspiel"}
+    { "file": "mods/leitstellenspiel.ts", "className": "mcpLeitstellenspiel"},
+    { "file": "mods/mattpocock.ts", "className": "mcpMattpocock"}
   ]
 }
