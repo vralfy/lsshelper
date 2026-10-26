@@ -196,4 +196,4 @@ document.lss_helper.printVehicleList = () => {
       }
       li.innerHTML += i.name;
     });
-  };
+};

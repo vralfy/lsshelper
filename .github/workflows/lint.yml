@@ -1,0 +1,51 @@
+name: LSSHelper Lint
+on:
+  push:
+    branches:
+      - "master"
+      - "main"
+      - "stage"
+      - "dev"
+  pull_request:
+    branches:
+      - "master"
+      - "main"
+      - "dev"
+    types: [opened, synchronize, reopened]
+
+jobs:
+  build:
+    name: Lint
+    runs-on: ubuntu-latest
+
+    permissions:
+      # contents permission to clone the repository
+      contents: read
+      packages: read
+      # issues and pull-requests permissions to write results as pull
+      # request comments. Omit them if you don't need summary comments
+      issues: write
+      pull-requests: write
+      # To report GitHub Actions status checks. Omit if you don't need
+      # to update commit status
+      statuses: write
+    steps:
+      - name: Checkout code
+        uses: actions/checkout@v6
+        with:
+          # super-linter needs the full git history to get the
+          # list of files that changed across commits
+          fetch-depth: 0
+          persist-credentials: false
+
+      - name: Super-linter (JS only)
+        uses: super-linter/super-linter@v8.6.0 # x-release-please-version
+        env:
+          # To report GitHub Actions status checks
+          GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
+          # Limit scope to JavaScript files only
+          FILTER_REGEX_INCLUDE: ".*\\.js$"
+          VALIDATE_JAVASCRIPT_ES: true
+          VALIDATE_JAVASCRIPT_PRETTIER: true
+          VALIDATE_ALL_CODEBASE: false
+          DEFAULT_BRANCH: ${{ github.base_ref || github.event.repository.default_branch }}
