@@ -178,19 +178,23 @@ document.lss_helper.autoAccept = (force) => {
 
   if (force || document.lss_helper.getSetting('autoAccept')) {
     document.lss_helper.debug('auto accept running');
+    const maxDistance = parseInt(document.lss_helper.getSetting('autoAcceptMaxDistance', '9999'));
     const maxUnits = parseInt(document.lss_helper.getSetting('autoAcceptMaxUnits', '99999'));
+    const maxInProgress = document.lss_helper.getSetting('autoAcceptMaxAttended', '5');
+    const inProgress = document.lss_helper.missions.filter((m) => m.hasAlert || m.attended).length;
+
     const missions = document.lss_helper.missions
       .filter((m) => m.unattended && !m.hasAlert)
-      .filter((m) => document.lss_helper.scenes[m.missionType] && document.lss_helper.getVehiclesByMission(m, m.missionType))
       .filter((m) => !!m.maxDistance)
+      .filter((m) => document.lss_helper.scenes[m.missionType])
+      .filter((m) => (now - (document.lss_helper.lastMissionSend[m.data.id] ?? 0)) > interval)
       .filter((m) => m.proposedVehiclesCount && m.proposedVehiclesCount <= maxUnits)
-      .filter((m) => document.lss_helper.getSetting('autoAcceptMaxDistance', '9999') >= document.lss_helper.helper.getDistanceInKm(m.maxDistance))
-      .filter((m) => (now - (document.lss_helper.lastMissionSend[m.data.id] ?? 0)) > interval);
+      .filter((m) => maxDistance >= document.lss_helper.helper.getDistanceInKm(m.maxDistance))
+      .filter((m) => document.lss_helper.getVehiclesByMission(m, m.missionType))
+      ;
     if (missions.length < 1) {
       return;
     }
-    const inProgress = document.lss_helper.missions.filter((m) => m.hasAlert || m.attended).length;
-    const maxInProgress = document.lss_helper.getSetting('autoAcceptMaxAttended', '5');
 
     if (!force && maxInProgress > 0 && maxInProgress <= inProgress) {
       return;
