@@ -17,17 +17,20 @@ document.lss_helper.extensions.thw = {
   'BrB': 15,
 };
 
+document.lss_helper.extensions.buy = document.lss_helper.extensions.buy || {};
+document.lss_helper.extensions.makeReady = document.lss_helper.extensions.makeReady || {};
+
 Object.entries(document.lss_helper.extensions.thw).forEach(([key, value]) => {
-  document.lss_helper['buyTHW' + key + 'Extension'] = (start, end) => document.lss_helper.buyTHWExtension(value, start, end);
-  document.lss_helper['makeTHW' + key + 'ExtensionsReady'] = (start, end) => document.lss_helper.makeTHWExtensionReady(value, start, end);
+  document.lss_helper.extensions.buy['THW' + key] = (start, end) => document.lss_helper.extensions.buy.THW(value, start, end);
+  document.lss_helper.extensions.makeReady['THW' + key] = (start, end) => document.lss_helper.extensions.makeReady.THW(value, start, end);
 });
 
-document.lss_helper.doAllTHWExtensions = (start, end) => {
+document.lss_helper.extensions.doAllTHWExtensions = (start, end) => {
   start = start || 0;
   end = end || undefined;
   let buildings = document.lss_helper.buildings.filter(b => ['9'].indexOf(b.type) >= 0).slice(start, end).length;
   Object.values(document.lss_helper.extensions.thw).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.buyTHWExtension(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
-    setTimeout(() => document.lss_helper.makeTHWExtensionReady(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
+    setTimeout(() => document.lss_helper.extensions.buy.THW(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
+    setTimeout(() => document.lss_helper.extensions.makeReady.THW(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
   });
 };

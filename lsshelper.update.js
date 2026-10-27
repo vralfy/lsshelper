@@ -37,5 +37,6 @@ document.lss_helper.fetchRemoteFile('script.print.settings.js');
 document.lss_helper.fetchRemoteFile('script.print.vehicles.js');
 
 document.lss_helper.fetchRemoteFile('script.tools.js');
+document.lss_helper.fetchRemoteFile('script.vehicles.js');
 
 document.lss_helper.fetchRemoteFile('script.intercept.js');
