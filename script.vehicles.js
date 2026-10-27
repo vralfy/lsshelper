@@ -117,9 +117,36 @@ document.lss_helper.vehicleTools._getMissingVehicles = (vehicletype, buildingtyp
 };
 
 document.lss_helper.vehicleTools.getMissingVehicles = {
-  ELWDrohne: () => document.lss_helper.vehicleTools._getMissingVehicles('128', '0', 1),
-  HLF20: () => document.lss_helper.vehicleTools._getMissingVehicles('30', '0', 3),
-  Luefter: () => document.lss_helper.vehicleTools._getMissingVehicles('114', '0', 1),
-  GWTierrrettung: () => document.lss_helper.vehicleTools._getMissingVehicles('185', '0', 1),
-  HLFSchiene: () => document.lss_helper.vehicleTools._getMissingVehicles('163', '0', 1),
+  ff: {
+    ELWDrohne: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('128', '0', amount ?? 1),
+    HLF20: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('30', '0', amount ?? 3),
+    Luefter: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('114', '0', amount ?? 1),
+    GWTierrrettung: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('185', '0', amount ?? 1),
+    HLFSchiene: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('163', '0', amount ?? 1),
+  },
+  rw: {
+    rtw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('28', '2', amount ?? 6),
+    nef: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('29', '2', amount ?? 2),
+    ktw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('38', '2', amount ?? 5),
+    lna: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('55', '2', amount ?? 1),
+    orgl: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('56', '2', amount ?? 1),
+    // grtw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('73', '2', amount ?? 0),
+    naw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('74', '2', amount ?? 1),
+    // itw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('97', '2', amount ?? 0),
+  },
+  pol: {
+    fustw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('32', '6', amount ?? 6),
+    // gefkw: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('52', '6', amount ?? 0),
+    dog: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('94', '6', amount ?? 1),
+    bike: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('95', '6', amount ?? 2),
+    ziv: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('98', '6', amount ?? 1),
+    dgl: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('103', '6', amount ?? 1),
+    ap: (amount) => document.lss_helper.vehicleTools._getMissingVehicles('184', '6', amount ?? 2),
+  },
+  seg: {
+
+  },
+  thw: {
+
+  },
 };
