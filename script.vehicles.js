@@ -1,5 +1,6 @@
+document.lss_helper.vehicleTools = document.lss_helper.vehicleTools || {};
 
-document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
+document.lss_helper.vehicleTools._carsWithoutTowingVehicle = (vehicleIds) => {
   vehicleIds = vehicleIds || ['110', '111', '112', '175'];
   const vehiclesToCheck = document.lss_helper.vehicles
     .filter((v) => vehicleIds.includes(v.type));
@@ -30,17 +31,17 @@ document.lss_helper.carsWithoutTowingVehicle = (vehicleIds) => {
     });
 };
 
-document.lss_helper.getCarsWithoutTowingVehicle = {
-  ffw: () => document.lss_helper.carsWithoutTowingVehicle(['115', '143', '168', '186', '191']),
-  seg: () => document.lss_helper.carsWithoutTowingVehicle(['70', '132', '174', '175']),
-  thw: () => document.lss_helper.carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178', '183']),
-  pol: () => document.lss_helper.carsWithoutTowingVehicle(['136']),
-  brw: () => document.lss_helper.carsWithoutTowingVehicle(['155']),
-  nea: () => document.lss_helper.carsWithoutTowingVehicle(['110', '111', '112', '175']),
+document.lss_helper.vehicleTools.carsWithoutTowingVehicle = {
+  ffw: () => document.lss_helper.vehicleTools._carsWithoutTowingVehicle(['115', '143', '168', '186', '191']),
+  seg: () => document.lss_helper.vehicleTools._carsWithoutTowingVehicle(['70', '132', '174', '175']),
+  thw: () => document.lss_helper.vehicleTools._carsWithoutTowingVehicle(['44', '92', '101', '102', '110', '112', '146', '178', '183']),
+  pol: () => document.lss_helper.vehicleTools._carsWithoutTowingVehicle(['136']),
+  brw: () => document.lss_helper.vehicleTools._carsWithoutTowingVehicle(['155']),
+  nea: () => document.lss_helper.vehicleTools._carsWithoutTowingVehicle(['110', '111', '112', '175']),
 };
 
 
-document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0, start, end) => {
+document.lss_helper.vehicleTools._labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0, start, end) => {
   buildingIds = buildingIds || [];
   vehicleTypes = vehicleTypes || [];
   label = label || '';
@@ -78,21 +79,21 @@ document.lss_helper.labelVehicle = (buildingIds, vehicleTypes, label, ignore_aa0
     });
 };
 
-document.lss_helper.label = {
-  boot: (label, start, end) => document.lss_helper.labelVehicle(['15', '12', '9'], ['70', '66', '67', '68'], label ?? 'BOOT', false, start, end),
-  bootdiver: (label, start, end) => document.lss_helper.labelVehicle(['9'], ['70', '66', '67', '68'], label ?? 'BOOTDIVER', false, start, end),
-  dogpol: (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['94'], label ?? 'DOG', false, start, end),
-  dogrescue: (label, start, end) => document.lss_helper.labelVehicle(['2', '12', '9', '21', '25'], ['91', '92', '153'], label ?? 'DOG', false, start, end),
-  drohne: (label, start, end) => document.lss_helper.labelVehicle(['0', '12', '9'], ['126', '128', '129', '127', '125'], label ?? 'DROHNE', false, start, end),
-  mek: (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['81', '82'], label ?? 'MEK', false, start, end),
-  sek: (label, start, end) => document.lss_helper.labelVehicle(['11', '17', '6'], ['79', '80'], label ?? 'SEK', false, start, end),
-  nea50: (label, start, end) => document.lss_helper.labelVehicle(['0', '9'], ['111', '179', '110'], label ?? 'NEA50', false, start, end),
-  nea200: (label, start, end) => document.lss_helper.labelVehicle(['0', '9'], ['113', '180', '112'], label ?? 'NEA200', false, start, end),
-  wasserrettung: (label, start, end) => document.lss_helper.labelVehicle(['0', '15', '12'], ['64'], label ?? 'WASSERRETTUNG', false, start, end),
-  slf: (label, start, end) => document.lss_helper.labelVehicle(['0'], ['167', '168', '169'], label ?? 'SLF', true, start, end),
+document.lss_helper.vehicleTools.labelVehicle = {
+  boot: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['15', '12', '9'], ['70', '66', '67', '68'], label ?? 'BOOT', false, start, end),
+  bootdiver: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['9'], ['70', '66', '67', '68'], label ?? 'BOOTDIVER', false, start, end),
+  dogpol: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['11', '17', '6'], ['94'], label ?? 'DOG', false, start, end),
+  dogrescue: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['2', '12', '9', '21', '25'], ['91', '92', '153'], label ?? 'DOG', false, start, end),
+  drohne: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['0', '12', '9'], ['126', '128', '129', '127', '125'], label ?? 'DROHNE', false, start, end),
+  mek: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['11', '17', '6'], ['81', '82'], label ?? 'MEK', false, start, end),
+  sek: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['11', '17', '6'], ['79', '80'], label ?? 'SEK', false, start, end),
+  nea50: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['0', '9'], ['111', '179', '110'], label ?? 'NEA50', false, start, end),
+  nea200: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['0', '9'], ['113', '180', '112'], label ?? 'NEA200', false, start, end),
+  wasserrettung: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['0', '15', '12'], ['64'], label ?? 'WASSERRETTUNG', false, start, end),
+  slf: (label, start, end) => document.lss_helper.vehicleTools._labelVehicle(['0'], ['167', '168', '169'], label ?? 'SLF', true, start, end),
 };
 
-document.lss_helper.getFarMostVehicles = (minDistance = 0) => {
+document.lss_helper.vehicleTools.getFarMostVehicles = (minDistance = 0) => {
   return document.lss_helper.vehicles.map(v => {
     return {
       ...v,
@@ -103,11 +104,11 @@ document.lss_helper.getFarMostVehicles = (minDistance = 0) => {
   .sort((a, b) => b.distanceToBase - a.distanceToBase);
 };
 
-document.lss_helper.printFarMostVehicles = (minDistance = 0) => document.lss_helper.getFarMostVehicles(minDistance).forEach(v => {
+document.lss_helper.vehicleTools.printFarMostVehicles = (minDistance = 0) => document.lss_helper.vehicleTools.getFarMostVehicles(minDistance).forEach(v => {
   document.lss_helper.warn('Vehicle', v.name, 'is', v.distanceToBase.toFixed(2), 'km away from base', v.building.name);
 });
 
-document.lss_helper.getMissingVehicles = (vehicletype, buildingtype, amount) => {
+document.lss_helper.vehicleTools._getMissingVehicles = (vehicletype, buildingtype, amount) => {
   buildingtype = buildingtype || '0';
   amount = amount || 1;
   return document.lss_helper.buildings.filter(b =>
@@ -115,10 +116,10 @@ document.lss_helper.getMissingVehicles = (vehicletype, buildingtype, amount) => 
   )
 };
 
-document.lss_helper.missingVehicles = {
-  ELWDrohne: () => document.lss_helper.getMissingVehicles('128', '0', 1),
-  HLF20: () => document.lss_helper.getMissingVehicles('30', '0', 3),
-  Luefter: () => document.lss_helper.getMissingVehicles('114', '0', 1),
-  GWTierrrettung: () => document.lss_helper.getMissingVehicles('185', '0', 1),
-  HLFSchiene: () => document.lss_helper.getMissingVehicles('163', '0', 1),
+document.lss_helper.vehicleTools.getMissingVehicles = {
+  ELWDrohne: () => document.lss_helper.vehicleTools._getMissingVehicles('128', '0', 1),
+  HLF20: () => document.lss_helper.vehicleTools._getMissingVehicles('30', '0', 3),
+  Luefter: () => document.lss_helper.vehicleTools._getMissingVehicles('114', '0', 1),
+  GWTierrrettung: () => document.lss_helper.vehicleTools._getMissingVehicles('185', '0', 1),
+  HLFSchiene: () => document.lss_helper.vehicleTools._getMissingVehicles('163', '0', 1),
 };
