@@ -40,7 +40,7 @@ document.lss_helper.educations = {
     '12': { // SEG
       '3': { name: 'SEG ELW', required: 2 },
       '4': { name: 'SEG GW-San', required: 6 },
-      '5': { name: 'GW-Wasserrettung', required: 12 },
+      '5': { name: 'GW-Wasserrettung', required: 6 },
       '6': { name: 'GW-Taucher', required: 4 },
       '7': { name: 'Rettungshundeführer', required: 10 },
       '9': { name: 'Drohnenoperator', required: 5 },
@@ -73,7 +73,7 @@ document.lss_helper.educations = {
       '3': { name: 'Wasserwerfer', required: 20 },
       '4': { name: 'SEK', required: 45 },
       '5': { name: 'MEK', required: 45 },
-      '6': { name: 'Hundeführer', required: 15 }, // 5*3
+      '6': { name: 'Hundeführer', required: 6 }, // 2*3
       '13': { name: 'Lautsprecheroperator', required: 5 },
     },
     '13': { // BePo Heli
@@ -154,6 +154,9 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
 };
 
 document.lss_helper.educationFn = {
+  rw: {
+    all: () => document.lss_helper.checkEducation('3', ['2']).forEach(fn => fn()),
+  },
   dlrg: {
     all: () => document.lss_helper.checkEducation('3', ['15']).forEach(fn => fn()),
   },
