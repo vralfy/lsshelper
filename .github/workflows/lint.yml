@@ -19,8 +19,8 @@ jobs:
     runs-on: ubuntu-latest
 
     permissions:
-      # contents permission to clone the repository
-      contents: read
+      # contents write is needed to push the Prettier fixes
+      contents: write
       packages: read
       # issues and pull-requests permissions to write results as pull
       # request comments. Omit them if you don't need summary comments
@@ -36,7 +36,9 @@ jobs:
           # super-linter needs the full git history to get the
           # list of files that changed across commits
           fetch-depth: 0
-          persist-credentials: false
+          # Check out the branch itself (not a detached merge commit) so fixes can be pushed
+          ref: ${{ github.head_ref || github.ref_name }}
+          persist-credentials: true
 
       - name: Super-linter (JS only)
         uses: super-linter/super-linter@v8.6.0 # x-release-please-version
@@ -47,5 +49,18 @@ jobs:
           FILTER_REGEX_INCLUDE: ".*\\.js$"
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JAVASCRIPT_PRETTIER: true
+          FIX_JAVASCRIPT_PRETTIER: true
           VALIDATE_ALL_CODEBASE: false
           DEFAULT_BRANCH: ${{ github.base_ref || github.event.repository.default_branch }}
+
+      # Pushes made with GITHUB_TOKEN do not retrigger workflows, so no loop occurs
+      - name: Commit and push Prettier fixes
+        if: ${{ !cancelled() && (github.event_name == 'push' || github.event.pull_request.head.repo.full_name == github.repository) }}
+        run: |
+          if [ -n "$(git status --porcelain)" ]; then
+            git config user.name "github-actions[bot]"
+            git config user.email "41898282+github-actions[bot]@users.noreply.github.com"
+            git add -u
+            git commit -m "style: apply Prettier fixes"
+            git push
+          fi
