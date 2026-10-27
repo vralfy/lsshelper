@@ -91,12 +91,12 @@ document.lss_helper.extensions.buy = {
 
 document.lss_helper.extensions.makeReady = {
   ...document.lss_helper.extensions.makeReady ?? {},
-  Firebrigade: (extensionId, start, end) => document.lss_helper.makeFirebrigadeExtensionReady(extensionId, start, end),
-  Police: (extensionId, start, end) => document.lss_helper.makePoliceExtensionReady(extensionId, start, end),
-  Bepo: (extensionId, start, end) => document.lss_helper.makeBepoExtensionReady(extensionId, start, end),
-  BepoSE: (extensionId, start, end) => document.lss_helper.makeBepoSEExtensionReady(extensionId, start, end),
-  THW: (extensionId, start, end) => document.lss_helper.makeTHWExtensionReady(extensionId, start, end),
-  SEG: (extensionId, start, end) => document.lss_helper.makeSEGExtensionReady(extensionId, start, end),
+  Firebrigade: (extensionId, start, end) => document.lss_helper.extensions._makeExtensionsReady(extensionId, '0', start, end),
+  Police: (extensionId, start, end) => document.lss_helper.extensions._makeExtensionsReady(extensionId, '6', start, end),
+  Bepo: (extensionId, start, end) => document.lss_helper.extensions._makeExtensionsReady(extensionId, '11', start, end),
+  BepoSE: (extensionId, start, end) => document.lss_helper.extensions._makeExtensionsReady(extensionId, '17', start, end),
+  THW: (extensionId, start, end) => document.lss_helper.extensions._makeExtensionsReady(extensionId, '9', start, end),
+  SEG: (extensionId, start, end) => document.lss_helper.extensions._makeExtensionsReady(extensionId, '12', start, end),
 };
 
 document.lss_helper.extensions.doAllBuildings = (start, end) => {
