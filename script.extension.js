@@ -80,7 +80,7 @@ document.lss_helper.extensions._makeExtensionsReady = (extensionId, buildingType
 };
 
 document.lss_helper.extensions.buy = {
-  ...document.lss_helper.buy ??  {},
+  ...document.lss_helper.extensions.buy ??  {},
   Firebrigade: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '0', start, end),
   Police: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '6', start, end),
   Bepo: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '11', start, end),
@@ -90,7 +90,7 @@ document.lss_helper.extensions.buy = {
 };
 
 document.lss_helper.extensions.makeReady = {
-  ...document.lss_helper.makeReady ?? {},
+  ...document.lss_helper.extensions.makeReady ?? {},
   Firebrigade: (extensionId, start, end) => document.lss_helper.makeFirebrigadeExtensionReady(extensionId, start, end),
   Police: (extensionId, start, end) => document.lss_helper.makePoliceExtensionReady(extensionId, start, end),
   Bepo: (extensionId, start, end) => document.lss_helper.makeBepoExtensionReady(extensionId, start, end),

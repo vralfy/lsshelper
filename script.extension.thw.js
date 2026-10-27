@@ -17,6 +17,9 @@ document.lss_helper.extensions.thw = {
   'BrB': 15,
 };
 
+document.lss_helper.extensions.buy = document.lss_helper.extensions.buy || {};
+document.lss_helper.extensions.makeReady = document.lss_helper.extensions.makeReady || {};
+
 Object.entries(document.lss_helper.extensions.thw).forEach(([key, value]) => {
   document.lss_helper.extensions.buy['THW' + key] = (start, end) => document.lss_helper.extensions.buy.THW(value, start, end);
   document.lss_helper.extensions.makeReady['THW' + key] = (start, end) => document.lss_helper.extensions.makeReady.THW(value, start, end);

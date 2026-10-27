@@ -8,6 +8,9 @@ document.lss_helper.extensions.seg = {
   'TeSi': 6,
 };
 
+document.lss_helper.extensions.buy = document.lss_helper.extensions.buy || {};
+document.lss_helper.extensions.makeReady = document.lss_helper.extensions.makeReady || {};
+
 Object.entries(document.lss_helper.extensions.seg).forEach(([key, value]) => {
   document.lss_helper.extensions.buy['SEG' + key] = (start, end) => document.lss_helper.extensions.buy.SEG(value, start, end);
   document.lss_helper.extensions.makeReady['SEG' + key] = (start, end) => document.lss_helper.extensions.makeReady.SEG(value, start, end);

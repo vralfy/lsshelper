@@ -20,6 +20,9 @@ document.lss_helper.extensions.bepose = {
   'DOG': 4,
 };
 
+document.lss_helper.extensions.buy = document.lss_helper.extensions.buy || {};
+document.lss_helper.extensions.makeReady = document.lss_helper.extensions.makeReady || {};
+
 Object.entries(document.lss_helper.extensions.bepo).forEach(([key, value]) => {
   document.lss_helper.extensions.buy['BEPO' + key] = (start, end) => document.lss_helper.extensions.buy.Bepo(value, start, end);
   document.lss_helper.extensions.makeReady['BEPO' + key] = (start, end) => document.lss_helper.extensions.makeReady.Bepo(value, start, end);
