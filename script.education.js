@@ -1,6 +1,8 @@
 // https://www.leitstellenspiel.de/buildings/{{schoolId}}
 // https://www.leitstellenspiel.de/buildings/{{schoolId}}/schoolingEducationCheck?education={{educationId}}&only_building_id={{buildingId}}
-document.lss_helper.educations = {
+document.lss_helper.education = document.lss_helper.education || {};
+
+document.lss_helper.education.educations = {
   '1': { // Feuerwehr
     '0': { // Feuerwehrwache
       '0': { name: 'GW-Messtechnik Lehrgang', required: 2 },
@@ -106,7 +108,7 @@ document.lss_helper.educations = {
   },
 };
 
-document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) => {
+document.lss_helper.education._checkEducation = (schoolType, buildingTypes, educationIds) => {
   const school = document.lss_helper.buildings.find((b) => b.type === schoolType);
   if (!school) {
     return;
@@ -114,13 +116,13 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
   const header = { method: 'GET', cache: "no-cache" };
   const regexInProgress = /([0-9]+) in Ausbildung/;
   const regexDone = /([0-9]+) ausgebildete Person/;
-  buildingTypes = buildingTypes || Object.keys(document.lss_helper.educations[schoolType]);
+  buildingTypes = buildingTypes || Object.keys(document.lss_helper.education.educations[schoolType]);
   const queue = document.lss_helper.buildings.filter((b) => buildingTypes.includes(b.type)).map((building, bidx) => {
-    const options = educationIds ? {} : document.lss_helper.educations[schoolType][building.type];
+    const options = educationIds ? {} : document.lss_helper.education.educations[schoolType][building.type];
     if (educationIds) {
       educationIds.forEach((eid) => {
-        if (document.lss_helper.educations[schoolType][building.type][eid]) {
-          options[eid] = document.lss_helper.educations[schoolType][building.type][eid];
+        if (document.lss_helper.education.educations[schoolType][building.type][eid]) {
+          options[eid] = document.lss_helper.education.educations[schoolType][building.type][eid];
         }
       });
     }
@@ -153,26 +155,29 @@ document.lss_helper.checkEducation = (schoolType, buildingTypes, educationIds) =
   return queue.flat();
 };
 
-document.lss_helper.educationFn = {
-  rw: {
-    all: () => document.lss_helper.checkEducation('3', ['2']).forEach(fn => fn()),
-  },
-  dlrg: {
-    all: () => document.lss_helper.checkEducation('3', ['15']).forEach(fn => fn()),
-  },
-  seg: {
-    all: () => document.lss_helper.checkEducation('3', ['12']).forEach(fn => fn()),
-    sani: () => document.lss_helper.checkEducation('3', ['12'], ['3', '4']).forEach(fn => fn()),
-    bt: () => document.lss_helper.checkEducation('3', ['12'], ['10', '11']).forEach(fn => fn()),
-  },
-  polizei: {
-    all: () => document.lss_helper.checkEducation('8', ['6']).forEach(fn => fn()),
-  },
-  bepo: {
-    all: () => document.lss_helper.checkEducation('8', ['11', '13', '17']).forEach(fn => fn()),
-  },
-  thw: {
-    all: () => document.lss_helper.checkEducation('10').forEach(fn => fn()),
-    zugtrupp: () => document.lss_helper.checkEducation('10', ['9'], ['0']).forEach(fn => fn()),
-  }
+document.lss_helper.education.rw = {
+  all: () => document.lss_helper.education._checkEducation('3', ['2']).forEach(fn => fn()),
+};
+
+document.lss_helper.education.dlrg = {
+  all: () => document.lss_helper.education._checkEducation('3', ['15']).forEach(fn => fn()),
+};
+
+document.lss_helper.education.seg = {
+  all: () => document.lss_helper.education._checkEducation('3', ['12']).forEach(fn => fn()),
+  sani: () => document.lss_helper.education._checkEducation('3', ['12'], ['3', '4']).forEach(fn => fn()),
+  bt: () => document.lss_helper.education._checkEducation('3', ['12'], ['10', '11']).forEach(fn => fn()),
+};
+
+document.lss_helper.education.polizei = {
+  all: () => document.lss_helper.education._checkEducation('8', ['6']).forEach(fn => fn()),
+};
+
+document.lss_helper.education.bepo = {
+  all: () => document.lss_helper.education._checkEducation('8', ['11', '13', '17']).forEach(fn => fn()),
+};
+
+document.lss_helper.education.thw = {
+  all: () => document.lss_helper.education._checkEducation('10').forEach(fn => fn()),
+  zugtrupp: () => document.lss_helper.education._checkEducation('10', ['9'], ['0']).forEach(fn => fn()),
 };
