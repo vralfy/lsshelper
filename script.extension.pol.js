@@ -1,38 +1,49 @@
 document.lss_helper.extensions = document.lss_helper.extensions || {};
 document.lss_helper.extensions.pol = {
-  'DOG': 10,
-  'ZIV': 11,
-  'DGL': 12,
-  'BIKE': 13,
+  DOG: 10,
+  ZIV: 11,
+  DGL: 12,
+  BIKE: 13,
   //'BIG': 14,
   //'GEFKW': 15,
-  'AP': 16,
-  'CELL01': 0,
-  'CELL02': 1,
-  'CELL03': 2,
-  'CELL04': 3,
-  'CELL05': 4,
-  'CELL06': 5,
-  'CELL07': 6,
-  'CELL08': 7,
-  'CELL09': 8,
-  'CELL10': 9,
+  AP: 16,
+  CELL01: 0,
+  CELL02: 1,
+  CELL03: 2,
+  CELL04: 3,
+  CELL05: 4,
+  CELL06: 5,
+  CELL07: 6,
+  CELL08: 7,
+  CELL09: 8,
+  CELL10: 9,
 };
 
 document.lss_helper.extensions.buy = document.lss_helper.extensions.buy || {};
-document.lss_helper.extensions.makeReady = document.lss_helper.extensions.makeReady || {};
+document.lss_helper.extensions.makeReady =
+  document.lss_helper.extensions.makeReady || {};
 
 Object.entries(document.lss_helper.extensions.pol).forEach(([key, value]) => {
-  document.lss_helper.extensions.buy['POL' + key] = (start, end) => document.lss_helper.extensions.buy.Police(value, start, end);
-  document.lss_helper.extensions.makeReady['POL' + key] = (start, end) => document.lss_helper.extensions.makeReady.Police(value, start, end);
+  document.lss_helper.extensions.buy["POL" + key] = (start, end) =>
+    document.lss_helper.extensions.buy.Police(value, start, end);
+  document.lss_helper.extensions.makeReady["POL" + key] = (start, end) =>
+    document.lss_helper.extensions.makeReady.Police(value, start, end);
 });
 
 document.lss_helper.extensions.doAllPOLExtensions = (start, end) => {
   start = start || 0;
   end = end || undefined;
-  let buildings = document.lss_helper.buildings.filter(b => ['6'].indexOf(b.type) >= 0).slice(start, end).length;
+  let buildings = document.lss_helper.buildings
+    .filter((b) => ["6"].indexOf(b.type) >= 0)
+    .slice(start, end).length;
   Object.values(document.lss_helper.extensions.pol).forEach((value, idx) => {
-    setTimeout(() => document.lss_helper.extensions.buy.Police(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
-    setTimeout(() => document.lss_helper.extensions.makeReady.Police(value, start, end), document.lss_helper.extensions_delay * buildings * idx);
+    setTimeout(
+      () => document.lss_helper.extensions.buy.Police(value, start, end),
+      document.lss_helper.extensions_delay * buildings * idx,
+    );
+    setTimeout(
+      () => document.lss_helper.extensions.makeReady.Police(value, start, end),
+      document.lss_helper.extensions_delay * buildings * idx,
+    );
   });
 };
