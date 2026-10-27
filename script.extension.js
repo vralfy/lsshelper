@@ -1,5 +1,7 @@
 document.lss_helper.extensions_delay = document.lss_helper.extensions_delay || 1000;
-document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
+document.lss_helper.extensions = document.lss_helper.extensions || {};
+
+document.lss_helper.extensions._buyExtensions = (extensionId, buildingType, start, end) => {
   const header = {
     method: 'POST',
     cache: "no-cache",
@@ -27,7 +29,7 @@ document.lss_helper.buyExtensions = (extensionId, buildingType, start, end) => {
   return buildings.length;
 };
 
-document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end) => {
+document.lss_helper.extensions._makeExtensionsReady = (extensionId, buildingType, start, end) => {
   const header = {
     method: 'POST',
     cache: "no-cache",
@@ -77,24 +79,30 @@ document.lss_helper.makeExtensionsReady = (extensionId, buildingType, start, end
   return buildings.length;
 };
 
-document.lss_helper.buyFirebrigadeExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '0', start, end);
-document.lss_helper.buyPoliceExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '6', start, end);
-document.lss_helper.buyBepoExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '11', start, end);
-document.lss_helper.buyBepoSEExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '17', start, end);
-document.lss_helper.buyTHWExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '9', start, end);
-document.lss_helper.buySEGExtension = (extensionId, start, end) => document.lss_helper.buyExtensions(extensionId, '12', start, end);
+document.lss_helper.extensions.buy = {
+  ...document.lss_helper.buy ??  {},
+  Firebrigade: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '0', start, end),
+  Police: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '6', start, end),
+  Bepo: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '11', start, end),
+  BepoSE: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '17', start, end),
+  THW: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '9', start, end),
+  SEG: (extensionId, start, end) => document.lss_helper.extensions._buyExtensions(extensionId, '12', start, end),
+};
 
-document.lss_helper.makeFirebrigadeExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '0', start, end);
-document.lss_helper.makePoliceExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '6', start, end);
-document.lss_helper.makeBepoExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '11', start, end);
-document.lss_helper.makeBepoSEExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '17', start, end);
-document.lss_helper.makeTHWExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '9', start, end);
-document.lss_helper.makeSEGExtensionReady = (extensionId, start, end) => document.lss_helper.makeExtensionsReady(extensionId, '12', start, end);
+document.lss_helper.extensions.makeReady = {
+  ...document.lss_helper.makeReady ?? {},
+  Firebrigade: (extensionId, start, end) => document.lss_helper.makeFirebrigadeExtensionReady(extensionId, start, end),
+  Police: (extensionId, start, end) => document.lss_helper.makePoliceExtensionReady(extensionId, start, end),
+  Bepo: (extensionId, start, end) => document.lss_helper.makeBepoExtensionReady(extensionId, start, end),
+  BepoSE: (extensionId, start, end) => document.lss_helper.makeBepoSEExtensionReady(extensionId, start, end),
+  THW: (extensionId, start, end) => document.lss_helper.makeTHWExtensionReady(extensionId, start, end),
+  SEG: (extensionId, start, end) => document.lss_helper.makeSEGExtensionReady(extensionId, start, end),
+};
 
-document.lss_helper.doAllBuildings = (start, end) => {
-  document.lss_helper.doAllBEPOExtensions(start, end);
-  document.lss_helper.doAllStandardFFExtensions(start, end);
-  document.lss_helper.doAllPOLExtensions(start, end);
-  document.lss_helper.doAllSEGExtensions(start, end);
-  document.lss_helper.doAllTHWExtensions(start, end);
+document.lss_helper.extensions.doAllBuildings = (start, end) => {
+  document.lss_helper.extensions.doAllBEPOExtensions(start, end);
+  document.lss_helper.extensions.doAllStandardFFExtensions(start, end);
+  document.lss_helper.extensions.doAllPOLExtensions(start, end);
+  document.lss_helper.extensions.doAllSEGExtensions(start, end);
+  document.lss_helper.extensions.doAllTHWExtensions(start, end);
 };
