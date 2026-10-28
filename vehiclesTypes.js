@@ -160,7 +160,7 @@ document.lss_helper.vehicleTypes = {
   "158": "🏔️ BRW GW-H",
   "159": "🌊 Seenotrettungskreuzer",
   "160": "🌊 Seenotrettungsboot",
-  // "161": "???",
+  "161": "🌊🚁 Seenotrettungshelikopter",
   "162": "🚆⚙️ GW-Schiene",
   "163": "🚆🚒 HLF-Schiene",
   "164": "🚆📦 AB Schiene",
