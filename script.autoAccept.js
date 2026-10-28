@@ -1,6 +1,63 @@
 document.lss_helper.lastMissionSend = document.lss_helper.lastMissionSend || {};
 document.lss_helper.lastMissionResend = document.lss_helper.lastMissionResend || {};
 
+document.lss_helper.analyzeMissingInMission = (mission) => {
+  const txt = (mission.info?.missing?.innerText ?? '').trim();
+
+  const vehicles = (txt
+    .split("\n")
+    .filter(t => t.indexOf('Fehlende Fahrzeuge') >= 0)
+    .map(t => t.replaceAll(/Fehlende Fahrzeuge:\s+/g, ''))
+    .pop() ?? '')
+    .split(',')
+    .map(t => t.trim())
+    .map(t => t.match(/(\d+)\s+(.*)/))
+    .filter(t => !!t)
+    .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()).pop() }));
+  const material = (txt
+    .split("\n")
+    .filter(t => t.indexOf('Uns fehlt') >= 0)
+    .map(t => t.replaceAll(/Uns fehlt:\s+/g, ''))
+    .pop() ?? '')
+    .split(',')
+    .map(t => t.trim())
+    .map(t => t.match(/(\d+)\s+(.*)/))
+    .filter(t => !!t)
+    .map(mg => ({ count: parseInt(mg[1]), material: mg[2].split(',').map(v => v.trim()).pop() }));
+  const personal = (txt
+    .split("\n")
+    .filter(t => t.indexOf('Fehlendes Personal') >= 0)
+    .map(t => t.replaceAll(/Fehlendes Personal:\s+/g, ''))
+    .pop() ?? '')
+    .split(',')
+    .map(t => t.trim())
+    .map(t => t.match(/(\d+)x?\s+(.*)/))
+    .filter(t => !!t)
+    .map(mg => ({ count: parseInt(mg[1]), personal: mg[2].split(',').map(v => v.trim()).pop() }));
+
+  const patients = (mission.info?.patients?.innerText ?? '')
+    .split("\n")
+    .filter(t => t.indexOf('Wir benötigen') >= 0)
+    .map(t => t.startsWith('Wir') ? '1x ' + t : t)
+    .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
+    // .map(t => t.match(/(\d+)x\s(.*)/))
+    // .filter(t => !!t)
+    // .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }))
+;
+  return {
+    mission,
+    txt,
+    txt2: (mission.info?.patients?.innerText ?? ''),
+    missing: {
+      vehicles,
+      material,
+      personal,
+      patients,
+    }
+  }
+}
+document.lss_helper.missions.filter(m => m.info?.missing.innerText).map(m => document.lss_helper.analyzeMissingInMission(m));
+
 document.lss_helper.getResendMissions = () => {
   const interval = document.lss_helper.getSetting('autoResendIntervalTimeout', '300000');
   const sicherheitswache = document.lss_helper.getSetting('acceptSicherheitswache', 'false');
@@ -13,6 +70,16 @@ document.lss_helper.getResendMissions = () => {
       const resendGroups = {};
       const resendGroupsScene = {};
       const missing = m.info.missing.innerText.replaceAll(/\s+/g, ' ').trim();
+
+      const patientsInfo = (m.info?.patients?.innerText ?? '')
+          .split("\n")
+          .filter(t => t.indexOf('Wir benötigen') >= 0)
+          .map(t => t.startsWith('Wir') ? '1x ' + t : t)
+          .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
+          .map(t => t.match(/([0-9]+)x (.*)/))
+          .filter(t => !!t)
+          .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }));
+
       ['LNA', 'OrgL'].forEach((vt) => {
         const vtk = vt.toUpperCase();
         const rsg = 'rescue2';
@@ -23,20 +90,13 @@ document.lss_helper.getResendMissions = () => {
         }
       });
 
-      const patientsInfo = (m.info?.patients?.innerText ?? '')
-          .split("\n")
-          .filter(t => t.indexOf('Wir benötigen') >= 0)
-          .map(t => t.startsWith('Wir') ? '1x ' + t : t)
-          .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
-          .map(t => t.match(/([0-9]+)x (.*)/))
-          .filter(t => !!t)
-          .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()) }));
       [['NEF'], ['RTW'], ['RTH']].forEach((vt) => {
         resendGroupsScene['rescue' + vt.join('-')] = patientsInfo
           .map(mg => ({ ...mg, vehicles: mg.vehicles.filter(v => vt.indexOf(v) >= 0) }))
           .filter(mg => mg.vehicles.length > 0)
           .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
       });
+
 
       if (missing.indexOf('l. Wasser') > 0 && missing.indexOf('TLF-W') < 0) {
         resendGroups['water'] = [{ scene: 'RESENDWATER', count: 1 }];
