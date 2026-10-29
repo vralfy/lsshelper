@@ -65,6 +65,7 @@ document.lss_helper.vehicleResend = {
   'Rettungshundestaffel': 'DOGRESCUE',
   'Rettungshundestaffeln': 'DOGRESCUE',
   'NEA50': 'AAOFFNEA',
+  'NEA200': 'AAOFFNEA200',
   'Anhänger Drucklufterzeugung': 'THWDLE',
   'Schmutzwasserpumpe': 'THWSWP',
   'Schmutzwasserpumpen': 'THWSWP',

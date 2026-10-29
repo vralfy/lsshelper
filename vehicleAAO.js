@@ -4,6 +4,7 @@ document.lss_helper.vehicleAAO = {
   "AAOTHWDOG": { 92: 1, 93: 1 },
   "AAOTHWFUE": { 144: 1, 145: 1, 146: 1, 147: 1, 148: 1 },
   "AAOFFNEA": { "NEA50": 1 },
+  "AAOFFNEA200": { "NEA200": 1 },
   "AAOTHWNEA50": { "THWGWN": 1, "NEA50": 1 },
   "AAOTHWNEA200": { 122: 1, "NEA200": 1 },
   "AAOTHWR": { 43: 1 }, //, 42: 1 },
