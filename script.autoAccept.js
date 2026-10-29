@@ -283,7 +283,7 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
 
       if (Object.keys(m.missing.personal ?? {}).length > 0 && Object.keys(m.missing.vehicles ?? {}).length < 1) {
         if (m.missing.personal["Feuerwehrleute"] || m.missing.personal["Feuerwehrmann"]) {
-          resendGroups["firefighter"] = [{ scene: "RESENDFIREFIGHTER", count: Math.ceil((m.missing.personal["Feuerwehrleute"] ?? 0 + m.missing.personal["Feuerwehrmann"] ?? 0) / 9) }];
+          resendGroups["firefighter"] = [{ scene: "RESENDFIREFIGHTER", count: Math.ceil(((m.missing.personal["Feuerwehrleute"] ?? 0) + (m.missing.personal["Feuerwehrmann"] ?? 0)) / 9) }];
         }
         if (m.missing.personal["Polizist"]) {
           resendGroups["police"] = [{ scene: "RESENDPOLICE", count: Math.ceil(m.missing.personal["Polizist"] / 2) }];
@@ -300,7 +300,7 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
       }
 
       if (m.missing.vehicles["Betreuungs- und Verpflegungsausstattung"] || m.missing.vehicles["Betreuungs- und Verpflegungsausstattungen"]) {
-        resendGroups["catering"] = [{ scene: "AAOSEGBT", count: Math.ceil((m.missing.vehicles["Betreuungs- und Verpflegungsausstattung"] ?? 0 + m.missing.vehicles["Betreuungs- und Verpflegungsausstattungen"] ?? 0) / 1) }];
+        resendGroups["catering"] = [{ scene: "AAOSEGBT", count: Math.ceil(((m.missing.vehicles["Betreuungs- und Verpflegungsausstattung"] ?? 0) + (m.missing.vehicles["Betreuungs- und Verpflegungsausstattungen"] ?? 0)) / 1) }];
       }
       if (m.missing.vehicles["Radlader (BRmG R)"] > 0 && (m.missing.vehicles["LKW Kipper (LKW K 9)"] ?? 0) < 1) {
         resendGroups["radlader"] = [{ scene: "43", count: m.missing.vehicles["Radlader (BRmG R)"] }];
