@@ -47,6 +47,8 @@ jobs:
           GITHUB_TOKEN: ${{ secrets.GITHUB_TOKEN }}
           # Limit scope to JavaScript files only
           FILTER_REGEX_INCLUDE: ".*\\.js$"
+          # Ignore the tracked temporary scratch file
+          FILTER_REGEX_EXCLUDE: ".*_script\\.foobar\\.js$"
           VALIDATE_JAVASCRIPT_ES: true
           VALIDATE_JAVASCRIPT_PRETTIER: true
           FIX_JAVASCRIPT_PRETTIER: true
