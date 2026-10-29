@@ -1,64 +1,109 @@
 document.lss_helper.analyzeMissingInMission = (mission) => {
-  const txt = (mission.info?.missing?.innerText ?? '').trim();
+  const txt = (mission.info?.missing?.innerText ?? "").trim();
   const regexSpace = /\s+/g;
 
-  const vehicles = (txt
-    .split("\n")
-    .filter(t => t.indexOf('Fehlende Fahrzeuge') >= 0)
-    .map(t => t.replaceAll(/Fehlende Fahrzeuge:\s+/g, '').replaceAll(/Fehlendes Personal.*/g, ''))
-    .pop() ?? '')
-    .split(',')
-    .map(t => t.trim())
-    .map(t => t.match(/(\d+)\s+(.*)/))
-    .filter(t => !!t)
-    .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()).pop().replaceAll(regexSpace, ' ') }))
-    .reduce((acc, cur) => { acc[cur.vehicles] = (acc[cur.vehicles] ?? 0) + cur.count; return acc; }, {});
+  const vehicles = (
+    txt
+      .split("\n")
+      .filter((t) => t.indexOf("Fehlende Fahrzeuge") >= 0)
+      .map((t) => t.replaceAll(/Fehlende Fahrzeuge:\s+/g, "").replaceAll(/Fehlendes Personal.*/g, ""))
+      .pop() ?? ""
+  )
+    .split(",")
+    .map((t) => t.trim())
+    .map((t) => t.match(/(\d+)\s+(.*)/))
+    .filter((t) => !!t)
+    .map((mg) => ({
+      count: parseInt(mg[1]),
+      vehicles: mg[2]
+        .split(",")
+        .map((v) => v.trim())
+        .pop()
+        .replaceAll(regexSpace, " "),
+    }))
+    .reduce((acc, cur) => {
+      acc[cur.vehicles] = (acc[cur.vehicles] ?? 0) + cur.count;
+      return acc;
+    }, {});
 
-  const material = (txt
-    .split("\n")
-    .filter(t => t.indexOf('Uns fehlt') >= 0)
-    .map(t => t.replaceAll(/Uns fehlt:\s+/g, ''))
-    .pop() ?? '')
-    .split(',')
-    .map(t => t.trim())
-    .map(t => t.match(/(\d+)\s+(.*)/))
-    .filter(t => !!t)
-    .map(mg => ({ count: parseInt(mg[1]), material: mg[2].split(',').map(v => v.trim()).pop().replaceAll(regexSpace, ' ') }))
-    .reduce((acc, cur) => { acc[cur.material] = (acc[cur.material] ?? 0) + cur.count; return acc; }, {});
+  const material = (
+    txt
+      .split("\n")
+      .filter((t) => t.indexOf("Uns fehlt") >= 0)
+      .map((t) => t.replaceAll(/Uns fehlt:\s+/g, ""))
+      .pop() ?? ""
+  )
+    .split(",")
+    .map((t) => t.trim())
+    .map((t) => t.match(/(\d+)\s+(.*)/))
+    .filter((t) => !!t)
+    .map((mg) => ({
+      count: parseInt(mg[1]),
+      material: mg[2]
+        .split(",")
+        .map((v) => v.trim())
+        .pop()
+        .replaceAll(regexSpace, " "),
+    }))
+    .reduce((acc, cur) => {
+      acc[cur.material] = (acc[cur.material] ?? 0) + cur.count;
+      return acc;
+    }, {});
 
-  const personal = (txt
-    .split("\n")
-    .filter(t => t.indexOf('Fehlendes Personal') >= 0)
-    .map(t => t.replaceAll(/Fehlende Fahrzeuge.*Fehlendes Personal:\s+/g, ''))
-    .pop() ?? '')
-    .split(',')
-    .map(t => t.trim())
-    .map(t => t.match(/(\d+)x?\s+(.*)/))
-    .filter(t => !!t)
-    .map(mg => ({ count: parseInt(mg[1]), personal: mg[2].split(',').map(v => v.trim()).pop().replaceAll(regexSpace, ' ') }))
-    .reduce((acc, cur) => { acc[cur.personal] = (acc[cur.personal] ?? 0) + cur.count; return acc; }, {});
+  const personal = (
+    txt
+      .split("\n")
+      .filter((t) => t.indexOf("Fehlendes Personal") >= 0)
+      .map((t) => t.replaceAll(/Fehlende Fahrzeuge.*Fehlendes Personal:\s+/g, ""))
+      .pop() ?? ""
+  )
+    .split(",")
+    .map((t) => t.trim())
+    .map((t) => t.match(/(\d+)x?\s+(.*)/))
+    .filter((t) => !!t)
+    .map((mg) => ({
+      count: parseInt(mg[1]),
+      personal: mg[2]
+        .split(",")
+        .map((v) => v.trim())
+        .pop()
+        .replaceAll(regexSpace, " "),
+    }))
+    .reduce((acc, cur) => {
+      acc[cur.personal] = (acc[cur.personal] ?? 0) + cur.count;
+      return acc;
+    }, {});
 
-  const patients = (mission.info?.patients?.innerText ?? '')
+  const patients = (mission.info?.patients?.innerText ?? "")
     .split("\n")
-    .filter(t => t.indexOf('Wir benötigen') >= 0)
-    .map(t => t.startsWith('Wir') ? '1x ' + t : t)
-    .map(t => t.replaceAll(/Wir benötigen:\s+/g, ''))
-    .map(t => t.match(/(\d+)x\s(.*)/))
-    .filter(t => !!t)
-    .map(mg => ({ count: parseInt(mg[1]), vehicles: mg[2].split(',').map(v => v.trim()).map(v => v.replaceAll(regexSpace, ' ')) }))
-    .reduce((acc, cur) => { cur.vehicles.forEach(v => acc[v] = (acc[v] ?? 0) + cur.count); return acc; }, {});
+    .filter((t) => t.indexOf("Wir benötigen") >= 0)
+    .map((t) => (t.startsWith("Wir") ? "1x " + t : t))
+    .map((t) => t.replaceAll(/Wir benötigen:\s+/g, ""))
+    .map((t) => t.match(/(\d+)x\s(.*)/))
+    .filter((t) => !!t)
+    .map((mg) => ({
+      count: parseInt(mg[1]),
+      vehicles: mg[2]
+        .split(",")
+        .map((v) => v.trim())
+        .map((v) => v.replaceAll(regexSpace, " ")),
+    }))
+    .reduce((acc, cur) => {
+      cur.vehicles.forEach((v) => (acc[v] = (acc[v] ?? 0) + cur.count));
+      return acc;
+    }, {});
 
   return {
     ...mission,
     missingTxt: txt,
-    missingPatients: (mission.info?.patients?.innerText ?? ''),
+    missingPatients: mission.info?.patients?.innerText ?? "",
     missing: {
       vehicles,
       material,
       personal,
       patients,
-    }
-  }
+    },
+  };
 };
 
 document.lss_helper.getResendMissionsWithAnalysis = () => {
@@ -154,10 +199,10 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
     });
 };
 
-document.lss_helper.getResendMissionsWithAnalysis().map(m => ({
+document.lss_helper.getResendMissionsWithAnalysis().map((m) => ({
   missing: m.missing,
   resendGroups: m.resendGroups,
   title: m.data.caption,
-  radlader: m.missing.vehicles['Radlader (BRmG R)'],
-  m
+  radlader: m.missing.vehicles["Radlader (BRmG R)"],
+  m,
 }));
