@@ -273,10 +273,13 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
       // Handle missing material when no vehicles are missing
       if (Object.keys(m.missing.material ?? {}).length > 0 && Object.keys(m.missing.vehicles ?? {}).length < 1) {
         if (m.missing.material["l. Wasser"]) {
+          // most vehicles in RESENDWATER carry round about 1000 to 2000 liters of water
           resendGroups["water"] = [{ scene: "RESENDWATER", count: Math.ceil(m.missing.material["l. Wasser"] / 2000) }];
         } else if (m.missing.material["l/min Pumpenleistung"]) {
+          // most vehicles in RESENDPUMP carry a 2000 liters per minute pump
           resendGroups["pumps"] = [{ scene: "RESENDPUMP", count: Math.ceil(m.missing.material["l/min Pumpenleistung"] / 2000) }];
         } else if (m.missing.material["Sonderlöschmittel"]) {
+          // one SLF carries 5000 units of Sonderlöschmittel
           resendGroups["slf"] = [{ scene: "SLF", count: Math.ceil(m.missing.material["Sonderlöschmittel"] / 5000) }];
         }
       }

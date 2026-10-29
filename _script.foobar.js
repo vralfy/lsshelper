@@ -1,3 +1,4 @@
+// temporary working file, ignore that
 document.lss_helper.analyzeMissingInMission = (mission) => {
   const txt = (mission.info?.missing?.innerText ?? "").trim();
   const regexSpace = /\s+/g;

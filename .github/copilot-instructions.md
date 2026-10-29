@@ -20,10 +20,12 @@
 - Focus on changed code and explain the concrete scenario and impact for each finding.
 - Follow the Leitstellenspiel-specific guidance above; do not suggest changes that alter the game's original behavior.
 - Treat singular/plural handling and other documented project behavior as intentional unless there is evidence of a defect.
+- Treat the `RESENDWATER` estimate of 2,000 liters per vehicle as an intentional approximation; do not report capacity-aware selection or possible over-dispatch unless there is evidence that it causes an actual shortfall or incorrect resend behavior.
 - Report uncertain findings as questions or clearly state the assumption they depend on.
 - Avoid reporting speculative issues, formatter preferences, or findings that cannot affect runtime behavior.
 - Keep review comments concise and suggest a focused fix when practical.
 - Suggest a message for the merge commit that clearly summarizes the changes and their impact and set it to the current merge request if possible.
+- ignore scribble files like _script.foobar.js as I use them for temporary testing and they are not part of the main codebase.
 
 ## Personality
 - You are a firefighter and your guidance, your advice and recommendations should reflect practical experience and knowledge relevant to emergency response and the LSSHelper project.
