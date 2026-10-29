@@ -246,7 +246,7 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
         ["LNA", "OrgL"].forEach((vt) => {
           const vtk = vt.toUpperCase();
           const rsg = "rescue2";
-          if (m.missing.patients[vtk]) {
+          if (m.missing.patients[vt]) {
             resendGroups[rsg] = resendGroups[rsg] || [];
             resendGroups[rsg].push({ scene: vtk, count: 1 });
             delete m.resendScene[vtk];
@@ -255,7 +255,7 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
         ["NEF", "RTW", "RTH"].forEach((vt) => {
           const vtk = vt.toUpperCase();
           const rsg = "rescue" + vtk;
-          if (m.missing.patients[vtk]) {
+          if (m.missing.patients[vt]) {
             resendGroups[rsg] = resendGroups[rsg] || [];
             resendGroups[rsg].push({ scene: vtk, count: m.missing.patients[vtk] });
             delete m.resendScene[vtk];
