@@ -157,7 +157,9 @@ document.lss_helper.getResendMissionsOld = () => {
             cur.vehicles.forEach((v) => (acc[v] = (acc[v] ?? 0) + cur.count));
             return acc;
           }, {});
-        delete m.resendScene[vt];
+        if (resendGroupsScene["rescue" + vt.join("-")][vt[0]]) {
+          delete m.resendScene[vt[0]];
+        }
       });
 
       if (missing.indexOf("l. Wasser") > 0 && missing.indexOf("TLF-W") < 0) {
