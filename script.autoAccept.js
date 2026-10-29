@@ -300,14 +300,13 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
       if (m.missing.vehicles["Betreuungs- und Verpflegungsausstattung"] || m.missing.vehicles["Betreuungs- und Verpflegungsausstattungen"]) {
         resendGroups["catering"] = [{ scene: "AAOSEGBT", count: Math.ceil((m.missing.vehicles["Betreuungs- und Verpflegungsausstattung"] ?? 0 + m.missing.vehicles["Betreuungs- und Verpflegungsausstattungen"] ?? 0) / 1) }];
       }
-
-      if (m.missing.vehicles["Radlader (BRmG R)"] > 0 && m.missing.vehicles["LKW Kipper (LKW K 9)"] < 1) {
+      if (m.missing.vehicles["Radlader (BRmG R)"] > 0 && (m.missing.vehicles["LKW Kipper (LKW K 9)"] ?? 0) < 1) {
         resendGroups["radlader"] = [{ scene: "43", count: m.missing.vehicles["Radlader (BRmG R)"] }];
       }
-      if (m.missing.vehicles["Anh FüLa"] > 0 && m.missing.vehicles["FüKomKW"] < 1) {
+      if (m.missing.vehicles["Anh FüLa"] > 0 && (m.missing.vehicles["FüKomKW"] ?? 0) < 1) {
         resendGroups["fuela"] = [{ scene: "146", count: m.missing.vehicles["Anh FüLa"] }];
       }
-      if (m.missing.vehicles["Anh TeSi"] > 0 && m.missing.vehicles["GW-TeSi"] < 1) {
+      if (m.missing.vehicles["Anh TeSi"] > 0 && (m.missing.vehicles["GW-TeSi"] ?? 0) < 1) {
         resendGroups["tesi"] = [{ scene: "174", count: m.missing.vehicles["Anh TeSi"] }];
       }
       if (m.missing.vehicles["FüKW (THW)"] > 0 || m.missing.vehicles["FmKW"] > 0 || m.missing.vehicles["MTW FGr K"] > 0) {
