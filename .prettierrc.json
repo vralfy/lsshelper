@@ -1,3 +1,15 @@
 {
-  "printWidth": 300
+  "arrowParens": "always",
+  "bracketSameLine": true,
+  "bracketSpacing": true,
+  "indent_size": 2,
+  "insertPragma": false,
+  "jsxSingleQuote": true,
+  "printWidth": 300,
+  "quoteProps": "consistent",
+  "semi": true,
+  "singleQuote": true,
+  "tabWidth": 1,
+  "trailingComma": "all",
+  "useTabs": false
 }
