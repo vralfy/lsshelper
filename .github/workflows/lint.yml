@@ -40,6 +40,10 @@ jobs:
           ref: ${{ github.head_ref || github.ref_name }}
           persist-credentials: true
 
+      - name: Fetch pull request merge commit
+        if: ${{ github.event_name == 'pull_request' }}
+        run: git fetch origin "refs/pull/${{ github.event.pull_request.number }}/merge"
+
       - name: Super-linter (JS only)
         uses: super-linter/super-linter@v8.6.0 # x-release-please-version
         env:
