@@ -1,929 +1,929 @@
 document.lss_helper.scenes = {
-  lf1: { LF: 1 },
-  lf2: { LF: 2 },
-  0: { LF: 1 }, // Mülleimerbrand
-  1: { LF: 1, POL: 1 }, // Brennender Abfallcontainer
-  2: { LF: 1 }, // Brennender PKW
-  3: { LF: 1 }, // Motorradbrand
-  4: { LF: 1 }, // Brennendes Gras
-  5: { LF: 2, DLK: 1, ELW: 1, POL: 1, RTW: 2 }, // Zimmerbrand
-  6: { LF: 2, ELW: 1 }, // Gartenlaubenbrand
-  7: { LF: 1 }, // Brennender PKW
-  8: { LF: 1, POL: 1 }, // Sperrmüllbrand
-  9: { LF: 1 }, // Strohballenbrand
-  10: { LF: 1 }, // Traktorbrand
-  11: { LF: 1 }, // Brennende Telefonzelle
-  12: { F: 1 }, // Baum auf Straße
-  13: { LF: 2, POL: 1 }, // Brennender LKW
-  14: { LF: 2 }, // kleiner Feldbrand
-  15: { LF: 1 }, // kleiner Waldbrand
-  16: { LF: 2 }, // Wohnungsbrand
-  17: { LF: 1 }, // Brand in Briefkasten
-  18: { LF: 1 }, // Brennendes Gebüsch
-  19: { LF: 1 }, // Brennender Anhänger
-  20: { LF: 3, ELW: 1, DLK: 1, POL: 1 }, // Kellerbrand
-  21: { LF: 1, ELW: 1, DLK: 1 }, // Schornsteinbrand
-  22: { LF: 3, ELW: 1, DLK: 1 }, // Dachstuhlbrand
-  23: { LF: 1 }, // Fettbrand in Pommesbude
-  24: { LF: 1 }, // Brennendes Bushaeuschen
-  25: { LF: 1, RTW: 1 }, // Verkehrsunfall
-  26: { LF: 3, DLK: 1, RW: 1, ELW: 1, ELW2: 1 }, // Brand im Supermarkt
-  27: null,
-  28: { LF: 2 }, // Garagenbrand
-  29: { LF: 3, ELW: 1, RW: 1, SW: 1, GWA: 1 }, // Maschinenbrand
-  30: { LF: 1, GWO: 1 }, // Große Ölspur
-  31: { LF: 1, RW: 1 }, // Auslaufende Betriebsstoffe
-  32: { LF: 2, DLK: 1, ELW: 1 }, // Kaminbrand
-  33: { LF: 2 }, // Mähdrescherbrand
-  34: { LF: 3, ELW: 1, DLK: 1, RW: 1, RTW: 2 }, // Brand in Supermarkt
-  35: { LF: 4, ELW: 1, DLK: 1 }, // Feuer im Krankenhaus
-  36: { SLF: 1, LF: 4, ELW: 1, DLK: 1 }, // Brennender Güterwagon
-  37: null,
-  38: null,
-  39: null,
-  40: null,
-  41: { LF: 6, GWA: 1, GWM: 1, ELW: 2, ELW2: 1, DLK: 2, SW: 1 }, // Großbrand
-  42: { LF: 4, ELW: 1, DLK: 1, GWO: 1, RW: 1, POL: 2, GWM: 1, GWG: 1 }, // Tankstellenbrand
-  43: { LF: 10, RW: 5, ELW: 2, GWO: 1 }, // Massenkarambolage
-  44: { RTW: 1 }, // Alkoholintoxication
-  45: { RTW: 1 }, // Nasenbluten unstillbar
-  46: { RTW: 1, NEF: 1 }, // Herzinfarkt
-  47: { RTW: 1, NEF: 1 }, // akuter Asthma-Anfall
-  48: { RTW: 1, NEF: 1 }, // Krampfanfall
-  49: { RTW: 1 }, // Hohes Fieber
-  50: { RTW: 1 }, // Gestürzte Person
-  51: { LF: 4, RW: 1, ELW: 1, DLK: 1, RTW: 1 }, // Brand in Werkstatt
-  52: { LF: 1, RTW: 1 }, // Brand auf Weihnachtsmarkt
-  53: { LF: 1, RW: 1, RTW: 1 }, // Verkehrsunfall durch Glatteis
-  54: { RTW: 1 }, // Personenschaden durch Verbrennung
-  55: { LF: 1 }, // Brennender Tannenbaum
-  56: { RTW: 1 }, // Betrunkene Person auf Weihnachtsmarkt
-  57: { RTW: 1 }, // Gestürzter Fußgänger
-  58: { RTW: 1 }, // Gestürzter Radfahrer
-  59: { LF: 20, GWM: 4, GWG: 4, ELW: 3, ELW2: 1, RW: 5, DLK: 2, GWA: 3, RTW: 1 }, // Gefahrgutunfall
-  60: { POL: 1 }, // Ladendiebstahl
-  61: { POL: 1 }, // Ladendiebstahl
-  62: { POL: 1 }, // Parkendes Auto gerammt
-  63: { POL: 1 }, // parkendes Auto gerammt
-  64: { POL: 1 }, // Metalldiebstahl
-  65: { POL: 1 }, // Taschendiebstahl
-  66: { POL: 1 }, // Notebook aus Schule entwendet
-  67: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
-  68: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
-  69: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
-  70: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
-  71: { POL: 1 }, // parkendes Auto gerammt
-  72: { LF: 1, ELW: 1, RTW: 1, POL: 1, GWH: 1 }, // Bewußtloser Kranführer
-  73: { POL: 3, RTW: 2 }, // Schlägerei
-  74: { POL: 2 }, // Randalierende Person
-  75: { POL: 7 }, // Unangemeldete Demonstration
-  76: { LF: 2 }, // Küchenbrand
-  77: { LF: 1, POL: 1, RTW: 1 }, // Person hinter Tuer
-  78: { LF: 1 }, // Kleintier in Not
-  79: { LF: 1, ELW: 1, RTW: 1, GWH: 1 }, // Verletzte Person auf Baugerüst
-  80: { LF: 3, ELW: 1, DLK: 1, GWA: 1, POL: 2, NEF: 1, RTW: 2 }, // Rauchentwicklung in Museum
-  81: { POL: 1 }, // Einbruch in Keller
-  82: { POL: 1 }, // Einbruch in Wohnung
-  83: { LF: 3, ELW: 1, RTW: 1, POL: 2, GWG: 1 }, // Gefahrgut-LKW verunglückt
-  84: { LF: 4, ELW: 1, RW: 1, RTW: 1 }, // Brennende Lok
-  85: { POL: 1 }, // Sachbeschädigung
-  86: { LF: 7, ELW: 1, ELW2: 1, DLK: 2, SW: 1, GWA: 1 }, // Sporthallenbrand
-  87: { LF: 3, ELW: 1, RW: 1, POL: 2, RTW: 2, NEF: 1 }, // Kleinflugzeug abgestürzt
-  88: { LF: 1 }, // Brennender Bollerwagen
-  89: { LF: 3, ELW: 1, RW: 1, POL: 2, RTW: 1 }, // LKW Auffahrunfall
-  90: { POL: 1 }, // Ruhestörung
-  91: { LF: 1 }, // Keller unter Wasser
-  92: { RTW: 1 }, // Schlaganfall
-  93: { LF: 6, ELW: 2, ELW2: 1, RW: 2, POL: 5, RTW: 4 }, // Brennender Bus
-  94: { smallOil: 1 }, // kleine Ölspur
-  95: { LF: 6, ELW: 1, POL: 2, GWO: 1 }, // ausgedehnte Ölspur
-  96: { LF: 3, RTW: 1 }, // Feuer in Schnellrestaurant
-  97: { LF: 3, ELW: 1, GWO: 1 }, // Aufgerissener Öltank
-  98: { POL: 1, RTW: 1 }, // Angefahrene Person
-  99: { LF: 22, GWA: 1, GWM: 1, DLK: 1, ELW: 2, ELW2: 2, RW: 6, POL: 10, RTW: 10, NEF: 2 }, // Flugzeug abgestürzt
-  100: { LF: 1, POL: 1 }, // Küchenbrand
-  101: null,
-  102: { LF: 3, DLK: 1, ELW: 1 }, // Feuer in Einfamilienhaus
-  103: { LF: 3, DLK: 1, ELW: 1, POL: 1, RTW: 1 }, // Feuer in Einfamilienhaus
-  104: { LF: 3, DLK: 1, ELW: 1 }, // Feuer in Einfamilienhaus
-  105: { LF: 3, DLK: 1, ELW: 1, POL: 1 }, // Feuer in Einfamilienhaus
-  106: { POL: 5 }, // Massenschlägerei
-  107: { POL: 5 }, // Massenschlägerei
-  108: { RTW: 1, NEF: 1 }, // Schwangere in Notsituation
-  109: { LF: 1, RTW: 1, NEF: 1 }, // Beginnende Geburt
-  110: { RTW: 1 }, // Vaginale Blutung
-  111: { LF: 1 }, // Brennende Vogelscheuche
-  112: { LF: 2 }, // Brennendes Kürbisfeld
-  113: { LF: 2, ELW: 1, GWA: 1, RTW: 1 }, // Kürbissuppe übergekocht
-  114: { DLK: 1, LF: 1, RTW: 1, NEF: 1 }, // Hexe hängt in Baum
-  115: { RTW: 1, NEF: 1 }, // Zombiebiss
-  116: { POL: 4 }, // Monster ausgebrochen
-  117: { POL: 1 }, // Kürbisse geklaut
-  118: { POL: 3 }, // Frankensteins Monster gesichtet
-  119: { POL: 1 }, // Süßigkeitendiebstahl
-  120: { LF: 2, RW: 1, ELW: 1, RTW: 1, FWK: 1 }, // LKW umgestürzt
-  121: { LF: 2, RW: 1, ELW: 1, POL: 2, RTW: 1, FWK: 1 }, // LKW umgestürzt
-  122: { POL: 1, RTW: 2, NEF: 1 }, // Motorradunfall
-  123: { LF: 1, POL: 1, RTW: 1 }, // Verkehrsunfall
-  124: { LF: 1, RW: 1, RTW: 2 }, // Verkehrsunfall
-  125: { LF: 1, RW: 1, POL: 1, RTW: 2 }, // Verkehrsunfall
-  126: { LF: 2, RW: 1, RTW: 3 }, // Verkehrsunfall
-  127: { LF: 2, RW: 1, POL: 2, RTW: 2, NEF: 1 }, // Verkehrsunfall
-  128: { LF: 1, RTW: 1, POL: 1 }, // Auffahrunfall
-  129: { LF: 1 }, // Brennender Adventskranz
-  130: { POL: 2, RTW: 1 }, // Rangelei auf Weihnachtsmarkt
-  131: { LF: 5, ELW: 1, SW: 1 }, // Mittlerer Feldbrand
-  132: { LF: 6, ELW: 1, SW: 1 }, // Großer Feldbrand
-  133: { LF: 6, ELW: 1, SW: 1, POL: 1 }, // Großer Feldbrand
-  134: { LF: 6, ELW: 1, SW: 1 }, // Großer Feldbrand
-  135: { LF: 8, SW: 1, ELW: 1, POL: 1 }, // Großer Waldbrand
-  136: { LF: 12, WATER: 2, ELW: 2, ELW2: 1, SW: 1, POL: 1, RTW: 1 }, // Großfeuer im Wald
-  137: null,
-  138: { LF: 2 }, // Flächenbrand
-  139: { LF: 4 }, // Flächenbrand
-  140: { LF: 2, POL: 2 }, // Flächenbrand
-  141: { LF: 5, POL: 2 }, // Flächenbrand
-  142: { LF: 2 }, // Feuer auf Balkon
-  143: { LF: 1 }, // brennende Papierkontainer
-  144: { LF: 1 }, // Brennende Hecke
-  145: { POL: 1 }, // Trunkenheitsfahrt
-  146: { LF: 1, DLK: 1, ELW: 1, POL: 2, RTW: 2 }, // Brennendes Reetdachhaus
-  147: { KTW: 1 }, // Krankentransport
-  148: { POL: 1 }, // Ampelausfall
-  149: { POL: 1 }, // Pannenfahrzeug
-  150: { POL: 1 }, // Hausfriedensbruch
-  151: { POL: 3 }, // Raub
-  152: { RTW: 1, POL: 2 }, // häusliche Gewalt
-  153: { RTW: 1, POL: 1 }, // Hilflose Person
-  154: { RTW: 1, POL: 1 }, // Hilflose Person
-  155: { RTW: 1 }, // Akuter Harnstau
-  156: { RTW: 1 }, // Harnröhrenblutung
-  157: { RTW: 1, NEF: 1 }, // Herzrhythmusstörungen
-  158: { LF: 1 }, // Tiefgarage unter Wasser
-  159: { LF: 1 }, // Äste auf Fahrbahn
-  160: { LF: 1 }, // Umherfliegendes Baumaterial
-  161: { LF: 1 }, // Baum auf PKW
-  162: { LF: 1, RTW: 1, POL: 1 }, // Baum auf PKW
-  163: { LF: 1 }, // Baum auf Dach
-  164: { RTW: 1 }, // Kopfplatzwunde
-  165: { RTW: 1 }, // Gehirnerschütterung
-  166: { LF: 1, POL: 1, ELW: 1 }, // Fassadenteile drohen zu fallen
-  167: { LF: 2, ELW: 1, DLK: 1, POL: 1 }, // beschaedigter Dachbereich
-  168: { LF: 1, POL: 1 }, // Baum auf Gleisen
-  169: { LF: 1, POL: 1 }, // Baum auf Gleisen
-  170: { LF: 1, POL: 1 }, // Baum auf Gleisen
-  171: { LF: 1, ELW: 1, SW: 1, GWO: 1, POL: 2 }, // Parkdeck voll Wasser gelaufen
-  172: { LF: 1 }, // Straße unter Wasser
-  173: { LF: 1, POL: 2 }, // Straße unter Wasser
-  174: { GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2 }, // Erdrutsch
-  175: null,
-  176: { GKW: 1, THWMTW: 1, THWGWN: 1, FWK: 1, DLK: 1, LF: 2, ELW: 1 }, // LKW in Hauswand
-  177: { GKW: 2, THWMTW: 1, THWGWN: 1, LF: 3, ELW: 1, RW: 1, FWK: 1, POL: 2, THWGWSB: 1, DOG: 1, DROHNE: 1, RTW: 1, AAOTHWR: 1 }, // Eingestürztes Wohnhaus
-  178: { LF: 3, ELW: 1, RW: 1, GWG: 1, GKW: 1, THWBRG: 1, POL: 2, RTW: 1 }, // Gefahrgut-LKW verunglückt
-  179: { RTW: 1, NEF: 1, LF: 1 }, // Schädelverletzung
-  180: { RTW: 1, NEF: 1, RTH: 1 }, // Wirbelsäulenverletzung
-  181: { RTW: 1, RTH: 1, NEF: 1 }, // Sturz aus Höhe
-  182: { RTW: 1, NEF: 1 }, // Sturz aus Höhe
-  183: { RTW: 1 }, // Sonnenstich
-  184: { RTW: 1 }, // Hitzschlag
-  185: { RTW: 1, NEF: 1 }, // Hitzekrampf
-  186: { LF: 5, ELW: 1, ELW2: 1, DLK: 2, GWA: 1, GWM: 1, SW: 1, SLF: 1, GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2, RTW: 1 }, // Lagerhallenbrand (Brandmeldeanlage)
-  187: { LF: 2, ELW: 1, DLK: 1 }, // Feuer im Lagerraum
-  188: { POL: 1 }, // Personenkontrolle
-  189: { POL: 1 }, // Verkehrsbehinderung
-  190: { POL: 1 }, // Diebstahl aus Kfz
-  191: { LF: 1 }, // Baum auf Radweg
-  192: { LF: 2, ELW: 2 }, // Brennende Trafostation
-  193: { LF: 2, ELW: 1, POL: 1 }, // Brennende Trafostation
-  194: { LF: 1, POL: 1, RTW: 1, NEF: 1 }, // Person unter Baum eingeklemmt
-  195: { GRUKW: 3, BEFKW: 1 }, // Schwerpunkteinsatz Tageswohnungseinbrüche
-  196: { GRUKW: 3, BEFKW: 1 }, // Schwerpunkteinsatz Verkehrsüberwachung
-  197: { GRUKW: 3, BEFKW: 1 }, // Präsenzeinsatz Volksfest
-  198: { POL: 2, GRUKW: 3, BEFKW: 1 }, // Jugendschutzkontrolle in Diskothek
-  199: { GRUKW: 3, BEFKW: 1 }, // Geländedurchsuchung nach Beweismittel
-  200: { POL: 2, GRUKW: 6, BEFKW: 2, GEFKW: 1 }, // Geplante Razzia
-  201: { GRUKW: 9, BEFKW: 3, FUEKW: 1, GEFKW: 1, POL: 2 }, // Fußball Bundesliga-Spiel
-  202: { POL: 1 }, // Diebstahl auf Weihnachtsmarkt
-  203: { LF: 2, RTW: 1 }, // Brennende Weihnachtsmarktbude
-  204: { LF: 6, ELW: 1, WATER: 1 }, // Scheunenbrand
-  205: { LF: 7, ELW: 2, ELW2: 1, DLK: 2, GWA: 1, SW: 1, POL: 3, RTW: 3 }, // Feuer auf Bauernhof - Mittel
-  206: { LF: 15, ELW: 2, ELW2: 1, DLK: 4, GWA: 2, SW: 2, POL: 3, GKW: 2, THWMTW: 1, AAOTHWR: 2, RTW: 2, NEF: 2 }, // Feuer auf Bauernhof - Groß
-  208: { LF: 8, ELW: 1, ELW2: 1, RW: 2, GWA: 1, GWO: 1, GWM: 2, GWG: 1, DEKONP: 1, POL: 2, RTW: 5, NEF: 1 }, // Leck in Chemikalientank
-  209: { POL: 1 }, // Fahraddiebstahl
-  210: { RTW: 1, NEF: 1 }, // Unfall mit Motorsäge
-  211: { RTW: 1 }, // Unterzuckerung
-  212: { RTW: 1 }, // Akute Bauchschmerzen
-  213: { LF: 20, RW: 2, DLK: 2, ELW: 5, ELW2: 1, SW: 2, GWM: 2, GWA: 2, POL: 4, GKW: 1, AAOTHWR: 1, AAOTHWDLE: 1, THWGWN: 1, THWGWSB: 1 }, // Gasexplosion
-  214: { LF: 6, RW: 2, ELW: 1, DLK: 2, GWA: 1, POL: 2, RTW: 5 }, // Bürobrand
-  215: { LF: 7, ELW: 2, ELW2: 1, GWA: 2, GWM: 1, GWG: 1, POL: 4, RTW: 5, NEF: 1 }, // Chlorgasaustritt
-  223: { LF: 3, POL: 1, F: 1 }, // Brandsicherheitswache bei Volksfest
-  224: { LF: 3, RTW: 1 }, // Brandsicherheitswache im Theater
-  225: { LF: 3, RTW: 3, GWSAN: 1, NEA50: 1 }, // Dorf/Stadtfest
-  226: { RTW: 3, GWSAN: 1 }, // Volkslauf
-  227: { RTW: 1, POL: 3, GRUKW: 6, BEFKW: 2, FUEKW: 1 }, // Angemeldete Demonstration
-  228: { POL: 2 }, // Absicherung Musikumzug
-  229: { POL: 2, RTW: 2 }, // Absicherung Radrennen
-  230: { LF: 1 }, // Feuerprobealarm an Schule
-  231: { POL: 10, POLH: 1 }, // Entflohener Gefangener
-  232: { POL: 2, POLH: 1 }, // Kabeldiebstahl
-  233: { LF: 1, POL: 2, POLH: 1, RTW: 1 }, // Suche nach Vermissten
-  234: { LF: 10, ELW: 1, ELW2: 1, POL: 5 }, // Entschärfung von Weltkriegsbombe
-  235: { LF: 2, ELW: 1, RTW: 1, POL: 1, GWH: 1 }, // Verletzte Person auf Hochspannungsmast
-  236: { LF: 2, GWH: 1, ELW: 1, DLK: 1, POL: 1, RTW: 1, NEF: 1, RTH: 1 }, // Verletzte Person auf Hochspannungsmast
-  237: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 2, NEF: 1 }, // Verkehrsunfall mit Zug
-  238: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 2 }, // Verkehrsunfall mit Linienbus
-  239: { LF: 5, ELW: 2, ELW2: 1, RW: 2, FWK: 1, GWO: 1, POL: 4, RTW: 2 }, // Verkehrsunfall mit Linienbus
-  240: { LF: 3, ELW: 1, GWG: 1, RTW: 1, POL: 1 }, // Gasgeruch
-  241: { POL: 1 }, //Wildunfall
-  242: { LF: 2, GWM: 1, POL: 3, RTW: 2 }, // Pfefferspray in Schule
-  243: { POL: 1, NEF: 1, RTW: 2 }, // Reitunfall mit Pkw
-  244: { DLRG: 1, RTW: 1 }, // Person in Wasser
-  245: { DLRG: 1, RTW: 1 }, // Person in Wasser
-  246: { LF: 3, ELW: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
-  247: { POL: 2, BOAT: 2, TAUCHER: 2, LF: 3, ELW: 1, RTW: 1, NEF: 1 }, // Pkw in Wasser
-  248: { POL: 3, BOAT: 3, TAUCHER: 3, LF: 5, ELW: 1 }, // LKW in Wasser
-  249: { LF: 5, POL: 3, BOAT: 3, TAUCHER: 3, ELW: 1 }, // Bus in Wasser
-  250: { DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
-  251: { DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
-  252: { LF: 3, ELW: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
-  253: { LF: 3, ELW: 1, POL: 2, BOAT: 2, TAUCHER: 2 }, // Personensuche nahe Gewässer
-  254: { LF: 5, ELW: 1, POL: 3, BOAT: 3, TAUCHER: 3, RTW: 1 }, // LKW in Wasser
-  255: { LF: 5, ELW: 1, POL: 3, BOAT: 3, TAUCHER: 3, RTW: 1 }, // Bus in Wasser
-  257: { POL: 2 }, // Verkehrsueberwachung
-  258: { LF: 4, ELW: 1, DLK: 1, RW: 2, POL: 3, GWO: 1, FWK: 1 }, // Baumaschine umgestürzt
-  259: { LF: 1 }, // Brennender PKW durch Feuerwerkskörper
-  260: { LF: 1 }, // Sperrmüllbrand durch Feuerwerkskörper
-  261: { LF: 2 }, // Kleiner Feldbrand durch Feuerwerkskörper
-  262: { ELW: 1, LF: 3 }, // Kellerbrand durch Feuerwerkskörper
-  263: { LF: 1 }, // Brennendes Bus-Häuschen durch Feuerwerkskörper
-  264: { LF: 2 }, // Feuer auf Balkon durch Feuerwerkskörper
-  265: { LF: 1 }, // Brennende Papiercontainer durch Feuerwerkskörper
-  266: { LF: 1 }, // Brennende Hecke durch Feuerwerkskörper
-  267: { POL: 1 }, // Trunkenheitsfahrt nach Silvesterparty
-  268: { LF: 5, DLK: 1, ELW: 1, POL: 2, RTW: 1, NEF: 1 }, // Brennendes Reetdachhaus durch Feuerwerkskörper
-  269: { POL: 1 }, // Kfz durch Feuerwerkskörper beschädigt
-  270: { POL: 1 }, // Verstoß gegen Sprengstoffverordnung
-  271: { LF: 10, RW: 1, DEKONP: 1, GWG: 1, GWM: 1, DLK: 1, ELW: 2, ELW2: 1, POL: 3, GKW: 1 }, // Beschädigter Kesselwagen
-  272: { LF: 2, GWO: 1, ELW: 1, POL: 1, DLRG: 1 }, // Gewässerverschmutzung durch Öl
-  273: { LF: 2, ELW: 1, GWO: 1, POL: 1, DLRG: 1 }, // Gewässerverschmutzung durch Öl
-  274: { RTW: 1, NEF: 1 }, // Bewusstlose Person
-  275: { POL: 4, BEFKW: 3, GRUKW: 9, FUEKW: 1, RTW: 4, LF: 2 }, // Absicherung Rockkonzert
-  276: { POL: 4 }, // Schwertransport
-  277: { RW: 1, RTW: 1 }, // Person im Aufzug
-  278: { GKW: 1, THWMTW: 1, THWGWN: 1, FWK: 1, DLK: 1, LF: 2, ELW: 1, POL: 2, RTW: 1 }, // LKW in Supermarkt
-  279: { GKW: 1, THWMTW: 1, THWGWN: 1, FWK: 1, DLK: 1, LF: 2, ELW: 1, POL: 2, RTW: 2 }, // LKW in Supermarkt
-  280: { LF: 3, ELW: 1, RW: 1, DLK: 1 }, // Baum auf Oberleitung
-  281: { LF: 1, RTW: 1, NEF: 1, RTH: 1 }, // Stromschlag
-  282: { LF: 2, ELW: 1, RW: 1 }, // Geplatzte Wasserleitung
-  283: { LF: 10, RW: 2, ELW: 3, ELW2: 1, DLK: 2, GWA: 1, POL: 3, RTW: 5 }, // Bürobrand (Groß) (Brandmeldeanlage)
-  284: { POL: 1 }, // Ostereierdieb
-  285: { POL: 1 }, // Pinsel aus Werkstatt entwendet
-  286: { GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2 }, // Eingestürzter Hasenbau
-  287: { POL: 1, RTW: 1 }, // Angefahrener Osterhase
-  288: { LF: 1 }, // Brennendes Osternest
-  289: { smallOil: 1 }, // Schokoladenspur auf Straße
-  290: { LF: 2 }, // Eierkocherbrand
-  292: { POL: 1 }, // Tankbetrug
-  293: { RTW: 1 }, // Bluthochdruck
-  295: { POL: 6 }, // Tankstellenüberfall
-  296: { LF: 3, ELW: 1, RTW: 1 }, // Gasunfall in der Werkstadt
-  297: { RTW: 1 }, // Arbeitsunfall im Garten
-  298: { LF: 1, DLRG: 1, RTW: 1 }, // Hilflose Person auf Wasser
-  299: { LF: 5, ELW: 1, DLK: 1, GWA: 1, SW: 1 }, // Strohballen qualmen in Scheune
-  300: { LF: 2, POL: 1, ELW: 1, DLK: 1, RTW: 1, GWH: 1 }, // Abgestürzter Kletterer
-  301: { POL: 2 }, // Tiere auf der Fahrbahn
-  302: { LF: 8, ELW: 2, ELW2: 1, RW: 1, DLK: 1, SW: 1, POL: 3, RTW: 1, NEF: 1 }, // Brennendes Kleinflugzeug
-  303: { LF: 2 }, // Carportbrand
-  306: { LF: 2, POL: 16, DGL: 2, POLBIKE: 4, WAWE: 3, BEFKW: 4, GRUKW: 9, FUEKW: 1, LAUKW: 1, RTW: 4, NEA50: 1, AAOTESI: 1 }, // Absicherung Rockkonzert - Gefahrenpotenzial
-  308: { LF: 2 }, // Brennender Müllwagen
-  309: { TAUCHER: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Tauchunfall
-  310: { TAUCHER: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Tauchunfall
-  311: { LF: 2, RW: 1, ELW: 1, RTW: 1 }, // Mitarbeiter unter PKW eingeklemmt
-  312: { RTW: 1, NEF: 1 }, // Verunglückter Fallschirmspringer
-  313: { LF: 2, DLK: 1, RTW: 1, NEF: 1 }, // Verunglückter Fallschirmspringer
-  314: { LF: 3, ELW: 1, DLK: 1, GWH: 1, RTW: 1, NEF: 1 }, // Verunglückter Fallschirmspringer
-  315: { LF: 8, ELW: 2, ELW2: 1, DLK: 1, DEKONP: 1, GWA: 1, GWM: 1, GWG: 2, RTW: 1, NEF: 1 }, // Chemieunfall an Schule
-  316: { LF: 12, RW: 2, ELW: 2, ELW2: 1, DEKONP: 1, GWA: 1, GWM: 2, GWG: 1, POL: 4, RTW: 1, NEF: 1 }, // Unbekannte Substanz
-  317: { LF: 2, RW: 1, ELW: 1, RTW: 1 }, // Person in Baumschine eingeklemmt
-  318: { LF: 1 }, // Ausgelöster Heimrauchmelder
-  319: { LF: 1, RTW: 1 }, // Person in Baugrube
-  320: { LF: 20, RW: 2, SLF: 1, DLK: 5, ELW: 6, ELW2: 1, SW: 2, GWA: 3, GWM: 3, GWG: 2, GWH: 1, POL: 6, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, DROHNE: 1, RTW: 15, NEF: 5 }, // Großfeuer im Krankenhaus (Brandmeldeanlage)
-  321: { LF: 3, DLK: 1, ELW: 1, POL: 2, GWA: 1 }, // Saunabrand
-  322: { POL: 4 }, // Geplante Autobahnsperrung
-  323: { LF: 2, DLK: 1, ELW: 1, RW: 1, POL: 1 }, // Dehnfugenbrand
-  324: { LF: 15, DLK: 3, GWA: 2, GWM: 2, GWG: 1, SW: 1, FWK: 1, ELW: 5, ELW2: 1, RW: 1, SLF: 2, AAOTHWR: 2, THWGWN: 2, GKW: 2, THWMTW: 2, POL: 5, RTW: 1, NEF: 1 }, // Brand in Baumarkt
-  325: { GRUKW: 18, BEFKW: 6, FUEKW: 2, POL: 10, RTW: 2, POLH: 1, WAWE: 2 }, // Absicherung Castor-Transport
-  326: { RTW: 1, NEF: 1 }, // Handverletzung durch Feuerwerkskörper
-  327: { LF: 6, ELW: 1, DLK: 2, GWA: 2, GWM: 1, GWO: 1, POL: 1, RTW: 1 }, // Tiefgaragenbrand
-  329: { LF: 2 }, // Rauch in Kabine
-  334: { LF: 8, ELW: 2, ELW2: 1, RW: 1, DLK: 1, SW: 1, RTW: 1, NEF: 1 }, //  Brennendes Kleinflugzeug
-  335: { LF: 8, ELW: 2, ELW2: 1, RW: 1, DLK: 1, SW: 1, RTW: 1, NEF: 1 }, // Brennendes Kleinflugzeug
-  339: { RTW: 1, NEF: 1 }, // Herzinfarkt
-  340: { RTW: 1, NEF: 1 }, // akuter Asthma-Anfall
-  341: { RTW: 1, NEF: 1 }, // Krampfanfall
-  345: { LF: 2, DLK: 1, ELW: 1, RW: 1, POL: 1, RTW: 1, GWH: 1 }, // Hoehenrettung am Fahrgeschäft
-  346: { LF: 2, DLK: 1, ELW: 1, RW: 1, RTW: 1, GKW: 1, THWGWN: 1, THWMTW: 1, AAOTHWNEA50: 1, BEFKW: 1, GRUKW: 3, LAUKW: 1 }, // Gebäudesprengung
-  347: { LF: 6, DLK: 1, ELW: 1, ELW2: 1, RW: 2, GWO: 1, GWH: 1, POL: 3, FWK: 1, NEF: 1, RTW: 2 }, // Helikopter in Baum
-  348: { LF: 20, DLK: 2, RW: 4, GWA: 2, GWM: 1, GWO: 1, SW: 2, ELW: 4, ELW2: 1, POL: 3, RTW: 1, AAOTHWR: 1, THWGWN: 1, GKW: 1, THWMTW: 1, DROHNE: 1 }, // Explosion in Biogasanlage
-  349: { LF: 1 }, // Brandgeruch
-  352: { LF: 12, DLK: 3, GWA: 1, GWM: 1, RW: 1, SW: 1, ELW: 3, ELW2: 1, POL: 4, RTW: 5, NEF: 2 }, // Brand in Mehrfamilienhaus
-  353: { GRUKW: 3, BEFKW: 1, POL: 3, NEA50: 1 }, // Großkontrolle Betäubungsmittel
-  354: { RTW: 1, NEF: 1 }, // Grillunfall
-  355: { MEK: 4, POL: 4, FUEKW: 1 }, // Waffenentzug
-  356: { POL: 4, SEK: 4, FUEKW: 1, RTW: 1 }, // Häusliche Gewalt - eskaliert
-  357: { POL: 2 }, // Bank: stiller Alarm
-  358: { POL: 8, POLH: 1, SEK: 4, FUEKW: 1, RTW: 1 }, // Banküberfall
-  359: { POLH: 1, POL: 5, GRUKW: 6, BEFKW: 2, GEFKW: 1, FUEKW: 1, MEK: 4 }, // Geplante Razzia - Verdächtiger flüchtig
-  360: { LF: 1 }, // Brennender Blumenstrauß
-  366: { POL: 2 }, // Vollstreckung Haftbefehl
-  367: { POL: 6, FUEKW: 1, SEK: 4 }, // Vollstreckung Haftbefehl - eskaliert
-  368: { LF: 15, DLK: 3, SW: 2, GWA: 2, RW: 4, ELW: 3, ELW2: 1, GWM: 1, SLF: 2, POL: 4, GKW: 1, THWGWN: 1, THWMTW: 1, AAOTHWR: 1, THWDLE: 1, RTW: 1 }, // Brennende Kirche
-  369: { LF: 2, ELW: 1, POL: 1, RTW: 1 }, // Austritt Kohlenmonoxid
-  370: { POL: 4 }, // Geisterfahrer
-  371: { LF: 1 }, // Fußball aufpumpen
-  372: { POL: 1 }, // Mannschaftsbus in Halteverbot abgestellt
-  373: { RTW: 1 }, // Behandlung nach Schwalbe
-  374: { RTW: 1 }, // Prellung nach Lattenpraller
-  375: { LF: 1 }, // Tor gefallen
-  376: { POL: 2 }, // Pokal geklaut
-  377: { RTW: 1 }, // Überzuckerung
-  378: { MEK: 4, FUEKW: 1 }, // Observation
-  379: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
-  380: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
-  381: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
-  382: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
-  383: { POL: 1, RTW: 1 }, // Kind in PKW eingeschlossen
-  384: { LF: 2 }, // Brennende Ballenpresse
-  385: { LF: 4, GWM: 1, GWG: 1, ELW2: 1, ELW: 1, GWA: 1, GWO: 1, GWW: 1, TELE: 1 }, // Unfall beim Umpumpen von Flüssigkeiten
-  386: { GWM: 1, GWG: 1, ELW2: 1, ELW: 2, GWA: 1, GWW: 1, TELE: 1, TURBO: 1, ULF: 1, LF: 5, RTW: 4, NEF: 1 }, // Ammoniakaustritt
-  387: { LF: 8, GWM: 1, GWG: 1, ELW: 1, GWA: 1, GWW: 1, TELE: 1, TURBO: 1, ULF: 1, RTW: 1 }, // Brennende Pipeline-Isolierung
-  388: { LF: 5, DLK: 1, RW: 1, ELW: 1 }, // Feuer in Verwaltungsgebäude
-  389: { GWM: 1, GWG: 1, ELW: 3, ELW2: 1, GWA: 1, DEKONP: 1, GWW: 1, TELE: 1, TURBO: 1, ULF: 1, LF: 16, DLK: 4, RW: 1, POL: 3, RTW: 3 }, // Brand in Chemiepark - Produktion
-  391: { RTW: 1 }, // Vergiftung
-  392: { LF: 2, ELW: 1, RW: 1, RTW: 1 }, // Person durch Hubmaschine eingeklemmt
-  393: { LF: 2, RW: 1, ELW: 1, DLK: 1, POL: 1, GKW: 1 }, // Einsturzgefährdeter Balkon
-  394: { LF: 5, ELW: 1, RW: 1, POL: 4, RTW: 1, NEF: 1 }, // LKW auf Stauende
-  396: { LF: 3, RW: 1, ELW: 1, GWW: 1 }, // Maschinenbrand in Produktionshalle
-  397: { RTW: 1 }, //Schnittwunde
-  398: { LF: 4, ELW: 1, RW: 1, GWW: 1, TELE: 1 }, // Brennende Absauganlage
-  400: { LF: 7, ELW: 2, ELW2: 1, RW: 1, GWW: 1, TELE: 1, ULF: 1, GWA: 1 }, // Brand in Lackiererei
-  402: { LF: 1, ULF: 1, ELW: 1 }, // Brennender PKW
-  408: { LF: 1 }, // Rauchentwicklung an Förderband
-  409: { LF: 2 }, // Brennender LKW
-  411: { LF: 6, DLK: 1, RW: 2, ELW: 2, ELW2: 1, GWH: 1, POL: 2, POLH: 1, GKW: 2, RTW: 1, NEF: 1 }, // Heißluftballon in Hochspannungsmast
-  412: { LF: 6, RW: 1, ELW: 1, GWW: 1, ULF: 1, TELE: 1 }, // Verpuffung
-  414: { LF: 6, RW: 1, ELW: 1, GWW: 1, ULF: 1, TELE: 1 }, // Verpuffung
-  415: { POL: 1, RTW: 1 }, // Jäger verletzt durch Schuss
-  416: { RTW: 1 }, // Jäger stuerzt von Hochsitz
-  417: { RTW: 1 }, // Jäger durch Wildtier verletzt
-  418: { POL: 1 }, // Absicherung Pannen-LKW
-  420: { RTW: 1 }, // Schlechter Allgemeinzustand
-  421: { LF: 3, ELW: 1, RW: 1, POL: 2, RTW: 1 }, // PKW in Bushaltestelle
-  422: { POL: 1 }, // Sachbeschädigung an PKW
-  423: { LF: 6, DLK: 1, RW: 1, ELW: 2, ELW2: 1, POL: 3, SW: 1, GWA: 1, RTW: 1 }, // Brand in Klassenraum
-  424: { LF: 12, DLK: 4, RW: 4, SLF: 2, ELW: 3, ELW2: 1, GWA: 1, GWM: 1, DEKONP: 1, AAOTHWR: 1, THWGWN: 1, THWMTW: 1, AAOTHWDLE: 1, DROHNE: 1, AAOSEGBT: 1, POL: 5, RTW: 1 }, // Großbrand Müllverbrennungsanlage
-  425: { RTW: 1 }, // Verstauchter Knöchel
-  426: { RTW: 1 }, // Gebrochenes Bein
-  427: { RTW: 1 }, // Gebrochener Arm
-  428: { LF: 1, DLK: 1, RW: 1, ELW: 1, POL: 1 }, // Schneelast auf Dach
-  429: { LF: 5, ELW: 1, DLK: 1, GWA: 1, SW: 1, RW: 1, GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2, RTW: 1 }, // Staubexplosion
-  430: { LF: 15, ELW: 3, ELW2: 1, DEKONP: 2, GWM: 2, GWG: 2, GWA: 1, DLK: 1, SW: 2, RW: 4, POL: 8, RTW: 1 }, // Ammoniakaustritt in Eishalle
-  431: { RTW: 1 }, // Kreislaufkollaps
-  432: { LF: 2, ELW: 1, DLK: 1, RW: 1, POL: 2 }, //Fassadenbrand
-  433: { LF: 10, ELW: 3, ELW2: 1, DLK: 3, RW: 2, SLF: 1, POL: 5, RTW: 5, NEF: 2 }, // Großfeuer in Bank
-  435: { LF: 12, GWW: 1, RW: 4, ELW: 3, ELW2: 1, GWA: 2, GWM: 1, GWG: 1, DEKONP: 1, ULF: 1, TELE: 1, POL: 3 }, // Brand in Eloxalanlage
-  436: { LF: 1, RW: 1, POL: 1 }, // Verschmutzte Fahrbahn
-  437: { POL: 2 }, // Taxi - Stiller Alarm
-  438: { LF: 2, RW: 1, ELW: 1, GWO: 1, POL: 2, RTW: 1 }, // PKW in Zapfsäule
-  439: { LF: 18, RW: 2, SW: 1, DLK: 3, FWK: 2, ELW: 5, ELW2: 1, POL: 10, THWMTW: 2, THWGWN: 2, AAOTHWR: 2, GKW: 2, RTW: 1, NEF: 1 }, // Einsturz Parkhaus
-  440: { RTW: 1, NEF: 1 }, // Akute Atemnot
-  441: { LF: 3, ELW: 1, RW: 1 }, // Brennende Waldhütte
-  442: { BOAT: 1 }, // Osterei in Wasser
-  443: { LF: 2, RW: 1, ELW: 1, RTW: 2, FWK: 1 }, // Osterei-LKW gestürzt
-  444: { GRUKW: 3, BEFKW: 1 }, // Schwerpunkteinsatz Ostereiersuche
-  445: { POL: 1 }, // Ei rollt in Schlangenlinien
-  446: { LF: 1, ELW: 1, POL: 1, GWH: 1 }, // Osterhase auf Kran
-  447: { LF: 3, RW: 1, ELW: 1, DLK: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, RTW: 1 }, // Eingestürzter Balkon
-  448: { POL: 1 }, // Ermittlungen nach Unfallflucht
-  449: { LF: 2, RW: 1, ELW: 1, DLK: 1, POL: 2, RTW: 2, NEF: 1 }, // PKW in Supermarkt
-  450: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 1, NEF: 1 }, // PKW in Supermarkt
-  451: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 1 }, // PKW in Gebäude
-  458: { POL: 3, GRUKW: 3, BEFKW: 1, NEA50: 1 }, // Schwerlastkontrolle
-  459: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 2 }, // Brennende Baumaschine
-  460: { LF: 1, DLK: 1, ELW: 1, RW: 1, RTW: 1 }, // Person in Schacht
-  461: { RTW: 1 }, // Dehydrierte Person
-  462: { LF: 18, RW: 4, SLF: 2, DLK: 6, SW: 2, ELW: 5, ELW2: 1, FWK: 1, GWA: 2, GWM: 3, GWG: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, DROHNE: 1, RTW: 1 }, // Großfeuer in Lagerhalle (Brandmeldeanlage)
-  463: { LF: 1, RW: 1, POL: 2 }, // Gesprengter Geldautomat
-  464: { LF: 1, ELW: 1, FWK: 1, RW: 2, POL: 3, GKW: 1, THWMTW: 1, THWGWN: 1 }, // Eingestürzter Funkmast
-  465: { LF: 20, TELE: 1, TURBO: 1, ULF: 1, GWG: 2, GWM: 4, DEKONP: 2, GWO: 1, SW: 1, GWA: 3, DLK: 3, FWK: 2, RW: 3, ELW: 5, ELW2: 1, GWW: 1, THWMTW: 2, GKW: 2, THWGWN: 2, AAOTHWR: 1, DOG: 1, THWDLE: 1, POL: 10 }, // Großbrand im Gefahrstofflager
-  466: { RTW: 1 }, // Badeunfall
-  467: { RTW: 1 }, // Badeunfall
-  468: { RTW: 1 }, // Badeunfall
-  469: { LF: 3, RW: 1, ELW: 1, POL: 2, RTW: 3 }, // Entgleiste Stadtbahn
-  470: { LF: 6, ELW: 2, ELW2: 1, DLK: 2, GWA: 1, POL: 3, RTW: 2, NEF: 1 }, // Feuer in Museum
-  471: { DLRG: 1, TAUCHER: 1, POL: 2 }, // Beweismittelsuche im Wasser
-  472: { DLRG: 1, TAUCHER: 1, POL: 2 }, // Beweismittelsuche im Wasser
-  473: { LF: 4, ELW: 1, DLK: 1, POL: 6, RTW: 1 }, // Pfefferspray in Bahn
-  474: { LF: 4, ELW: 1, DLK: 1, POL: 6, RTW: 1 }, // Pfefferspray in Bahn
-  475: { LF: 4, ELW: 1, DLK: 1, POL: 6, RTW: 1 }, // Pfefferspray in Bahn
-  476: { RTW: 1, POL: 1 }, // Angefahrener Radfahrer
-  477: { LF: 5, RW: 2, DLK: 1, FWK: 1, ELW: 2, POL: 2, RTW: 1 }, // Baum auf Zug
-  478: { LF: 5, RW: 2, DLK: 1, FWK: 1, ELW: 2, ELW2: 1, POL: 2, RTW: 1 }, // Baum auf Zug
-  479: { LF: 5, RW: 2, DLK: 1, FWK: 1, ELW: 2, POL: 2, RTW: 1 }, // Baum auf Zug
-  480: { LF: 3, RW: 1, ELW: 1, POL: 2, RTW: 1 }, // Flugzeugreifenplatzer
-  481: { LF: 3, RW: 1, ELW: 1, POL: 2, RTW: 1 }, // Flugzeugreifenplatzer
-  484: { LF: 3, RW: 1, ELW: 1, POL: 2, GWM: 2, GWA: 1, RTW: 1, NEF: 1 }, // Transportunfall mit Strahler
-  485: { LF: 4, GWW: 1, TELE: 1, ULF: 2, RW: 1, ELW: 1, POL: 2, SW: 1 }, // Brand mehrerer E-Autos in Auslieferungshalle
-  486: { POLH: 1, GRUKW: 3, BEFKW: 1, POL: 4 }, // Cannabisplantage entdeckt
-  487: { LF: 2, DLK: 1, ELW: 1, POL: 1, RTW: 3 }, // Kleinbrand Kirche
-  488: { POL: 14, LF: 16, RW: 1, ELW: 3, ELW2: 1, GWM: 1, RTW: 10 }, // Massenanfall an Erkrankten - Stadion
-  491: { POL: 6, LF: 3, RW: 1, ELW: 1, RTW: 35 }, // Massenanfall an Erkrankten - Bahnhof (Regionalverkehr)
-  493: { LF: 2, ELW: 1, POL: 2, RTW: 10 }, // Massenanfall an Erkrankten - Diskothek
-  494: { POL: 1 }, // beschädigte Radarfalle
-  495: { POL: 9, RTW: 2 }, // Massenpanik in Diskothek
-  496: { LF: 1, RW: 1, DLK: 1 }, // Pferd in Jauchegrube
-  497: { LF: 1, POLH: 1, POL: 6, BOAT: 2, ELW: 1, RTW: 1, NEF: 1 }, // Personensuche nahe Gewässer
-  498: { LF: 1, POLH: 1, POL: 6, BOAT: 2, ELW: 1, RTW: 1, NEF: 1 }, // Personensuche nahe Gewässer
-  499: { LF: 10, RW: 5, ELW: 1, GWO: 2, DROHNE: 1, POL: 8, RTW: 6 }, // Massenkarambolage auf Autobahn
-  500: { RTW: 1 }, // Herzkreislaufprobleme
-  502: { LF: 10, GWA: 1, SW: 1, ELW: 2, ELW2: 1, DLK: 4, POL: 4, RTW: 2 }, // Brand in Betreuungseinrichtung
-  503: { LF: 4, SW: 3, ELW: 2, ELW2: 1, RW: 2, GKW: 2, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, POL: 3, POLH: 1, DROHNE: 1 }, // Damm droht zu brechen
-  505: { LF: 28, DLK: 1, RW: 5, FWK: 2, SW: 4, GKW: 4, THWGWN: 3, THWMTW: 3, BOAT: 3, TAUCHER: 2, POL: 8, ELW: 4, ELW2: 1, RTW: 1, NEF: 1 }, // Hochwasserschadenslage
-  506: { RTW: 1, POL: 2 }, // Hundeangriff
-  507: { LF: 28, DLK: 1, RW: 5, FWK: 2, SW: 4, ELW: 4, ELW2: 1, GKW: 4, THWGWN: 3, THWMTW: 3, AAOTHWFUE: 1, BOAT: 3, TAUCHER: 2, POL: 8, RTW: 1, NEF: 1 }, // Hochwasserschadenslage
-  508: { LF: 1, RW: 1, RTW: 1, POL: 1 }, // Pfählungsverletzung
-  509: { LF: 6, DLK: 2, SW: 1, GWA: 1, ELW: 2, POL: 2 }, // Brennender Stall
-  510: { RTW: 1, POL: 2 }, // Zwangseinweisung
-  511: { POL: 1 }, // herrenloses Gepaeckstück
-  512: { POL: 1 }, // herrenloses Gepaeckstück
-  513: { LF: 4, RW: 2, DLK: 2, ELW: 1, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, POL: 2, RTW: 1 }, // Hausdach eingestürzt
-  514: { FUEKW: 1, BEFKW: 3, GRUKW: 9, DOGPOL: 1 }, // Durchsuchung - Gebäudekomplex
-  517: { LF: 1 }, // Brennender Baum
-  518: { LF: 1 }, // Brennender Baum
-  519: { LF: 3, POL: 1, RW: 1, ELW: 1, RTW: 3, NEF: 1 }, // Hüpfburgunfall
-  520: { LF: 12, DLK: 4, ELW: 3, ELW2: 1, GWA: 1, SW: 1, POL: 4, GKW: 2, THWMTW: 2, THWGWN: 2, AAOSEGBT: 1 }, // Hotelbrand
-  522: { DLK: 1, RTW: 1 }, // Medizinischer Notfall in Flugzeug
-  524: { LF: 6, RW: 2, DLK: 2, ELW: 3, GWA: 1, SW: 1, POL: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1 }, // Brand in Spänebunker
-  525: { LF: 6, RW: 4, DLK: 2, FWK: 2, ELW: 3, ELW2: 1, POL: 3, THWMTW: 2, GKW: 2, THWGWN: 2, AAOTHWR: 2, AAOTHWDLE: 2, THWGWSB: 1, DROHNE: 1, DOG: 1, RTW: 8, NEF: 1 }, // Großer Supermarkt eingestürzt
-  526: { POL: 2, ELW: 1, DLK: 2, LF: 4, RW: 3, FWK: 1, THWMTW: 1, GKW: 1, THWGWN: 1, AAOTHWR: 1, AAOTHWDLE: 1, THWGWSB: 1, DROHNE: 1, DOG: 1, RTW: 4, NEF: 4 }, // Supermarkt eingestürzt
-  527: { DOG: 1, LF: 2, RW: 1, GKW: 1, POL: 1, RTW: 1, NEF: 1 }, // Verschüttete Person
-  528: { LF: 3, RW: 1, ELW: 1, GKW: 1, THWGWN: 1, THWMTW: 1, BOAT: 2, POL: 2 }, // Fischsterben in Gewässer
-  532: { LF: 1, POL: 2, POLH: 1, DOG: 1, RTW: 1 }, // Suche nach Vermissten
-  533: { LF: 1, POLH: 1, POL: 6, BOAT: 2, ELW: 1, DOG: 1, RTW: 1, NEF: 1 }, // Personensuche nahe Gewässer
-  534: { LF: 18, RW: 2, SW: 1, DLK: 3, FWK: 2, ELW: 5, ELW2: 2, POL: 10, THWMTW: 2, THWGWN: 2, AAOTHWR: 2, GKW: 2, DOG: 1, RTW: 1, NEF: 1 }, // Einsturz Parkhaus
-  535: { LF: 6, RW: 2, ELW: 1, FWK: 1, DLK: 1, GKW: 2, THWGWN: 2, THWMTW: 2, AAOTHWR: 1, AAOTHWDLE: 1, THWGWSB: 1, DROHNE: 1, DOG: 1, RTW: 1 }, // Schwimmbaddach eingestürzt
-  536: { POL: 2 }, // Einbruch in Supermarkt
-  537: { POL: 4 }, // Einbruch in Supermarkt
-  538: { RTW: 1, NEF: 1 }, // Verbrennung
-  539: { POL: 2, RW: 1, LF: 2, AAOTHWR: 2, THWMTW: 2, THWGWN: 2, GKW: 2, DOG: 2, THWGWSB: 1, DROHNE: 1, RTW: 1, NEF: 1 }, // Verschüttete Personen
-  540: { LF: 20, DLK: 3, RW: 5, FWK: 2, GWH: 3, ELW: 3, ELW2: 1, GKW: 4, AAOTHWR: 4, THWMTW: 2, THWGWN: 3, POL: 5, GRUKW: 9, BEFKW: 3, FUEKW: 1, DOG: 3, RTW: 1, NEF: 1 }, // Einsturz Stadiontribüne
-  541: { GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2, THWGWSB: 1, DOG: 1 }, // Erdrutsch
-  544: { LF: 3, RW: 1, ELW: 1, GWM: 1, GWG: 1, DEKONP: 1, POL: 2, RTW: 2, NEF: 1 }, // Säureangriff auf Hauswand
-  545: { LF: 14, RW: 2, DLK: 3, ELW: 2, GWA: 1, SW: 1, POL: 4, GKW: 1, AAOTHWR: 1, THWGWN: 1, THWMTW: 1, RTW: 2 }, // Brand bei Holzverarbeiter
-  547: { BOAT: 1 }, // Badestellenüberwachung
-  548: { LF: 1 }, // Grillbrand
-  549: { MEK: 4 }, // Absicherung Geldtransport
-  550: { LF: 5, RW: 3, ELW: 1, GWO: 1, FWK: 1, GKW: 1, POL: 4, RTW: 2, NEF: 1 }, // LKW auf PKW gestürzt
-  551: { POL: 2 }, // Einbruch auf Betriebsgelände
-  552: { LF: 8, ELW: 2, RW: 2, DLK: 2, GWA: 1, GWM: 1, SW: 2, POL: 2, RTW: 2, NEF: 1 }, // Brand in Reifenlager
-  553: { RTW: 1, NEF: 1 }, // Veraetzung
-  554: { POL: 2 }, // Einbruch in Wohnhaus
-  555: { LF: 10, GWA: 2, RW: 2, GWG: 1, GWM: 2, DEKONP: 1, GWW: 1, ULF: 1, ELW: 2, POL: 4, RTW: 6 }, // Phosphorsäureaustritt
-  557: { LF: 4, ELW: 1, RW: 2, GWO: 1, POL: 5, RTW: 4, NEF: 1 }, // Schwerer Verkehrsunfall
-  558: { LF: 8, RW: 1, DLK: 1, ELW: 2, POL: 4, RTW: 10, NEF: 1 }, // Brennende Bühne
-  559: { LF: 4, RW: 1, GWG: 1, GWM: 1, DEKONP: 1, ELW: 1, ULF: 1, GWW: 1, POL: 2, RTW: 2 }, // Unbekannte Flüssigkeit aus LKW
-  561: { RTW: 1 }, // Fremdkörper in Wunde
-  562: { LF: 5, RW: 2, GWO: 1, ELW: 1, POL: 4, RTW: 2, NEF: 1 }, // Verkehrsunfall in Tunnel
-  563: { LF: 2, POL: 12, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 3, GWSAN: 1 }, // Absicherung Staatsbesuch
-  564: { FUEKW: 1, MEK: 4, POL: 1 }, // Geplante Festnahme
-  565: { FUEKW: 1, MEK: 4, POL: 4 }, // Zugriff bei Geldübergabe
-  566: { POL: 1 }, // Drogenhandel aufgeflogen
-  567: { POL: 1 }, // Diebstahl auf Baustelle
-  568: { POL: 10, GRUKW: 9, BEFKW: 3, FUEKW: 1, POLH: 1, GEFKW: 1, DOGPOL: 1, DOG: 1 }, // Ausbruch gefährlicher Personen aus geschlossenem Vollzug
-  569: { POL: 6, SEK: 4, FUEKW: 1, RTW: 1 }, // Tankstellenüberfall - Eskaliert
-  570: { LF: 2, RW: 1, DLK: 1, ELW: 1, POL: 2, RTW: 1 }, // Blitzeinschlag in Wohnhaus
-  571: { LF: 4, DLK: 1, ELW: 1, POL: 2, RTW: 2 }, // Dachstuhlbrand
-  572: { POL: 6 }, // Überfall auf Spielhalle
-  573: { LF: 8, RW: 2, DLK: 1, ELW: 2, ELW2: 1, GWA: 1, GWM: 1, GWG: 1, DEKONP: 1, POL: 3, RTW: 3, NEF: 1 }, // Chemikalienaustritt - Klärwerk
-  574: { LF: 2, POL: 2, RTW: 1 }, // Brandsicherheitswache bei Feuerwerk
-  575: { LF: 1 }, // unklare Rauchentwicklung
-  576: { LF: 6, ELW: 1, GWO: 1, GWM: 1, SW: 1, DLK: 1, POL: 2, RTW: 2 }, // Brand in Parkhaus
-  578: { LF: 3, ELW: 2, GWM: 2, RW: 1, GWA: 1, GWG: 1, DEKONP: 1, POL: 4, RTW: 5, NEF: 1 }, // Blausäureaustritt
-  579: { GWW: 1, ULF: 1, LF: 3, ELW: 2, GWM: 2, RW: 1, GWA: 1, GWG: 1, DEKONP: 1, POL: 4, RTW: 1 }, // Blausäureaustritt
-  580: { POL: 6, GRUKW: 6, BEFKW: 2, RTW: 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
-  581: { RTW: 1 }, // Sturzverletzung beim Schlittschuhlaufen
-  583: { LF: 2, ELW: 1, POL: 2, RTW: 10 }, // Massenanfall durch Lebkuchenverzehr (klein)
-  584: { LF: 3, RW: 1, ELW: 1, POL: 6, RTW: 35 }, // Massenanfall durch Lebkuchenverzehr (groß)
-  585: { LF: 16, RW: 1, ELW: 3, ELW2: 1, GWM: 1, DEKONP: 1, POL: 14, RTW: 120 }, // Massenanfall durch Lebkuchenverzehr (riesig)
-  586: { LF: 2, ELW: 1, DLK: 1, RW: 1, GWH: 1, RTW: 1 }, // Weihnachtsschlitten in Baum
-  587: { LF: 1, RW: 1, DLK: 1, FWK: 1, RTW: 1 }, // Weihnachtsmann in Kamin steckengeblieben
-  588: { RTW: 1 }, // "Betrunkener Weihnachtsmann"
-  589: { POL: 1 }, // "Verkehrsunsicherer Rentierschlitten"
-  590: { POL: 1 }, // Diebstahl aus Weihnachtsbäckerei
-  591: { ELW: 1, LF: 3, DLK: 1, POL: 1 }, // Fassadenbrand durch Feuerwerksbatterien
-  592: { GRUKW: 9, BEFKW: 4, FUEKW: 1, GEFKW: 1, WAWE: 3, POL: 10, POLH: 1, RTW: 1 }, // Unangemeldete Demonstration (Groß)
-  593: { GKW: 1, AAOTHWR: 1, THWMTW: 1, POL: 2 }, // Beseitigung kontaminierter Erde
-  594: { LF: 15, ELW: 2, ELW2: 1, DLK: 2, POL: 6, GWA: 1, RW: 1, THWMTW: 1, GKW: 1, THWGWN: 1, RTW: 1, NEF: 1 }, //Brand in Schule
-  595: { RTW: 1, NEF: 1 }, // Person von Blitz getroffen
-  596: { LF: 3, RW: 2, ELW: 1, POL: 4, RTW: 2, NEF: 1 }, // Verkehrsunfall (Personen eingeklemmt)
-  597: { RTW: 2 }, // Paar hat zu viel Schokolade gegessen
-  598: { RTW: 1 }, // Schmetterlinge im Bauch
-  599: { RTW: 1 }, // Schock durch Heiratsantrag
-  600: { RTW: 2 }, // Gebrochenes Herz
-  601: { LF: 5, DLK: 1, ELW: 1 }, // Valentinsdekoration in Restaurant brennt
-  602: { LF: 1, RTW: 2 }, // Feuer durch Abendessen bei Kerzenlicht
-  603: { POL: 2 }, // Suche nach nicht vorhandenem Partner
-  604: { POL: 1 }, // Lärmbeschwerde wegen streitendem Paar
-  605: { POL: 2 }, // Herz gestohlen
-  606: { LF: 25, RW: 2, ELW: 5, ELW2: 1, DLK: 5, GWM: 3, GWA: 3, SW: 1, POL: 8, GKW: 3, THWMTW: 3, AAOTHWR: 2, THWGWN: 3, RTW: 10 }, // Brennender Bahnhof
-  607: { POL: 1 }, // Verkehrserziehung an Schule
-  608: { POL: 1 }, // Abgebrochener Notruf
-  609: { LF: 1, GWH: 1, RTW: 1 }, // Fensterputzer haengt in Gondel fest
-  610: { LF: 8, GWA: 1, GWG: 1, GWM: 1, POL: 6, ELW: 3, RTW: 2 }, // Gefahrgut-LKW in Brand
-  611: { GRUKW: 9, BEFKW: 3, FUEKW: 1, GEFKW: 1, POL: 10, RTW: 1 }, // Ausschreitungen verfeindeter Gruppen (Klein)
-  613: { ITW: 1 }, // Intensivverlegung
-  614: { POL: 2 }, // Unbefugtes Betreten einer Gleisanlage
-  615: { POL: 2 }, // Unbefugtes Betreten einer Gleisanlage
-  616: { POL: 2 }, // Unbefugtes Betreten einer Gleisanlage
-  617: { GKW: 2, THWMTW: 1, THWGWN: 2, ELW: 1, LF: 4, FWK: 1, POL: 2, RTW: 1 }, // Güterzug entgleist
-  618: { POL: 6, LF: 3, RW: 1, ELW: 1, RTW: 10 }, // Massenanfall von Osterhasen
-  619: { LF: 10, ELW: 2, ELW2: 1, DLK: 1, RW: 2, GWO: 1, BOAT: 4, TAUCHER: 2, POL: 7, GKW: 1, THWGWN: 1, THWMTW: 1, RTW: 10 }, // Havariertes Flussfahrtschiff
-  620: { LF: 12, GWA: 1, RW: 1, GWG: 1, GWM: 1, DEKONP: 1, GWW: 1, ULF: 1, ELW: 1, POL: 2, RTW: 4, NEF: 1 }, // Säurebehälter beschädigt
-  622: { RTW: 1 }, // Allergischer Schock
-  623: { LF: 3, ELW: 1, RW: 2, DLK: 1, GWH: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, RTW: 2 }, // Baugerüst eingestürzt
-  624: { LF: 10, RW: 4, ELW: 3, ELW2: 1, GWO: 1, POL: 8, GKW: 1, THWMTW: 1, THWGWN: 1, RTW: 5, NEF: 5 }, // Zusammenstoß zweier Busse
-  625: { LF: 1, POL: 1, RTW: 1 }, // Person steckt mit Hand in Kanaldeckel
-  626: { RTW: 1 }, // Person tritt auf Glasscherben
-  627: { LF: 1, RTW: 1 }, // Grill in Flammen
-  628: { LF: 1, RTW: 1 }, // Brennendes Campingzelt
-  629: { POL: 3, POLH: 1 }, // Vater vermisst
-  630: { POL: 1 }, // Gestohlener Picknick-Korb
-  631: { ZIV: 2 }, // Vollstreckung Durchsuchungsbeschluss
-  632: { POL: 5, ZIV: 1 }, // Einbruch in Museum
-  633: { POL: 2, ZIV: 1 }, // Einbruch in Wohnhaus
-  634: { POL: 4, ZIV: 1, DOG: 1 }, // Einbruch in Wohnhaus - Täter am Ort
-  635: { DOG: 1, POL: 6, ZIV: 1, POLH: 1 }, // Einbruch in Wohnhaus - Täter flüchtig
-  636: { POL: 4, POLH: 1, ZIV: 2, MEK: 4, FUEKW: 1, RTW: 1 }, // Entführung
-  638: { LF: 2, RW: 1, POL: 1, RTW: 1 }, // LKW droht umzustürzen
-  639: { LF: 10, RW: 2, ELW: 2, ELW2: 1, GWG: 2, GWM: 2, GWA: 1, DEKONP: 1, FWK: 1, POL: 4, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 2, NEF: 1 }, // Gefahrgutzug verunglückt
-  640: { RTW: 1, NEF: 1 }, // Amputationsverletzung
-  641: { POL: 1 }, // Flitzer auf dem Spielfeld
-  642: { POL: 1, AAOTHWR: 1 }, // Mauer auf Spielfeld
-  643: { LF: 3, RW: 2, ELW: 1, DLK: 1, GWH: 1, POL: 2, RTW: 1 }, // Unfall in Getreidesilo
-  644: { LF: 8, ELW: 1, POL: 2, WATER: 1, SW: 1 }, // Brand Holzpolter
-  645: { LF: 8, ELW: 1, POL: 2, WATER: 1, GWA: 1, SW: 1 }, // Brand Holzpolter
-  646: { RTW: 1, BOAT: 1 }, // Absicherung Schwimmwettbewerb
-  647: { LF: 1, POL: 1 }, // Illegales Lagerfeuer in Park
-  648: { RTW: 1 }, // Verkeimter Eiswagen
-  649: { RTW: 1 }, // Knalltrauma
-  650: { LF: 1, RW: 1, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, POL: 2 }, // Ladungsbergung LKW
-  651: { LF: 8, RW: 2, DLK: 1, ELW: 2, GWA: 1, GWM: 1, POL: 4, SW: 2, THWMTW: 1, GKW: 1, AAOTHWR: 1, THWGWN: 1, AAOTHWDLE: 1, RTW: 1 }, // Brand in Getreidesilo
-  652: { POL: 2 }, // Aufgeplatzter Asphalt auf Autobahn
-  653: { LF: 3, DLK: 1, ELW: 1, POL: 2 }, // Brand auf Schultoilette
-  654: { LF: 15, RW: 1, DLK: 3, ELW: 1, ELW2: 1, GWA: 1, SW: 1, POL: 4, RTW: 4 }, // Großbrand Möbelhaus
-  655: { THWSWP: 1, RW: 2, GWO: 1, ELW2: 1, THWMTW: 1, GKW: 1, POL: 2 }, // Parkhaus voll Wasser gelaufen
-  656: { SWP: 1, GKW: 2 }, // Mehrere Keller unter Wasser
-  657: { SWP: 1, GKW: 2, POL: 2, GWO: 1 }, // Tunnel unter Wasser (Klein)
-  658: { SWP: 2, RW: 4, LF: 4, GKW: 2, THWGWN: 1, THWMTW: 1, POL: 3, ELW: 1, SW: 1, GWO: 1 }, // Tunnel unter Wasser (Groß)
-  659: { LF: 25, ELW: 4, ELW2: 1, DLK: 3, SWP: 4, RW: 4, GKW: 5, THWGWN: 5, THWMTW: 5, BEFKW: 3, GRUKW: 9, FUEKW: 1, POLH: 1, SW: 6, POL: 8 }, // Dammbruch
-  660: { SWP: 1, GKW: 1, THWMTW: 1 }, // Bach droht über Ufer zu treten
-  661: { SWP: 1, LF: 2, SW: 1, GKW: 1, THWDLE: 1 }, // Gewässer gekippt (Klein)
-  662: { LF: 2, SW: 2, ELW: 2, ELW2: 1, GWM: 1, SWP: 2, GKW: 2, THWMTW: 1, THWDLE: 3 }, // Gewässer gekippt (Groß)
-  663: { LF: 4, DLK: 1, ELW: 1, GWO: 1, SW: 1, GWH: 1, SWP: 1, GKW: 2, THWMTW: 1, THWGWN: 1, THWDLE: 1, AAOTHWR: 1, POL: 2 }, // Wassereinbruch Großbaustelle
-  664: { LF: 28, DLK: 1, RW: 5, FWK: 2, SW: 4, GKW: 4, THWGWN: 3, THWMTW: 3, SWP: 3, BOAT: 3, TAUCHER: 2, POL: 8, ELW: 4, ELW2: 1, RTW: 1, NEF: 1 }, // Hochwasserschadenslage
-  665: { RTW: 1 }, // Unterkühlung
-  666: { LF: 8, ELW: 1, DLK: 1, SW: 2, GWA: 1, POL: 3, RTW: 5, NEF: 2 }, // Brand auf Campingplatz
-  667: { LF: 9, SW: 2, DLK: 1, ELW: 1, GWA: 1, POL: 2, GKW: 1, THWGWN: 1, AAOTHWR: 1, THWMTW: 1 }, // Strohballenstapelbrand
-  668: { POL: 2 }, // Ampelausfall
-  669: { LF: 6, DLK: 2, ELW: 2, POL: 2, RTW: 2 }, // Reihenhaus in Flammen
-  670: { LF: 10, RW: 2, DLK: 2, ELW: 2, ELW2: 1, GWA: 2, GWM: 2, DEKONP: 1, FWK: 1, POL: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 2 }, // Havarie in Kläranlage
-  671: { LF: 1, DLRG: 1, TAUCHER: 1, POL: 1 }, // Unbekanntes Objekt in Wasser
-  672: { RTW: 1 }, // Person auf Laub ausgerutscht
-  673: { LF: 1, RW: 1, POL: 1, RTW: 1 }, // Verkehrsunfall durch Laub
-  674: { RTW: 1 }, // Person in Laubhaufen gestürzt
-  675: { POL: 1, RTW: 1 }, // Laubsauger außer Kontrolle
-  676: { RW: 1 }, // Von Laub verstopfter Gulli
-  677: { RTW: 1 }, // Unterkühlung nach Schwimmen in kaltem Wasser
-  678: { LF: 2, RW: 1, RTW: 1 }, // Verkehrsunfall auf nebliger Straße
-  679: { LF: 2, POL: 1, RW: 1, RTW: 1 }, // Verkehrsunfall bei Wildwechsel
-  680: { LF: 2 }, // Brennender Laubhaufen
-  681: { RTW: 1 }, // Reitsportunfall
-  682: { LF: 5, DLK: 2, SW: 2, GWM: 1, GWA: 1, ELW2: 1, ELW: 2, POL: 4, AAOTHWR: 1, GKW: 1, THWMTW: 1 }, // Brand auf Kompostieranlage
-  683: { POL: 1 }, // KFZ-Diebstahl
-  684: { LF: 3, DLK: 1, ELW: 1, RW: 1, POL: 2, RTW: 3 }, // Brand in metallverarbeitendem Betrieb
-  685: { LF: 20, SLF: 1, DLK: 5, ELW: 6, RW: 2, ELW2: 1, SW: 2, GWA: 1, GWM: 1, POL: 6, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 5, NEF: 5 }, // Großbrand in Museum
-  686: { LF: 1, RTW: 1, POL: 1 }, // Kind in Spielgerät eingeklemmt
-  687: { LF: 2, ELW: 1, RW: 2, GWA: 1, GWM: 1, GWG: 1, POL: 2, RTW: 2, NEF: 1 }, // Nitrose Gase auf Bauernhof
-  688: { POL: 4, POLH: 1 }, // Fahndung nach KFZ-Diebstahl
-  690: { LF: 5, DLK: 1, ELW: 2, RW: 1, GWA: 1, GWM: 1, POL: 2, FWK: 1, GKW: 2, THWMTW: 1, AAOTHWR: 2, THWGWN: 1, GWW: 1, TELE: 1, ULF: 2, RTW: 5, NEF: 1 }, // Metallbrand in Industriebetrieb
-  691: { RTW: 1, NEF: 1 }, // Lungenödem
-  692: { LF: 8, DLK: 2, ELW: 2, ELW2: 1, SW: 1, GWA: 1, GWM: 1, GWG: 1, POL: 4, RTW: 1 }, // Rauchentwicklung in Einkaufszentrum
-  693: { POL: 1 }, // Kraftstoffdiebstahl
-  694: { LF: 2, RW: 1, POL: 1 }, // Gülle ausgelaufen
-  696: { LF: 6, DLK: 1, ELW: 1, POL: 4, RTW: 10 }, // Blitzeinschlag auf Veranstaltungsgelände
-  697: { GKW: 1, THWMTW: 1, THWGWN: 1, THWSWP: 1 }, // Abwasserkanal droht zu überfluten
-  698: { LF: 2, RW: 1, ELW: 1, POL: 2 }, // Autogasaustritt am PKW
-  699: { LF: 10, ELW: 2, ELW2: 1, SW: 3, GWA: 1, GWM: 1, POL: 4, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, WATER: 2 }, // Moorbrand
-  700: { RTW: 1 }, // Bewusstlose Person am LKW-Steuer
-  701: { LF: 6, DLK: 2, ELW: 1, POL: 4, RTW: 3, NEF: 1 }, // Wohnhausbrand
-  702: { LF: 12, DLK: 2, ELW: 3, ELW2: 1, RW: 2, POL: 4, RTW: 2 }, // Brand in Großwäscherei
-  703: { RTW: 1 }, // Akute Rückenschmerzen
-  704: { LF: 1 }, // Schulkinder über den Notruf 112 informieren
-  705: { POL: 1 }, // Schulkinder über den Notruf 112 informieren
-  706: { LF: 1, RTW: 1, POL: 1 }, // Bekanntgabe neuer Funktionen des Notrufs 112
-  707: { ELW: 1, RW: 1, LF: 2, DLK: 1, RTW: 2, POL: 3 }, // Feier zum Tag des Notrufs 112
-  708: { ELW: 3, RW: 1, LF: 4, DLK: 2, RTW: 2, GWG: 1, SW: 1, GWA: 1, POL: 6 }, // Verleihung von Auszeichnungen am Tag des Notrufs 112
-  709: { LF: 4, ELW: 1, RW: 2, POL: 4, RTW: 6, NEF: 1 }, // Bus in Haltestelle
-  710: { LF: 3, ELW: 1, SW: 1, POL: 1 }, // Brand auf Motivwagen
-  711: { POL: 4, RTW: 3 }, // Zwischenfall beim Karnevalsumzug
-  712: { POL: 2, RTW: 1 }, // Gestohlene Karnevalsmaske
-  713: { POL: 5, RTW: 1 }, // Gestohlener Maskenball-Preis
-  714: { LF: 2 }, // Feuer bei Prunksitzung
-  715: { RTW: 1 }, // Unfall beim Faschingsball
-  716: { LF: 4, ELW: 1, POL: 2 }, // Sicherheitswache bei Prunksitzung
-  717: { POL: 2 }, // Verbrecher versteckt sich bei Maskenball
-  718: { LF: 1 }, // Brennendes Faschingskostüm
-  719: { POL: 1 }, // Diebstahl von Kostümen
-  720: { LF: 1, ELW: 4, RW: 2, ELW2: 2, SW: 6, GWA: 2, GWM: 2, POL: 6, GKW: 2, THWMTW: 1, AAOTHWR: 3, THWGWN: 1, POLH: 1 }, // Großfeuer im Moor
-  721: { RTW: 1, POL: 2 }, // randalierender Fluggast
-  722: { RTW: 1 }, // Allergische Reaktion auf Bienenstich
-  723: { RTW: 1 }, // Allergische Reaktion auf Pollen
-  724: { RTW: 1 }, // Fall von Leiter beim Frühjahrsputz
-  725: { POL: 1, RTW: 2 }, // Angriff eines Wildtiers während Frühlingspicknicks
-  726: { RTW: 1 }, // Vergiftung durch wilde Beeren
-  727: { LF: 2 }, // Brennender Picknickkorb
-  728: { POL: 2 }, // Diebstahl von Kaelbern
-  729: { RTW: 1 }, // Allergische Reaktion auf Pollen
-  730: { RTW: 1 }, // Kälberdieb von Kuh angegriffen
-  731: { LF: 2, ELW: 1, RW: 1, POL: 1, RTW: 2 }, // Zugevakuierung
-  732: { POL: 2, LF: 3, ELW: 1, RTW: 1 }, // Illegales Osterfeuer
-  733: { LF: 2 }, // Absicherung Osterfeuer
-  734: { LF: 1 }, // Geschmolzener Osterhase
-  735: { LF: 2, RW: 1, DLK: 1, ELW: 1, POL: 2, RTW: 1 }, // Blitzeinschlag in Hasenbau
-  736: { LF: 1, POL: 1 }, // Schokohase in PKW eingeschlossen
-  737: { LF: 1, POL: 1, BOAT: 2 }, // Ostereiersuche im Wasser
-  738: { RTW: 1 }, // Starke Blutung
-  739: { LF: 2 }, // Absicherung Osterfeuer
-  740: { LF: 2, ELW: 1, RW: 1, GWA: 1, POL: 2, RTW: 2 }, // Gasaustritt aus Kanalisation
-  742: { RTW: 1 }, // Person auf geschmolzener Schokolade ausgerutscht
-  743: { LF: 1, POL: 1, RTW: 2 }, // Schlafzimmer-Feuer durch Kerze
-  744: { LF: 1 }, // Brennender Kuchen in Ofen
-  745: { LF: 2 }, // Küchenbrand am Muttertag
-  746: { POL: 2 }, // Gestohlene Schokolade
-  747: { POL: 2 }, // Gestohlener Blumenstrauß
-  748: { POL: 2 }, // Gestohlene Glückwunschkarte
-  749: { LF: 1, POL: 1 }, // E-Call ausgelöst
-  750: { LF: 4, ELW: 1, POL: 3, RTW: 2 }, // Brand auf Flohmarkt
-  751: { LF: 2, ELW: 1, GWM: 1, POL: 2, RTW: 1, NEF: 1 }, // Reizgas in geschlossenem Raum
-  752: { LF: 1, DLK: 1, ELW: 1, RW: 1, RTW: 1, POL: 1, GWH: 1 }, // Verletzte Person auf Dach
-  753: { LF: 1, RW: 1, RTW: 1 }, // Person in Foerderband eingeklemmt
-  754: { RTW: 1, NEF: 1 }, // Wespenangriff
-  755: { LF: 2, ELW: 2, POL: 2 }, // Kurzschluss an Freileitungsmast
-  756: { LF: 1 }, // Unfall beim Backen des Jubiläumskuchens
-  757: { LF: 1, DLK: 1 }, // Jubiläumsluftballon eines Gastes bleibt im Baum hängen
-  758: { LF: 2 }, // Kabelbrand in Jubiläums-Party-Dekoration (klein)
-  759: { LF: 4, ELW: 1 }, // Kabelbrand in Jubiläums-Party-Dekoration (groß)
-  760: { POL: 1 }, // Jubiläumsgeschenk gestohlen
-  761: { POL: 2 }, // Sabotierte Lautsprecher auf Jubiläumsparty
-  762: { POL: 3 }, // Vermisster Jubiläumsgast
-  763: { POL: 4 }, // Jubiläumsgäste haben Dekoration gestohlen
-  764: { POL: 5 }, // Jubiläumsgäste haben Kuchen gestohlen
-  765: { RTW: 1 }, // Gast hat zu viel Jubiläumskuchen gegessen
-  766: { RTW: 1 }, // Papierschnitt beim Öffnen von Jubiläumsgeschenken
-  767: { RTW: 1 }, // Jubiläumsgast mit Gelenkschmerzen nach dem Tanzen
-  768: { RTW: 1 }, // Jubiläumsgast von Korken getroffen
-  769: { RTW: 1 }, // Jubiläumsgast bewusstlos
-  770: { LF: 1, RW: 1, DLK: 1, ELW: 1, POL: 1, RTW: 1 }, // Personen auf der Tanzfläche vermisst
-  771: { LF: 3, RW: 2, DLK: 2, POL: 1, RTW: 2 }, // Luftballons für Jubiläumsparty aufblasen
-  772: { POL: 3, RTW: 5, SEGELW: 1 }, // Luftballons für Jubiläumsparty aufblasen
-  773: { LF: 25, SLF: 2, DLK: 4, ELW: 4, RW: 2, ELW2: 1, SW: 2, GWA: 1, GWM: 1, POL: 8, GKW: 1, THWMTW: 1, AAOTHWR: 1, THWGWN: 1, RTW: 10 }, // Großfeuer in Einkaufszentrum
-  774: { LF: 1, ELW: 1, RW: 1, POL: 2, BOAT: 1, RTW: 1 }, // Kollision zwischen Frachtschiff und Motorboot
-  775: { LF: 1, ELW: 1, GWG: 1, POL: 4, ZIV: 2, GRUKW: 3, BEFKW: 1 }, // Drogenlabor gefunden
-  776: { LF: 1, RW: 1, ELW: 1, RTW: 1 }, // Person in Rolltreppe eingeklemmt
-  777: { LF: 12, DLK: 2, ELW: 4, RW: 1, ELW2: 1, GWA: 2, GWG: 1, SLF: 1, POL: 4, POLH: 1, RTW: 1, NEF: 1 }, // Kraftwerksbrand
-  778: { LF: 1, POL: 1 }, // Brennende Chemietoilette
-  779: { LF: 8, ULF: 1, GWA: 1, ELW: 3, GWG: 1, GWM: 1, POL: 6, RTW: 1 }, // Gefahrgut-LKW in Brand
-  780: { RTW: 1 }, // Treppensturz
-  781: { LF: 2, ELW: 1, POL: 1 }, // Gartenschuppenbrand
-  782: { LF: 4, RW: 2, ELW: 2, DLK: 1, GWM: 1, GWG: 1, GWO: 1, GWW: 1, ULF: 1, POL: 2, RTW: 2 }, // Tankstellenbrand
-  783: { LF: 2, DLK: 1, ELW: 1 }, // Brennende Weihnachtsdekoration
-  784: { POL: 1 }, // Gestohlener Weihnachtsbaum
-  785: { POL: 3 }, // Diebstahl von Weihnachtsgeschenken in Einkaufszentrum
-  786: { POL: 2 }, // Weihnachtsmann-Schlitten blockiert Straße
-  787: { LF: 2 }, // Lagerfeuer setzt Holzschuppen in Brand
-  788: { POL: 2 }, // Schlägerei auf zugefrorenem See
-  789: { POL: 1 }, // Kinder werfen Schneebälle auf Menschen und Häuser
-  790: { LF: 2 }, // Unfall bei der Zubereitung des Valentinsmenüs
-  791: { LF: 2 }, // Brennender Valentins-Strauß
-  792: { LF: 1 }, // Feuer beim Candlelight-Dinner
-  793: { LF: 1 }, // Tier auf Eisfläche gefangen
-  794: { POL: 1 }, // Unbefugtes Betreten einer Eisfläche
-  795: { RTW: 1, BOAT: 1 }, // Absicherung Eisbaden
-  796: { LF: 6, ELW: 2, DLK: 1, RW: 1, POL: 2, RTW: 1 }, // Brand in Garagenkomplex
-  797: { LF: 12, ELW: 3, DLK: 3, GWA: 1, SW: 1, POL: 6, DGL: 1, RTW: 4, NEF: 1 }, // Brand in Gebäudekomplex
-  798: { LF: 16, ELW: 4, ELW2: 1, DLK: 4, GWA: 2, GWM: 1, SW: 2, RW: 2, POL: 8, DGL: 1, RTW: 8, NEF: 1 }, // Großbrand in Gebäudekomplex
-  799: { RTW: 1 }, // Fremdkörper in Atemweg
-  800: { AAOTHWNEA50: 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
-  801: { AAOTHWNEA50: 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
-  802: { AAOTHWNEA50: 1 }, // Ersatz-Stromversorgung einer Krankenhausstation
-  803: null,
-  804: null,
-  805: null,
-  806: { AAOTHWNEA50: 1 }, // Bereitstellungsraum vor angekündigter Großdemo
-  807: { AAOTHWNEA200: 1 }, // Ersatz-Stromversorgung in Krankenhaus
-  812: { LF: 3, RW: 2, DLK: 1, ELW: 1, POL: 4, RTW: 1, NEF: 1 }, // Schilderbrücke eingestürzt
-  813: { LF: 1, RW: 1, ELW: 1, POL: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWNEA200: 1, RTW: 1, NEF: 1 }, // Stromausfall in Krankenhaus
-  814: { AAOTHWNEA50: 1 }, // Stromausfall in Feuerwehrwache
-  815: { AAOTHWNEA50: 1 }, // Stromausfall in Rettungsdienstwache
-  816: { AAOTHWNEA50: 1 }, // Stromausfall in THW-Ortsverband
-  817: { AAOTHWNEA200: 1 }, // Stromausfall in Pflegeeinrichtung
-  818: { AAOTHWNEA200: 1 }, // Stromausfall im Rathaus
-  819: { AAOTHWNEA200: 1 }, // Stromausfall in Polizeiwache
-  820: { AAOTHWNEA200: 1 }, // Stromausfall durch Kabelschaden
-  821: { LF: 4, ELW: 1, DLK: 1, POL: 2, RTW: 2 }, // Kellerbrand in Mehrfamilienhaus
-  822: { LF: 4, DLK: 1, ELW: 1, POL: 4, RTW: 2, NEF: 2 }, // Brand in Arztpraxis
-  823: { LF: 1, RW: 1, ELW: 1, POL: 1, RTW: 4 }, // Unfall mit Reinigungsmitteln
-  824: { LF: 2, RW: 1, ELW: 1, POL: 1, RTW: 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
-  825: { LF: 5, RW: 1, GWM: 1, GWA: 1, ELW: 2, ELW2: 1, POL: 4, DGL: 1, RTW: 5 }, // PKW brennt in Tunnel
-  826: { LF: 10, RW: 2, GWM: 1, GWA: 2, ELW: 2, ELW2: 1, POL: 4, DGL: 1, RTW: 5 }, // LKW brennt in Tunnel
-  827: { POL: 1 }, // Holzdiebstahl
-  829: { LF: 5, ELW: 2, DLK: 1, RW: 1, POL: 4, RTW: 1 }, // Brennender Regionalbahnhof
-  830: { LF: 20, RW: 2, SLF: 2, ELW: 5, ELW2: 1, DLK: 5, GWM: 3, GWG: 2, GWA: 3, SW: 5, POL: 6, GKW: 2, THWMTW: 2, THWGWN: 2, AAOTHWR: 1, DROHNE: 1, RTW: 8 }, // Brennender Güterbahnhof
-  831: { LF: 1, ELW: 1, RW: 1, BOAT: 1, RTW: 1 }, // Person in Eis eingebrochen
-  832: { POL: 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
-  833: { LF: 3, DLK: 1, ELW: 1 }, // Brennendes Herz
-  834: { POL: 3, LF: 1, RW: 1, RTW: 2 }, // Verkehrsunfall durch Verliebtheit
-  835: { POL: 1 }, // Fußstreife
-  836: { POLBIKE: 2 }, // Motorradstreife
-  837: { HORSE: 1 }, //  Berittene Streife
-  838: { AAOTHWNEA50: 1 }, // Stromausfall im Stellwerk (klein)
-  839: { AAOTHWNEA200: 1 }, // Stromausfall im Stellwerk (groß)
-  840: { POL: 2, POLH: 1, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 1, NEF: 1 }, // Personensuche im Wald
-  841: { RTW: 1 }, // Unterstützung Hausnotruf
-  842: { RTW: 1 }, // Unterstützung Hausnotruf
-  843: { POL: 1 }, // ausgelößte Höhenkontrolle
-  844: { LF: 2, RW: 1, POL: 1 }, // Bierfässer ausgelaufen
-  845: { POL: 1 }, // Lärmbelästigung durch Vatertagsfeier
-  846: { POL: 1, RTW: 1 }, // Betrunkene versuchen Kühe um zu Schubsen
-  848: { LF: 20, RW: 3, ELW: 3, ELW2: 1, DLK: 3, FWK: 1, POL: 10, GKW: 6, THWMTW: 6, THWGWN: 6, AAOTHWR: 3, RTW: 50, NEF: 1 }, // Einsturz Terminal
-  850: { LF: 15, DLK: 2, ELW: 4, ELW2: 1, SW: 4, GWA: 2, POL: 12, RTW: 10, NEF: 5 }, // Großbrand im Stadion
-  851: { POL: 1, ZIV: 1 }, // Sommermärchen geplatzt
-  852: { RTW: 1 }, // Schwalbe fliegt gegen Mauer
-  853: { GWBH: 1 }, // Höhenrettung aus Gondel
-  854: { BERG: 1, RTW: 1 }, // Abgestürzter Wanderer
-  855: { GWHB: 1, RTW: 1, NEF: 1 }, // Rettung aus Felsspalte
-  856: { BERG: 1, RTW: 1, GWB: 1, HUBW: 1 }, // Blockierte Bergsteiger
-  857: { BERG: 1, RTW: 1, NEF: 1, GWB: 1, HUBW: 1 }, // Gestürzter Mountainbiker
-  858: { BERG: 1, GWB: 1, HUBW: 1 }, // Erschöpfte Wanderer
-  859: { GWHB: 1, RTW: 1, NEF: 1 }, // Abgestürzter Kletterer
-  860: { GWHB: 1, RTW: 1, NEF: 1 }, // Gleitschirmabsturz
-  864: { GWB: 2, ELWB: 1, DOGRESCUE: 1, DROHNE: 1, RTHW: 2, RTW: 1, NEF: 1 }, // Vermisstensuche im Gelände
-  865: { POL: 1 }, // PKW blockiert Strassenbahn
-  866: { ELWB: 1, GWB: 3, ATV: 2, SW: 2, GWA: 2, LF: 1, POLAB: 1, RTW: 1, NEF: 1 }, // Großfeuer im Bergwald
-  867: { ELWB: 1, GWB: 3, ATV: 2, GWHB: 1, RTHW: 2, RTW: 13, NEF: 1 }, // Personensuche nach Gerölllawine
-  879: { LF: 8, ELW: 1, GWSAN: 1, RTW: 5, POL: 2 }, // Absicherung Flugshow
-  880: { RTW: 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
-  881: { GWB: 1, ATV: 1, RTW: 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
-  882: { POL: 1 }, // Schulschwänzer
-  883: { POL: 1 }, // Schulschwänzer
-  884: { LF: 5, RW: 2, GWO: 1, ELW: 2, POL: 4, RTW: 3 }, // Verkehrsunfall mit Stadtbahn
-  887: { SEA: 1 }, // Abschleppen eines manövrierunfähigen Kutters
-  888: { SEAHELI: 1, SEA: 2 }, // Rettung eines über Bord gegangenen Seglers
-  889: { SEA: 1 }, // Medizinische Erstversorgung eines erkrankten Fährpassagiers
-  890: { CRUISER: 1 }, // Freischleppen einer Segelyacht
-  891: { SEA: 2 }, // Rettung eines schwerverletzten Seglers
-  892: { SEA: 3 }, // Rettung eines beschädigten Segelbootes
-  893: { CRUISER: 1 }, // Befreiung der Fahrgäste einer aufgelaufenen Fähre
-  894: { CRUISER: 3, SEAHELI: 2 }, // Befreiung der Fahrgäste einer aufgelaufenen Fähre
-  895: { SEA: 2 }, // Abschleppen eines defekten Wasserflugzeugs
-  896: { SEA: 2 }, // Verletzte auf Segelboot
-  897: { KTW: 1 }, // Patientenübernahme von Ambulanzflug
-  898: { LF: 2, ULF: 1, GWW: 1, ELW: 1 }, // Rauchentwicklung in Produktionshallen
-  899: { LF: 10, RW: 4, ELW: 3, ELW2: 1, DLK: 3, FWK: 1, GKW: 2, THWMTW: 2, THWGWSB: 2, AAOTHWR: 2, AAOTHWDLE: 2, POL: 3, DOG: 1, RTW: 10, NEF: 5 }, // Sporthalle eingestürzt
-  900: { POL: 1 }, // Verdaechtiges Fahrzeug
-  901: { LF: 4, DLK: 1, GWA: 1, ELW: 1, POL: 1, RTW: 1 }, // Brand in Weihnachtsbäckerei
-  902: { ELW: 2, ELW2: 1, LF: 10, RW: 5, DLK: 2, FWK: 1, GWH: 1, POL: 4, THWMTW: 2, GKW: 2, THWGWN: 2, AAOTHWR: 2, THWDLE: 1, RTW: 5, NEF: 1, DOG: 2 }, // Brückeneinsturz (klein)
-  903: { LF: 18, RW: 5, DLK: 4, ELW: 5, ELW2: 1, FWK: 2, GWH: 2, POL: 8, DOG: 4, THWMTW: 4, GKW: 4, THWGWN: 4, AAOTHWR: 3, THWDLE: 2, RTW: 1, NEF: 1 }, // Brückeneinsturz (Groß)
-  904: { BAHN: 1, LF: 3, RW: 2, ELW: 1, DLK: 1, POL: 2, RTW: 1, NEF: 1, RTH: 1 }, // Person unter Zug
-  905: { BAHN: 1, POL: 2, RTW: 1, NEF: 1 }, // Rangierunfall
-  906: { LF: 2, BAHN: 1, ELW: 1, POL: 2 }, // Personensuche bei Schnellfahrstrecke
-  907: { BAHN: 1 }, // Eingleisen einer U-Bahn
-  908: { LF: 2, BAHN: 1, POL: 3 }, // Verkehrsunfall mit Straßenbahn
-  909: { FWK: 1, LF: 2, BAHN: 1, POL: 4 }, // Straßenbahn entgleist
-  910: { FWK: 2, LF: 4, BAHN: 2, POL: 3, ELW: 1, DLK: 1, NEF: 1 }, // Personenzug entgleist
-  911: { LF: 5, RW: 1, ELW: 1, POL: 4, RTW: 1, NEF: 1 }, // Abgestürzter Weihnachtsschlitten
-  912: { RTW: 1 }, // Lebkuchenmann durch Biss verletzt
-  913: { POL: 2, POLH: 1, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 1 }, // Weihnachtsmann vermisst
-  914: { LF: 12, DLK: 3, ELW: 4, ELW2: 1, GWM: 2, GWA: 2, GWG: 1, DEKONP: 1, SW: 2, RW: 3, POL: 8, THWMTW: 1, GKW: 1, THWGWN: 1, AAOTHWR: 1, SLF: 1 }, // Brand in Düngemittellager
-  915: { LF: 2, RW: 1, ELW: 1, POL: 1, RTW: 1 }, // Verletzte Person in verlassenem Gebäude
-  916: { LF: 6, ELW: 2, DLK: 2, RW: 1, SW: 1, GWH: 1, POL: 4, RTW: 1 }, // Brand auf alten Frabrikgelände
-  917: { POL: 1, DOG: 1, WAWE: 1, LAUKW: 1 }, // Jahrestag vergessen
-  918: { LF: 2, DLK: 1 }, // Unterstützung bei Feuerwehr-Heiratsantrag
-  919: { LF: 10, ELW: 3, ELW2: 1, DLK: 3, RW: 2, POL: 5, RTW: 5, NEF: 1 }, // Großfeuer durch umgefallene Kerzen
-  920: { POL: 1, RTW: 1, NEF: 1 }, // Vergiftete Pralinen
-  925: { LF: 14, RW: 1, ELW: 3, ELW2: 1, GWM: 1, GWA: 2, DLK: 3, SW: 1, POL: 8, RTW: 20 }, // Hochhausbrand mit Evakuierung
-  926: { LF: 4, ELW: 1 }, // Brandsicherheitswache Rockfestival
-  927: { DLK: 4, ELW: 4, ELW2: 1, GWA: 2, SW: 4, LF: 16, POL: 8, AAOTHWR: 2, GKW: 2, THWMTW: 1, THWGWN: 2, RTW: 10 }, // Brand in Schokoeierfabrik
-  929: { GRUKW: 9, BEFKW: 4, FUEKW: 1, GEFKW: 1, WAWE: 3, POL: 10, POLH: 1, RTW: 5 }, // Unangemeldeter Osterhasenstreik
-  930: { LF: 6, RW: 1, DLK: 1, ELW: 2, GWA: 1, SW: 1, POL: 4, RTW: 1 }, // Feuer im Zoo
-  931: { GKW: 2, THWMTW: 1, THWGWN: 2, SWP: 1 }, // Ausgefallene Pumpen in Kläranlage
-  932: { LF: 28, DLK: 4, ELW: 6, ELW2: 1, SW: 3, RW: 6, POL: 10, GWA: 3, GWM: 2, GKW: 2, THWMTW: 2, THWGWN: 2, RTW: 5 }, // Großbrand in Kohlebunker
-  933: { LF: 4, RW: 1, ELW: 1, DLK: 1, GWG: 1, GWM: 1, DEKONP: 1, POL: 4, RTW: 2, NEF: 2 }, // Gefahrgut-Austritt in Paketzentrum
-  934: { LF: 5, ELW: 2, RW: 1, DLK: 2, GWA: 1, GWM: 1, GWG: 1, SW: 1, DEKONP: 1, GKW: 1, AAOTHWR: 1, POL: 4, RTW: 1, NEF: 1 }, // Brand auf Recyclinghof
-  935: { LF: 2, RW: 1, DLK: 1, ELW: 1, POL: 4, RTW: 1, NEF: 1 }, // Herabstürzende Brückenteile
-  936: { LF: 5, RW: 1, ELW: 1, SW: 1, GWM: 1, GWA: 1, POL: 2, RTW: 1 }, // Brand einer Gasstation
-  937: { LF: 3, RW: 1, SW: 1, GWG: 1, DROHNE: 1 }, // Bauernhof steht unter Wasser
-  938: { LF: 1, RTW: 1 }, // Person in Großgehege
-  940: { LF: 1, DLK: 2, ELW: 1, GWM: 2, SW: 3, POL: 2 }, // Brand in Solarpark
-  941: { LF: 1, POL: 1 }, // Illegales Lagerfeuer in Park
-  942: { GKW: 1, THWMTW: 1, THWGWN: 1 }, // Tragwerkssicherung
-  943: { LF: 15, RW: 2, DLK: 3, ELW: 2, ELW2: 1, GWA: 1, GWM: 1, SW: 1, POL: 4, RTW: 10 }, // Brennendes Spukschloss
-  944: { LF: 2, GWM: 1, GWG: 1, DEKONP: 1, ELW: 1, RTW: 1 }, // Chemieunfall beim Zaubertrank-Brauen
-  945: { RTW: 1 }, // Kopf steckt in ausgehöhltem Kürbis fest
-  946: { LF: 1, POL: 1, RTW: 1 }, // Hilflose Geisterjäger in Spukhaus
-  947: { LF: 1, POL: 1, RTW: 1, NEF: 1 }, // Giftiges Kleintier entflohen
-  948: { POL: 2 }, // Schwerer Erntediebstahl
-  949: { RTW: 1, CARRY: 1 }, // Pilzsucher im Wald verunglückt
-  950: { BERG: 1, RTW: 1 }, // Pilzsucher im Bergwald verunglückt
-  951: { POL: 1 }, // Waffenfund
-  952: { LF: 2, POL: 12, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 3, GWSAN: 1 }, // Absicherung Besuch des Weihnachtsmannes
-  953: { MEK: 4 }, // Absicherung Geschenketransport
-  954: { ELW: 1 }, // Notlandung Weihnachtsschlitten (klein)
-  955: { LF: 3, ELW: 1 }, // Notlandung Weihnachtsschlitten (groß)
-  956: { POL: 2 }, // Streit bei Weihnachtsessen
-  957: { LF: 1 }, // Unterstützung Geschenkelieferung
-  958: { LF: 1 }, // Weihnachtsgans im Ofen vergessen
-  959: { LF: 1, ELW: 1, DLK: 1, GWH: 1, POL: 1, RTW: 1 }, // Verletzte Person auf Kühlturm
-  962: { LF: 3, DLK: 1, ELW: 1 }, // Brennender Blumenladen
-  963: { RTW: 1 }, // Person auf Rosenblättern ausgerutscht
-  964: { GKW: 1, THWMTW: 1, THWGWN: 1, THWGWSB: 1 }, // Tragwerkssicherung (Brücke)
-  965: { LF: 1 }, // Brennendes Blumenfeld
-  967: { RTW: 1 }, // Person auf Rosenblättern ausgerutscht
-  968: { LF: 1, RW: 2, ELW: 1, ELW2: 1, DLK: 1, GWA: 1, GWM: 1, SW: 1, POL: 4 }, // Brand im Fahrsilo
-  969: { LF: 20, RW: 4, DLK: 3, SW: 2, GWA: 2, ELW: 5, ELW2: 1, GWM: 2, GWG: 1, GWH: 1, FWK: 1, GWW: 1, ULF: 1, TELE: 1, TURBO: 1, POL: 8, GKW: 2, THWGWN: 1, THWMTW: 1, DOG: 1, AAOTHWR: 1, THWDLE: 1, RTW: 15 }, // Brand in Schiffswerft
-  970: { LF: 20, RW: 4, DLK: 3, SW: 2, GWA: 2, ELW: 5, ELW2: 1, GWM: 2, GWG: 1, GWH: 1, FWK: 1, POL: 8, GKW: 2, THWGWN: 1, THWMTW: 1, AAOTHWR: 1, THWDLE: 1, RTW: 15 }, // Brand in Schiffswerft
-  971: { POLAP: 1, RTW: 1 }, // Angefahrene Person auf Autobahn
-  972: { POLAP: 1 }, // Trunkenheitsfahrt auf Autobahn
-  973: { POLAP: 1, RTW: 1, NEF: 1 }, // Motorradunfall auf Autobahn
-  974: { POLAP: 1 }, // Pannenfahrzeug auf Autobahn
-  975: { POLAP: 1 }, // Verkehrsbehinderung auf Autobahn
-  976: { POLAP: 1 }, // Wildunfall auf Autobahn
-  977: { POLAP: 4 }, // Geisterfahrer auf Autobahn
-  978: { POLAP: 1 }, // Absicherung Pannen-LKW auf Autobahn
-  979: { POLAP: 4, POLH: 1 }, // Fahndung auf Autobahn nach KFZ-Diebstahl
-  980: { POLAP: 1 }, // Fahndung auf Autobahn nach Kraftstoffdiebstahl
-  981: { POLAP: 1 }, // Ausgelöste Höhenkontrolle auf Autobahn
-  982: { POLAP: 1 }, // Verdächtiges Fahrzeug auf Autobahn
-  983: { THWMTW: 1 }, // Autobahnbereitschaft
-  984: { POLAP: 10, ZIV: 2, POLBIKE: 4, DOGPOL: 1 }, // Großangelegte LKW-Kontrolle
-  985: { POLAP: 10, ZIV: 2, POLBIKE: 4, DOGPOL: 1 }, // Großangelegte PKW-Kontrolle
-  986: { POLAP: 4 }, // Absicherung Schwertransport
-  987: { POLAP: 2 }, // Verkehrsunfall auf Autobahn
-  988: { LF: 3, RW: 2, ELW: 1, POLAP: 4, RTW: 1 }, // Verkehrsunfall auf Autobahn (Person eingeklemmt)
-  989: { POLAP: 2, RTW: 2 }, // Verkehrsunfall auf Autobahn (mit Verletzten)
-  990: { POLAP: 2, ELW: 1, LF: 2 }, // Versorgung von Personen im Stau
-  991: { POLAP: 1 }, // LKW verliert Ladung
-  992: { POLAP: 1 }, // Pannenfahrzeug auf Standstreifen
-  993: { POLAP: 1 }, // Gegenstand auf Fahrbahn
-  994: { POLAP: 1 }, // Person auf Autobahn
-  995: { POLAP: 1 }, // Übermüdeter PKW-Fahrer
-  996: { POLAP: 1 }, // Übermüdeter LKW-Fahrer
-  997: { POLAP: 1 }, // Gefahr auf Autobahn durch Baustelle
-  998: { POLAP: 5 }, // Hochzeits-Korso auf Autobahn
-  999: { POLAP: 6 }, // Fan-Korso auf Autobahn
-  1000: { POLAP: 1 }, // Rettungsgasse kontrollieren
-  1001: { POLAP: 2, LF: 2, GWO: 1 }, // Ölspur auf Autobahn
-  1002: { POLAP: 1, GKW: 1, THWMTW: 1, THWGWN: 1, LF: 1, RW: 1, AAOTHWR: 1 }, // Ladungsbergung eines LKW auf Autobahn
-  1003: { POLAP: 1 }, // Platzverweis missachtet
-  1004: { POL: 2, MEK: 4, FUEKW: 1, RTW: 1, NEF: 1 }, // Ausrastenden Trainer unter Kontrolle bringen
-  1005: { RTW: 1 }, // Zusammenbruch durch Niederlage
-  1006: { POL: 5, DOGPOL: 1 }, // Randalierende Fußballfans
-  1007: { GRUKW: 3, BEFKW: 1, GEFKW: 1 }, // Platzsturm
-  1008: { POL: 2, LF: 1, RTW: 1 }, // Fußballfan auf Fanmeile vermisst
-  1009: { LF: 5, RW: 1, ELW: 1, DLK: 1, GKW: 2, THWGWN: 2, THWMTW: 1, POL: 6, RTW: 10, NEF: 1 }, // Eingestürzte VIP-Lounge
-  1010: { SEGELW: 1, RTW: 4, GWSAN: 1, LF: 2, POL: 1 }, // Absicherung Volksfest (klein)
-  1011: { POL: 10, GRUKW: 6, BEFKW: 2, DOGPOL: 1, RTW: 2 }, // Geburtstagsfeier außer Kontrolle
-  1012: { POL: 3 }, // Einbruch auf Flughafengelände
-  1013: { GWT: 1 }, // Kleintier in Not
-  1015: { LF: 1, POL: 1, GWT: 1, NEF: 1 }, // Giftiges Kleintier entflohen
-  1016: { LF: 1, RW: 1, DLK: 1, GWT: 1 }, // Pferd in Jauchegrube
-  1017: { POL: 2, GWT: 1, RTW: 1 }, // Hundeangriff
-  1018: { POL: 1, GWT: 1 }, // Wildunfall
-  1019: { POL: 1, GWT: 1, RTW: 1, NEF: 1 }, // Reitunfall mit Pkw
-  1021: { BOAT: 1, LF: 2, GWO: 1, ELW: 1, POL: 1, GWT: 1 }, // Gewässerverschmutzung durch Öl
-  1022: { POL: 2, GWT: 1 }, // Tiere auf der Fahrbahn
-  1023: { LF: 1, POL: 2, HORSE: 1, GWT: 1 }, // Entlaufenes Pferd
-  1024: { LF: 3, ELW: 1, POL: 2, GWT: 1 }, // Wildtier einfangen
-  1025: { LF: 1, GWT: 1 }, // Wespennest umsiedeln
-  1026: { LF: 6, DLK: 2, SW: 1, GWA: 1, ELW: 2, POL: 2, GWT: 1 }, // Brennender Stall - Tierrettung
-  1027: { LF: 15, DLK: 1, ELW: 3, ELW2: 1, GWA: 1, GWG: 1, GWM: 2, SW: 1, DEKONP: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, DROHNE: 1, NEA50: 1, RTW: 1, GWW: 1, ULF: 1, TELE: 1, TURBO: 1 }, // Brand eines Großbatteriespeichers
-  1028: { LF: 15, DLK: 1, ELW: 3, ELW2: 1, GWA: 1, GWG: 1, GWM: 2, SW: 1, DEKONP: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, DROHNE: 1, NEA50: 1, RTW: 1 }, // Brand eines Großbatteriespeichers
-  1029: { LF: 8, SW: 5, ELW: 3, ELW2: 1, GWA: 6, DLK: 1, GWM: 1, POL: 10, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 5 }, // Großflächiger Waldbrand
-  1030: { BEFKW: 2, GRUKW: 6, POL: 8 }, // Evakuierung Gefahrengebiet
-  1031: { ELW: 1, LF: 2, RW: 1, POL: 2, RTW: 1, NEF: 1 }, // Person in Müllwagen eingeklemmt
-  1032: { POLAP: 8, LF: 10, RW: 5, ELW: 2, GWO: 2, RTW: 6 }, // Massenkarambolage auf Autobahn
-  1033: { GKW: 2, AAOTHWR: 2, THWMTW: 2, THWGWN: 2, THWDLE: 2, LF: 6, ELW: 2, ELW2: 1, RW: 3, GWH: 1, FWK: 1, POL: 5, RTW: 1 }, // Einsturz Tunnelbaustelle
-  1034: { LF: 8, DLK: 4, ELW: 2, ELW2: 1, RW: 3, GWH: 2, FWK: 1, POL: 8, RTW: 10, NEF: 1 }, // Entgleisung eines Fahrgeschäfts
-  1035: { POL: 2, POLH: 1, LF: 1 }, // Suche nach vermisstem Skelett
+ lf1: { LF: 1 },
+ lf2: { LF: 2 },
+ 0: { LF: 1 }, // Mülleimerbrand
+ 1: { LF: 1, POL: 1 }, // Brennender Abfallcontainer
+ 2: { LF: 1 }, // Brennender PKW
+ 3: { LF: 1 }, // Motorradbrand
+ 4: { LF: 1 }, // Brennendes Gras
+ 5: { LF: 2, DLK: 1, ELW: 1, POL: 1, RTW: 2 }, // Zimmerbrand
+ 6: { LF: 2, ELW: 1 }, // Gartenlaubenbrand
+ 7: { LF: 1 }, // Brennender PKW
+ 8: { LF: 1, POL: 1 }, // Sperrmüllbrand
+ 9: { LF: 1 }, // Strohballenbrand
+ 10: { LF: 1 }, // Traktorbrand
+ 11: { LF: 1 }, // Brennende Telefonzelle
+ 12: { F: 1 }, // Baum auf Straße
+ 13: { LF: 2, POL: 1 }, // Brennender LKW
+ 14: { LF: 2 }, // kleiner Feldbrand
+ 15: { LF: 1 }, // kleiner Waldbrand
+ 16: { LF: 2 }, // Wohnungsbrand
+ 17: { LF: 1 }, // Brand in Briefkasten
+ 18: { LF: 1 }, // Brennendes Gebüsch
+ 19: { LF: 1 }, // Brennender Anhänger
+ 20: { LF: 3, ELW: 1, DLK: 1, POL: 1 }, // Kellerbrand
+ 21: { LF: 1, ELW: 1, DLK: 1 }, // Schornsteinbrand
+ 22: { LF: 3, ELW: 1, DLK: 1 }, // Dachstuhlbrand
+ 23: { LF: 1 }, // Fettbrand in Pommesbude
+ 24: { LF: 1 }, // Brennendes Bushaeuschen
+ 25: { LF: 1, RTW: 1 }, // Verkehrsunfall
+ 26: { LF: 3, DLK: 1, RW: 1, ELW: 1, ELW2: 1 }, // Brand im Supermarkt
+ 27: null,
+ 28: { LF: 2 }, // Garagenbrand
+ 29: { LF: 3, ELW: 1, RW: 1, SW: 1, GWA: 1 }, // Maschinenbrand
+ 30: { LF: 1, GWO: 1 }, // Große Ölspur
+ 31: { LF: 1, RW: 1 }, // Auslaufende Betriebsstoffe
+ 32: { LF: 2, DLK: 1, ELW: 1 }, // Kaminbrand
+ 33: { LF: 2 }, // Mähdrescherbrand
+ 34: { LF: 3, ELW: 1, DLK: 1, RW: 1, RTW: 2 }, // Brand in Supermarkt
+ 35: { LF: 4, ELW: 1, DLK: 1 }, // Feuer im Krankenhaus
+ 36: { SLF: 1, LF: 4, ELW: 1, DLK: 1 }, // Brennender Güterwagon
+ 37: null,
+ 38: null,
+ 39: null,
+ 40: null,
+ 41: { LF: 6, GWA: 1, GWM: 1, ELW: 2, ELW2: 1, DLK: 2, SW: 1 }, // Großbrand
+ 42: { LF: 4, ELW: 1, DLK: 1, GWO: 1, RW: 1, POL: 2, GWM: 1, GWG: 1 }, // Tankstellenbrand
+ 43: { LF: 10, RW: 5, ELW: 2, GWO: 1 }, // Massenkarambolage
+ 44: { RTW: 1 }, // Alkoholintoxication
+ 45: { RTW: 1 }, // Nasenbluten unstillbar
+ 46: { RTW: 1, NEF: 1 }, // Herzinfarkt
+ 47: { RTW: 1, NEF: 1 }, // akuter Asthma-Anfall
+ 48: { RTW: 1, NEF: 1 }, // Krampfanfall
+ 49: { RTW: 1 }, // Hohes Fieber
+ 50: { RTW: 1 }, // Gestürzte Person
+ 51: { LF: 4, RW: 1, ELW: 1, DLK: 1, RTW: 1 }, // Brand in Werkstatt
+ 52: { LF: 1, RTW: 1 }, // Brand auf Weihnachtsmarkt
+ 53: { LF: 1, RW: 1, RTW: 1 }, // Verkehrsunfall durch Glatteis
+ 54: { RTW: 1 }, // Personenschaden durch Verbrennung
+ 55: { LF: 1 }, // Brennender Tannenbaum
+ 56: { RTW: 1 }, // Betrunkene Person auf Weihnachtsmarkt
+ 57: { RTW: 1 }, // Gestürzter Fußgänger
+ 58: { RTW: 1 }, // Gestürzter Radfahrer
+ 59: { LF: 20, GWM: 4, GWG: 4, ELW: 3, ELW2: 1, RW: 5, DLK: 2, GWA: 3, RTW: 1 }, // Gefahrgutunfall
+ 60: { POL: 1 }, // Ladendiebstahl
+ 61: { POL: 1 }, // Ladendiebstahl
+ 62: { POL: 1 }, // Parkendes Auto gerammt
+ 63: { POL: 1 }, // parkendes Auto gerammt
+ 64: { POL: 1 }, // Metalldiebstahl
+ 65: { POL: 1 }, // Taschendiebstahl
+ 66: { POL: 1 }, // Notebook aus Schule entwendet
+ 67: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
+ 68: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
+ 69: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
+ 70: { POL: 1 }, // Personalienaufnahme nach Schwarzfahrer
+ 71: { POL: 1 }, // parkendes Auto gerammt
+ 72: { LF: 1, ELW: 1, RTW: 1, POL: 1, GWH: 1 }, // Bewußtloser Kranführer
+ 73: { POL: 3, RTW: 2 }, // Schlägerei
+ 74: { POL: 2 }, // Randalierende Person
+ 75: { POL: 7 }, // Unangemeldete Demonstration
+ 76: { LF: 2 }, // Küchenbrand
+ 77: { LF: 1, POL: 1, RTW: 1 }, // Person hinter Tuer
+ 78: { LF: 1 }, // Kleintier in Not
+ 79: { LF: 1, ELW: 1, RTW: 1, GWH: 1 }, // Verletzte Person auf Baugerüst
+ 80: { LF: 3, ELW: 1, DLK: 1, GWA: 1, POL: 2, NEF: 1, RTW: 2 }, // Rauchentwicklung in Museum
+ 81: { POL: 1 }, // Einbruch in Keller
+ 82: { POL: 1 }, // Einbruch in Wohnung
+ 83: { LF: 3, ELW: 1, RTW: 1, POL: 2, GWG: 1 }, // Gefahrgut-LKW verunglückt
+ 84: { LF: 4, ELW: 1, RW: 1, RTW: 1 }, // Brennende Lok
+ 85: { POL: 1 }, // Sachbeschädigung
+ 86: { LF: 7, ELW: 1, ELW2: 1, DLK: 2, SW: 1, GWA: 1 }, // Sporthallenbrand
+ 87: { LF: 3, ELW: 1, RW: 1, POL: 2, RTW: 2, NEF: 1 }, // Kleinflugzeug abgestürzt
+ 88: { LF: 1 }, // Brennender Bollerwagen
+ 89: { LF: 3, ELW: 1, RW: 1, POL: 2, RTW: 1 }, // LKW Auffahrunfall
+ 90: { POL: 1 }, // Ruhestörung
+ 91: { LF: 1 }, // Keller unter Wasser
+ 92: { RTW: 1 }, // Schlaganfall
+ 93: { LF: 6, ELW: 2, ELW2: 1, RW: 2, POL: 5, RTW: 4 }, // Brennender Bus
+ 94: { smallOil: 1 }, // kleine Ölspur
+ 95: { LF: 6, ELW: 1, POL: 2, GWO: 1 }, // ausgedehnte Ölspur
+ 96: { LF: 3, RTW: 1 }, // Feuer in Schnellrestaurant
+ 97: { LF: 3, ELW: 1, GWO: 1 }, // Aufgerissener Öltank
+ 98: { POL: 1, RTW: 1 }, // Angefahrene Person
+ 99: { LF: 22, GWA: 1, GWM: 1, DLK: 1, ELW: 2, ELW2: 2, RW: 6, POL: 10, RTW: 10, NEF: 2 }, // Flugzeug abgestürzt
+ 100: { LF: 1, POL: 1 }, // Küchenbrand
+ 101: null,
+ 102: { LF: 3, DLK: 1, ELW: 1 }, // Feuer in Einfamilienhaus
+ 103: { LF: 3, DLK: 1, ELW: 1, POL: 1, RTW: 1 }, // Feuer in Einfamilienhaus
+ 104: { LF: 3, DLK: 1, ELW: 1 }, // Feuer in Einfamilienhaus
+ 105: { LF: 3, DLK: 1, ELW: 1, POL: 1 }, // Feuer in Einfamilienhaus
+ 106: { POL: 5 }, // Massenschlägerei
+ 107: { POL: 5 }, // Massenschlägerei
+ 108: { RTW: 1, NEF: 1 }, // Schwangere in Notsituation
+ 109: { LF: 1, RTW: 1, NEF: 1 }, // Beginnende Geburt
+ 110: { RTW: 1 }, // Vaginale Blutung
+ 111: { LF: 1 }, // Brennende Vogelscheuche
+ 112: { LF: 2 }, // Brennendes Kürbisfeld
+ 113: { LF: 2, ELW: 1, GWA: 1, RTW: 1 }, // Kürbissuppe übergekocht
+ 114: { DLK: 1, LF: 1, RTW: 1, NEF: 1 }, // Hexe hängt in Baum
+ 115: { RTW: 1, NEF: 1 }, // Zombiebiss
+ 116: { POL: 4 }, // Monster ausgebrochen
+ 117: { POL: 1 }, // Kürbisse geklaut
+ 118: { POL: 3 }, // Frankensteins Monster gesichtet
+ 119: { POL: 1 }, // Süßigkeitendiebstahl
+ 120: { LF: 2, RW: 1, ELW: 1, RTW: 1, FWK: 1 }, // LKW umgestürzt
+ 121: { LF: 2, RW: 1, ELW: 1, POL: 2, RTW: 1, FWK: 1 }, // LKW umgestürzt
+ 122: { POL: 1, RTW: 2, NEF: 1 }, // Motorradunfall
+ 123: { LF: 1, POL: 1, RTW: 1 }, // Verkehrsunfall
+ 124: { LF: 1, RW: 1, RTW: 2 }, // Verkehrsunfall
+ 125: { LF: 1, RW: 1, POL: 1, RTW: 2 }, // Verkehrsunfall
+ 126: { LF: 2, RW: 1, RTW: 3 }, // Verkehrsunfall
+ 127: { LF: 2, RW: 1, POL: 2, RTW: 2, NEF: 1 }, // Verkehrsunfall
+ 128: { LF: 1, RTW: 1, POL: 1 }, // Auffahrunfall
+ 129: { LF: 1 }, // Brennender Adventskranz
+ 130: { POL: 2, RTW: 1 }, // Rangelei auf Weihnachtsmarkt
+ 131: { LF: 5, ELW: 1, SW: 1 }, // Mittlerer Feldbrand
+ 132: { LF: 6, ELW: 1, SW: 1 }, // Großer Feldbrand
+ 133: { LF: 6, ELW: 1, SW: 1, POL: 1 }, // Großer Feldbrand
+ 134: { LF: 6, ELW: 1, SW: 1 }, // Großer Feldbrand
+ 135: { LF: 8, SW: 1, ELW: 1, POL: 1 }, // Großer Waldbrand
+ 136: { LF: 12, WATER: 2, ELW: 2, ELW2: 1, SW: 1, POL: 1, RTW: 1 }, // Großfeuer im Wald
+ 137: null,
+ 138: { LF: 2 }, // Flächenbrand
+ 139: { LF: 4 }, // Flächenbrand
+ 140: { LF: 2, POL: 2 }, // Flächenbrand
+ 141: { LF: 5, POL: 2 }, // Flächenbrand
+ 142: { LF: 2 }, // Feuer auf Balkon
+ 143: { LF: 1 }, // brennende Papierkontainer
+ 144: { LF: 1 }, // Brennende Hecke
+ 145: { POL: 1 }, // Trunkenheitsfahrt
+ 146: { LF: 1, DLK: 1, ELW: 1, POL: 2, RTW: 2 }, // Brennendes Reetdachhaus
+ 147: { KTW: 1 }, // Krankentransport
+ 148: { POL: 1 }, // Ampelausfall
+ 149: { POL: 1 }, // Pannenfahrzeug
+ 150: { POL: 1 }, // Hausfriedensbruch
+ 151: { POL: 3 }, // Raub
+ 152: { RTW: 1, POL: 2 }, // häusliche Gewalt
+ 153: { RTW: 1, POL: 1 }, // Hilflose Person
+ 154: { RTW: 1, POL: 1 }, // Hilflose Person
+ 155: { RTW: 1 }, // Akuter Harnstau
+ 156: { RTW: 1 }, // Harnröhrenblutung
+ 157: { RTW: 1, NEF: 1 }, // Herzrhythmusstörungen
+ 158: { LF: 1 }, // Tiefgarage unter Wasser
+ 159: { LF: 1 }, // Äste auf Fahrbahn
+ 160: { LF: 1 }, // Umherfliegendes Baumaterial
+ 161: { LF: 1 }, // Baum auf PKW
+ 162: { LF: 1, RTW: 1, POL: 1 }, // Baum auf PKW
+ 163: { LF: 1 }, // Baum auf Dach
+ 164: { RTW: 1 }, // Kopfplatzwunde
+ 165: { RTW: 1 }, // Gehirnerschütterung
+ 166: { LF: 1, POL: 1, ELW: 1 }, // Fassadenteile drohen zu fallen
+ 167: { LF: 2, ELW: 1, DLK: 1, POL: 1 }, // beschaedigter Dachbereich
+ 168: { LF: 1, POL: 1 }, // Baum auf Gleisen
+ 169: { LF: 1, POL: 1 }, // Baum auf Gleisen
+ 170: { LF: 1, POL: 1 }, // Baum auf Gleisen
+ 171: { LF: 1, ELW: 1, SW: 1, GWO: 1, POL: 2 }, // Parkdeck voll Wasser gelaufen
+ 172: { LF: 1 }, // Straße unter Wasser
+ 173: { LF: 1, POL: 2 }, // Straße unter Wasser
+ 174: { GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2 }, // Erdrutsch
+ 175: null,
+ 176: { GKW: 1, THWMTW: 1, THWGWN: 1, FWK: 1, DLK: 1, LF: 2, ELW: 1 }, // LKW in Hauswand
+ 177: { GKW: 2, THWMTW: 1, THWGWN: 1, LF: 3, ELW: 1, RW: 1, FWK: 1, POL: 2, THWGWSB: 1, DOG: 1, DROHNE: 1, RTW: 1, AAOTHWR: 1 }, // Eingestürztes Wohnhaus
+ 178: { LF: 3, ELW: 1, RW: 1, GWG: 1, GKW: 1, THWBRG: 1, POL: 2, RTW: 1 }, // Gefahrgut-LKW verunglückt
+ 179: { RTW: 1, NEF: 1, LF: 1 }, // Schädelverletzung
+ 180: { RTW: 1, NEF: 1, RTH: 1 }, // Wirbelsäulenverletzung
+ 181: { RTW: 1, RTH: 1, NEF: 1 }, // Sturz aus Höhe
+ 182: { RTW: 1, NEF: 1 }, // Sturz aus Höhe
+ 183: { RTW: 1 }, // Sonnenstich
+ 184: { RTW: 1 }, // Hitzschlag
+ 185: { RTW: 1, NEF: 1 }, // Hitzekrampf
+ 186: { LF: 5, ELW: 1, ELW2: 1, DLK: 2, GWA: 1, GWM: 1, SW: 1, SLF: 1, GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2, RTW: 1 }, // Lagerhallenbrand (Brandmeldeanlage)
+ 187: { LF: 2, ELW: 1, DLK: 1 }, // Feuer im Lagerraum
+ 188: { POL: 1 }, // Personenkontrolle
+ 189: { POL: 1 }, // Verkehrsbehinderung
+ 190: { POL: 1 }, // Diebstahl aus Kfz
+ 191: { LF: 1 }, // Baum auf Radweg
+ 192: { LF: 2, ELW: 2 }, // Brennende Trafostation
+ 193: { LF: 2, ELW: 1, POL: 1 }, // Brennende Trafostation
+ 194: { LF: 1, POL: 1, RTW: 1, NEF: 1 }, // Person unter Baum eingeklemmt
+ 195: { GRUKW: 3, BEFKW: 1 }, // Schwerpunkteinsatz Tageswohnungseinbrüche
+ 196: { GRUKW: 3, BEFKW: 1 }, // Schwerpunkteinsatz Verkehrsüberwachung
+ 197: { GRUKW: 3, BEFKW: 1 }, // Präsenzeinsatz Volksfest
+ 198: { POL: 2, GRUKW: 3, BEFKW: 1 }, // Jugendschutzkontrolle in Diskothek
+ 199: { GRUKW: 3, BEFKW: 1 }, // Geländedurchsuchung nach Beweismittel
+ 200: { POL: 2, GRUKW: 6, BEFKW: 2, GEFKW: 1 }, // Geplante Razzia
+ 201: { GRUKW: 9, BEFKW: 3, FUEKW: 1, GEFKW: 1, POL: 2 }, // Fußball Bundesliga-Spiel
+ 202: { POL: 1 }, // Diebstahl auf Weihnachtsmarkt
+ 203: { LF: 2, RTW: 1 }, // Brennende Weihnachtsmarktbude
+ 204: { LF: 6, ELW: 1, WATER: 1 }, // Scheunenbrand
+ 205: { LF: 7, ELW: 2, ELW2: 1, DLK: 2, GWA: 1, SW: 1, POL: 3, RTW: 3 }, // Feuer auf Bauernhof - Mittel
+ 206: { LF: 15, ELW: 2, ELW2: 1, DLK: 4, GWA: 2, SW: 2, POL: 3, GKW: 2, THWMTW: 1, AAOTHWR: 2, RTW: 2, NEF: 2 }, // Feuer auf Bauernhof - Groß
+ 208: { LF: 8, ELW: 1, ELW2: 1, RW: 2, GWA: 1, GWO: 1, GWM: 2, GWG: 1, DEKONP: 1, POL: 2, RTW: 5, NEF: 1 }, // Leck in Chemikalientank
+ 209: { POL: 1 }, // Fahraddiebstahl
+ 210: { RTW: 1, NEF: 1 }, // Unfall mit Motorsäge
+ 211: { RTW: 1 }, // Unterzuckerung
+ 212: { RTW: 1 }, // Akute Bauchschmerzen
+ 213: { LF: 20, RW: 2, DLK: 2, ELW: 5, ELW2: 1, SW: 2, GWM: 2, GWA: 2, POL: 4, GKW: 1, AAOTHWR: 1, AAOTHWDLE: 1, THWGWN: 1, THWGWSB: 1 }, // Gasexplosion
+ 214: { LF: 6, RW: 2, ELW: 1, DLK: 2, GWA: 1, POL: 2, RTW: 5 }, // Bürobrand
+ 215: { LF: 7, ELW: 2, ELW2: 1, GWA: 2, GWM: 1, GWG: 1, POL: 4, RTW: 5, NEF: 1 }, // Chlorgasaustritt
+ 223: { LF: 3, POL: 1, F: 1 }, // Brandsicherheitswache bei Volksfest
+ 224: { LF: 3, RTW: 1 }, // Brandsicherheitswache im Theater
+ 225: { LF: 3, RTW: 3, GWSAN: 1, NEA50: 1 }, // Dorf/Stadtfest
+ 226: { RTW: 3, GWSAN: 1 }, // Volkslauf
+ 227: { RTW: 1, POL: 3, GRUKW: 6, BEFKW: 2, FUEKW: 1 }, // Angemeldete Demonstration
+ 228: { POL: 2 }, // Absicherung Musikumzug
+ 229: { POL: 2, RTW: 2 }, // Absicherung Radrennen
+ 230: { LF: 1 }, // Feuerprobealarm an Schule
+ 231: { POL: 10, POLH: 1 }, // Entflohener Gefangener
+ 232: { POL: 2, POLH: 1 }, // Kabeldiebstahl
+ 233: { LF: 1, POL: 2, POLH: 1, RTW: 1 }, // Suche nach Vermissten
+ 234: { LF: 10, ELW: 1, ELW2: 1, POL: 5 }, // Entschärfung von Weltkriegsbombe
+ 235: { LF: 2, ELW: 1, RTW: 1, POL: 1, GWH: 1 }, // Verletzte Person auf Hochspannungsmast
+ 236: { LF: 2, GWH: 1, ELW: 1, DLK: 1, POL: 1, RTW: 1, NEF: 1, RTH: 1 }, // Verletzte Person auf Hochspannungsmast
+ 237: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 2, NEF: 1 }, // Verkehrsunfall mit Zug
+ 238: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 2 }, // Verkehrsunfall mit Linienbus
+ 239: { LF: 5, ELW: 2, ELW2: 1, RW: 2, FWK: 1, GWO: 1, POL: 4, RTW: 2 }, // Verkehrsunfall mit Linienbus
+ 240: { LF: 3, ELW: 1, GWG: 1, RTW: 1, POL: 1 }, // Gasgeruch
+ 241: { POL: 1 }, //Wildunfall
+ 242: { LF: 2, GWM: 1, POL: 3, RTW: 2 }, // Pfefferspray in Schule
+ 243: { POL: 1, NEF: 1, RTW: 2 }, // Reitunfall mit Pkw
+ 244: { DLRG: 1, RTW: 1 }, // Person in Wasser
+ 245: { DLRG: 1, RTW: 1 }, // Person in Wasser
+ 246: { LF: 3, ELW: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
+ 247: { POL: 2, BOAT: 2, TAUCHER: 2, LF: 3, ELW: 1, RTW: 1, NEF: 1 }, // Pkw in Wasser
+ 248: { POL: 3, BOAT: 3, TAUCHER: 3, LF: 5, ELW: 1 }, // LKW in Wasser
+ 249: { LF: 5, POL: 3, BOAT: 3, TAUCHER: 3, ELW: 1 }, // Bus in Wasser
+ 250: { DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
+ 251: { DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
+ 252: { LF: 3, ELW: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Person in Wasser
+ 253: { LF: 3, ELW: 1, POL: 2, BOAT: 2, TAUCHER: 2 }, // Personensuche nahe Gewässer
+ 254: { LF: 5, ELW: 1, POL: 3, BOAT: 3, TAUCHER: 3, RTW: 1 }, // LKW in Wasser
+ 255: { LF: 5, ELW: 1, POL: 3, BOAT: 3, TAUCHER: 3, RTW: 1 }, // Bus in Wasser
+ 257: { POL: 2 }, // Verkehrsueberwachung
+ 258: { LF: 4, ELW: 1, DLK: 1, RW: 2, POL: 3, GWO: 1, FWK: 1 }, // Baumaschine umgestürzt
+ 259: { LF: 1 }, // Brennender PKW durch Feuerwerkskörper
+ 260: { LF: 1 }, // Sperrmüllbrand durch Feuerwerkskörper
+ 261: { LF: 2 }, // Kleiner Feldbrand durch Feuerwerkskörper
+ 262: { ELW: 1, LF: 3 }, // Kellerbrand durch Feuerwerkskörper
+ 263: { LF: 1 }, // Brennendes Bus-Häuschen durch Feuerwerkskörper
+ 264: { LF: 2 }, // Feuer auf Balkon durch Feuerwerkskörper
+ 265: { LF: 1 }, // Brennende Papiercontainer durch Feuerwerkskörper
+ 266: { LF: 1 }, // Brennende Hecke durch Feuerwerkskörper
+ 267: { POL: 1 }, // Trunkenheitsfahrt nach Silvesterparty
+ 268: { LF: 5, DLK: 1, ELW: 1, POL: 2, RTW: 1, NEF: 1 }, // Brennendes Reetdachhaus durch Feuerwerkskörper
+ 269: { POL: 1 }, // Kfz durch Feuerwerkskörper beschädigt
+ 270: { POL: 1 }, // Verstoß gegen Sprengstoffverordnung
+ 271: { LF: 10, RW: 1, DEKONP: 1, GWG: 1, GWM: 1, DLK: 1, ELW: 2, ELW2: 1, POL: 3, GKW: 1 }, // Beschädigter Kesselwagen
+ 272: { LF: 2, GWO: 1, ELW: 1, POL: 1, DLRG: 1 }, // Gewässerverschmutzung durch Öl
+ 273: { LF: 2, ELW: 1, GWO: 1, POL: 1, DLRG: 1 }, // Gewässerverschmutzung durch Öl
+ 274: { RTW: 1, NEF: 1 }, // Bewusstlose Person
+ 275: { POL: 4, BEFKW: 3, GRUKW: 9, FUEKW: 1, RTW: 4, LF: 2 }, // Absicherung Rockkonzert
+ 276: { POL: 4 }, // Schwertransport
+ 277: { RW: 1, RTW: 1 }, // Person im Aufzug
+ 278: { GKW: 1, THWMTW: 1, THWGWN: 1, FWK: 1, DLK: 1, LF: 2, ELW: 1, POL: 2, RTW: 1 }, // LKW in Supermarkt
+ 279: { GKW: 1, THWMTW: 1, THWGWN: 1, FWK: 1, DLK: 1, LF: 2, ELW: 1, POL: 2, RTW: 2 }, // LKW in Supermarkt
+ 280: { LF: 3, ELW: 1, RW: 1, DLK: 1 }, // Baum auf Oberleitung
+ 281: { LF: 1, RTW: 1, NEF: 1, RTH: 1 }, // Stromschlag
+ 282: { LF: 2, ELW: 1, RW: 1 }, // Geplatzte Wasserleitung
+ 283: { LF: 10, RW: 2, ELW: 3, ELW2: 1, DLK: 2, GWA: 1, POL: 3, RTW: 5 }, // Bürobrand (Groß) (Brandmeldeanlage)
+ 284: { POL: 1 }, // Ostereierdieb
+ 285: { POL: 1 }, // Pinsel aus Werkstatt entwendet
+ 286: { GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2 }, // Eingestürzter Hasenbau
+ 287: { POL: 1, RTW: 1 }, // Angefahrener Osterhase
+ 288: { LF: 1 }, // Brennendes Osternest
+ 289: { smallOil: 1 }, // Schokoladenspur auf Straße
+ 290: { LF: 2 }, // Eierkocherbrand
+ 292: { POL: 1 }, // Tankbetrug
+ 293: { RTW: 1 }, // Bluthochdruck
+ 295: { POL: 6 }, // Tankstellenüberfall
+ 296: { LF: 3, ELW: 1, RTW: 1 }, // Gasunfall in der Werkstadt
+ 297: { RTW: 1 }, // Arbeitsunfall im Garten
+ 298: { LF: 1, DLRG: 1, RTW: 1 }, // Hilflose Person auf Wasser
+ 299: { LF: 5, ELW: 1, DLK: 1, GWA: 1, SW: 1 }, // Strohballen qualmen in Scheune
+ 300: { LF: 2, POL: 1, ELW: 1, DLK: 1, RTW: 1, GWH: 1 }, // Abgestürzter Kletterer
+ 301: { POL: 2 }, // Tiere auf der Fahrbahn
+ 302: { LF: 8, ELW: 2, ELW2: 1, RW: 1, DLK: 1, SW: 1, POL: 3, RTW: 1, NEF: 1 }, // Brennendes Kleinflugzeug
+ 303: { LF: 2 }, // Carportbrand
+ 306: { LF: 2, POL: 16, DGL: 2, POLBIKE: 4, WAWE: 3, BEFKW: 4, GRUKW: 9, FUEKW: 1, LAUKW: 1, RTW: 4, NEA50: 1, AAOTESI: 1 }, // Absicherung Rockkonzert - Gefahrenpotenzial
+ 308: { LF: 2 }, // Brennender Müllwagen
+ 309: { TAUCHER: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Tauchunfall
+ 310: { TAUCHER: 1, DLRG: 1, RTW: 1, NEF: 1 }, // Tauchunfall
+ 311: { LF: 2, RW: 1, ELW: 1, RTW: 1 }, // Mitarbeiter unter PKW eingeklemmt
+ 312: { RTW: 1, NEF: 1 }, // Verunglückter Fallschirmspringer
+ 313: { LF: 2, DLK: 1, RTW: 1, NEF: 1 }, // Verunglückter Fallschirmspringer
+ 314: { LF: 3, ELW: 1, DLK: 1, GWH: 1, RTW: 1, NEF: 1 }, // Verunglückter Fallschirmspringer
+ 315: { LF: 8, ELW: 2, ELW2: 1, DLK: 1, DEKONP: 1, GWA: 1, GWM: 1, GWG: 2, RTW: 1, NEF: 1 }, // Chemieunfall an Schule
+ 316: { LF: 12, RW: 2, ELW: 2, ELW2: 1, DEKONP: 1, GWA: 1, GWM: 2, GWG: 1, POL: 4, RTW: 1, NEF: 1 }, // Unbekannte Substanz
+ 317: { LF: 2, RW: 1, ELW: 1, RTW: 1 }, // Person in Baumschine eingeklemmt
+ 318: { LF: 1 }, // Ausgelöster Heimrauchmelder
+ 319: { LF: 1, RTW: 1 }, // Person in Baugrube
+ 320: { LF: 20, RW: 2, SLF: 1, DLK: 5, ELW: 6, ELW2: 1, SW: 2, GWA: 3, GWM: 3, GWG: 2, GWH: 1, POL: 6, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, DROHNE: 1, RTW: 15, NEF: 5 }, // Großfeuer im Krankenhaus (Brandmeldeanlage)
+ 321: { LF: 3, DLK: 1, ELW: 1, POL: 2, GWA: 1 }, // Saunabrand
+ 322: { POL: 4 }, // Geplante Autobahnsperrung
+ 323: { LF: 2, DLK: 1, ELW: 1, RW: 1, POL: 1 }, // Dehnfugenbrand
+ 324: { LF: 15, DLK: 3, GWA: 2, GWM: 2, GWG: 1, SW: 1, FWK: 1, ELW: 5, ELW2: 1, RW: 1, SLF: 2, AAOTHWR: 2, THWGWN: 2, GKW: 2, THWMTW: 2, POL: 5, RTW: 1, NEF: 1 }, // Brand in Baumarkt
+ 325: { GRUKW: 18, BEFKW: 6, FUEKW: 2, POL: 10, RTW: 2, POLH: 1, WAWE: 2 }, // Absicherung Castor-Transport
+ 326: { RTW: 1, NEF: 1 }, // Handverletzung durch Feuerwerkskörper
+ 327: { LF: 6, ELW: 1, DLK: 2, GWA: 2, GWM: 1, GWO: 1, POL: 1, RTW: 1 }, // Tiefgaragenbrand
+ 329: { LF: 2 }, // Rauch in Kabine
+ 334: { LF: 8, ELW: 2, ELW2: 1, RW: 1, DLK: 1, SW: 1, RTW: 1, NEF: 1 }, //  Brennendes Kleinflugzeug
+ 335: { LF: 8, ELW: 2, ELW2: 1, RW: 1, DLK: 1, SW: 1, RTW: 1, NEF: 1 }, // Brennendes Kleinflugzeug
+ 339: { RTW: 1, NEF: 1 }, // Herzinfarkt
+ 340: { RTW: 1, NEF: 1 }, // akuter Asthma-Anfall
+ 341: { RTW: 1, NEF: 1 }, // Krampfanfall
+ 345: { LF: 2, DLK: 1, ELW: 1, RW: 1, POL: 1, RTW: 1, GWH: 1 }, // Hoehenrettung am Fahrgeschäft
+ 346: { LF: 2, DLK: 1, ELW: 1, RW: 1, RTW: 1, GKW: 1, THWGWN: 1, THWMTW: 1, AAOTHWNEA50: 1, BEFKW: 1, GRUKW: 3, LAUKW: 1 }, // Gebäudesprengung
+ 347: { LF: 6, DLK: 1, ELW: 1, ELW2: 1, RW: 2, GWO: 1, GWH: 1, POL: 3, FWK: 1, NEF: 1, RTW: 2 }, // Helikopter in Baum
+ 348: { LF: 20, DLK: 2, RW: 4, GWA: 2, GWM: 1, GWO: 1, SW: 2, ELW: 4, ELW2: 1, POL: 3, RTW: 1, AAOTHWR: 1, THWGWN: 1, GKW: 1, THWMTW: 1, DROHNE: 1 }, // Explosion in Biogasanlage
+ 349: { LF: 1 }, // Brandgeruch
+ 352: { LF: 12, DLK: 3, GWA: 1, GWM: 1, RW: 1, SW: 1, ELW: 3, ELW2: 1, POL: 4, RTW: 5, NEF: 2 }, // Brand in Mehrfamilienhaus
+ 353: { GRUKW: 3, BEFKW: 1, POL: 3, NEA50: 1 }, // Großkontrolle Betäubungsmittel
+ 354: { RTW: 1, NEF: 1 }, // Grillunfall
+ 355: { MEK: 4, POL: 4, FUEKW: 1 }, // Waffenentzug
+ 356: { POL: 4, SEK: 4, FUEKW: 1, RTW: 1 }, // Häusliche Gewalt - eskaliert
+ 357: { POL: 2 }, // Bank: stiller Alarm
+ 358: { POL: 8, POLH: 1, SEK: 4, FUEKW: 1, RTW: 1 }, // Banküberfall
+ 359: { POLH: 1, POL: 5, GRUKW: 6, BEFKW: 2, GEFKW: 1, FUEKW: 1, MEK: 4 }, // Geplante Razzia - Verdächtiger flüchtig
+ 360: { LF: 1 }, // Brennender Blumenstrauß
+ 366: { POL: 2 }, // Vollstreckung Haftbefehl
+ 367: { POL: 6, FUEKW: 1, SEK: 4 }, // Vollstreckung Haftbefehl - eskaliert
+ 368: { LF: 15, DLK: 3, SW: 2, GWA: 2, RW: 4, ELW: 3, ELW2: 1, GWM: 1, SLF: 2, POL: 4, GKW: 1, THWGWN: 1, THWMTW: 1, AAOTHWR: 1, THWDLE: 1, RTW: 1 }, // Brennende Kirche
+ 369: { LF: 2, ELW: 1, POL: 1, RTW: 1 }, // Austritt Kohlenmonoxid
+ 370: { POL: 4 }, // Geisterfahrer
+ 371: { LF: 1 }, // Fußball aufpumpen
+ 372: { POL: 1 }, // Mannschaftsbus in Halteverbot abgestellt
+ 373: { RTW: 1 }, // Behandlung nach Schwalbe
+ 374: { RTW: 1 }, // Prellung nach Lattenpraller
+ 375: { LF: 1 }, // Tor gefallen
+ 376: { POL: 2 }, // Pokal geklaut
+ 377: { RTW: 1 }, // Überzuckerung
+ 378: { MEK: 4, FUEKW: 1 }, // Observation
+ 379: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
+ 380: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
+ 381: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
+ 382: { LF: 3, ELW: 1, RW: 1, POL: 1 }, // PKW in Gleisbett
+ 383: { POL: 1, RTW: 1 }, // Kind in PKW eingeschlossen
+ 384: { LF: 2 }, // Brennende Ballenpresse
+ 385: { LF: 4, GWM: 1, GWG: 1, ELW2: 1, ELW: 1, GWA: 1, GWO: 1, GWW: 1, TELE: 1 }, // Unfall beim Umpumpen von Flüssigkeiten
+ 386: { GWM: 1, GWG: 1, ELW2: 1, ELW: 2, GWA: 1, GWW: 1, TELE: 1, TURBO: 1, ULF: 1, LF: 5, RTW: 4, NEF: 1 }, // Ammoniakaustritt
+ 387: { LF: 8, GWM: 1, GWG: 1, ELW: 1, GWA: 1, GWW: 1, TELE: 1, TURBO: 1, ULF: 1, RTW: 1 }, // Brennende Pipeline-Isolierung
+ 388: { LF: 5, DLK: 1, RW: 1, ELW: 1 }, // Feuer in Verwaltungsgebäude
+ 389: { GWM: 1, GWG: 1, ELW: 3, ELW2: 1, GWA: 1, DEKONP: 1, GWW: 1, TELE: 1, TURBO: 1, ULF: 1, LF: 16, DLK: 4, RW: 1, POL: 3, RTW: 3 }, // Brand in Chemiepark - Produktion
+ 391: { RTW: 1 }, // Vergiftung
+ 392: { LF: 2, ELW: 1, RW: 1, RTW: 1 }, // Person durch Hubmaschine eingeklemmt
+ 393: { LF: 2, RW: 1, ELW: 1, DLK: 1, POL: 1, GKW: 1 }, // Einsturzgefährdeter Balkon
+ 394: { LF: 5, ELW: 1, RW: 1, POL: 4, RTW: 1, NEF: 1 }, // LKW auf Stauende
+ 396: { LF: 3, RW: 1, ELW: 1, GWW: 1 }, // Maschinenbrand in Produktionshalle
+ 397: { RTW: 1 }, //Schnittwunde
+ 398: { LF: 4, ELW: 1, RW: 1, GWW: 1, TELE: 1 }, // Brennende Absauganlage
+ 400: { LF: 7, ELW: 2, ELW2: 1, RW: 1, GWW: 1, TELE: 1, ULF: 1, GWA: 1 }, // Brand in Lackiererei
+ 402: { LF: 1, ULF: 1, ELW: 1 }, // Brennender PKW
+ 408: { LF: 1 }, // Rauchentwicklung an Förderband
+ 409: { LF: 2 }, // Brennender LKW
+ 411: { LF: 6, DLK: 1, RW: 2, ELW: 2, ELW2: 1, GWH: 1, POL: 2, POLH: 1, GKW: 2, RTW: 1, NEF: 1 }, // Heißluftballon in Hochspannungsmast
+ 412: { LF: 6, RW: 1, ELW: 1, GWW: 1, ULF: 1, TELE: 1 }, // Verpuffung
+ 414: { LF: 6, RW: 1, ELW: 1, GWW: 1, ULF: 1, TELE: 1 }, // Verpuffung
+ 415: { POL: 1, RTW: 1 }, // Jäger verletzt durch Schuss
+ 416: { RTW: 1 }, // Jäger stuerzt von Hochsitz
+ 417: { RTW: 1 }, // Jäger durch Wildtier verletzt
+ 418: { POL: 1 }, // Absicherung Pannen-LKW
+ 420: { RTW: 1 }, // Schlechter Allgemeinzustand
+ 421: { LF: 3, ELW: 1, RW: 1, POL: 2, RTW: 1 }, // PKW in Bushaltestelle
+ 422: { POL: 1 }, // Sachbeschädigung an PKW
+ 423: { LF: 6, DLK: 1, RW: 1, ELW: 2, ELW2: 1, POL: 3, SW: 1, GWA: 1, RTW: 1 }, // Brand in Klassenraum
+ 424: { LF: 12, DLK: 4, RW: 4, SLF: 2, ELW: 3, ELW2: 1, GWA: 1, GWM: 1, DEKONP: 1, AAOTHWR: 1, THWGWN: 1, THWMTW: 1, AAOTHWDLE: 1, DROHNE: 1, AAOSEGBT: 1, POL: 5, RTW: 1 }, // Großbrand Müllverbrennungsanlage
+ 425: { RTW: 1 }, // Verstauchter Knöchel
+ 426: { RTW: 1 }, // Gebrochenes Bein
+ 427: { RTW: 1 }, // Gebrochener Arm
+ 428: { LF: 1, DLK: 1, RW: 1, ELW: 1, POL: 1 }, // Schneelast auf Dach
+ 429: { LF: 5, ELW: 1, DLK: 1, GWA: 1, SW: 1, RW: 1, GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2, RTW: 1 }, // Staubexplosion
+ 430: { LF: 15, ELW: 3, ELW2: 1, DEKONP: 2, GWM: 2, GWG: 2, GWA: 1, DLK: 1, SW: 2, RW: 4, POL: 8, RTW: 1 }, // Ammoniakaustritt in Eishalle
+ 431: { RTW: 1 }, // Kreislaufkollaps
+ 432: { LF: 2, ELW: 1, DLK: 1, RW: 1, POL: 2 }, //Fassadenbrand
+ 433: { LF: 10, ELW: 3, ELW2: 1, DLK: 3, RW: 2, SLF: 1, POL: 5, RTW: 5, NEF: 2 }, // Großfeuer in Bank
+ 435: { LF: 12, GWW: 1, RW: 4, ELW: 3, ELW2: 1, GWA: 2, GWM: 1, GWG: 1, DEKONP: 1, ULF: 1, TELE: 1, POL: 3 }, // Brand in Eloxalanlage
+ 436: { LF: 1, RW: 1, POL: 1 }, // Verschmutzte Fahrbahn
+ 437: { POL: 2 }, // Taxi - Stiller Alarm
+ 438: { LF: 2, RW: 1, ELW: 1, GWO: 1, POL: 2, RTW: 1 }, // PKW in Zapfsäule
+ 439: { LF: 18, RW: 2, SW: 1, DLK: 3, FWK: 2, ELW: 5, ELW2: 1, POL: 10, THWMTW: 2, THWGWN: 2, AAOTHWR: 2, GKW: 2, RTW: 1, NEF: 1 }, // Einsturz Parkhaus
+ 440: { RTW: 1, NEF: 1 }, // Akute Atemnot
+ 441: { LF: 3, ELW: 1, RW: 1 }, // Brennende Waldhütte
+ 442: { BOAT: 1 }, // Osterei in Wasser
+ 443: { LF: 2, RW: 1, ELW: 1, RTW: 2, FWK: 1 }, // Osterei-LKW gestürzt
+ 444: { GRUKW: 3, BEFKW: 1 }, // Schwerpunkteinsatz Ostereiersuche
+ 445: { POL: 1 }, // Ei rollt in Schlangenlinien
+ 446: { LF: 1, ELW: 1, POL: 1, GWH: 1 }, // Osterhase auf Kran
+ 447: { LF: 3, RW: 1, ELW: 1, DLK: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, RTW: 1 }, // Eingestürzter Balkon
+ 448: { POL: 1 }, // Ermittlungen nach Unfallflucht
+ 449: { LF: 2, RW: 1, ELW: 1, DLK: 1, POL: 2, RTW: 2, NEF: 1 }, // PKW in Supermarkt
+ 450: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 1, NEF: 1 }, // PKW in Supermarkt
+ 451: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 1 }, // PKW in Gebäude
+ 458: { POL: 3, GRUKW: 3, BEFKW: 1, NEA50: 1 }, // Schwerlastkontrolle
+ 459: { LF: 2, ELW: 1, RW: 1, POL: 2, RTW: 2 }, // Brennende Baumaschine
+ 460: { LF: 1, DLK: 1, ELW: 1, RW: 1, RTW: 1 }, // Person in Schacht
+ 461: { RTW: 1 }, // Dehydrierte Person
+ 462: { LF: 18, RW: 4, SLF: 2, DLK: 6, SW: 2, ELW: 5, ELW2: 1, FWK: 1, GWA: 2, GWM: 3, GWG: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, DROHNE: 1, RTW: 1 }, // Großfeuer in Lagerhalle (Brandmeldeanlage)
+ 463: { LF: 1, RW: 1, POL: 2 }, // Gesprengter Geldautomat
+ 464: { LF: 1, ELW: 1, FWK: 1, RW: 2, POL: 3, GKW: 1, THWMTW: 1, THWGWN: 1 }, // Eingestürzter Funkmast
+ 465: { LF: 20, TELE: 1, TURBO: 1, ULF: 1, GWG: 2, GWM: 4, DEKONP: 2, GWO: 1, SW: 1, GWA: 3, DLK: 3, FWK: 2, RW: 3, ELW: 5, ELW2: 1, GWW: 1, THWMTW: 2, GKW: 2, THWGWN: 2, AAOTHWR: 1, DOG: 1, THWDLE: 1, POL: 10 }, // Großbrand im Gefahrstofflager
+ 466: { RTW: 1 }, // Badeunfall
+ 467: { RTW: 1 }, // Badeunfall
+ 468: { RTW: 1 }, // Badeunfall
+ 469: { LF: 3, RW: 1, ELW: 1, POL: 2, RTW: 3 }, // Entgleiste Stadtbahn
+ 470: { LF: 6, ELW: 2, ELW2: 1, DLK: 2, GWA: 1, POL: 3, RTW: 2, NEF: 1 }, // Feuer in Museum
+ 471: { DLRG: 1, TAUCHER: 1, POL: 2 }, // Beweismittelsuche im Wasser
+ 472: { DLRG: 1, TAUCHER: 1, POL: 2 }, // Beweismittelsuche im Wasser
+ 473: { LF: 4, ELW: 1, DLK: 1, POL: 6, RTW: 1 }, // Pfefferspray in Bahn
+ 474: { LF: 4, ELW: 1, DLK: 1, POL: 6, RTW: 1 }, // Pfefferspray in Bahn
+ 475: { LF: 4, ELW: 1, DLK: 1, POL: 6, RTW: 1 }, // Pfefferspray in Bahn
+ 476: { RTW: 1, POL: 1 }, // Angefahrener Radfahrer
+ 477: { LF: 5, RW: 2, DLK: 1, FWK: 1, ELW: 2, POL: 2, RTW: 1 }, // Baum auf Zug
+ 478: { LF: 5, RW: 2, DLK: 1, FWK: 1, ELW: 2, ELW2: 1, POL: 2, RTW: 1 }, // Baum auf Zug
+ 479: { LF: 5, RW: 2, DLK: 1, FWK: 1, ELW: 2, POL: 2, RTW: 1 }, // Baum auf Zug
+ 480: { LF: 3, RW: 1, ELW: 1, POL: 2, RTW: 1 }, // Flugzeugreifenplatzer
+ 481: { LF: 3, RW: 1, ELW: 1, POL: 2, RTW: 1 }, // Flugzeugreifenplatzer
+ 484: { LF: 3, RW: 1, ELW: 1, POL: 2, GWM: 2, GWA: 1, RTW: 1, NEF: 1 }, // Transportunfall mit Strahler
+ 485: { LF: 4, GWW: 1, TELE: 1, ULF: 2, RW: 1, ELW: 1, POL: 2, SW: 1 }, // Brand mehrerer E-Autos in Auslieferungshalle
+ 486: { POLH: 1, GRUKW: 3, BEFKW: 1, POL: 4 }, // Cannabisplantage entdeckt
+ 487: { LF: 2, DLK: 1, ELW: 1, POL: 1, RTW: 3 }, // Kleinbrand Kirche
+ 488: { POL: 14, LF: 16, RW: 1, ELW: 3, ELW2: 1, GWM: 1, RTW: 10 }, // Massenanfall an Erkrankten - Stadion
+ 491: { POL: 6, LF: 3, RW: 1, ELW: 1, RTW: 35 }, // Massenanfall an Erkrankten - Bahnhof (Regionalverkehr)
+ 493: { LF: 2, ELW: 1, POL: 2, RTW: 10 }, // Massenanfall an Erkrankten - Diskothek
+ 494: { POL: 1 }, // beschädigte Radarfalle
+ 495: { POL: 9, RTW: 2 }, // Massenpanik in Diskothek
+ 496: { LF: 1, RW: 1, DLK: 1 }, // Pferd in Jauchegrube
+ 497: { LF: 1, POLH: 1, POL: 6, BOAT: 2, ELW: 1, RTW: 1, NEF: 1 }, // Personensuche nahe Gewässer
+ 498: { LF: 1, POLH: 1, POL: 6, BOAT: 2, ELW: 1, RTW: 1, NEF: 1 }, // Personensuche nahe Gewässer
+ 499: { LF: 10, RW: 5, ELW: 1, GWO: 2, DROHNE: 1, POL: 8, RTW: 6 }, // Massenkarambolage auf Autobahn
+ 500: { RTW: 1 }, // Herzkreislaufprobleme
+ 502: { LF: 10, GWA: 1, SW: 1, ELW: 2, ELW2: 1, DLK: 4, POL: 4, RTW: 2 }, // Brand in Betreuungseinrichtung
+ 503: { LF: 4, SW: 3, ELW: 2, ELW2: 1, RW: 2, GKW: 2, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, POL: 3, POLH: 1, DROHNE: 1 }, // Damm droht zu brechen
+ 505: { LF: 28, DLK: 1, RW: 5, FWK: 2, SW: 4, GKW: 4, THWGWN: 3, THWMTW: 3, BOAT: 3, TAUCHER: 2, POL: 8, ELW: 4, ELW2: 1, RTW: 1, NEF: 1 }, // Hochwasserschadenslage
+ 506: { RTW: 1, POL: 2 }, // Hundeangriff
+ 507: { LF: 28, DLK: 1, RW: 5, FWK: 2, SW: 4, ELW: 4, ELW2: 1, GKW: 4, THWGWN: 3, THWMTW: 3, AAOTHWFUE: 1, BOAT: 3, TAUCHER: 2, POL: 8, RTW: 1, NEF: 1 }, // Hochwasserschadenslage
+ 508: { LF: 1, RW: 1, RTW: 1, POL: 1 }, // Pfählungsverletzung
+ 509: { LF: 6, DLK: 2, SW: 1, GWA: 1, ELW: 2, POL: 2 }, // Brennender Stall
+ 510: { RTW: 1, POL: 2 }, // Zwangseinweisung
+ 511: { POL: 1 }, // herrenloses Gepaeckstück
+ 512: { POL: 1 }, // herrenloses Gepaeckstück
+ 513: { LF: 4, RW: 2, DLK: 2, ELW: 1, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, POL: 2, RTW: 1 }, // Hausdach eingestürzt
+ 514: { FUEKW: 1, BEFKW: 3, GRUKW: 9, DOGPOL: 1 }, // Durchsuchung - Gebäudekomplex
+ 517: { LF: 1 }, // Brennender Baum
+ 518: { LF: 1 }, // Brennender Baum
+ 519: { LF: 3, POL: 1, RW: 1, ELW: 1, RTW: 3, NEF: 1 }, // Hüpfburgunfall
+ 520: { LF: 12, DLK: 4, ELW: 3, ELW2: 1, GWA: 1, SW: 1, POL: 4, GKW: 2, THWMTW: 2, THWGWN: 2, AAOSEGBT: 1 }, // Hotelbrand
+ 522: { DLK: 1, RTW: 1 }, // Medizinischer Notfall in Flugzeug
+ 524: { LF: 6, RW: 2, DLK: 2, ELW: 3, GWA: 1, SW: 1, POL: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1 }, // Brand in Spänebunker
+ 525: { LF: 6, RW: 4, DLK: 2, FWK: 2, ELW: 3, ELW2: 1, POL: 3, THWMTW: 2, GKW: 2, THWGWN: 2, AAOTHWR: 2, AAOTHWDLE: 2, THWGWSB: 1, DROHNE: 1, DOG: 1, RTW: 8, NEF: 1 }, // Großer Supermarkt eingestürzt
+ 526: { POL: 2, ELW: 1, DLK: 2, LF: 4, RW: 3, FWK: 1, THWMTW: 1, GKW: 1, THWGWN: 1, AAOTHWR: 1, AAOTHWDLE: 1, THWGWSB: 1, DROHNE: 1, DOG: 1, RTW: 4, NEF: 4 }, // Supermarkt eingestürzt
+ 527: { DOG: 1, LF: 2, RW: 1, GKW: 1, POL: 1, RTW: 1, NEF: 1 }, // Verschüttete Person
+ 528: { LF: 3, RW: 1, ELW: 1, GKW: 1, THWGWN: 1, THWMTW: 1, BOAT: 2, POL: 2 }, // Fischsterben in Gewässer
+ 532: { LF: 1, POL: 2, POLH: 1, DOG: 1, RTW: 1 }, // Suche nach Vermissten
+ 533: { LF: 1, POLH: 1, POL: 6, BOAT: 2, ELW: 1, DOG: 1, RTW: 1, NEF: 1 }, // Personensuche nahe Gewässer
+ 534: { LF: 18, RW: 2, SW: 1, DLK: 3, FWK: 2, ELW: 5, ELW2: 2, POL: 10, THWMTW: 2, THWGWN: 2, AAOTHWR: 2, GKW: 2, DOG: 1, RTW: 1, NEF: 1 }, // Einsturz Parkhaus
+ 535: { LF: 6, RW: 2, ELW: 1, FWK: 1, DLK: 1, GKW: 2, THWGWN: 2, THWMTW: 2, AAOTHWR: 1, AAOTHWDLE: 1, THWGWSB: 1, DROHNE: 1, DOG: 1, RTW: 1 }, // Schwimmbaddach eingestürzt
+ 536: { POL: 2 }, // Einbruch in Supermarkt
+ 537: { POL: 4 }, // Einbruch in Supermarkt
+ 538: { RTW: 1, NEF: 1 }, // Verbrennung
+ 539: { POL: 2, RW: 1, LF: 2, AAOTHWR: 2, THWMTW: 2, THWGWN: 2, GKW: 2, DOG: 2, THWGWSB: 1, DROHNE: 1, RTW: 1, NEF: 1 }, // Verschüttete Personen
+ 540: { LF: 20, DLK: 3, RW: 5, FWK: 2, GWH: 3, ELW: 3, ELW2: 1, GKW: 4, AAOTHWR: 4, THWMTW: 2, THWGWN: 3, POL: 5, GRUKW: 9, BEFKW: 3, FUEKW: 1, DOG: 3, RTW: 1, NEF: 1 }, // Einsturz Stadiontribüne
+ 541: { GKW: 1, THWMTW: 1, AAOTHWR: 1, POL: 2, THWGWSB: 1, DOG: 1 }, // Erdrutsch
+ 544: { LF: 3, RW: 1, ELW: 1, GWM: 1, GWG: 1, DEKONP: 1, POL: 2, RTW: 2, NEF: 1 }, // Säureangriff auf Hauswand
+ 545: { LF: 14, RW: 2, DLK: 3, ELW: 2, GWA: 1, SW: 1, POL: 4, GKW: 1, AAOTHWR: 1, THWGWN: 1, THWMTW: 1, RTW: 2 }, // Brand bei Holzverarbeiter
+ 547: { BOAT: 1 }, // Badestellenüberwachung
+ 548: { LF: 1 }, // Grillbrand
+ 549: { MEK: 4 }, // Absicherung Geldtransport
+ 550: { LF: 5, RW: 3, ELW: 1, GWO: 1, FWK: 1, GKW: 1, POL: 4, RTW: 2, NEF: 1 }, // LKW auf PKW gestürzt
+ 551: { POL: 2 }, // Einbruch auf Betriebsgelände
+ 552: { LF: 8, ELW: 2, RW: 2, DLK: 2, GWA: 1, GWM: 1, SW: 2, POL: 2, RTW: 2, NEF: 1 }, // Brand in Reifenlager
+ 553: { RTW: 1, NEF: 1 }, // Veraetzung
+ 554: { POL: 2 }, // Einbruch in Wohnhaus
+ 555: { LF: 10, GWA: 2, RW: 2, GWG: 1, GWM: 2, DEKONP: 1, GWW: 1, ULF: 1, ELW: 2, POL: 4, RTW: 6 }, // Phosphorsäureaustritt
+ 557: { LF: 4, ELW: 1, RW: 2, GWO: 1, POL: 5, RTW: 4, NEF: 1 }, // Schwerer Verkehrsunfall
+ 558: { LF: 8, RW: 1, DLK: 1, ELW: 2, POL: 4, RTW: 10, NEF: 1 }, // Brennende Bühne
+ 559: { LF: 4, RW: 1, GWG: 1, GWM: 1, DEKONP: 1, ELW: 1, ULF: 1, GWW: 1, POL: 2, RTW: 2 }, // Unbekannte Flüssigkeit aus LKW
+ 561: { RTW: 1 }, // Fremdkörper in Wunde
+ 562: { LF: 5, RW: 2, GWO: 1, ELW: 1, POL: 4, RTW: 2, NEF: 1 }, // Verkehrsunfall in Tunnel
+ 563: { LF: 2, POL: 12, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 3, GWSAN: 1 }, // Absicherung Staatsbesuch
+ 564: { FUEKW: 1, MEK: 4, POL: 1 }, // Geplante Festnahme
+ 565: { FUEKW: 1, MEK: 4, POL: 4 }, // Zugriff bei Geldübergabe
+ 566: { POL: 1 }, // Drogenhandel aufgeflogen
+ 567: { POL: 1 }, // Diebstahl auf Baustelle
+ 568: { POL: 10, GRUKW: 9, BEFKW: 3, FUEKW: 1, POLH: 1, GEFKW: 1, DOGPOL: 1, DOG: 1 }, // Ausbruch gefährlicher Personen aus geschlossenem Vollzug
+ 569: { POL: 6, SEK: 4, FUEKW: 1, RTW: 1 }, // Tankstellenüberfall - Eskaliert
+ 570: { LF: 2, RW: 1, DLK: 1, ELW: 1, POL: 2, RTW: 1 }, // Blitzeinschlag in Wohnhaus
+ 571: { LF: 4, DLK: 1, ELW: 1, POL: 2, RTW: 2 }, // Dachstuhlbrand
+ 572: { POL: 6 }, // Überfall auf Spielhalle
+ 573: { LF: 8, RW: 2, DLK: 1, ELW: 2, ELW2: 1, GWA: 1, GWM: 1, GWG: 1, DEKONP: 1, POL: 3, RTW: 3, NEF: 1 }, // Chemikalienaustritt - Klärwerk
+ 574: { LF: 2, POL: 2, RTW: 1 }, // Brandsicherheitswache bei Feuerwerk
+ 575: { LF: 1 }, // unklare Rauchentwicklung
+ 576: { LF: 6, ELW: 1, GWO: 1, GWM: 1, SW: 1, DLK: 1, POL: 2, RTW: 2 }, // Brand in Parkhaus
+ 578: { LF: 3, ELW: 2, GWM: 2, RW: 1, GWA: 1, GWG: 1, DEKONP: 1, POL: 4, RTW: 5, NEF: 1 }, // Blausäureaustritt
+ 579: { GWW: 1, ULF: 1, LF: 3, ELW: 2, GWM: 2, RW: 1, GWA: 1, GWG: 1, DEKONP: 1, POL: 4, RTW: 1 }, // Blausäureaustritt
+ 580: { POL: 6, GRUKW: 6, BEFKW: 2, RTW: 1 }, // Ausschreitungen durch alkoholisierte Menschengruppe
+ 581: { RTW: 1 }, // Sturzverletzung beim Schlittschuhlaufen
+ 583: { LF: 2, ELW: 1, POL: 2, RTW: 10 }, // Massenanfall durch Lebkuchenverzehr (klein)
+ 584: { LF: 3, RW: 1, ELW: 1, POL: 6, RTW: 35 }, // Massenanfall durch Lebkuchenverzehr (groß)
+ 585: { LF: 16, RW: 1, ELW: 3, ELW2: 1, GWM: 1, DEKONP: 1, POL: 14, RTW: 120 }, // Massenanfall durch Lebkuchenverzehr (riesig)
+ 586: { LF: 2, ELW: 1, DLK: 1, RW: 1, GWH: 1, RTW: 1 }, // Weihnachtsschlitten in Baum
+ 587: { LF: 1, RW: 1, DLK: 1, FWK: 1, RTW: 1 }, // Weihnachtsmann in Kamin steckengeblieben
+ 588: { RTW: 1 }, // "Betrunkener Weihnachtsmann"
+ 589: { POL: 1 }, // "Verkehrsunsicherer Rentierschlitten"
+ 590: { POL: 1 }, // Diebstahl aus Weihnachtsbäckerei
+ 591: { ELW: 1, LF: 3, DLK: 1, POL: 1 }, // Fassadenbrand durch Feuerwerksbatterien
+ 592: { GRUKW: 9, BEFKW: 4, FUEKW: 1, GEFKW: 1, WAWE: 3, POL: 10, POLH: 1, RTW: 1 }, // Unangemeldete Demonstration (Groß)
+ 593: { GKW: 1, AAOTHWR: 1, THWMTW: 1, POL: 2 }, // Beseitigung kontaminierter Erde
+ 594: { LF: 15, ELW: 2, ELW2: 1, DLK: 2, POL: 6, GWA: 1, RW: 1, THWMTW: 1, GKW: 1, THWGWN: 1, RTW: 1, NEF: 1 }, //Brand in Schule
+ 595: { RTW: 1, NEF: 1 }, // Person von Blitz getroffen
+ 596: { LF: 3, RW: 2, ELW: 1, POL: 4, RTW: 2, NEF: 1 }, // Verkehrsunfall (Personen eingeklemmt)
+ 597: { RTW: 2 }, // Paar hat zu viel Schokolade gegessen
+ 598: { RTW: 1 }, // Schmetterlinge im Bauch
+ 599: { RTW: 1 }, // Schock durch Heiratsantrag
+ 600: { RTW: 2 }, // Gebrochenes Herz
+ 601: { LF: 5, DLK: 1, ELW: 1 }, // Valentinsdekoration in Restaurant brennt
+ 602: { LF: 1, RTW: 2 }, // Feuer durch Abendessen bei Kerzenlicht
+ 603: { POL: 2 }, // Suche nach nicht vorhandenem Partner
+ 604: { POL: 1 }, // Lärmbeschwerde wegen streitendem Paar
+ 605: { POL: 2 }, // Herz gestohlen
+ 606: { LF: 25, RW: 2, ELW: 5, ELW2: 1, DLK: 5, GWM: 3, GWA: 3, SW: 1, POL: 8, GKW: 3, THWMTW: 3, AAOTHWR: 2, THWGWN: 3, RTW: 10 }, // Brennender Bahnhof
+ 607: { POL: 1 }, // Verkehrserziehung an Schule
+ 608: { POL: 1 }, // Abgebrochener Notruf
+ 609: { LF: 1, GWH: 1, RTW: 1 }, // Fensterputzer haengt in Gondel fest
+ 610: { LF: 8, GWA: 1, GWG: 1, GWM: 1, POL: 6, ELW: 3, RTW: 2 }, // Gefahrgut-LKW in Brand
+ 611: { GRUKW: 9, BEFKW: 3, FUEKW: 1, GEFKW: 1, POL: 10, RTW: 1 }, // Ausschreitungen verfeindeter Gruppen (Klein)
+ 613: { ITW: 1 }, // Intensivverlegung
+ 614: { POL: 2 }, // Unbefugtes Betreten einer Gleisanlage
+ 615: { POL: 2 }, // Unbefugtes Betreten einer Gleisanlage
+ 616: { POL: 2 }, // Unbefugtes Betreten einer Gleisanlage
+ 617: { GKW: 2, THWMTW: 1, THWGWN: 2, ELW: 1, LF: 4, FWK: 1, POL: 2, RTW: 1 }, // Güterzug entgleist
+ 618: { POL: 6, LF: 3, RW: 1, ELW: 1, RTW: 10 }, // Massenanfall von Osterhasen
+ 619: { LF: 10, ELW: 2, ELW2: 1, DLK: 1, RW: 2, GWO: 1, BOAT: 4, TAUCHER: 2, POL: 7, GKW: 1, THWGWN: 1, THWMTW: 1, RTW: 10 }, // Havariertes Flussfahrtschiff
+ 620: { LF: 12, GWA: 1, RW: 1, GWG: 1, GWM: 1, DEKONP: 1, GWW: 1, ULF: 1, ELW: 1, POL: 2, RTW: 4, NEF: 1 }, // Säurebehälter beschädigt
+ 622: { RTW: 1 }, // Allergischer Schock
+ 623: { LF: 3, ELW: 1, RW: 2, DLK: 1, GWH: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, RTW: 2 }, // Baugerüst eingestürzt
+ 624: { LF: 10, RW: 4, ELW: 3, ELW2: 1, GWO: 1, POL: 8, GKW: 1, THWMTW: 1, THWGWN: 1, RTW: 5, NEF: 5 }, // Zusammenstoß zweier Busse
+ 625: { LF: 1, POL: 1, RTW: 1 }, // Person steckt mit Hand in Kanaldeckel
+ 626: { RTW: 1 }, // Person tritt auf Glasscherben
+ 627: { LF: 1, RTW: 1 }, // Grill in Flammen
+ 628: { LF: 1, RTW: 1 }, // Brennendes Campingzelt
+ 629: { POL: 3, POLH: 1 }, // Vater vermisst
+ 630: { POL: 1 }, // Gestohlener Picknick-Korb
+ 631: { ZIV: 2 }, // Vollstreckung Durchsuchungsbeschluss
+ 632: { POL: 5, ZIV: 1 }, // Einbruch in Museum
+ 633: { POL: 2, ZIV: 1 }, // Einbruch in Wohnhaus
+ 634: { POL: 4, ZIV: 1, DOG: 1 }, // Einbruch in Wohnhaus - Täter am Ort
+ 635: { DOG: 1, POL: 6, ZIV: 1, POLH: 1 }, // Einbruch in Wohnhaus - Täter flüchtig
+ 636: { POL: 4, POLH: 1, ZIV: 2, MEK: 4, FUEKW: 1, RTW: 1 }, // Entführung
+ 638: { LF: 2, RW: 1, POL: 1, RTW: 1 }, // LKW droht umzustürzen
+ 639: { LF: 10, RW: 2, ELW: 2, ELW2: 1, GWG: 2, GWM: 2, GWA: 1, DEKONP: 1, FWK: 1, POL: 4, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 2, NEF: 1 }, // Gefahrgutzug verunglückt
+ 640: { RTW: 1, NEF: 1 }, // Amputationsverletzung
+ 641: { POL: 1 }, // Flitzer auf dem Spielfeld
+ 642: { POL: 1, AAOTHWR: 1 }, // Mauer auf Spielfeld
+ 643: { LF: 3, RW: 2, ELW: 1, DLK: 1, GWH: 1, POL: 2, RTW: 1 }, // Unfall in Getreidesilo
+ 644: { LF: 8, ELW: 1, POL: 2, WATER: 1, SW: 1 }, // Brand Holzpolter
+ 645: { LF: 8, ELW: 1, POL: 2, WATER: 1, GWA: 1, SW: 1 }, // Brand Holzpolter
+ 646: { RTW: 1, BOAT: 1 }, // Absicherung Schwimmwettbewerb
+ 647: { LF: 1, POL: 1 }, // Illegales Lagerfeuer in Park
+ 648: { RTW: 1 }, // Verkeimter Eiswagen
+ 649: { RTW: 1 }, // Knalltrauma
+ 650: { LF: 1, RW: 1, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, POL: 2 }, // Ladungsbergung LKW
+ 651: { LF: 8, RW: 2, DLK: 1, ELW: 2, GWA: 1, GWM: 1, POL: 4, SW: 2, THWMTW: 1, GKW: 1, AAOTHWR: 1, THWGWN: 1, AAOTHWDLE: 1, RTW: 1 }, // Brand in Getreidesilo
+ 652: { POL: 2 }, // Aufgeplatzter Asphalt auf Autobahn
+ 653: { LF: 3, DLK: 1, ELW: 1, POL: 2 }, // Brand auf Schultoilette
+ 654: { LF: 15, RW: 1, DLK: 3, ELW: 1, ELW2: 1, GWA: 1, SW: 1, POL: 4, RTW: 4 }, // Großbrand Möbelhaus
+ 655: { THWSWP: 1, RW: 2, GWO: 1, ELW2: 1, THWMTW: 1, GKW: 1, POL: 2 }, // Parkhaus voll Wasser gelaufen
+ 656: { SWP: 1, GKW: 2 }, // Mehrere Keller unter Wasser
+ 657: { SWP: 1, GKW: 2, POL: 2, GWO: 1 }, // Tunnel unter Wasser (Klein)
+ 658: { SWP: 2, RW: 4, LF: 4, GKW: 2, THWGWN: 1, THWMTW: 1, POL: 3, ELW: 1, SW: 1, GWO: 1 }, // Tunnel unter Wasser (Groß)
+ 659: { LF: 25, ELW: 4, ELW2: 1, DLK: 3, SWP: 4, RW: 4, GKW: 5, THWGWN: 5, THWMTW: 5, BEFKW: 3, GRUKW: 9, FUEKW: 1, POLH: 1, SW: 6, POL: 8 }, // Dammbruch
+ 660: { SWP: 1, GKW: 1, THWMTW: 1 }, // Bach droht über Ufer zu treten
+ 661: { SWP: 1, LF: 2, SW: 1, GKW: 1, THWDLE: 1 }, // Gewässer gekippt (Klein)
+ 662: { LF: 2, SW: 2, ELW: 2, ELW2: 1, GWM: 1, SWP: 2, GKW: 2, THWMTW: 1, THWDLE: 3 }, // Gewässer gekippt (Groß)
+ 663: { LF: 4, DLK: 1, ELW: 1, GWO: 1, SW: 1, GWH: 1, SWP: 1, GKW: 2, THWMTW: 1, THWGWN: 1, THWDLE: 1, AAOTHWR: 1, POL: 2 }, // Wassereinbruch Großbaustelle
+ 664: { LF: 28, DLK: 1, RW: 5, FWK: 2, SW: 4, GKW: 4, THWGWN: 3, THWMTW: 3, SWP: 3, BOAT: 3, TAUCHER: 2, POL: 8, ELW: 4, ELW2: 1, RTW: 1, NEF: 1 }, // Hochwasserschadenslage
+ 665: { RTW: 1 }, // Unterkühlung
+ 666: { LF: 8, ELW: 1, DLK: 1, SW: 2, GWA: 1, POL: 3, RTW: 5, NEF: 2 }, // Brand auf Campingplatz
+ 667: { LF: 9, SW: 2, DLK: 1, ELW: 1, GWA: 1, POL: 2, GKW: 1, THWGWN: 1, AAOTHWR: 1, THWMTW: 1 }, // Strohballenstapelbrand
+ 668: { POL: 2 }, // Ampelausfall
+ 669: { LF: 6, DLK: 2, ELW: 2, POL: 2, RTW: 2 }, // Reihenhaus in Flammen
+ 670: { LF: 10, RW: 2, DLK: 2, ELW: 2, ELW2: 1, GWA: 2, GWM: 2, DEKONP: 1, FWK: 1, POL: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 2 }, // Havarie in Kläranlage
+ 671: { LF: 1, DLRG: 1, TAUCHER: 1, POL: 1 }, // Unbekanntes Objekt in Wasser
+ 672: { RTW: 1 }, // Person auf Laub ausgerutscht
+ 673: { LF: 1, RW: 1, POL: 1, RTW: 1 }, // Verkehrsunfall durch Laub
+ 674: { RTW: 1 }, // Person in Laubhaufen gestürzt
+ 675: { POL: 1, RTW: 1 }, // Laubsauger außer Kontrolle
+ 676: { RW: 1 }, // Von Laub verstopfter Gulli
+ 677: { RTW: 1 }, // Unterkühlung nach Schwimmen in kaltem Wasser
+ 678: { LF: 2, RW: 1, RTW: 1 }, // Verkehrsunfall auf nebliger Straße
+ 679: { LF: 2, POL: 1, RW: 1, RTW: 1 }, // Verkehrsunfall bei Wildwechsel
+ 680: { LF: 2 }, // Brennender Laubhaufen
+ 681: { RTW: 1 }, // Reitsportunfall
+ 682: { LF: 5, DLK: 2, SW: 2, GWM: 1, GWA: 1, ELW2: 1, ELW: 2, POL: 4, AAOTHWR: 1, GKW: 1, THWMTW: 1 }, // Brand auf Kompostieranlage
+ 683: { POL: 1 }, // KFZ-Diebstahl
+ 684: { LF: 3, DLK: 1, ELW: 1, RW: 1, POL: 2, RTW: 3 }, // Brand in metallverarbeitendem Betrieb
+ 685: { LF: 20, SLF: 1, DLK: 5, ELW: 6, RW: 2, ELW2: 1, SW: 2, GWA: 1, GWM: 1, POL: 6, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 5, NEF: 5 }, // Großbrand in Museum
+ 686: { LF: 1, RTW: 1, POL: 1 }, // Kind in Spielgerät eingeklemmt
+ 687: { LF: 2, ELW: 1, RW: 2, GWA: 1, GWM: 1, GWG: 1, POL: 2, RTW: 2, NEF: 1 }, // Nitrose Gase auf Bauernhof
+ 688: { POL: 4, POLH: 1 }, // Fahndung nach KFZ-Diebstahl
+ 690: { LF: 5, DLK: 1, ELW: 2, RW: 1, GWA: 1, GWM: 1, POL: 2, FWK: 1, GKW: 2, THWMTW: 1, AAOTHWR: 2, THWGWN: 1, GWW: 1, TELE: 1, ULF: 2, RTW: 5, NEF: 1 }, // Metallbrand in Industriebetrieb
+ 691: { RTW: 1, NEF: 1 }, // Lungenödem
+ 692: { LF: 8, DLK: 2, ELW: 2, ELW2: 1, SW: 1, GWA: 1, GWM: 1, GWG: 1, POL: 4, RTW: 1 }, // Rauchentwicklung in Einkaufszentrum
+ 693: { POL: 1 }, // Kraftstoffdiebstahl
+ 694: { LF: 2, RW: 1, POL: 1 }, // Gülle ausgelaufen
+ 696: { LF: 6, DLK: 1, ELW: 1, POL: 4, RTW: 10 }, // Blitzeinschlag auf Veranstaltungsgelände
+ 697: { GKW: 1, THWMTW: 1, THWGWN: 1, THWSWP: 1 }, // Abwasserkanal droht zu überfluten
+ 698: { LF: 2, RW: 1, ELW: 1, POL: 2 }, // Autogasaustritt am PKW
+ 699: { LF: 10, ELW: 2, ELW2: 1, SW: 3, GWA: 1, GWM: 1, POL: 4, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, WATER: 2 }, // Moorbrand
+ 700: { RTW: 1 }, // Bewusstlose Person am LKW-Steuer
+ 701: { LF: 6, DLK: 2, ELW: 1, POL: 4, RTW: 3, NEF: 1 }, // Wohnhausbrand
+ 702: { LF: 12, DLK: 2, ELW: 3, ELW2: 1, RW: 2, POL: 4, RTW: 2 }, // Brand in Großwäscherei
+ 703: { RTW: 1 }, // Akute Rückenschmerzen
+ 704: { LF: 1 }, // Schulkinder über den Notruf 112 informieren
+ 705: { POL: 1 }, // Schulkinder über den Notruf 112 informieren
+ 706: { LF: 1, RTW: 1, POL: 1 }, // Bekanntgabe neuer Funktionen des Notrufs 112
+ 707: { ELW: 1, RW: 1, LF: 2, DLK: 1, RTW: 2, POL: 3 }, // Feier zum Tag des Notrufs 112
+ 708: { ELW: 3, RW: 1, LF: 4, DLK: 2, RTW: 2, GWG: 1, SW: 1, GWA: 1, POL: 6 }, // Verleihung von Auszeichnungen am Tag des Notrufs 112
+ 709: { LF: 4, ELW: 1, RW: 2, POL: 4, RTW: 6, NEF: 1 }, // Bus in Haltestelle
+ 710: { LF: 3, ELW: 1, SW: 1, POL: 1 }, // Brand auf Motivwagen
+ 711: { POL: 4, RTW: 3 }, // Zwischenfall beim Karnevalsumzug
+ 712: { POL: 2, RTW: 1 }, // Gestohlene Karnevalsmaske
+ 713: { POL: 5, RTW: 1 }, // Gestohlener Maskenball-Preis
+ 714: { LF: 2 }, // Feuer bei Prunksitzung
+ 715: { RTW: 1 }, // Unfall beim Faschingsball
+ 716: { LF: 4, ELW: 1, POL: 2 }, // Sicherheitswache bei Prunksitzung
+ 717: { POL: 2 }, // Verbrecher versteckt sich bei Maskenball
+ 718: { LF: 1 }, // Brennendes Faschingskostüm
+ 719: { POL: 1 }, // Diebstahl von Kostümen
+ 720: { LF: 1, ELW: 4, RW: 2, ELW2: 2, SW: 6, GWA: 2, GWM: 2, POL: 6, GKW: 2, THWMTW: 1, AAOTHWR: 3, THWGWN: 1, POLH: 1 }, // Großfeuer im Moor
+ 721: { RTW: 1, POL: 2 }, // randalierender Fluggast
+ 722: { RTW: 1 }, // Allergische Reaktion auf Bienenstich
+ 723: { RTW: 1 }, // Allergische Reaktion auf Pollen
+ 724: { RTW: 1 }, // Fall von Leiter beim Frühjahrsputz
+ 725: { POL: 1, RTW: 2 }, // Angriff eines Wildtiers während Frühlingspicknicks
+ 726: { RTW: 1 }, // Vergiftung durch wilde Beeren
+ 727: { LF: 2 }, // Brennender Picknickkorb
+ 728: { POL: 2 }, // Diebstahl von Kaelbern
+ 729: { RTW: 1 }, // Allergische Reaktion auf Pollen
+ 730: { RTW: 1 }, // Kälberdieb von Kuh angegriffen
+ 731: { LF: 2, ELW: 1, RW: 1, POL: 1, RTW: 2 }, // Zugevakuierung
+ 732: { POL: 2, LF: 3, ELW: 1, RTW: 1 }, // Illegales Osterfeuer
+ 733: { LF: 2 }, // Absicherung Osterfeuer
+ 734: { LF: 1 }, // Geschmolzener Osterhase
+ 735: { LF: 2, RW: 1, DLK: 1, ELW: 1, POL: 2, RTW: 1 }, // Blitzeinschlag in Hasenbau
+ 736: { LF: 1, POL: 1 }, // Schokohase in PKW eingeschlossen
+ 737: { LF: 1, POL: 1, BOAT: 2 }, // Ostereiersuche im Wasser
+ 738: { RTW: 1 }, // Starke Blutung
+ 739: { LF: 2 }, // Absicherung Osterfeuer
+ 740: { LF: 2, ELW: 1, RW: 1, GWA: 1, POL: 2, RTW: 2 }, // Gasaustritt aus Kanalisation
+ 742: { RTW: 1 }, // Person auf geschmolzener Schokolade ausgerutscht
+ 743: { LF: 1, POL: 1, RTW: 2 }, // Schlafzimmer-Feuer durch Kerze
+ 744: { LF: 1 }, // Brennender Kuchen in Ofen
+ 745: { LF: 2 }, // Küchenbrand am Muttertag
+ 746: { POL: 2 }, // Gestohlene Schokolade
+ 747: { POL: 2 }, // Gestohlener Blumenstrauß
+ 748: { POL: 2 }, // Gestohlene Glückwunschkarte
+ 749: { LF: 1, POL: 1 }, // E-Call ausgelöst
+ 750: { LF: 4, ELW: 1, POL: 3, RTW: 2 }, // Brand auf Flohmarkt
+ 751: { LF: 2, ELW: 1, GWM: 1, POL: 2, RTW: 1, NEF: 1 }, // Reizgas in geschlossenem Raum
+ 752: { LF: 1, DLK: 1, ELW: 1, RW: 1, RTW: 1, POL: 1, GWH: 1 }, // Verletzte Person auf Dach
+ 753: { LF: 1, RW: 1, RTW: 1 }, // Person in Foerderband eingeklemmt
+ 754: { RTW: 1, NEF: 1 }, // Wespenangriff
+ 755: { LF: 2, ELW: 2, POL: 2 }, // Kurzschluss an Freileitungsmast
+ 756: { LF: 1 }, // Unfall beim Backen des Jubiläumskuchens
+ 757: { LF: 1, DLK: 1 }, // Jubiläumsluftballon eines Gastes bleibt im Baum hängen
+ 758: { LF: 2 }, // Kabelbrand in Jubiläums-Party-Dekoration (klein)
+ 759: { LF: 4, ELW: 1 }, // Kabelbrand in Jubiläums-Party-Dekoration (groß)
+ 760: { POL: 1 }, // Jubiläumsgeschenk gestohlen
+ 761: { POL: 2 }, // Sabotierte Lautsprecher auf Jubiläumsparty
+ 762: { POL: 3 }, // Vermisster Jubiläumsgast
+ 763: { POL: 4 }, // Jubiläumsgäste haben Dekoration gestohlen
+ 764: { POL: 5 }, // Jubiläumsgäste haben Kuchen gestohlen
+ 765: { RTW: 1 }, // Gast hat zu viel Jubiläumskuchen gegessen
+ 766: { RTW: 1 }, // Papierschnitt beim Öffnen von Jubiläumsgeschenken
+ 767: { RTW: 1 }, // Jubiläumsgast mit Gelenkschmerzen nach dem Tanzen
+ 768: { RTW: 1 }, // Jubiläumsgast von Korken getroffen
+ 769: { RTW: 1 }, // Jubiläumsgast bewusstlos
+ 770: { LF: 1, RW: 1, DLK: 1, ELW: 1, POL: 1, RTW: 1 }, // Personen auf der Tanzfläche vermisst
+ 771: { LF: 3, RW: 2, DLK: 2, POL: 1, RTW: 2 }, // Luftballons für Jubiläumsparty aufblasen
+ 772: { POL: 3, RTW: 5, SEGELW: 1 }, // Luftballons für Jubiläumsparty aufblasen
+ 773: { LF: 25, SLF: 2, DLK: 4, ELW: 4, RW: 2, ELW2: 1, SW: 2, GWA: 1, GWM: 1, POL: 8, GKW: 1, THWMTW: 1, AAOTHWR: 1, THWGWN: 1, RTW: 10 }, // Großfeuer in Einkaufszentrum
+ 774: { LF: 1, ELW: 1, RW: 1, POL: 2, BOAT: 1, RTW: 1 }, // Kollision zwischen Frachtschiff und Motorboot
+ 775: { LF: 1, ELW: 1, GWG: 1, POL: 4, ZIV: 2, GRUKW: 3, BEFKW: 1 }, // Drogenlabor gefunden
+ 776: { LF: 1, RW: 1, ELW: 1, RTW: 1 }, // Person in Rolltreppe eingeklemmt
+ 777: { LF: 12, DLK: 2, ELW: 4, RW: 1, ELW2: 1, GWA: 2, GWG: 1, SLF: 1, POL: 4, POLH: 1, RTW: 1, NEF: 1 }, // Kraftwerksbrand
+ 778: { LF: 1, POL: 1 }, // Brennende Chemietoilette
+ 779: { LF: 8, ULF: 1, GWA: 1, ELW: 3, GWG: 1, GWM: 1, POL: 6, RTW: 1 }, // Gefahrgut-LKW in Brand
+ 780: { RTW: 1 }, // Treppensturz
+ 781: { LF: 2, ELW: 1, POL: 1 }, // Gartenschuppenbrand
+ 782: { LF: 4, RW: 2, ELW: 2, DLK: 1, GWM: 1, GWG: 1, GWO: 1, GWW: 1, ULF: 1, POL: 2, RTW: 2 }, // Tankstellenbrand
+ 783: { LF: 2, DLK: 1, ELW: 1 }, // Brennende Weihnachtsdekoration
+ 784: { POL: 1 }, // Gestohlener Weihnachtsbaum
+ 785: { POL: 3 }, // Diebstahl von Weihnachtsgeschenken in Einkaufszentrum
+ 786: { POL: 2 }, // Weihnachtsmann-Schlitten blockiert Straße
+ 787: { LF: 2 }, // Lagerfeuer setzt Holzschuppen in Brand
+ 788: { POL: 2 }, // Schlägerei auf zugefrorenem See
+ 789: { POL: 1 }, // Kinder werfen Schneebälle auf Menschen und Häuser
+ 790: { LF: 2 }, // Unfall bei der Zubereitung des Valentinsmenüs
+ 791: { LF: 2 }, // Brennender Valentins-Strauß
+ 792: { LF: 1 }, // Feuer beim Candlelight-Dinner
+ 793: { LF: 1 }, // Tier auf Eisfläche gefangen
+ 794: { POL: 1 }, // Unbefugtes Betreten einer Eisfläche
+ 795: { RTW: 1, BOAT: 1 }, // Absicherung Eisbaden
+ 796: { LF: 6, ELW: 2, DLK: 1, RW: 1, POL: 2, RTW: 1 }, // Brand in Garagenkomplex
+ 797: { LF: 12, ELW: 3, DLK: 3, GWA: 1, SW: 1, POL: 6, DGL: 1, RTW: 4, NEF: 1 }, // Brand in Gebäudekomplex
+ 798: { LF: 16, ELW: 4, ELW2: 1, DLK: 4, GWA: 2, GWM: 1, SW: 2, RW: 2, POL: 8, DGL: 1, RTW: 8, NEF: 1 }, // Großbrand in Gebäudekomplex
+ 799: { RTW: 1 }, // Fremdkörper in Atemweg
+ 800: { AAOTHWNEA50: 1 }, // Ersatz-Stromversorgung durch Bauarbeiten
+ 801: { AAOTHWNEA50: 1 }, // Ersatz-Stromversorgung durch Trafo-Wartung
+ 802: { AAOTHWNEA50: 1 }, // Ersatz-Stromversorgung einer Krankenhausstation
+ 803: null,
+ 804: null,
+ 805: null,
+ 806: { AAOTHWNEA50: 1 }, // Bereitstellungsraum vor angekündigter Großdemo
+ 807: { AAOTHWNEA200: 1 }, // Ersatz-Stromversorgung in Krankenhaus
+ 812: { LF: 3, RW: 2, DLK: 1, ELW: 1, POL: 4, RTW: 1, NEF: 1 }, // Schilderbrücke eingestürzt
+ 813: { LF: 1, RW: 1, ELW: 1, POL: 2, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWNEA200: 1, RTW: 1, NEF: 1 }, // Stromausfall in Krankenhaus
+ 814: { AAOTHWNEA50: 1 }, // Stromausfall in Feuerwehrwache
+ 815: { AAOTHWNEA50: 1 }, // Stromausfall in Rettungsdienstwache
+ 816: { AAOTHWNEA50: 1 }, // Stromausfall in THW-Ortsverband
+ 817: { AAOTHWNEA200: 1 }, // Stromausfall in Pflegeeinrichtung
+ 818: { AAOTHWNEA200: 1 }, // Stromausfall im Rathaus
+ 819: { AAOTHWNEA200: 1 }, // Stromausfall in Polizeiwache
+ 820: { AAOTHWNEA200: 1 }, // Stromausfall durch Kabelschaden
+ 821: { LF: 4, ELW: 1, DLK: 1, POL: 2, RTW: 2 }, // Kellerbrand in Mehrfamilienhaus
+ 822: { LF: 4, DLK: 1, ELW: 1, POL: 4, RTW: 2, NEF: 2 }, // Brand in Arztpraxis
+ 823: { LF: 1, RW: 1, ELW: 1, POL: 1, RTW: 4 }, // Unfall mit Reinigungsmitteln
+ 824: { LF: 2, RW: 1, ELW: 1, POL: 1, RTW: 1 }, // Person zwischen Bahnsteig und Zug eingeklemmt
+ 825: { LF: 5, RW: 1, GWM: 1, GWA: 1, ELW: 2, ELW2: 1, POL: 4, DGL: 1, RTW: 5 }, // PKW brennt in Tunnel
+ 826: { LF: 10, RW: 2, GWM: 1, GWA: 2, ELW: 2, ELW2: 1, POL: 4, DGL: 1, RTW: 5 }, // LKW brennt in Tunnel
+ 827: { POL: 1 }, // Holzdiebstahl
+ 829: { LF: 5, ELW: 2, DLK: 1, RW: 1, POL: 4, RTW: 1 }, // Brennender Regionalbahnhof
+ 830: { LF: 20, RW: 2, SLF: 2, ELW: 5, ELW2: 1, DLK: 5, GWM: 3, GWG: 2, GWA: 3, SW: 5, POL: 6, GKW: 2, THWMTW: 2, THWGWN: 2, AAOTHWR: 1, DROHNE: 1, RTW: 8 }, // Brennender Güterbahnhof
+ 831: { LF: 1, ELW: 1, RW: 1, BOAT: 1, RTW: 1 }, // Person in Eis eingebrochen
+ 832: { POL: 2 }, // Einbruchmeldeanlage (EMA) ausgelöst
+ 833: { LF: 3, DLK: 1, ELW: 1 }, // Brennendes Herz
+ 834: { POL: 3, LF: 1, RW: 1, RTW: 2 }, // Verkehrsunfall durch Verliebtheit
+ 835: { POL: 1 }, // Fußstreife
+ 836: { POLBIKE: 2 }, // Motorradstreife
+ 837: { HORSE: 1 }, //  Berittene Streife
+ 838: { AAOTHWNEA50: 1 }, // Stromausfall im Stellwerk (klein)
+ 839: { AAOTHWNEA200: 1 }, // Stromausfall im Stellwerk (groß)
+ 840: { POL: 2, POLH: 1, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 1, NEF: 1 }, // Personensuche im Wald
+ 841: { RTW: 1 }, // Unterstützung Hausnotruf
+ 842: { RTW: 1 }, // Unterstützung Hausnotruf
+ 843: { POL: 1 }, // ausgelößte Höhenkontrolle
+ 844: { LF: 2, RW: 1, POL: 1 }, // Bierfässer ausgelaufen
+ 845: { POL: 1 }, // Lärmbelästigung durch Vatertagsfeier
+ 846: { POL: 1, RTW: 1 }, // Betrunkene versuchen Kühe um zu Schubsen
+ 848: { LF: 20, RW: 3, ELW: 3, ELW2: 1, DLK: 3, FWK: 1, POL: 10, GKW: 6, THWMTW: 6, THWGWN: 6, AAOTHWR: 3, RTW: 50, NEF: 1 }, // Einsturz Terminal
+ 850: { LF: 15, DLK: 2, ELW: 4, ELW2: 1, SW: 4, GWA: 2, POL: 12, RTW: 10, NEF: 5 }, // Großbrand im Stadion
+ 851: { POL: 1, ZIV: 1 }, // Sommermärchen geplatzt
+ 852: { RTW: 1 }, // Schwalbe fliegt gegen Mauer
+ 853: { GWBH: 1 }, // Höhenrettung aus Gondel
+ 854: { BERG: 1, RTW: 1 }, // Abgestürzter Wanderer
+ 855: { GWHB: 1, RTW: 1, NEF: 1 }, // Rettung aus Felsspalte
+ 856: { BERG: 1, RTW: 1, GWB: 1, HUBW: 1 }, // Blockierte Bergsteiger
+ 857: { BERG: 1, RTW: 1, NEF: 1, GWB: 1, HUBW: 1 }, // Gestürzter Mountainbiker
+ 858: { BERG: 1, GWB: 1, HUBW: 1 }, // Erschöpfte Wanderer
+ 859: { GWHB: 1, RTW: 1, NEF: 1 }, // Abgestürzter Kletterer
+ 860: { GWHB: 1, RTW: 1, NEF: 1 }, // Gleitschirmabsturz
+ 864: { GWB: 2, ELWB: 1, DOGRESCUE: 1, DROHNE: 1, RTHW: 2, RTW: 1, NEF: 1 }, // Vermisstensuche im Gelände
+ 865: { POL: 1 }, // PKW blockiert Strassenbahn
+ 866: { ELWB: 1, GWB: 3, ATV: 2, SW: 2, GWA: 2, LF: 1, POLAB: 1, RTW: 1, NEF: 1 }, // Großfeuer im Bergwald
+ 867: { ELWB: 1, GWB: 3, ATV: 2, GWHB: 1, RTHW: 2, RTW: 13, NEF: 1 }, // Personensuche nach Gerölllawine
+ 879: { LF: 8, ELW: 1, GWSAN: 1, RTW: 5, POL: 2 }, // Absicherung Flugshow
+ 880: { RTW: 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
+ 881: { GWB: 1, ATV: 1, RTW: 1 }, // Hautreaktion nach Kontakt mit giftiger Pflanze
+ 882: { POL: 1 }, // Schulschwänzer
+ 883: { POL: 1 }, // Schulschwänzer
+ 884: { LF: 5, RW: 2, GWO: 1, ELW: 2, POL: 4, RTW: 3 }, // Verkehrsunfall mit Stadtbahn
+ 887: { SEA: 1 }, // Abschleppen eines manövrierunfähigen Kutters
+ 888: { SEAHELI: 1, SEA: 2 }, // Rettung eines über Bord gegangenen Seglers
+ 889: { SEA: 1 }, // Medizinische Erstversorgung eines erkrankten Fährpassagiers
+ 890: { CRUISER: 1 }, // Freischleppen einer Segelyacht
+ 891: { SEA: 2 }, // Rettung eines schwerverletzten Seglers
+ 892: { SEA: 3 }, // Rettung eines beschädigten Segelbootes
+ 893: { CRUISER: 1 }, // Befreiung der Fahrgäste einer aufgelaufenen Fähre
+ 894: { CRUISER: 3, SEAHELI: 2 }, // Befreiung der Fahrgäste einer aufgelaufenen Fähre
+ 895: { SEA: 2 }, // Abschleppen eines defekten Wasserflugzeugs
+ 896: { SEA: 2 }, // Verletzte auf Segelboot
+ 897: { KTW: 1 }, // Patientenübernahme von Ambulanzflug
+ 898: { LF: 2, ULF: 1, GWW: 1, ELW: 1 }, // Rauchentwicklung in Produktionshallen
+ 899: { LF: 10, RW: 4, ELW: 3, ELW2: 1, DLK: 3, FWK: 1, GKW: 2, THWMTW: 2, THWGWSB: 2, AAOTHWR: 2, AAOTHWDLE: 2, POL: 3, DOG: 1, RTW: 10, NEF: 5 }, // Sporthalle eingestürzt
+ 900: { POL: 1 }, // Verdaechtiges Fahrzeug
+ 901: { LF: 4, DLK: 1, GWA: 1, ELW: 1, POL: 1, RTW: 1 }, // Brand in Weihnachtsbäckerei
+ 902: { ELW: 2, ELW2: 1, LF: 10, RW: 5, DLK: 2, FWK: 1, GWH: 1, POL: 4, THWMTW: 2, GKW: 2, THWGWN: 2, AAOTHWR: 2, THWDLE: 1, RTW: 5, NEF: 1, DOG: 2 }, // Brückeneinsturz (klein)
+ 903: { LF: 18, RW: 5, DLK: 4, ELW: 5, ELW2: 1, FWK: 2, GWH: 2, POL: 8, DOG: 4, THWMTW: 4, GKW: 4, THWGWN: 4, AAOTHWR: 3, THWDLE: 2, RTW: 1, NEF: 1 }, // Brückeneinsturz (Groß)
+ 904: { BAHN: 1, LF: 3, RW: 2, ELW: 1, DLK: 1, POL: 2, RTW: 1, NEF: 1, RTH: 1 }, // Person unter Zug
+ 905: { BAHN: 1, POL: 2, RTW: 1, NEF: 1 }, // Rangierunfall
+ 906: { LF: 2, BAHN: 1, ELW: 1, POL: 2 }, // Personensuche bei Schnellfahrstrecke
+ 907: { BAHN: 1 }, // Eingleisen einer U-Bahn
+ 908: { LF: 2, BAHN: 1, POL: 3 }, // Verkehrsunfall mit Straßenbahn
+ 909: { FWK: 1, LF: 2, BAHN: 1, POL: 4 }, // Straßenbahn entgleist
+ 910: { FWK: 2, LF: 4, BAHN: 2, POL: 3, ELW: 1, DLK: 1, NEF: 1 }, // Personenzug entgleist
+ 911: { LF: 5, RW: 1, ELW: 1, POL: 4, RTW: 1, NEF: 1 }, // Abgestürzter Weihnachtsschlitten
+ 912: { RTW: 1 }, // Lebkuchenmann durch Biss verletzt
+ 913: { POL: 2, POLH: 1, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 1 }, // Weihnachtsmann vermisst
+ 914: { LF: 12, DLK: 3, ELW: 4, ELW2: 1, GWM: 2, GWA: 2, GWG: 1, DEKONP: 1, SW: 2, RW: 3, POL: 8, THWMTW: 1, GKW: 1, THWGWN: 1, AAOTHWR: 1, SLF: 1 }, // Brand in Düngemittellager
+ 915: { LF: 2, RW: 1, ELW: 1, POL: 1, RTW: 1 }, // Verletzte Person in verlassenem Gebäude
+ 916: { LF: 6, ELW: 2, DLK: 2, RW: 1, SW: 1, GWH: 1, POL: 4, RTW: 1 }, // Brand auf alten Frabrikgelände
+ 917: { POL: 1, DOG: 1, WAWE: 1, LAUKW: 1 }, // Jahrestag vergessen
+ 918: { LF: 2, DLK: 1 }, // Unterstützung bei Feuerwehr-Heiratsantrag
+ 919: { LF: 10, ELW: 3, ELW2: 1, DLK: 3, RW: 2, POL: 5, RTW: 5, NEF: 1 }, // Großfeuer durch umgefallene Kerzen
+ 920: { POL: 1, RTW: 1, NEF: 1 }, // Vergiftete Pralinen
+ 925: { LF: 14, RW: 1, ELW: 3, ELW2: 1, GWM: 1, GWA: 2, DLK: 3, SW: 1, POL: 8, RTW: 20 }, // Hochhausbrand mit Evakuierung
+ 926: { LF: 4, ELW: 1 }, // Brandsicherheitswache Rockfestival
+ 927: { DLK: 4, ELW: 4, ELW2: 1, GWA: 2, SW: 4, LF: 16, POL: 8, AAOTHWR: 2, GKW: 2, THWMTW: 1, THWGWN: 2, RTW: 10 }, // Brand in Schokoeierfabrik
+ 929: { GRUKW: 9, BEFKW: 4, FUEKW: 1, GEFKW: 1, WAWE: 3, POL: 10, POLH: 1, RTW: 5 }, // Unangemeldeter Osterhasenstreik
+ 930: { LF: 6, RW: 1, DLK: 1, ELW: 2, GWA: 1, SW: 1, POL: 4, RTW: 1 }, // Feuer im Zoo
+ 931: { GKW: 2, THWMTW: 1, THWGWN: 2, SWP: 1 }, // Ausgefallene Pumpen in Kläranlage
+ 932: { LF: 28, DLK: 4, ELW: 6, ELW2: 1, SW: 3, RW: 6, POL: 10, GWA: 3, GWM: 2, GKW: 2, THWMTW: 2, THWGWN: 2, RTW: 5 }, // Großbrand in Kohlebunker
+ 933: { LF: 4, RW: 1, ELW: 1, DLK: 1, GWG: 1, GWM: 1, DEKONP: 1, POL: 4, RTW: 2, NEF: 2 }, // Gefahrgut-Austritt in Paketzentrum
+ 934: { LF: 5, ELW: 2, RW: 1, DLK: 2, GWA: 1, GWM: 1, GWG: 1, SW: 1, DEKONP: 1, GKW: 1, AAOTHWR: 1, POL: 4, RTW: 1, NEF: 1 }, // Brand auf Recyclinghof
+ 935: { LF: 2, RW: 1, DLK: 1, ELW: 1, POL: 4, RTW: 1, NEF: 1 }, // Herabstürzende Brückenteile
+ 936: { LF: 5, RW: 1, ELW: 1, SW: 1, GWM: 1, GWA: 1, POL: 2, RTW: 1 }, // Brand einer Gasstation
+ 937: { LF: 3, RW: 1, SW: 1, GWG: 1, DROHNE: 1 }, // Bauernhof steht unter Wasser
+ 938: { LF: 1, RTW: 1 }, // Person in Großgehege
+ 940: { LF: 1, DLK: 2, ELW: 1, GWM: 2, SW: 3, POL: 2 }, // Brand in Solarpark
+ 941: { LF: 1, POL: 1 }, // Illegales Lagerfeuer in Park
+ 942: { GKW: 1, THWMTW: 1, THWGWN: 1 }, // Tragwerkssicherung
+ 943: { LF: 15, RW: 2, DLK: 3, ELW: 2, ELW2: 1, GWA: 1, GWM: 1, SW: 1, POL: 4, RTW: 10 }, // Brennendes Spukschloss
+ 944: { LF: 2, GWM: 1, GWG: 1, DEKONP: 1, ELW: 1, RTW: 1 }, // Chemieunfall beim Zaubertrank-Brauen
+ 945: { RTW: 1 }, // Kopf steckt in ausgehöhltem Kürbis fest
+ 946: { LF: 1, POL: 1, RTW: 1 }, // Hilflose Geisterjäger in Spukhaus
+ 947: { LF: 1, POL: 1, RTW: 1, NEF: 1 }, // Giftiges Kleintier entflohen
+ 948: { POL: 2 }, // Schwerer Erntediebstahl
+ 949: { RTW: 1, CARRY: 1 }, // Pilzsucher im Wald verunglückt
+ 950: { BERG: 1, RTW: 1 }, // Pilzsucher im Bergwald verunglückt
+ 951: { POL: 1 }, // Waffenfund
+ 952: { LF: 2, POL: 12, GRUKW: 9, BEFKW: 3, FUEKW: 1, RTW: 3, GWSAN: 1 }, // Absicherung Besuch des Weihnachtsmannes
+ 953: { MEK: 4 }, // Absicherung Geschenketransport
+ 954: { ELW: 1 }, // Notlandung Weihnachtsschlitten (klein)
+ 955: { LF: 3, ELW: 1 }, // Notlandung Weihnachtsschlitten (groß)
+ 956: { POL: 2 }, // Streit bei Weihnachtsessen
+ 957: { LF: 1 }, // Unterstützung Geschenkelieferung
+ 958: { LF: 1 }, // Weihnachtsgans im Ofen vergessen
+ 959: { LF: 1, ELW: 1, DLK: 1, GWH: 1, POL: 1, RTW: 1 }, // Verletzte Person auf Kühlturm
+ 962: { LF: 3, DLK: 1, ELW: 1 }, // Brennender Blumenladen
+ 963: { RTW: 1 }, // Person auf Rosenblättern ausgerutscht
+ 964: { GKW: 1, THWMTW: 1, THWGWN: 1, THWGWSB: 1 }, // Tragwerkssicherung (Brücke)
+ 965: { LF: 1 }, // Brennendes Blumenfeld
+ 967: { RTW: 1 }, // Person auf Rosenblättern ausgerutscht
+ 968: { LF: 1, RW: 2, ELW: 1, ELW2: 1, DLK: 1, GWA: 1, GWM: 1, SW: 1, POL: 4 }, // Brand im Fahrsilo
+ 969: { LF: 20, RW: 4, DLK: 3, SW: 2, GWA: 2, ELW: 5, ELW2: 1, GWM: 2, GWG: 1, GWH: 1, FWK: 1, GWW: 1, ULF: 1, TELE: 1, TURBO: 1, POL: 8, GKW: 2, THWGWN: 1, THWMTW: 1, DOG: 1, AAOTHWR: 1, THWDLE: 1, RTW: 15 }, // Brand in Schiffswerft
+ 970: { LF: 20, RW: 4, DLK: 3, SW: 2, GWA: 2, ELW: 5, ELW2: 1, GWM: 2, GWG: 1, GWH: 1, FWK: 1, POL: 8, GKW: 2, THWGWN: 1, THWMTW: 1, AAOTHWR: 1, THWDLE: 1, RTW: 15 }, // Brand in Schiffswerft
+ 971: { POLAP: 1, RTW: 1 }, // Angefahrene Person auf Autobahn
+ 972: { POLAP: 1 }, // Trunkenheitsfahrt auf Autobahn
+ 973: { POLAP: 1, RTW: 1, NEF: 1 }, // Motorradunfall auf Autobahn
+ 974: { POLAP: 1 }, // Pannenfahrzeug auf Autobahn
+ 975: { POLAP: 1 }, // Verkehrsbehinderung auf Autobahn
+ 976: { POLAP: 1 }, // Wildunfall auf Autobahn
+ 977: { POLAP: 4 }, // Geisterfahrer auf Autobahn
+ 978: { POLAP: 1 }, // Absicherung Pannen-LKW auf Autobahn
+ 979: { POLAP: 4, POLH: 1 }, // Fahndung auf Autobahn nach KFZ-Diebstahl
+ 980: { POLAP: 1 }, // Fahndung auf Autobahn nach Kraftstoffdiebstahl
+ 981: { POLAP: 1 }, // Ausgelöste Höhenkontrolle auf Autobahn
+ 982: { POLAP: 1 }, // Verdächtiges Fahrzeug auf Autobahn
+ 983: { THWMTW: 1 }, // Autobahnbereitschaft
+ 984: { POLAP: 10, ZIV: 2, POLBIKE: 4, DOGPOL: 1 }, // Großangelegte LKW-Kontrolle
+ 985: { POLAP: 10, ZIV: 2, POLBIKE: 4, DOGPOL: 1 }, // Großangelegte PKW-Kontrolle
+ 986: { POLAP: 4 }, // Absicherung Schwertransport
+ 987: { POLAP: 2 }, // Verkehrsunfall auf Autobahn
+ 988: { LF: 3, RW: 2, ELW: 1, POLAP: 4, RTW: 1 }, // Verkehrsunfall auf Autobahn (Person eingeklemmt)
+ 989: { POLAP: 2, RTW: 2 }, // Verkehrsunfall auf Autobahn (mit Verletzten)
+ 990: { POLAP: 2, ELW: 1, LF: 2 }, // Versorgung von Personen im Stau
+ 991: { POLAP: 1 }, // LKW verliert Ladung
+ 992: { POLAP: 1 }, // Pannenfahrzeug auf Standstreifen
+ 993: { POLAP: 1 }, // Gegenstand auf Fahrbahn
+ 994: { POLAP: 1 }, // Person auf Autobahn
+ 995: { POLAP: 1 }, // Übermüdeter PKW-Fahrer
+ 996: { POLAP: 1 }, // Übermüdeter LKW-Fahrer
+ 997: { POLAP: 1 }, // Gefahr auf Autobahn durch Baustelle
+ 998: { POLAP: 5 }, // Hochzeits-Korso auf Autobahn
+ 999: { POLAP: 6 }, // Fan-Korso auf Autobahn
+ 1000: { POLAP: 1 }, // Rettungsgasse kontrollieren
+ 1001: { POLAP: 2, LF: 2, GWO: 1 }, // Ölspur auf Autobahn
+ 1002: { POLAP: 1, GKW: 1, THWMTW: 1, THWGWN: 1, LF: 1, RW: 1, AAOTHWR: 1 }, // Ladungsbergung eines LKW auf Autobahn
+ 1003: { POLAP: 1 }, // Platzverweis missachtet
+ 1004: { POL: 2, MEK: 4, FUEKW: 1, RTW: 1, NEF: 1 }, // Ausrastenden Trainer unter Kontrolle bringen
+ 1005: { RTW: 1 }, // Zusammenbruch durch Niederlage
+ 1006: { POL: 5, DOGPOL: 1 }, // Randalierende Fußballfans
+ 1007: { GRUKW: 3, BEFKW: 1, GEFKW: 1 }, // Platzsturm
+ 1008: { POL: 2, LF: 1, RTW: 1 }, // Fußballfan auf Fanmeile vermisst
+ 1009: { LF: 5, RW: 1, ELW: 1, DLK: 1, GKW: 2, THWGWN: 2, THWMTW: 1, POL: 6, RTW: 10, NEF: 1 }, // Eingestürzte VIP-Lounge
+ 1010: { SEGELW: 1, RTW: 4, GWSAN: 1, LF: 2, POL: 1 }, // Absicherung Volksfest (klein)
+ 1011: { POL: 10, GRUKW: 6, BEFKW: 2, DOGPOL: 1, RTW: 2 }, // Geburtstagsfeier außer Kontrolle
+ 1012: { POL: 3 }, // Einbruch auf Flughafengelände
+ 1013: { GWT: 1 }, // Kleintier in Not
+ 1015: { LF: 1, POL: 1, GWT: 1, NEF: 1 }, // Giftiges Kleintier entflohen
+ 1016: { LF: 1, RW: 1, DLK: 1, GWT: 1 }, // Pferd in Jauchegrube
+ 1017: { POL: 2, GWT: 1, RTW: 1 }, // Hundeangriff
+ 1018: { POL: 1, GWT: 1 }, // Wildunfall
+ 1019: { POL: 1, GWT: 1, RTW: 1, NEF: 1 }, // Reitunfall mit Pkw
+ 1021: { BOAT: 1, LF: 2, GWO: 1, ELW: 1, POL: 1, GWT: 1 }, // Gewässerverschmutzung durch Öl
+ 1022: { POL: 2, GWT: 1 }, // Tiere auf der Fahrbahn
+ 1023: { LF: 1, POL: 2, HORSE: 1, GWT: 1 }, // Entlaufenes Pferd
+ 1024: { LF: 3, ELW: 1, POL: 2, GWT: 1 }, // Wildtier einfangen
+ 1025: { LF: 1, GWT: 1 }, // Wespennest umsiedeln
+ 1026: { LF: 6, DLK: 2, SW: 1, GWA: 1, ELW: 2, POL: 2, GWT: 1 }, // Brennender Stall - Tierrettung
+ 1027: { LF: 15, DLK: 1, ELW: 3, ELW2: 1, GWA: 1, GWG: 1, GWM: 2, SW: 1, DEKONP: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, DROHNE: 1, NEA50: 1, RTW: 1, GWW: 1, ULF: 1, TELE: 1, TURBO: 1 }, // Brand eines Großbatteriespeichers
+ 1028: { LF: 15, DLK: 1, ELW: 3, ELW2: 1, GWA: 1, GWG: 1, GWM: 2, SW: 1, DEKONP: 1, POL: 2, GKW: 1, THWGWN: 1, THWMTW: 1, DROHNE: 1, NEA50: 1, RTW: 1 }, // Brand eines Großbatteriespeichers
+ 1029: { LF: 8, SW: 5, ELW: 3, ELW2: 1, GWA: 6, DLK: 1, GWM: 1, POL: 10, GKW: 1, THWMTW: 1, THWGWN: 1, AAOTHWR: 1, RTW: 5 }, // Großflächiger Waldbrand
+ 1030: { BEFKW: 2, GRUKW: 6, POL: 8 }, // Evakuierung Gefahrengebiet
+ 1031: { ELW: 1, LF: 2, RW: 1, POL: 2, RTW: 1, NEF: 1 }, // Person in Müllwagen eingeklemmt
+ 1032: { POLAP: 8, LF: 10, RW: 5, ELW: 2, GWO: 2, RTW: 6 }, // Massenkarambolage auf Autobahn
+ 1033: { GKW: 2, AAOTHWR: 2, THWMTW: 2, THWGWN: 2, THWDLE: 2, LF: 6, ELW: 2, ELW2: 1, RW: 3, GWH: 1, FWK: 1, POL: 5, RTW: 1 }, // Einsturz Tunnelbaustelle
+ 1034: { LF: 8, DLK: 4, ELW: 2, ELW2: 1, RW: 3, GWH: 2, FWK: 1, POL: 8, RTW: 10, NEF: 1 }, // Entgleisung eines Fahrgeschäfts
+ 1035: { POL: 2, POLH: 1, LF: 1 }, // Suche nach vermisstem Skelett
 };
 // https://www.leitstellenspiel.de/einsaetze/0

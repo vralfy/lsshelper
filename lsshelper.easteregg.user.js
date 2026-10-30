@@ -10,141 +10,141 @@
 // ==/UserScript==
 
 (function () {
-  "use strict";
-  document.lss_helper_easteregg = {
-    version: "202610-30-01",
-    initialized: false,
+ 'use strict';
+ document.lss_helper_easteregg = {
+  version: '202610-30-01',
+  initialized: false,
+ };
+
+ document.lss_helper_easteregg.init = () => {
+  let settingsContainer = document.getElementById('lss_helper_settings');
+  if (!document.lss_helper || !settingsContainer) {
+   console.warn('Leistellenspiel Helper not found');
+   setTimeout(() => document.lss_helper_distribution.init(), 1000);
+   return;
+  }
+
+  document.lss_helper.setDefaultSetting('easteregg_interval', '60000');
+  document.lss_helper_easteregg.intervalId = document.lss_helper_easteregg.intervalId || setInterval(() => document.lss_helper_easteregg.updateSettings(), document.lss_helper.getSetting('updateInterval', '1000'));
+  if (!document.lss_helper_easteregg.initialized) {
+   setTimeout(() => {
+    document.lss_helper_easteregg.search();
+   }, 1000);
+  }
+  document.lss_helper_easteregg.initialized = true;
+ };
+
+ document.lss_helper_easteregg.updateSettings = () => {
+  let settingsContainer = document.getElementById('lss_helper_settings');
+  document.lss_helper.printSettingsDivider('EasterEgg Settings');
+  document.lss_helper.printSettingsButton('easteregg_enable', 'EasterEgg');
+  document.lss_helper.printSettingsNumberInput('easteregg_interval', 'EasterEgg Interval');
+  let btn = document.getElementById('lss_helper_easteregg_btn');
+  if (!btn) {
+   document.lss_helper_easteregg.init();
+   btn = document.createElement('div');
+   btn.id = 'lss_helper_easteregg_btn';
+   btn.classList = 'col-sm-6 btn btn-xs btn-default';
+   btn.innerHTML = 'Search for EasterEgg now';
+   settingsContainer.appendChild(btn);
+  }
+  btn.onclick = () => {
+   document.lss_helper_easteregg.search(true);
   };
+ };
 
-  document.lss_helper_easteregg.init = () => {
-    let settingsContainer = document.getElementById("lss_helper_settings");
-    if (!document.lss_helper || !settingsContainer) {
-      console.warn("Leistellenspiel Helper not found");
-      setTimeout(() => document.lss_helper_distribution.init(), 1000);
-      return;
-    }
-
-    document.lss_helper.setDefaultSetting("easteregg_interval", "60000");
-    document.lss_helper_easteregg.intervalId = document.lss_helper_easteregg.intervalId || setInterval(() => document.lss_helper_easteregg.updateSettings(), document.lss_helper.getSetting("updateInterval", "1000"));
-    if (!document.lss_helper_easteregg.initialized) {
-      setTimeout(() => {
-        document.lss_helper_easteregg.search();
-      }, 1000);
-    }
-    document.lss_helper_easteregg.initialized = true;
-  };
-
-  document.lss_helper_easteregg.updateSettings = () => {
-    let settingsContainer = document.getElementById("lss_helper_settings");
-    document.lss_helper.printSettingsDivider("EasterEgg Settings");
-    document.lss_helper.printSettingsButton("easteregg_enable", "EasterEgg");
-    document.lss_helper.printSettingsNumberInput("easteregg_interval", "EasterEgg Interval");
-    let btn = document.getElementById("lss_helper_easteregg_btn");
-    if (!btn) {
-      document.lss_helper_easteregg.init();
-      btn = document.createElement("div");
-      btn.id = "lss_helper_easteregg_btn";
-      btn.classList = "col-sm-6 btn btn-xs btn-default";
-      btn.innerHTML = "Search for EasterEgg now";
-      settingsContainer.appendChild(btn);
-    }
-    btn.onclick = () => {
-      document.lss_helper_easteregg.search(true);
-    };
-  };
-
-  document.lss_helper_easteregg.claim = (mission, html) => {
-    if (html.indexOf('id="easter-egg-link"') > 0) {
-      const header = {
-        method: "POST",
-        cache: "no-cache",
-        credentials: "same-origin",
-        headers: {
-          Accept: "*/*",
-          "X-Csrf-token": document.lss_helper.authToken || document.querySelector('meta[name="csrf-token"]')?.content,
-          "X-Requested-With": "XMLHttpRequest",
-        },
-      };
-      // Same origin as the page (browser used leitstellenspiel.de without www), otherwise cookies are not sent
-      const url = location.origin + "/missions/" + mission.data.id + "/claim_found_object";
-      fetch(url, header)
-        .then((r) => {
-          if (!r.ok) throw new Error("claim failed: HTTP " + r.status);
-          return r.text();
-        })
-        .then((r) => {
-          document.lss_helper.log("EasterEgg claimed", mission);
-          document.lss_helper.info("EasterEgg claimed", mission.data.id, mission.data.caption);
-        })
-        .catch((err) => {
-          document.lss_helper.error("unable to claim EasterEgg", mission, err);
-        });
-    } else {
-      document.lss_helper.log("no EasterEgg found", mission);
-    }
-  };
-
-  document.lss_helper_easteregg.search = (force) => {
-    if (!force && !document.lss_helper.getSetting("easteregg_enable")) {
-      setTimeout(() => {
-        document.lss_helper_easteregg.search();
-      }, 1000);
-      return;
-    }
-
-    document.lss_helper_easteregg.searchedMissions = document.lss_helper_easteregg.searchedMissions || [];
-    const missions = document.lss_helper.missions.filter((m) => m.data.id && !document.lss_helper_easteregg.searchedMissions.includes(m.data.id));
-
-    const msg = document.lss_helper.info("Looking for EasterEggs", "0/" + missions.length);
-    missions.forEach((m, idx) => {
-      setTimeout(() => {
-        //document.lss_helper.log(idx, 'EasterEgg search for', m);
-        if (msg) {
-          msg.id = "lss_helper_easteregg_" + idx;
-          msg.innerHTML = "Looking for EasterEggs: " + (idx + 1) + "/" + missions.length;
-        }
-        if (!document.lss_helper.getSetting("easteregg_enable")) {
-          return;
-        }
-        const header = { method: "GET", cache: "no-cache" };
-        //                                                        https://leitstellenspiel.de/missions/4452268630?sd=a&sk=cr&ift=&ifs=at_fi&ifp=
-        //const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
-        const url = (document.lss_helper.url ?? "https://www.leitstellenspiel.de") + "/missions/" + m.data.id + "?sd=a&sk=cr&ift=&ifs=at_fi&ifp=";
-        fetch(url, header)
-          .then((r) => r.text())
-          .then((r) => {
-            document.lss_helper.log("Try to claim EasterEgg", m);
-            document.lss_helper_easteregg.claim(m, r);
-          })
-          .catch((err) => {
-            document.lss_helper.error(err);
-          });
-      }, idx * 500);
+ document.lss_helper_easteregg.claim = (mission, html) => {
+  if (html.indexOf('id="easter-egg-link"') > 0) {
+   const header = {
+    method: 'POST',
+    cache: 'no-cache',
+    credentials: 'same-origin',
+    headers: {
+     'Accept': '*/*',
+     'X-Csrf-token': document.lss_helper.authToken || document.querySelector('meta[name="csrf-token"]')?.content,
+     'X-Requested-With': 'XMLHttpRequest',
+    },
+   };
+   // Same origin as the page (browser used leitstellenspiel.de without www), otherwise cookies are not sent
+   const url = location.origin + '/missions/' + mission.data.id + '/claim_found_object';
+   fetch(url, header)
+    .then((r) => {
+     if (!r.ok) throw new Error('claim failed: HTTP ' + r.status);
+     return r.text();
+    })
+    .then((r) => {
+     document.lss_helper.log('EasterEgg claimed', mission);
+     document.lss_helper.info('EasterEgg claimed', mission.data.id, mission.data.caption);
+    })
+    .catch((err) => {
+     document.lss_helper.error('unable to claim EasterEgg', mission, err);
     });
+  } else {
+   document.lss_helper.log('no EasterEgg found', mission);
+  }
+ };
 
-    document.lss_helper_easteregg.searchedMissions.push(...missions.map((m) => m.data.id));
+ document.lss_helper_easteregg.search = (force) => {
+  if (!force && !document.lss_helper.getSetting('easteregg_enable')) {
+   setTimeout(() => {
+    document.lss_helper_easteregg.search();
+   }, 1000);
+   return;
+  }
 
+  document.lss_helper_easteregg.searchedMissions = document.lss_helper_easteregg.searchedMissions || [];
+  const missions = document.lss_helper.missions.filter((m) => m.data.id && !document.lss_helper_easteregg.searchedMissions.includes(m.data.id));
+
+  const msg = document.lss_helper.info('Looking for EasterEggs', '0/' + missions.length);
+  missions.forEach((m, idx) => {
+   setTimeout(() => {
+    //document.lss_helper.log(idx, 'EasterEgg search for', m);
     if (msg) {
-      setTimeout(
-        () => {
-          msg?.remove();
-          document.lss_helper.info("Looking for EasterEggs ... done");
-        },
-        (missions.length + 2) * 500,
-      );
+     msg.id = 'lss_helper_easteregg_' + idx;
+     msg.innerHTML = 'Looking for EasterEggs: ' + (idx + 1) + '/' + missions.length;
     }
-
-    if (!force) {
-      setTimeout(
-        () => {
-          document.lss_helper_easteregg.search();
-        },
-        (missions.length + 2) * 500 + (document.lss_helper.getSetting("easteregg_interval", "60000") || 60000),
-      );
+    if (!document.lss_helper.getSetting('easteregg_enable')) {
+     return;
     }
-  };
+    const header = { method: 'GET', cache: 'no-cache' };
+    //                                                        https://leitstellenspiel.de/missions/4452268630?sd=a&sk=cr&ift=&ifs=at_fi&ifp=
+    //const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+    const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?sd=a&sk=cr&ift=&ifs=at_fi&ifp=';
+    fetch(url, header)
+     .then((r) => r.text())
+     .then((r) => {
+      document.lss_helper.log('Try to claim EasterEgg', m);
+      document.lss_helper_easteregg.claim(m, r);
+     })
+     .catch((err) => {
+      document.lss_helper.error(err);
+     });
+   }, idx * 500);
+  });
 
-  setTimeout(() => {
-    document.lss_helper_easteregg.init();
-  }, 2000);
+  document.lss_helper_easteregg.searchedMissions.push(...missions.map((m) => m.data.id));
+
+  if (msg) {
+   setTimeout(
+    () => {
+     msg?.remove();
+     document.lss_helper.info('Looking for EasterEggs ... done');
+    },
+    (missions.length + 2) * 500,
+   );
+  }
+
+  if (!force) {
+   setTimeout(
+    () => {
+     document.lss_helper_easteregg.search();
+    },
+    (missions.length + 2) * 500 + (document.lss_helper.getSetting('easteregg_interval', '60000') || 60000),
+   );
+  }
+ };
+
+ setTimeout(() => {
+  document.lss_helper_easteregg.init();
+ }, 2000);
 })();
