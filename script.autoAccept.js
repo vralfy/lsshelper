@@ -300,6 +300,9 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
         if (m.missing.personal["Rettungsdienstler"]) {
           resendGroups["rescueservice"] = [{ scene: "RESCUESERVICE", count: Math.ceil(m.missing.personal["Rettungsdienstler"] / 9) }];
         }
+        if (m.missing.personal["Reiterstaffel"]) {
+          resendGroups["horse"] = [{ scene: "HORSE", count: Math.ceil(m.missing.personal["Reiterstaffel"] / 2) }];
+        }
       }
 
       if (m.missing.vehicles["Betreuungs- und Verpflegungsausstattung"] || m.missing.vehicles["Betreuungs- und Verpflegungsausstattungen"]) {
@@ -317,10 +320,9 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
       if (m.missing.vehicles["FüKW (THW)"] > 0 || m.missing.vehicles["FmKW"] > 0 || m.missing.vehicles["MTW FGr K"] > 0) {
         resendGroups["fuekwthw"] = [{ scene: "AAOTHWF", count: Math.max(m.missing.vehicles["FüKW (THW)"] ?? 0, m.missing.vehicles["FmKW"] ?? 0, m.missing.vehicles["MTW FGr K"] ?? 0) }];
       }
-
-      // if (missing.indexOf('Polizeipferd') > 0) {
-      //   resendGroups['horse'] = [{ scene: 'HORSE', count: 1 }];
-      // }
+      if (m.missing.vehicles["Polizeipferd"] > 0 || m.missing.vehicles["Polizeipferde"] > 0) {
+        resendGroups["horse"] = [{ scene: "HORSE", count: Math.ceil(Math.max(m.missing.vehicles["Polizeipferd"] ?? 0, m.missing.vehicles["Polizeipferde"] ?? 0) / 2) }];
+      }
 
       return document.lss_helper.enrichResendMission(m, resendGroups, resendGroupsScene);
     });
