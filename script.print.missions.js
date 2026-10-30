@@ -152,7 +152,7 @@ document.lss_helper.printMissions = () => {
       }
 
       const txt = m.links[0];
-      txt.innerHTML = m.data.caption + (settings.show_mission_type ? ' (' + m.missionType + ')' : '');
+      txt.innerHTML = m.data.caption + (settings.show_mission_type ? ' (' + (m.missionType ?? m.missionId) + ')' : '');
       txt.style = 'margin-left: 4px';
       rightContainer.appendChild(txt);
 
