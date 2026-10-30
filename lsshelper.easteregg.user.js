@@ -1,7 +1,7 @@
 // ==UserScript==
 // @name         Leitstellenspiel - EasterEgg
 // @namespace    http://tampermonkey.net/
-// @version      202602-14-01
+// @version      202610-30-01
 // @description  This script tries to find easter eggs and collect them
 // @author       You
 // @match        *://*.leitstellenspiel.de/
@@ -12,7 +12,7 @@
 (function () {
   'use strict';
   document.lss_helper_easteregg = {
-    version: '202602-14-01',
+    version: '202610-30-01',
     initialized: false,
   };
 
@@ -53,10 +53,23 @@
 
   document.lss_helper_easteregg.claim = (mission, html) => {
     if (html.indexOf('id="easter-egg-link"') > 0) {
-      const header = { method: 'GET', cache: "no-cache" };
-      const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + mission.data.id + '/claim_found_object_sync';
+      const header = {
+        method: 'POST',
+        cache: "no-cache",
+        credentials: 'same-origin',
+        headers: {
+            "Accept": "*/*",
+            "X-Csrf-token": document.lss_helper.authToken || document.querySelector('meta[name="csrf-token"]')?.content,
+            "X-Requested-With": "XMLHttpRequest"
+        }
+      };
+      // Same origin as the page (browser used leitstellenspiel.de without www), otherwise cookies are not sent
+      const url = location.origin + '/missions/' + mission.data.id + '/claim_found_object';
       fetch(url, header)
-        .then((r) => r.text())
+        .then((r) => {
+          if (!r.ok) throw new Error('claim failed: HTTP ' + r.status);
+          return r.text();
+        })
         .then((r) => {
           document.lss_helper.log('EasterEgg claimed', mission);
           document.lss_helper.info('EasterEgg claimed', mission.data.id, mission.data.caption);
@@ -64,6 +77,8 @@
         .catch((err) => {
           document.lss_helper.error('unable to claim EasterEgg', mission, err);
         });
+    } else {
+      document.lss_helper.log('no EasterEgg found', mission);
     }
   };
 
@@ -89,10 +104,13 @@
             return;
           }
           const header = { method: 'GET', cache: "no-cache" };
-          const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+          //                                                        https://leitstellenspiel.de/missions/4452268630?sd=a&sk=cr&ift=&ifs=at_fi&ifp=
+          //const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?ifs=at_fi&sd=a&sk=cr';
+          const url = (document.lss_helper.url ?? 'https://www.leitstellenspiel.de') + '/missions/' + m.data.id + '?sd=a&sk=cr&ift=&ifs=at_fi&ifp=';
           fetch(url, header)
             .then((r) => r.text())
             .then((r) => {
+              document.lss_helper.log('Try to claim EasterEgg', m);
               document.lss_helper_easteregg.claim(m, r);
             })
             .catch((err) => {
