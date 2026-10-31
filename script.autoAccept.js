@@ -288,8 +288,8 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
     if (m.missing.personal['Feuerwehrleute'] || m.missing.personal['Feuerwehrmann']) {
      resendGroups['firefighter'] = [{ scene: 'RESENDFIREFIGHTER', count: Math.ceil(((m.missing.personal['Feuerwehrleute'] ?? 0) + (m.missing.personal['Feuerwehrmann'] ?? 0)) / 9) }];
     }
-    if (m.missing.personal['Polizist']) {
-     resendGroups['police'] = [{ scene: 'RESENDPOLICE', count: Math.ceil(m.missing.personal['Polizist'] / 2) }];
+    if (m.missing.personal['Polizist'] || m.missing.personal['Polizisten']) {
+     resendGroups['police'] = [{ scene: 'RESENDPOLICE', count: Math.ceil(Math.max(m.missing.personal['Polizist'], m.missing.personal['Polizisten']) / 2) }];
     }
     if (m.missing.personal['Betreuungshelfer'] || m.missing.personal['Verpflegungshelfer']) {
      resendGroups['catering'] = [{ scene: '131', count: Math.ceil(Math.max(m.missing.personal['Betreuungshelfer'] ?? 0, m.missing.personal['Verpflegungshelfer'] ?? 0) / 9) }];
