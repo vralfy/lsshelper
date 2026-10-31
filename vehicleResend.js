@@ -82,6 +82,8 @@ document.lss_helper.vehicleResend = {
 
  'ATV': '152',
 
+ 'Seenotrettungsboot oder Seenotrettungskreuzer': 'SEA',
+
  'Betreuungs- und Verpflegungsausstattung': 'AAOSEGBT',
  'Betreuungs- und Verpflegungsausstattungen': 'AAOSEGBT',
  'Boot': 'BOAT',
