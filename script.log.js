@@ -134,7 +134,7 @@ Object.keys(document.lss_helper_versions).forEach((key) => {
 });
 
 setInterval(() => {
-  if (!faye || faye._state !== faye.CONNECTED) {
-    document.lss_helper.info('Faye is not connected.');
-  }
+ if (!faye || faye._state !== faye.CONNECTED) {
+  document.lss_helper.info('Faye is not connected.');
+ }
 }, 10000);
