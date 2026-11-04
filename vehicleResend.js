@@ -21,6 +21,7 @@ document.lss_helper.vehicleResend = {
  'GW-Werkfeuerwehr': 'GWW',
  'GW-Waldbrand': 'GWWV',
  'Bergrettungsfahrzeug': 'BERG',
+ 'Höhenrettung (Bergrettung)': 'GWHB',
  'Dekon-P': 'DEKONP',
  'Lüfter': 'LUEFTER',
  'Bahnrettungsfahrzeug': 'BAHN',
