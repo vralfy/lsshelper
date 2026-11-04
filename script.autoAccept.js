@@ -303,6 +303,9 @@ document.lss_helper.getResendMissionsWithAnalysis = () => {
     if (m.missing.personal['Reiterstaffel']) {
      resendGroups['horse'] = [{ scene: 'HORSE', count: Math.ceil(m.missing.personal['Reiterstaffel'] / 2) }];
     }
+    if (m.missing.personal['THW-Einsatzkräfte']) {
+     resendGroups['horse'] = [{ scene: '124', count: Math.ceil(m.missing.personal['THW-Einsatzkräfte'] / 7) }];
+    }
    }
 
    if (m.missing.vehicles['Betreuungs- und Verpflegungsausstattung'] || m.missing.vehicles['Betreuungs- und Verpflegungsausstattungen']) {
