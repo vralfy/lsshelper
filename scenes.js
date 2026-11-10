@@ -910,6 +910,7 @@ document.lss_helper.scenes = {
  1017: { POL: 2, GWT: 1, RTW: 1 }, // Hundeangriff
  1018: { POL: 1, GWT: 1 }, // Wildunfall
  1019: { POL: 1, GWT: 1, RTW: 1, NEF: 1 }, // Reitunfall mit Pkw
+ 1020: { DLK: 1, ELW: 2, GWA: 1, SW: 1, LF: 6, RW: 1, POL: 4, GWT: 1 }, // Feuer im Zoo
  1021: { BOAT: 1, LF: 2, GWO: 1, ELW: 1, POL: 1, GWT: 1 }, // Gewässerverschmutzung durch Öl
  1022: { POL: 2, GWT: 1 }, // Tiere auf der Fahrbahn
  1023: { LF: 1, POL: 2, HORSE: 1, GWT: 1 }, // Entlaufenes Pferd
