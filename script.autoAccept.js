@@ -233,10 +233,13 @@ document.lss_helper.getResendMissionsOld = () => {
 document.lss_helper.getResendMissionsWithAnalysis = () => {
  const interval = document.lss_helper.getSetting('autoResendIntervalTimeout', '300000');
  const sicherheitswache = document.lss_helper.getSetting('acceptSicherheitswache', 'false');
+ const uergabeort = document.lss_helper.getSetting('acceptUergabeort', 'false');
+
  const now = new Date().getTime();
  return document.lss_helper.missions
   .filter((m) => m.unattended && m.hasAlert)
   .filter((m) => m.type !== 'sicherheitswache' || sicherheitswache)
+  .filter((m) => !!m.missionType || uergabeort)
   .filter((m) => now - (document.lss_helper.lastMissionResend[m.data.id] ?? 0) > interval)
   .map((m) => {
    const resendGroups = {};
