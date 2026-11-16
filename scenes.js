@@ -927,5 +927,7 @@ document.lss_helper.scenes = {
  1034: { LF: 8, DLK: 4, ELW: 2, ELW2: 1, RW: 3, GWH: 2, FWK: 1, POL: 8, RTW: 10, NEF: 1 }, // Entgleisung eines Fahrgeschäfts
  1035: { POL: 2, POLH: 1, LF: 1 }, // Suche nach vermisstem Skelett
  1036: { GWT: 1, LF: 3, ELW: 1, BOAT: 3 }, // Schafherde droht zu ertrinken
+ 1037: { LF: 3, RW: 1, FWK: 1, ELW: 1, POLAP: 2, RTW: 1, NEF: 1 }, // Umgestürzter LKW auf Autobahn
+
 };
 // https://www.leitstellenspiel.de/einsaetze/0
